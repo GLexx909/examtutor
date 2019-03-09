@@ -36,11 +36,11 @@ body {
   //background-color: #00b7ff;
   color: white;
 
-  background: #007ef4; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #007ef4 0%, #b0cee8 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #007ef4 0%,#b0cee8 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #007ef4 0%,#b0cee8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007ef4', endColorstr='#b0cee8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: #00b7ea; /* Old browsers */
+  background: -moz-linear-gradient(top, #00b7ea 0%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #00b7ea 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #00b7ea 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 
 .initial__registration-block {
@@ -75,19 +75,21 @@ body {
   background-size: cover;
   background-position: center bottom;
 
-  //background-color: green;
 }
 
 .initial__three {
   grid-area: initial__three;
 
-  background-image: url('https://images.wallpaperscraft.ru/image/neboskreb_arhitektura_zakat_128449_1920x1080.jpg');
 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
 
-  background-color: blue;
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #a5c956 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#a5c956 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%,#a5c956 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#a5c956',GradientType=0 ); /* IE6-9 */
 }
 
 
