@@ -41,6 +41,7 @@ gem 'jquery-rails'
 
 #Style
 gem 'bootstrap', ">= 4.3.1"
+gem 'material_icons'
 
 #Authorization
 gem 'cancancan'

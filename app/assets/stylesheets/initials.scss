@@ -31,9 +31,6 @@ body {
   background-size: cover;
   background-position: center bottom;
 
-  //background-color: #00b7ff;
-  //background-image: url("blue_romb.svg");
-  //background-color: #00b7ff;
   color: white;
 
   background: #00b7ea; /* Old browsers */
@@ -42,39 +39,59 @@ body {
   background: linear-gradient(to bottom, #00b7ea 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
+.keyboard_arrow_down {
+  position: absolute;
+  bottom: 5vw;
+  margin: 0 auto;
+
+  .keyboard{
+    color: red;
+  }
+}
+
+// }
+
+// Initial registration block {
 
 .initial__registration-block {
+  display: grid;
+  grid-template-areas: 'button-pupil button-parent';
   grid-area: initial__registration-block;
 
   position: absolute;
   top: 1vw;
   right: 1vw;
 
-  height: 20vw;
-  width: 35vw;
-  min-height: 150px;
-  min-width: 200px;
-  //background-color: black;
-
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3vmin;
   font-family: sen-serif;
 }
 
+.initial__registration-block__button-pupil {
+  display: flex;
+
+  grid-area: button-pupil;
+  margin-right: 1vw;
+}
+
+.image-pupil img{
+  max-width: 40px;
+}
+
+.initial__registration-block__button-parent {
+  display: flex;
+  grid-area: button-parent;
+}
+.image-parent img{
+  max-width: 40px;
+}
 // }
 
 .initial__two {
   grid-area: initial__two;
 
-  //background-image: url('https://images.wallpaperscraft.ru/image/sosna_shishki_igolki_128493_1920x1080.jpg');
-
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
-
 }
 
 .initial__three {
@@ -86,10 +103,10 @@ body {
   background-position: center bottom;
 
   background: #ffffff; /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 0%, #a5c956 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #ffffff 0%,#a5c956 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #ffffff 0%,#a5c956 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#a5c956',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, #ffffff 0%, #1121af 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#1121af 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%,#1121af 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1121af',GradientType=0 ); /* IE6-9 */
 }
 
 
@@ -105,14 +122,31 @@ body {
                         100vh
                         100vh;
   }
-
+  .initial__one__title {
+    text-align: center;
+  }
   .initial__registration-block {
     position: relative;
-    height: 10vh;
-    width: 100vw;
-    top: inherit;
-    right: inherit;
     font-size: 6vmin;
+
+    align-items: start;
   }
 
+  .initial__registration-block__button-pupil {
+    display: block;
+    text-align: center;
+  }
+
+  .image-pupil img{
+    max-width: 125px;
+  }
+
+  .initial__registration-block__button-parent {
+    display: block;
+    text-align: center;
+  }
+
+  .image-parent img{
+    max-width: 150px;
+  }
 }
