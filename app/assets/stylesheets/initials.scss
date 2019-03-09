@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+.initial {
+  display: grid;
+  grid-template-areas: 'initial__one'
+                       'initial__two'
+                       'initial__three';
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh
+                      100vh
+                      100vh;
+}
+
+// Initial block one {
+
+.initial__one {
+  grid-area: initial__one;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vmin;
+  font-family: sen-serif;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  //background-color: #00b7ff;
+  //background-image: url("blue_romb.svg");
+  //background-color: #00b7ff;
+  color: white;
+
+  background: #007ef4; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #007ef4 0%, #b0cee8 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #007ef4 0%,#b0cee8 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #007ef4 0%,#b0cee8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007ef4', endColorstr='#b0cee8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.initial__registration-block {
+  grid-area: initial__registration-block;
+
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+
+  height: 20vw;
+  width: 35vw;
+  min-height: 150px;
+  min-width: 200px;
+  background-color: black;
+
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vmin;
+  font-family: sen-serif;
+}
+
+// }
+
+.initial__two {
+  grid-area: initial__two;
+
+  //background-image: url('https://images.wallpaperscraft.ru/image/sosna_shishki_igolki_128493_1920x1080.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  //background-color: green;
+}
+
+.initial__three {
+  grid-area: initial__three;
+
+  background-image: url('https://images.wallpaperscraft.ru/image/neboskreb_arhitektura_zakat_128449_1920x1080.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  background-color: blue;
+}
+
+
+@media screen and (max-width: 600px) {
+  .initial {
+    grid-template-areas:  'initial__one'
+                          'initial__registration-block'
+                          'initial__two'
+                          'initial__three';
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh
+                        auto
+                        100vh
+                        100vh;
+  }
+
+  .initial__registration-block {
+    position: relative;
+    height: 10vh;
+    width: 100vw;
+    top: inherit;
+    right: inherit;
+    font-size: 6vmin;
+  }
+
+}
