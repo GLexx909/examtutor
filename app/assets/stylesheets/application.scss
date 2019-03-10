@@ -15,3 +15,13 @@
  *= require material_icons
  */
 @import "bootstrap";
+
+body {
+  margin: 0;
+  padding: 0;
+
+  &.modal-open {
+    overflow: auto;
+    padding-right: 0 !important;
+  }
+}

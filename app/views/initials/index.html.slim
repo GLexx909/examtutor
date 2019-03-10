@@ -1,0 +1,18 @@
+.initial
+  = link_to 'Sign out', destroy_user_session_path, method: :delete
+  .initial__one
+    .initial__one__title
+      h1 The first site about nothing
+    .keyboard_arrow_down = link_to mi.keyboard_arrow_down.css_class('keyboard md-48'), remote: true
+  .initial__registration-block
+    .initial__registration-block__button-pupil.mr_1
+      = button_tag 'Вход для ученика', class: 'pupil-enter-button btn btn-light', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
+      / .image-pupil
+      /   = image_tag 'pupil.png'
+    = render 'modal_pupil_enter'
+    .initial__registration-block__button-parent
+      = button_to 'Вход для родителя', '#', remote: true, class: 'parent-enter-button btn btn-light'
+      / .image-parent
+      /   = image_tag 'parent.png'
+  .initial__two
+  .initial__three
