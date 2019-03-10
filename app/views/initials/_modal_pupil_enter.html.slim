@@ -26,7 +26,7 @@
       .modal-footer
         .modal-footer__registration-button__block
           = button_tag 'Зарегистироваться', class: 'btn btn-info modal-footer__registration-button'
-        = form_tag 'create', remote: true, class: 'hidden modal-footer__registration-form' do
+        = form_tag '/initials', class: 'hidden modal-footer__registration-form' do
           .modal-footer__password-form
-            .mr_1 = text_field_tag 'preregistration_password', '', class: 'form-control', placeholder: 'Enter password'
+            .mr_1 = text_field_tag 'preregistration_pass', '', class: 'form-control', placeholder: 'Enter password'
             div = submit_tag 'Confirm', class: 'btn btn-primary'

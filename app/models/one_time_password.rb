@@ -1,0 +1,2 @@
+class OneTimePassword < ApplicationRecord
+end

@@ -9,5 +9,12 @@ class InitialsController < ApplicationController
   end
 
   def create
+    # password = params[:preregistration_pass]
+    #
+    # if Onetimepasswords.include?(password)
+    # #
+    # else
+    # #
+    # end
   end
 end
