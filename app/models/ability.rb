@@ -12,7 +12,7 @@ class Ability
   end
 
   def guest_abilities
-    can :read, :all
+    # can :read, :all
   end
 
   def admin_abilities
@@ -21,9 +21,9 @@ class Ability
 
   def user_abilities
     guest_abilities
-    # can :create, [Question, Answer, Comment, Subscription]
-    # can :update, [Question, Answer, Comment], author_id: user.id
-    # can :destroy, [Question, Answer, Comment, Subscription], author_id: user.id
+    can :create, [Post]
+    can :update, [Post], user_id: user.id
+    can :destroy, [Post], user_id: user.id
 
     # can :vote_up, [Question, Answer] do |votable|
     #   !user.author_of?(votable)

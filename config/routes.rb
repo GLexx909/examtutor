@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   root 'initials#index'
 
   resources :initials, only: [:new, :create]
+
+  resources :posts do
+    get :tutor_index, on: :collection
+  end
 end
