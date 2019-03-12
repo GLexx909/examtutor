@@ -1,3 +1,4 @@
 nav.navbar.navbar-dark.bg-dark.box-shadow-nav
   = link_to 'Examtutor', root_path
-  p style="color: white" = current_user.email
+  p style="color: white" = current_user&.email
+  = link_to 'Sign out', destroy_user_session_path

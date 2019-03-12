@@ -2,5 +2,6 @@
   .field
     = f.text_field :title
   .field
-    = f.text_area :body
+    = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
+    = tinymce content_css: asset_path('application.css')
   = f.submit 'Создать'
