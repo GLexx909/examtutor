@@ -5,16 +5,18 @@ class PostsController < ApplicationController
 
   def tutor_index
     @posts = Post.all
+    @post = Post.new
   end
 
   def create
-    post
+    post.save
+    redirect_to tutor_index_posts_path
   end
 
   private
 
   def post
-    @post ||= params[:id] ? Post.find(params[:id]) : Post.new(post_params)
+    @post ||= params[:id] ? Post.find(params[:id]) : current_user.posts.new(post_params)
   end
 
   def post_params
