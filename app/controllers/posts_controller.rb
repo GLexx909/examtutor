@@ -13,6 +13,15 @@ class PostsController < ApplicationController
     redirect_to tutor_index_posts_path
   end
 
+  def show
+    post
+  end
+
+  def destroy
+    post.destroy
+    redirect_to tutor_index_posts_path
+  end
+
   private
 
   def post
