@@ -1,4 +1,6 @@
-.div class="post-#{post.id} card"
-  div = link_to post.title, post_path(post)
-  div = link_to 'Удалить пост', post_path(post), method: :delete
-hr
+.card class="post-#{post.id}"
+  .card-header = link_to post.title, post_path(post)
+  .card-body
+    .card-text = post.body.html_safe
+  .card-footer
+    = link_to 'Удалить пост', post_path(post), method: :delete
