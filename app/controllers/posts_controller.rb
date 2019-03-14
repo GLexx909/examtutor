@@ -3,8 +3,13 @@ class PostsController < ApplicationController
 
   authorize_resource
 
+  def index
+    @posts = Post.order(created_at: :desc)
+    @post = Post.new
+  end
+
   def tutor_index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.order(created_at: :desc).of_admin
     @post = Post.new
   end
 
@@ -18,7 +23,7 @@ class PostsController < ApplicationController
 
   def destroy
     post.destroy
-    redirect_to tutor_index_posts_path
+    post
   end
 
   private
