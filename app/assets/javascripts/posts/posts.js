@@ -13,6 +13,7 @@ document.addEventListener('turbolinks:load', function() {
     const postCardHeader = $('.card-header');
     if (postCardHeader.length) {
         slicePostHeader();
+        showFullText();
     }
 });
 
@@ -38,13 +39,30 @@ function slicePostBody() {
 
 // Post-Card show only small part of post-header
 function slicePostHeader() {
-    const size = 90;
+    const size = 200;
     const postHeader = $('.card-header');
 
     postHeader.each(function(i, elem){
-        let text = this.innerHTML;
+        let text = this.value;
         if(text.length > size) {
-            this.innerHTML = text.slice(0, size) + ' ...'
+            this.value = text.slice(0, size) + ' ...'
         }
     })
+}
+
+// Post-Card-Header text will be displayed inside Post-Card-Body when you mouse over it.
+function showFullText() {
+    const postHeader = $('.card-header');
+
+    postHeader.mouseover(function () {
+        const id = this.getAttribute('data-id');
+        const cardBody = $(".card-text-" + id)[0];
+        let cardBodyText = cardBody.textContent;
+
+        cardBody.textContent = this.value;
+
+        $('.card-header-' + id).mouseout(function () {
+            cardBody.textContent = cardBodyText;
+        })
+    });
 }

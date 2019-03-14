@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   authorize_resource
 
   def tutor_index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
     @post = Post.new
   end
 
