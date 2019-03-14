@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     root 'initials#index'
   end
 
-  root 'posts#tutor_index'
+  scope constraints: lambda { |r| !r.env['warden'].user.nil? } do
+    root 'posts#tutor_index'
+  end
 
   resources :initials, only: [:new, :create]
 
