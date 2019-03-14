@@ -9,6 +9,6 @@ FactoryBot.define do
     email
     password { '12345678' }
     password_confirmation { '12345678' }
-    # confirmed_at '2018-02-06 17:25:45 +0300'
+    confirmed_at { '2018-02-06 17:25:45 +0300' }
   end
 end
