@@ -10,7 +10,6 @@ class PostsController < ApplicationController
 
   def create
     post.save
-    redirect_to tutor_index_posts_path
   end
 
   def show
