@@ -1,15 +1,18 @@
 document.addEventListener('turbolinks:load', function() {
 
     const postFormButtonShow = $('.post-form__button-show');
-
     if (postFormButtonShow.length) {
         postFormButtonShow.on('click', showPostForm);
     }
 
     const postCardBody = $('.card-text');
-
     if (postCardBody.length) {
         slicePostBody();
+    }
+
+    const postCardHeader = $('.card-header');
+    if (postCardHeader.length) {
+        slicePostHeader();
     }
 });
 
@@ -21,7 +24,7 @@ function showPostForm() {
 
 // Post-Card show only small part of post-body
 function slicePostBody() {
-    const size = 120;
+    const size = 160;
     const postBodyDiv = $('.card-text');
 
     postBodyDiv.each(function(i, elem){
@@ -33,3 +36,15 @@ function slicePostBody() {
     })
 }
 
+// Post-Card show only small part of post-header
+function slicePostHeader() {
+    const size = 90;
+    const postHeader = $('.card-header');
+
+    postHeader.each(function(i, elem){
+        let text = this.innerHTML;
+        if(text.length > size) {
+            this.innerHTML = text.slice(0, size) + ' ...'
+        }
+    })
+}

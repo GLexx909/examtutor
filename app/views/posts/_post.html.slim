@@ -1,6 +1,12 @@
-.card class="post-#{post.id}"
-  .card-header = link_to post.title, post_path(post)
+.post-card.card.shadow.border-0 class="post-#{post.id}"
+  = button_to post.title, post_path(post), class: 'card-header btn', method: :get
   .card-body
     .card-text = post.body.html_safe
-  .card-footer
-    = link_to 'Удалить пост', post_path(post), method: :delete
+  .card-footer.p-0
+    .container-fluid
+      .row
+        .col-auto.mr-auto
+          = post.user.first_name
+          = ' '
+          = post.user.last_name
+        .col-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post'

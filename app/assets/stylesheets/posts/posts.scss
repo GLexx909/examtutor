@@ -6,17 +6,50 @@
   min-width: 18vw !important;
   margin-bottom: 3vh !important;
 }
+.post-form {
+  margin-bottom: 1vh;
 
-.card-header {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  .post-form__fields {
+    display: none;
+
+    .submit{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  input {
+    margin-top: 1vh;
+  }
 }
 
-.card-body {
-  max-height: 15vh;
-}
+.post-card {
 
-.post-form__fields {
-  display: none;
+  .card-header {
+    width: 100%;
+    background-color: GreenYellow  !important;
+  }
+
+  .card-body {
+    background-color: black;
+    color: white;
+  }
+
+  .card-footer {
+
+    .row {
+      --footet-text-color: #666666;
+      font-size: 0.8rem;
+      color: var(--footet-text-color);
+
+      a {
+        color: var(--footet-text-color);
+        text-decoration: none;
+
+        &:hover {
+          color: #00b7ea;
+        }
+      }
+    }
+  }
 }
