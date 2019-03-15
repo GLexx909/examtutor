@@ -46,6 +46,9 @@ gem 'material_icons'
 #Authorization
 gem 'cancancan'
 
+#Localization
+gem 'rails-i18n'
+
 gem 'tinymce-rails' #redactor
 
 group :development, :test do
