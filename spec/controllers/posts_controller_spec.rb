@@ -11,6 +11,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it_behaves_like 'To render index view'
+    it_behaves_like 'To be a new',let(:object_class) { Post }, let(:object) { 'post' }
   end
 
   describe 'POST #create' do

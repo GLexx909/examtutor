@@ -59,3 +59,9 @@ shared_examples_for 'DELETE to render status 403' do
     expect(response).to have_http_status 403
   end
 end
+
+shared_examples_for 'To be a new' do
+  it 'resource be a new' do
+    expect(assigns(object.to_sym)).to be_a_new(object_class)
+  end
+end

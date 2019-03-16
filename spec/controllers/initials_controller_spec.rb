@@ -5,6 +5,8 @@ RSpec.describe InitialsController, type: :controller do
 
   describe 'GET #index' do
     before { get :index}
+
+    it_behaves_like 'To be a new',let(:object_class) { User }, let(:object) { 'user' }
     it_behaves_like 'To render index view'
   end
 
