@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    title { "PostTitle" }
-    body { "PostBidy" }
+    title { "Post Title" }
+    body { "Post Body" }
   end
 end
