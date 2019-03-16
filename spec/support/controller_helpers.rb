@@ -4,6 +4,10 @@ module ControllerHelpers
     sign_in(user)
   end
 
+  def post_params
+    { post: attributes_for(:post) }
+  end
+
   # def question_params
   #   { question: attributes_for(:question) }
   # end

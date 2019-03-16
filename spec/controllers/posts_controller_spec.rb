@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  let!(:user)         { create :user }
-  let!(:posts) { create_list :post, 3, user: user }
+  let!(:user)  { create :user }
+  let!(:post1)  { create :post, author: user }
 
   describe 'GET #index' do
     before(:each) do
@@ -10,30 +10,51 @@ RSpec.describe PostsController, type: :controller do
       get :index
     end
 
-    it 'populates an array of all posts' do
-      expect(Post.all).to match_array(posts)
-    end
-
-    it 'render index view' do
-      expect(response).to render_template :index
-    end
+    it_behaves_like 'To render index view'
   end
 
   describe 'POST #create' do
     before { login(user) }
 
     context 'with valid attributes' do
-      it 'redirects to new_user_registration_path view' do
-        post :create, params: { post: attributes_for(:post) }, format: :js
-        expect(response).to render_template :create
-      end
+      it_behaves_like 'To save a new object', let(:params) { post_params }, let(:object_class) { Post }, let(:object) { 'post' }
+      it_behaves_like 'To render create.js view'
+    end
+  end
+
+  describe 'GET #show' do
+    before(:each) do
+      login(user)
+      get :show, params: { id: post1.id }
     end
 
-    # context 'with invalid attributes' do
-    #   it 'redirects to root_path view' do
-    #     post :create, params: { preregistration_pass: 'invalid' }
-    #     expect(response).to redirect_to root_path
-    #   end
-    # end
+    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'post'}, let(:resource) { post1 }
+    it_behaves_like 'To render show view'
+  end
+
+  describe 'DELETE #destroy' do
+    let!(:other_user) { create :user }
+    let!(:admin) { create :user, admin: true }
+
+    context 'Author' do
+      before { login(user) }
+
+      it_behaves_like 'To delete the object', let(:object) { post1 }, let(:object_class) { Post }
+      it_behaves_like 'To render destroy.js view', let(:resource) { post1 }
+    end
+
+    context 'Not author' do
+      before { login(other_user) }
+
+      it_behaves_like 'To not delete the object', let(:object) { post1 }, let(:object_class) { Post }
+      it_behaves_like 'DELETE to render status 403', let(:params) { post1 }
+    end
+
+    context 'Admin' do
+      before { login(admin) }
+
+      it_behaves_like 'To delete the object', let(:object) { post1 }, let(:object_class) { Post }
+      it_behaves_like 'To render destroy.js view', let(:resource) { post1 }
+    end
   end
 end

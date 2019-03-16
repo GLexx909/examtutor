@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
-  belongs_to :user
+  belongs_to :author, class_name: 'User'
 
   validates :title, :body, presence: true
 
-  scope :of_admin, -> { select { |post| post.user.admin? } }
+  scope :of_admin, -> { select { |post| post.author.admin? } }
 end

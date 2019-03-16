@@ -19,9 +19,9 @@ RSpec.describe Ability do
 
   describe 'for user' do
     let(:user)        { create :user }
-    let(:user_other)       { create :user }
-    let(:post)        { create :post, user: user }
-    let(:post_other)  { create :post, user: user_other}
+    let(:user_other)  { create :user }
+    let(:post)        { create :post, author: user }
+    let(:post_other)  { create :post, author: user_other}
 
     it { should_not be_able_to :manage, :all }
 

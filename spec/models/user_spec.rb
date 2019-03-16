@@ -8,9 +8,9 @@ RSpec.describe User, type: :model do
 
   it { should have_many(:posts).dependent(:destroy) }
 
-  let!(:user) { create :user }
+  let!(:user)       { create :user }
   let!(:user_other) { create :user }
-  let!(:post) { create :post, user: user }
+  let!(:post)       { create :post, author: user }
 
 
   describe 'User#author_of? check' do

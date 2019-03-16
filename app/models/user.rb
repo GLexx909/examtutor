@@ -7,9 +7,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  has_many :posts, dependent: :destroy
+  has_many :posts, foreign_key: 'author_id', dependent: :destroy
 
   def author_of?(resource)
-    (id == resource.user_id) || admin?
+    (id == resource.author_id) || admin?
   end
 end
