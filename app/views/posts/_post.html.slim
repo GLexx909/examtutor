@@ -10,4 +10,4 @@
           = post.author.first_name
           = ' '
           = post.author.last_name
-        .col-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post', remote: true
+        .col-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post', remote: true if current_user.author_or_admin_of?(post)

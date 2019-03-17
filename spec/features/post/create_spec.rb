@@ -4,8 +4,6 @@ feature 'User can create post', %q{
 } do
 
   given(:user) {create(:user) }
-  # given!(:question) { create :question, author: user }
-
 
   describe 'Authenticate user' do
     background do
