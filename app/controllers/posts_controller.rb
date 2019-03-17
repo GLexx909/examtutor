@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if current_user.author_of?(post)
+    if current_user.author_or_admin_of?(post)
       post.destroy
     else
       head 403

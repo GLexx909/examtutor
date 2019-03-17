@@ -10,11 +10,15 @@
 
 .alert {
   text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .flash-block {
   position: relative;
-  width: 100%;
+
+  width:  auto;
   height: 5vh;
 }
 
@@ -33,14 +37,12 @@
   margin-right: 1vw;
 }
 
-.hidden {
-  display: none;
+.mt-5vh{
+  margin-top: 5vw;
 }
 
-
-
-.container {
-  margin-top: 5vw;
+.hidden {
+  display: none;
 }
 
 .form-block_center {

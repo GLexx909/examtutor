@@ -13,13 +13,13 @@ RSpec.describe User, type: :model do
   let!(:post)       { create :post, author: user }
 
 
-  describe 'User#author_of? check' do
+  describe 'User#author_or_admin_of? check' do
     it 'is user the author of resource' do
-      expect(user).to be_author_of(post)
+      expect(user).to be_author_or_admin_of(post)
     end
 
     it 'is user not author of resource' do
-      expect(user_other).to_not be_author_of(post)
+      expect(user_other).to_not be_author_or_admin_of(post)
     end
   end
 end

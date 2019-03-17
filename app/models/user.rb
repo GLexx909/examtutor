@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
 
-  def author_of?(resource)
+  def author_or_admin_of?(resource)
     (id == resource.author_id) || admin?
   end
 end
