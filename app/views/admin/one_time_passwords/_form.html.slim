@@ -2,6 +2,6 @@
   .one-time-password-form__fields
     = form_with model: resource, method: :post, url: admin_one_time_passwords_path, class: 'form-inline' do |f|
       .field.mr-2
-        = f.text_field :title, class: 'form-control one-time-password-form__input', placeholder: 'Введите одноразовый пароль'
+        = f.text_field :pass_word, class: 'form-control one-time-password-form__input', placeholder: 'Введите одноразовый пароль'
       .submit
         = f.submit 'Создать', class: 'btn btn-success'

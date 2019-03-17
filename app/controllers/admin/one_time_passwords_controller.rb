@@ -13,6 +13,6 @@ class Admin::OneTimePasswordsController < ApplicationController
   private
 
   def one_time_password_params
-    params.require(:one_time_password).permit(:password)
+    params.require(:one_time_password).permit(:pass_word)
   end
 end

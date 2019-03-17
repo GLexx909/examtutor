@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_080500) do
   enable_extension "plpgsql"
 
   create_table "one_time_passwords", force: :cascade do |t|
-    t.string "password"
+    t.string "pass_word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,1 +1,2 @@
-$('.one-time-password-form').html('Пароль создан успешно!');
+$('.one-time-password-form').hide(400);
+$('.flash-block').html('<%= render 'shared/info', resource: 'Пароль успешно создался' %>');
