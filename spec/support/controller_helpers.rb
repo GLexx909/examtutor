@@ -8,9 +8,9 @@ module ControllerHelpers
     { post: attributes_for(:post) }
   end
 
-  # def question_params
-  #   { question: attributes_for(:question) }
-  # end
+  def one_time_password_params
+    { one_time_password: attributes_for(:one_time_password) }
+  end
   #
   # def question_params_new
   #   { question: { title: 'new_title', body: 'new_body' } }

@@ -28,11 +28,6 @@ shared_examples_for 'To save a new object' do
   it 'saves a new object in the database' do
     expect { post :create, params: params, format: :js }.to change(object_class, :count).by(1)
   end
-
-  it 'according to the author of the object' do
-    post :create, params: params, format: :js
-    expect(assigns(object.to_sym).author).to eq user
-  end
 end
 
 shared_examples_for 'To assigns the request resource to @resource' do

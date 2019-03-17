@@ -18,7 +18,7 @@ RSpec.describe PostsController, type: :controller do
     before { login(user) }
 
     context 'with valid attributes' do
-      it_behaves_like 'To save a new object', let(:params) { post_params }, let(:object_class) { Post }, let(:object) { 'post' }
+      it_behaves_like 'To save a new object', let(:params) { post_params }, let(:object_class) { Post }
       it_behaves_like 'To render create.js view'
     end
   end

@@ -20,6 +20,6 @@ class InitialsController < ApplicationController
   private
 
   def one_time_passwords
-    OneTimePassword.pluck(:password)
+    OneTimePassword.pluck(:pass_word)
   end
 end
