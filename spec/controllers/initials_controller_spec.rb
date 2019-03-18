@@ -16,6 +16,10 @@ RSpec.describe InitialsController, type: :controller do
         post :create, params: { preregistration_pass: '123' }
         expect(response).to redirect_to new_user_registration_path
       end
+
+      it 'and the one_time_password is deleted' do
+        expect { post :create, params: { preregistration_pass: '123' } }.to change(OneTimePassword, :count).by(-1)
+      end
     end
 
     context 'with invalid attributes' do
