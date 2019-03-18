@@ -3,4 +3,5 @@ $('.flash-block').html('<%= render 'shared/errors', resource: @one_time_password
 <% if !@one_time_password.errors.present? %>
   $('.one-time-password-form').hide(400);
   $('.flash-block').html('<%= render 'shared/info', resource: 'Пароль успешно создан' %>');
+  $('.one-time-password-active-list').remove();
 <% end %>

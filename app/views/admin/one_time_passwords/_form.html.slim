@@ -5,3 +5,5 @@
         = f.text_field :pass_word, class: 'form-control one-time-password-form__input', placeholder: 'Введите одноразовый пароль'
       .submit
         = f.submit 'Создать', class: 'btn btn-success'
+
+= render 'active_password_list'
