@@ -9,8 +9,10 @@ class InitialsController < ApplicationController
   def create
     password = params[:preregistration_pass]
 
-    if one_time_passwords.include?(password)
+    if one_time_password(password)
       session[:pre_password] = password
+      one_time_password(password).delete
+
       redirect_to new_user_registration_path, notice: 'Успешно!'
     else
       redirect_to root_path, alert: 'Доступ закрыт'
@@ -19,7 +21,7 @@ class InitialsController < ApplicationController
 
   private
 
-  def one_time_passwords
-    OneTimePassword.pluck(:pass_word)
+  def one_time_password(password)
+    OneTimePassword.find_by(pass_word: password)
   end
 end
