@@ -1,0 +1,160 @@
+.initial {
+  display: grid;
+  grid-template-areas: 'initial__one'
+                       'initial__two'
+                       'initial__three';
+  grid-template-columns: 1fr;
+  grid-template-rows: 100vh
+                      100vh
+                      100vh;
+}
+
+// Initial block one {
+
+.initial__one {
+  grid-area: initial__one;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vmin;
+  font-family: sen-serif;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  //color: white;
+
+  background: #00b7ea; /* Old browsers */
+  background: -moz-linear-gradient(top, #00b7ea 0%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #00b7ea 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #00b7ea 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+.keyboard_arrow_down {
+  position: absolute;
+  bottom: 5vw;
+  margin: 0 auto;
+
+  .keyboard{
+    color: red;
+  }
+}
+// }
+
+// Initial registration block {
+
+.initial__registration-block {
+  display: grid;
+  grid-template-areas: 'button-pupil button-parent';
+  grid-area: initial__registration-block;
+
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+
+  //color: white;
+  font-family: sen-serif;
+}
+
+.initial__registration-block__button-pupil {
+  display: flex;
+
+  grid-area: button-pupil;
+  //margin-right: 1vw;
+}
+
+.image-pupil img{
+  max-width: 40px;
+}
+
+.initial__registration-block__button-parent {
+  display: flex;
+  grid-area: button-parent;
+}
+
+.image-parent img{
+  max-width: 40px;
+}
+
+.modal-footer{
+  display: block !important;
+
+  .modal-footer__password-form{
+    display: flex;
+    justify-content: center;
+  }
+
+  .modal-footer__registration-button__block{
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+}
+// }
+
+.initial__two {
+  grid-area: initial__two;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.initial__three {
+  grid-area: initial__three;
+
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #1121af 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#1121af 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%,#1121af 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1121af',GradientType=0 ); /* IE6-9 */
+}
+
+
+@media screen and (max-width: 600px) {
+  .initial {
+    grid-template-areas:  'initial__one'
+                          'initial__registration-block'
+                          'initial__two'
+                          'initial__three';
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh
+                        auto
+                        100vh
+                        100vh;
+  }
+  .initial__one__title {
+    text-align: center;
+  }
+  .initial__registration-block {
+    position: relative;
+    font-size: 6vmin;
+
+    align-items: start;
+  }
+
+  .initial__registration-block__button-pupil {
+    display: block;
+    text-align: center;
+  }
+
+  .image-pupil img{
+    max-width: 125px;
+  }
+
+  .initial__registration-block__button-parent {
+    display: block;
+    text-align: center;
+  }
+
+  .image-parent img{
+    max-width: 150px;
+  }
+}

@@ -1,0 +1,11 @@
+.container-fluid.pl-0.sidebar-left
+  .row
+    .col-auto.sidebar-left__small
+      .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24')
+      .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24')
+      .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24')
+
+    .col-auto.sidebar-left__full.hidden
+      p = link_to 'Все посты', posts_path
+      p = link_to 'Посты репетитора', tutor_index_posts_path
+      p = link_to 'Мои посты', own_index_posts_path

@@ -1,0 +1,32 @@
+#pupilEnterModal.modal.fade aria-hidden="true" aria-labelledby="pupilEnterModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5#pupilEnterModalLabel.modal-title Modal title
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        h2
+          | Log in
+        = form_for(@user, as: @user, url: session_path(@user)) do |f|
+          .form-group
+            .field
+              = f.label :email
+              br
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter email'
+          .form-group
+            .field
+              = f.label :password
+              br
+              = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Enter password'
+          .actions
+            = f.submit "Log in", class: 'btn btn-primary'
+        / = render "devise/shared/links"
+
+      .modal-footer
+        .modal-footer__registration-button__block
+          = button_tag 'Зарегистироваться', class: 'btn btn-info modal-footer__registration-button'
+        = form_tag '/initials', class: 'hidden modal-footer__registration-form' do
+          .modal-footer__password-form
+            .mr_1 = text_field_tag 'preregistration_pass', '', class: 'form-control', placeholder: 'Enter password'
+            div = submit_tag 'Confirm', class: 'btn btn-primary'

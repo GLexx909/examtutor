@@ -1,0 +1,51 @@
+.sidebar-left {
+  position: fixed;
+  left: 0;
+  top: 20vh;
+
+  width: auto !important;
+
+  height: auto;
+
+  .sidebar-left__small {
+
+    width: 40px;
+    padding-right: 25px;
+
+
+    border-radius: 0 10px 10px 0;
+    border: 2px solid cadetblue;
+    background: #29b297;
+  }
+
+  .sidebar-left__full {
+    width: auto;
+    font-size: 14px;
+
+    border-radius: 10px;
+    background: #29b297;
+
+    p {
+      margin-bottom: 11px;
+
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  .sidebar-left {
+    display: none;
+  }
+}

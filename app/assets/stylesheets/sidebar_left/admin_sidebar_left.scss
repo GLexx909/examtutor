@@ -1,0 +1,45 @@
+.admin-sidebar-left {
+  position: fixed;
+  left: 0;
+  top: 60vh;
+
+  height: auto;
+
+  .admin-sidebar-left__small {
+
+    width: 40px;
+    padding-right: 25px;
+
+
+    border-radius: 0 10px 10px 0;
+    border: 2px solid cadetblue;
+    background: darkslategrey;
+  }
+
+  .admin-sidebar-left__full {
+    width: auto;
+    font-size: 14px;
+
+    border-radius: 10px;
+    background: darkslategrey;
+
+    p {
+      margin-bottom: 11px;
+
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-sidebar-left {
+    display: none;
+  }
+}

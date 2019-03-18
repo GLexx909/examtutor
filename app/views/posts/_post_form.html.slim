@@ -1,0 +1,11 @@
+.post-form
+  = button_tag 'Написать пост', class: 'btn btn-secondary btn-sm post-form__button-show'
+  .post-form__fields
+    = form_with model: resource, method: :post, url: posts_path do |f|
+      .field
+        = f.text_field :title, class:'form-control', placeholder:'Введите заголовок поста'
+      .field
+        = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
+        = tinymce content_css: asset_path('application.css')
+      .submit
+        = f.submit 'Опубликовать', class: 'btn btn-success'
