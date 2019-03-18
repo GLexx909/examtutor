@@ -1,33 +1,38 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :post, only: [:index, :tutor_index, :own_index, :show]
 
   authorize_resource
 
   def index
     @posts = Post.order(created_at: :desc)
-    @post = Post.new
   end
 
   def tutor_index
     @posts = Post.order(created_at: :desc).of_admin
-    @post = Post.new
   end
 
   def own_index
     @posts = Post.order(created_at: :desc).of_user(current_user)
-    @post = Post.new
   end
 
   def create
-    post.save
+    @post = current_user.posts.create(post_params)
   end
 
   def show
-    post
+  end
+
+  def update
+    if can?(:update, post)
+      post.update(post_params)
+    else
+      head 403
+    end
   end
 
   def destroy
-    if current_user.author_or_admin_of?(post)
+    if can?(:destroy, post)
       post.destroy
     else
       head 403
@@ -37,7 +42,7 @@ class PostsController < ApplicationController
   private
 
   def post
-    @post ||= params[:id] ? Post.find(params[:id]) : current_user.posts.new(post_params)
+    @post ||= params[:id] ? Post.find(params[:id]) : current_user.posts.new
   end
 
   def post_params

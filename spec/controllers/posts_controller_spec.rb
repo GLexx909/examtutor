@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   let!(:user)  { create :user }
+  let!(:user_other)  { create :user }
   let!(:admin)  { create :user, admin: true }
   let!(:post1)  { create :post, author: user }
 
@@ -56,6 +57,35 @@ RSpec.describe PostsController, type: :controller do
 
     it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'post'}, let(:resource) { post1 }
     it_behaves_like 'To render show view'
+  end
+
+  describe 'PATCH #update' do
+    context 'with valid attributes' do
+      before { login(user) }
+      it_behaves_like 'To update the object', let(:params) { post_params }, let(:object) { post1 }
+      it_behaves_like 'To change the object attributes title body', let(:params) { post_params_new }, let(:object) { post1 }
+    end
+
+    context 'with invalid attributes' do
+      before { login(user) }
+      let!(:post1) { create :post, title: 'MyTitle', body: 'MyBody', author: user }
+
+      it_behaves_like 'To not change the object attributes title body', let(:params) { post_params_invalid }, let(:object) { post1 }
+      it_behaves_like 'To render update view', let(:params) { post_params_invalid }, let(:object) { post1 }
+    end
+
+    context 'Admin can update other user post' do
+      before { login(admin) }
+      it_behaves_like 'To update the object', let(:params) { post_params }, let(:object) { post1 }
+      it_behaves_like 'To change the object attributes title body', let(:params) { post_params_new }, let(:object) { post1 }
+    end
+
+    context 'with invalid attributes' do
+      before { login(user_other) }
+      let!(:post1) { create :post, title: 'MyTitle', body: 'MyBody', author: user }
+
+      it_behaves_like 'To not change the object attributes title body', let(:params) { post_params_new }, let(:object) { post1 }
+    end
   end
 
   describe 'DELETE #destroy' do
