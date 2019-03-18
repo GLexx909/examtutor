@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   let!(:user)  { create :user }
+  let!(:admin)  { create :user, admin: true }
   let!(:post1)  { create :post, author: user }
 
   describe 'GET #index' do
@@ -11,6 +12,30 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it_behaves_like 'To render index view'
+    it_behaves_like 'To be a new',let(:object_class) { Post }, let(:object) { 'post' }
+  end
+
+  describe 'GET #tutor_index' do
+    before(:each) do
+      login(user)
+      get :tutor_index
+    end
+
+    it 'render index view' do
+      expect(response).to render_template :tutor_index
+    end
+    it_behaves_like 'To be a new',let(:object_class) { Post }, let(:object) { 'post' }
+  end
+
+  describe 'GET #own_index' do
+    before(:each) do
+      login(user)
+      get :own_index
+    end
+
+    it 'render index view' do
+      expect(response).to render_template :own_index
+    end
     it_behaves_like 'To be a new',let(:object_class) { Post }, let(:object) { 'post' }
   end
 

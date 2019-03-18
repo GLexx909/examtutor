@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def own_index
+    @posts = Post.order(created_at: :desc).of_user(current_user)
+    @post = Post.new
+  end
+
   def create
     post.save
   end

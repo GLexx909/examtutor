@@ -22,6 +22,7 @@ class Ability
   def user_abilities
     can :read, [Post]
     can :tutor_index, Post
+    can :own_index, Post
     can :create, [Post]
     can :update, [Post], author_id: @user.id
     can :destroy, [Post], author_id: @user.id

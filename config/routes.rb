@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     get :tutor_index, on: :collection
+    get :own_index, on: :collection
   end
 
   namespace :admin do

@@ -27,6 +27,7 @@ RSpec.describe Ability do
 
     it { should be_able_to :read, Post }
     it { should be_able_to :tutor_index, Post }
+    it { should be_able_to :own_index, Post }
 
     it { should be_able_to :update, post }
     it { should_not be_able_to :update, post_other }
