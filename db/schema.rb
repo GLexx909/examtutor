@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_080500) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "body"
+    t.boolean "for_guests", default: false
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

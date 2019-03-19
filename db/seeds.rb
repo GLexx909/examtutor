@@ -12,10 +12,14 @@ users = User.create!([
    {first_name: "Jane", last_name: 'Doe', email: "jane@mail.ru", password: '123456'},
 ])
 
-10.times do
-  Post.create!(title:  "Title", body: 'Body', author: users[0])
+5.times do
+  Post.create!(title:  "User Title", body: 'User Body', author: users[0])
 end
 
-10.times do
-  Post.create!(title:  "Title", body: 'Body', author: users[1])
+5.times do
+  Post.create!(title:  "Admin Title", body: 'Admin Body', author: users[1])
+end
+
+5.times do
+  Post.create!(title:  "Admin Title for guests", body: 'Admin Body for guests', for_guests: true, author: users[1])
 end

@@ -12,7 +12,7 @@ class Ability
   end
 
   def guest_abilities
-    # can :read, :all
+    can :guests_index, Post
   end
 
   def admin_abilities
@@ -20,6 +20,7 @@ class Ability
   end
 
   def user_abilities
+    guest_abilities
     can :read, [Post, User]
     can :tutor_index, Post
     can :own_index, Post

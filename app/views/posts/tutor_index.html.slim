@@ -1,4 +1,4 @@
-= render 'post_form', resource: @post if current_user.admin?
+= render 'post_form', resource: @post if can?(:create, Post)
 
 .card-deck
   = render @posts

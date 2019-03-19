@@ -7,6 +7,7 @@ RSpec.describe Post, type: :model do
   let(:posts) { create_list :post, 2, author: user }
   let(:user_other) { create :user }
   let(:posts_other) { create_list :post, 2, author: user_other }
+  let(:posts_for_guests) { create_list :post, 2, author: user, for_guests: true }
 
   describe '#of_admin check' do
     it "all posts must be admin's" do
@@ -22,6 +23,15 @@ RSpec.describe Post, type: :model do
       posts = Post.of_user(user)
       posts.each do |post|
         expect(post.author == user).to be_truthy
+      end
+    end
+  end
+
+  describe '#for_guests check' do
+    it "all posts must for guests" do
+      posts = Post.for_guests
+      posts.each do |post|
+        expect(post.for_guests?).to be_truthy
       end
     end
   end
