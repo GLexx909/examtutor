@@ -1,23 +1,31 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :post, only: [:index, :tutor_index, :own_index, :show]
+  before_action :authenticate_user!, except: [:guests_index]
+  before_action :post, only: [:index, :tutor_index, :own_index, :guests_index, :show]
 
   authorize_resource
 
   def index
-    @posts = Post.order(created_at: :desc)
+    @posts = Post.all
   end
 
   def tutor_index
-    @posts = Post.order(created_at: :desc).of_admin
+    @posts = Post.of_admin
   end
 
   def own_index
-    @posts = Post.order(created_at: :desc).of_user(current_user)
+    @posts = Post.of_user(current_user)
+  end
+
+  def guests_index
+    @posts = Post.for_guests
   end
 
   def create
-    @post = current_user.posts.create(post_params)
+    if can?(:create, Post)
+      @post = current_user.posts.create(post_params)
+    else
+      head :forbidden
+    end
   end
 
   def show
@@ -42,10 +50,10 @@ class PostsController < ApplicationController
   private
 
   def post
-    @post ||= params[:id] ? Post.find(params[:id]) : current_user.posts.new
+    @post ||= params[:id] ? Post.find(params[:id]) : current_user&.posts&.new
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :for_guests)
   end
 end

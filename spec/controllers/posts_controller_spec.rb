@@ -40,6 +40,16 @@ RSpec.describe PostsController, type: :controller do
     it_behaves_like 'To be a new',let(:object_class) { Post }, let(:object) { 'post' }
   end
 
+  describe 'GET #guests_index' do
+    before(:each) do
+      get :guests_index
+    end
+
+    it 'render index view' do
+      expect(response).to render_template :guests_index
+    end
+  end
+
   describe 'POST #create' do
     before { login(user) }
 

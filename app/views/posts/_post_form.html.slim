@@ -7,5 +7,9 @@
       .field
         = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
         = tinymce content_css: asset_path('application.css')
+      - if can?(:manage, :all)
+        .field
+          = f.check_box :for_guests
+          = ' Доступно для гостей?'
       .submit
         = f.submit 'Опубликовать', class: 'btn btn-success'
