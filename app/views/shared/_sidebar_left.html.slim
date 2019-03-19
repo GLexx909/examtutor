@@ -5,8 +5,10 @@
       .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
       .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
       .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
+      .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
 
     .col-auto.sidebar-left__full.hidden
+      p = link_to 'Мой профиль', profile_path(current_user)
       p = link_to 'Все посты', posts_path
       p = link_to 'Посты репетитора', tutor_index_posts_path
       p = link_to 'Мои посты', own_index_posts_path

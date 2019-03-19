@@ -15,5 +15,5 @@ html
       .flash-block
         = render_flash
       .container.mt-5vh
-        = render 'shared/sidebar_left'
+        = render 'shared/sidebar_left' if can?(:read, User)
         = yield

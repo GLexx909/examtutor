@@ -1,4 +1,5 @@
 = @user.full_name
+= link_to 'Редактировать профиль', edit_profile_path(@user) if can?(:update, @user)
 
 .card-deck
   - @user.posts.each do |post|
