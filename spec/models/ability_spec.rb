@@ -34,5 +34,8 @@ RSpec.describe Ability do
 
     it { should be_able_to :destroy, post }
     it { should_not be_able_to :destroy, post_other }
+
+    it { should be_able_to :read, User }
+    it { should be_able_to :update, User, user.id }
   end
 end

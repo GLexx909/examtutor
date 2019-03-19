@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :initials, only: [:new, :create]
+  resources :profiles
 
   resources :posts do
     get :tutor_index, on: :collection
