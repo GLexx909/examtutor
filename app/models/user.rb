@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
 
+  scope :not_admin, -> { where(admin: false) }
+
   def author_or_admin_of?(resource)
     (id == resource.author_id) || admin?
   end

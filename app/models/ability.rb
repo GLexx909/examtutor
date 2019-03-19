@@ -20,11 +20,13 @@ class Ability
   end
 
   def user_abilities
-    can :read, [Post]
+    can :read, [Post, User]
     can :tutor_index, Post
     can :own_index, Post
     can :create, [Post]
     can :update, [Post], author_id: @user.id
     can :destroy, [Post], author_id: @user.id
+
+    can :update, [User], id: @user.id
   end
 end

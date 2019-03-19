@@ -7,14 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!([
-   {first_name: "John", last_name: 'Doe', email: "johndoe@mail.ru", password: '123456'},
+   {first_name: "John", last_name: 'Doe', email: "john@mail.ru", password: '123456'},
    {first_name: "Admin", last_name: 'Admin', email: "admin@mail.ru", password: '123456', admin: true},
+   {first_name: "Jane", last_name: 'Doe', email: "jane@mail.ru", password: '123456'},
 ])
 
-20.times do
+10.times do
   Post.create!(title:  "Title", body: 'Body', author: users[0])
 end
 
-20.times do
+10.times do
   Post.create!(title:  "Title", body: 'Body', author: users[1])
 end
