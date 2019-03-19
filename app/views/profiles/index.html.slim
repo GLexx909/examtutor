@@ -1,5 +1,4 @@
 - @users.each do |user|
-  p = user.first_name
-  p = user.last_name
+  p = link_to user.full_name, profile_path(user)
   hr
 

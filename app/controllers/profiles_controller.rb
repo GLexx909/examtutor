@@ -6,4 +6,9 @@ class ProfilesController < ApplicationController
   def index
     @users = User.not_admin
   end
+
+  def show
+    @user = User.find(params[:id])
+    redirect_to root_path if @user.admin?
+  end
 end
