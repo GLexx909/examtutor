@@ -10,6 +10,19 @@ shared_examples_for 'To render show view' do
   end
 end
 
+shared_examples_for 'To render edit view' do
+  it 'render show view' do
+    expect(response).to render_template :edit
+  end
+end
+
+shared_examples_for 'To render update view' do
+  it 'deletes the object' do
+    patch :update, params: { id: resource }, format: :js
+    expect(response).to render_template :update
+  end
+end
+
 shared_examples_for 'To render create.js view' do
   it 'render create.js view' do
     post :create, params: params, format: :js
@@ -97,5 +110,11 @@ shared_examples_for 'To render update view' do
   it 'render update view' do
     patch :update, params: params.merge({id: object.id}), format: :js
     expect(response).to render_template :update
+  end
+end
+
+shared_examples_for 'To redirect to path' do
+  it 'redirect to path' do
+    expect(response).to redirect_to path
   end
 end

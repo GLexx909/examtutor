@@ -17,6 +17,18 @@ module ControllerHelpers
   end
 
   def post_params_invalid
-    { post: { title: '', body: '' } }
+    { post: attributes_for(:post, :invalid) }
+  end
+
+  def user_params
+    { user: attributes_for(:user) }
+  end
+
+  def user_params_invalid
+    { user: attributes_for(:user, :invalid) }
+  end
+
+  def user_params_new
+    { user: { first_name: 'new_first_name', last_name: 'new_last_name' } }
   end
 end
