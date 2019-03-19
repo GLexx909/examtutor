@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def author_or_admin_of?(resource)
     (id == resource.author_id) || admin?
   end
+
+  def full_name
+    first_name + ' ' + last_name
+  end
 end
