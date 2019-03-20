@@ -27,7 +27,7 @@ feature 'User can create post', %q{
       click_on 'Написать пост'
       click_on 'Опубликовать'
 
-      expect(page).to have_content "Title не может быть пустым"
+      expect(page).to have_content "Заголовок не может быть пустым"
     end
 
     scenario 'is not admin can not create post for guests' do

@@ -2,3 +2,28 @@ en:
   initials:
     index:
       title: 'This is the inscription in English'
+
+  devise:
+    confirmations:
+      new:
+        header: "Resend confirmation instructions"
+    registrations:
+      new:
+        header: "Sign Up"
+    sessions:
+      new:
+        header: "Log in"
+        remember_me: "Remember me"
+        log_in: 'Log in'
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+    nav:
+      welcome_message: "Welcome %{name} Guru!"
+      signout: "Signout"
+      signup: "Signup"
+      login: "Login"
+

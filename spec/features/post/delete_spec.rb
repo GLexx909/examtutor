@@ -33,7 +33,7 @@ feature 'User can delete post', %q{
       click_on 'Написать пост'
       click_on 'Опубликовать'
 
-      expect(page).to have_content "Title не может быть пустым"
+      expect(page).to have_content "Заголовок не может быть пустым"
     end
   end
 

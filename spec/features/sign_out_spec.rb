@@ -7,8 +7,8 @@ feature 'User can sign out', %q{
   background { visit root_path }
 
   scenario 'Registered user tries to sign out' do
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    fill_in 'Почта', with: user.email
+    fill_in 'Пароль', with: user.password
     click_on 'Log in'
 
     click_on 'Sign out'

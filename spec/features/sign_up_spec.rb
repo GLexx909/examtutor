@@ -14,11 +14,11 @@ feature 'User can sign up', %q{
     fill_in 'preregistration_pass', with: 123
     click_on 'Confirm'
 
-    fill_in 'First name', with: 'John'
-    fill_in 'Last name', with: 'Doe'
-    fill_in 'Email', with: 'user@test.com'
-    fill_in 'Password', with: '12345678'
-    fill_in 'Password confirmation', with: '12345678'
+    fill_in 'Имя', with: 'John'
+    fill_in 'Фамилия', with: 'Doe'
+    fill_in 'Почта', with: 'user@test.com'
+    fill_in 'Пароль', with: '12345678'
+    fill_in 'Подтверждение пароля', with: '12345678'
 
     find_button('Sign up').click
     expect(page).to have_content 'В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи.'
