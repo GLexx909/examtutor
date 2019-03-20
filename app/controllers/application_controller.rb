@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   check_authorization unless: :devise_controller?
+  before_action :set_locale
 
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
@@ -8,4 +9,15 @@ class ApplicationController < ActionController::Base
       format.json { render json: exception.message, status: :forbidden }
     end
   end
+
+  def default_url_options
+    { locale: ((I18n.locale == I18n.default_locale) ? nil : I18n.locale) }
+  end
+
+  protected
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:locale]) ? params[:locale] : I18n.default_locale
+  end
+
 end
