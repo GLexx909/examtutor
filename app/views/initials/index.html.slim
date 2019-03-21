@@ -1,7 +1,7 @@
-/ .flash-block
 .initial
   .initial__one
-    / = render 'slider'
+    .initial__list-button = link_to mi.list.css_class('md-48 white'), remote: true
+    = render 'slider'
     .initial__one__title
       h1 = t('.title')
     / .keyboard_arrow_down = link_to mi.keyboard_arrow_down.css_class('keyboard md-48'), remote: true

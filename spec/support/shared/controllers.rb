@@ -16,13 +16,6 @@ shared_examples_for 'To render edit view' do
   end
 end
 
-shared_examples_for 'To render update view' do
-  it 'deletes the object' do
-    patch :update, params: { id: resource }, format: :js
-    expect(response).to render_template :update
-  end
-end
-
 shared_examples_for 'To render create.js view' do
   it 'render create.js view' do
     post :create, params: params, format: :js
@@ -56,7 +49,7 @@ shared_examples_for 'To delete the object' do
 end
 
 shared_examples_for 'To not delete the object' do
-  it 'deletes the object' do
+  it 'not deletes the object' do
     expect { delete :destroy, params: { id: object }, format: :js }.to_not change(object_class, :count)
   end
 end

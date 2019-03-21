@@ -1,21 +1,22 @@
-.carousel.slide.initial_slider id="carouselExampleIndicators" data-ride="carousel"
-  ol.carousel-indicators
-    li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"
-    li data-target="#carouselExampleIndicators" data-slide-to="1"
-    li data-target="#carouselExampleIndicators" data-slide-to="2"
-  .carousel-inner
-    .carousel-item.active
-      .d-block
-        = image_tag('slide_one.png')
-    .carousel-item
-      .d-block
-        = image_tag('slide_two.png')
-    .carousel-item
-      .d-block
-        = image_tag('slide_three.png')
-  a.carousel-control-prev href="#carouselExampleIndicators" role="button" data-slide="prev"
-    span.carousel-control-prev-icon aria-hidden="true"
-    span.sr-only
-  a.carousel-control-next href="#carouselExampleIndicators" role="button" data-slide="next"
-    span.carousel-control-next-icon aria-hidden="true"
-    span.sr-only
+.initial_slider
+  .carousel.slide id="carouselExampleIndicators" data-ride="carousel"
+    ol.carousel-indicators
+      li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"
+      li data-target="#carouselExampleIndicators" data-slide-to="1"
+      li data-target="#carouselExampleIndicators" data-slide-to="2"
+    .carousel-inner
+      .carousel-item.active
+        .d-block.w-100
+          = image_tag('slide_one.png')
+      .carousel-item
+        .d-block.w-100
+          = image_tag('slide_two.png')
+      .carousel-item
+        .d-block.w-100
+          = image_tag('slide_three.png')
+    a.carousel-control-prev href="#carouselExampleIndicators" role="button" data-slide="prev"
+      span.carousel-control-prev-icon aria-hidden="true"
+      span.sr-only
+    a.carousel-control-next href="#carouselExampleIndicators" role="button" data-slide="next"
+      span.carousel-control-next-icon aria-hidden="true"
+      span.sr-only

@@ -21,11 +21,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    if can?(:create, Post)
-      @post = current_user.posts.create(post_params)
-    else
-      head :forbidden
-    end
+    @post = current_user.posts.create(post_params)
   end
 
   def show

@@ -1,6 +1,8 @@
 class Ability
   include CanCan::Ability
 
+  attr_reader :user
+
   def initialize(user)
     @user = user
 
@@ -25,10 +27,10 @@ class Ability
     can :tutor_index, Post
     can :own_index, Post
     can :create, [Post]
-    can :update, [Post], author_id: @user.id
-    can :destroy, [Post], author_id: @user.id
+    can :update, [Post], author_id: user.id
+    can :destroy, [Post], author_id: user.id
 
-    can :edit, [User], id: @user.id
-    can :update, [User], id: @user.id
+    can :edit, [User], id: user.id
+    can :update, [User], id: user.id
   end
 end

@@ -1,3 +1,8 @@
+.initial-page__flash-block {
+  position: absolute;
+  z-index: 1;
+  left: 40%;
+}
 
 .initial {
   display: grid;
@@ -35,6 +40,11 @@
   color: white;
 
   background: #00b7ea;
+
+  .initial__list-button {
+    position: absolute;
+
+  }
 
   .initial_slider {
     grid-area: initial_slider;
@@ -128,11 +138,8 @@
   background-size: cover;
   background-position: center bottom;
 
-  background: #ffffff; /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 0%, #1121af 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #ffffff 0%,#1121af 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #ffffff 0%,#1121af 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1121af',GradientType=0 ); /* IE6-9 */
+  background: #999999;
+
 }
 
 
@@ -140,36 +147,49 @@
   .initial {
     grid-template-areas:  'initial__one'
                           'initial__registration-block'
-                          'initial_slider'
                           'initial__two'
                           'initial__three';
+
     grid-template-columns: 1fr;
     grid-template-rows: 100vh
                         auto
                         100vh
                         100vh;
   }
+
+  .initial-page__flash-block {
+    left: auto;
+  }
+
+  .initial_slider {
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    width: 100% !important;
+  }
+
   .initial__one__title {
     text-align: center;
   }
+
   .initial__registration-block {
     position: relative;
     font-size: 6vmin;
 
     align-items: start;
+
+    .initial__registration-block__button-pupil {
+      display: block;
+      text-align: center;
+    }
+
+    .initial__registration-block__button-parent {
+      display: block;
+      text-align: center;
+    }
   }
 
-  .initial__registration-block__button-pupil {
-    display: block;
-    text-align: center;
-  }
 
-  .initial__registration-block__button-parent {
-    display: block;
-    text-align: center;
-  }
-
-  .initial_slider {
-    display: none;
-  }
 }
