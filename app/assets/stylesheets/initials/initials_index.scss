@@ -16,9 +16,15 @@
   grid-area: initial__one;
 
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  display: grid;
+
+  grid-template-areas:  'initial_slider'
+                        'initial__one__title';
+  grid-template-columns: 1fr;
+  grid-template-rows: 60vh
+                      30vh;
+
   font-size: 3vmin;
   font-family: sen-serif;
 
@@ -26,14 +32,25 @@
   background-size: cover;
   background-position: center bottom;
 
-  //color: white;
+  color: white;
 
-  background: #00b7ea; /* Old browsers */
-  //background: -moz-linear-gradient(top, #00b7ea 0%, #ffffff 100%); /* FF3.6-15 */
-  //background: -webkit-linear-gradient(top, #00b7ea 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-  //background: linear-gradient(to bottom, #00b7ea 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7ea', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+  background: #00b7ea;
+
+  .initial_slider {
+    grid-area: initial_slider;
+
+    width: 800px;
+
+    justify-self: center;
+    align-self: end;
+  }
+
+  .initial__one__title {
+    grid-area: initial__one__title;
+    justify-self: center;
+  }
 }
+
 .keyboard_arrow_down {
   position: absolute;
   bottom: 5vw;
@@ -123,6 +140,7 @@
   .initial {
     grid-template-areas:  'initial__one'
                           'initial__registration-block'
+                          'initial_slider'
                           'initial__two'
                           'initial__three';
     grid-template-columns: 1fr;
@@ -146,16 +164,12 @@
     text-align: center;
   }
 
-  .image-pupil img{
-    max-width: 125px;
-  }
-
   .initial__registration-block__button-parent {
     display: block;
     text-align: center;
   }
 
-  .image-parent img{
-    max-width: 150px;
+  .initial_slider {
+    display: none;
   }
 }

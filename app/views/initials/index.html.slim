@@ -1,9 +1,10 @@
 / .flash-block
 .initial
   .initial__one
+    / = render 'slider'
     .initial__one__title
       h1 = t('.title')
-    .keyboard_arrow_down = link_to mi.keyboard_arrow_down.css_class('keyboard md-48'), remote: true
+    / .keyboard_arrow_down = link_to mi.keyboard_arrow_down.css_class('keyboard md-48'), remote: true
   .initial__registration-block
     .initial__registration-block__button-pupil.mr_1
       = button_tag 'Вход для ученика', class: 'pupil-enter-button btn btn-light', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
