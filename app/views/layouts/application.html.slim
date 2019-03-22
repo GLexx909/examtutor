@@ -12,7 +12,7 @@ html
   body
     .base-space
       = render 'shared/nav'
-      .flash-block
+      .flash-block.alert
         = render_flash
       .container.mt-5vh
         = render 'shared/sidebar_left' if can?(:read, User)

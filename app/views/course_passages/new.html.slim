@@ -1,0 +1,10 @@
+.course-passage__form
+  = form_with model: @course_passage do |f|
+    .form-group
+      = f.collection_select :user_id, User.all, :id, :full_name, {prompt: true}, class: 'form-control'
+      small id="userHelp" class="form-text text-muted" Выберите ученика.
+    .form-group
+      = f.collection_select :course_id, Course.all, :id, :title, {prompt: true}, class: 'form-control'
+      small id="courseHelp" class="form-text text-muted" Выберите курс, к которому будет добален ученик.
+    .submit
+      = f.submit 'Добавить ученика', class: 'btn btn-success'
