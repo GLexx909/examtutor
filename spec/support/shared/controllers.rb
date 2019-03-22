@@ -16,6 +16,13 @@ shared_examples_for 'To render edit view' do
   end
 end
 
+shared_examples_for 'To render update view' do
+  it 'render update view' do
+    patch :update, params: params.merge({id: object.id}), format: :js
+    expect(response).to render_template :update
+  end
+end
+
 shared_examples_for 'To render create.js view' do
   it 'render create.js view' do
     post :create, params: params, format: :js
@@ -80,7 +87,7 @@ shared_examples_for 'To change the object attributes title body' do
     object.reload
 
     expect(object.title).to eq 'new_title' if object.respond_to?(:title)
-    expect(object.body).to eq 'new_body'
+    expect(object.body).to eq 'new_body' if object.respond_to?(:body)
   end
 
   it 'render update view' do
@@ -95,19 +102,18 @@ shared_examples_for 'To not change the object attributes title body' do
   it 'does not change object' do
     object.reload
     expect(object.title).to eq 'MyTitle' if object.respond_to?(:title)
-    expect(object.body).to eq 'MyBody'
-  end
-end
-
-shared_examples_for 'To render update view' do
-  it 'render update view' do
-    patch :update, params: params.merge({id: object.id}), format: :js
-    expect(response).to render_template :update
+    expect(object.body).to eq 'MyBody' if object.respond_to?(:body)
   end
 end
 
 shared_examples_for 'To redirect to path' do
   it 'redirect to path' do
     expect(response).to redirect_to path
+  end
+end
+
+shared_examples_for 'To does not save a new object' do
+  it 'does not save a new object' do
+    expect { post :create, params: params, format: :js }.to_not change(object_class, :count)
   end
 end

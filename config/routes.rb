@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :initials, only: [:new, :create]
   resources :profiles
+  resources :courses
 
   resources :posts do
     get :tutor_index, on: :collection

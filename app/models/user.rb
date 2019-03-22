@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
+  has_many :courses, through: :course_passages
+  has_many :course_passages, dependent: :destroy
 
   scope :not_admin, -> { where(admin: false) }
 
