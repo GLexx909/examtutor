@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Course, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of :title }
+
+  it { should have_many(:users).through(:course_passages) }
+  it { should have_many(:course_passages).dependent(:destroy) }
 end

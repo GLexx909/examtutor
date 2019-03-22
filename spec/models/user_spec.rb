@@ -7,6 +7,8 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of :password }
 
   it { should have_many(:posts).dependent(:destroy) }
+  it { should have_many(:courses).through(:course_passages) }
+  it { should have_many(:course_passages).dependent(:destroy) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }
