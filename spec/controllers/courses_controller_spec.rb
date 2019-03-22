@@ -15,18 +15,6 @@ RSpec.describe CoursesController, type: :controller do
     it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'courses'}, let(:resource) { Course.all }
   end
 
-  # describe 'GET #edit' do
-  #   before(:each) do
-  #     login(user)
-  #     get :edit, params: { id: course }, format: :js
-  #   end
-  #
-  #   # it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'course'}, let(:resource) { course }
-  #   it 'assigns the requested resource to @resource' do
-  #     expect(assigns(:course)).to eq course
-  #   end
-  # end
-
   describe 'POST #create' do
     context 'Admin create course' do
       before { login(admin) }
@@ -46,6 +34,38 @@ RSpec.describe CoursesController, type: :controller do
       context 'with valid attributes' do
         it_behaves_like 'To does not save a new object', let(:params) { course_params }, let(:object_class) { Course }
       end
+    end
+  end
+
+  describe 'GET #edit' do
+    before(:each) do
+      login(admin)
+      get :edit, params: { id: course.id }, xhr: true
+    end
+
+    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'course'}, let(:resource) { course }
+  end
+
+  describe 'PATCH #update' do
+    context 'with valid attributes' do
+      before { login(admin) }
+      it_behaves_like 'To update the object', let(:params) { course_params }, let(:object) { course }
+      it_behaves_like 'To change the object attributes title body', let(:params) { course_params_new }, let(:object) { course }
+    end
+
+    context 'with invalid attributes' do
+      before { login(admin) }
+      let!(:course) { create :course, title: 'MyTitle' }
+
+      it_behaves_like 'To not change the object attributes title body', let(:params) { course_params_invalid }, let(:object) { course }
+      it_behaves_like 'To render update view', let(:params) { course_params_invalid }, let(:object) { course }
+    end
+
+    context 'User can not update course' do
+      before { login(user) }
+      let!(:course) { create :course, title: 'MyTitle' }
+
+      it_behaves_like 'To not change the object attributes title body', let(:params) { course_params_invalid }, let(:object) { course }
     end
   end
 end

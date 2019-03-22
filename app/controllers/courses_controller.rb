@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
+  before_action :course, only: [:new, :edit, :update]
 
   authorize_resource
 
@@ -7,16 +8,22 @@ class CoursesController < ApplicationController
     @courses = Course.all
   end
 
-  def edit
-    @course = Course.find(params[:id])
-  end
-
   def new
-    @course = Course.new
   end
 
   def create
     @course = Course.create(course_params)
+  end
+
+  def edit
+  end
+
+  def update
+    @course.update(course_params)
+  end
+
+  def course
+    @course ||= params[:id] ? Course.find(params[:id]) : Course.new
   end
 
   private

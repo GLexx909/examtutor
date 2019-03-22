@@ -87,7 +87,7 @@ shared_examples_for 'To change the object attributes title body' do
     object.reload
 
     expect(object.title).to eq 'new_title' if object.respond_to?(:title)
-    expect(object.body).to eq 'new_body'
+    expect(object.body).to eq 'new_body' if object.respond_to?(:body)
   end
 
   it 'render update view' do
@@ -102,7 +102,7 @@ shared_examples_for 'To not change the object attributes title body' do
   it 'does not change object' do
     object.reload
     expect(object.title).to eq 'MyTitle' if object.respond_to?(:title)
-    expect(object.body).to eq 'MyBody'
+    expect(object.body).to eq 'MyBody' if object.respond_to?(:body)
   end
 end
 

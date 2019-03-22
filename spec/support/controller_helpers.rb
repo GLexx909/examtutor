@@ -39,4 +39,8 @@ module ControllerHelpers
   def course_params_invalid
     { course: attributes_for(:course, :invalid) }
   end
+
+  def course_params_new
+    { course: { title: 'new_title' } }
+  end
 end

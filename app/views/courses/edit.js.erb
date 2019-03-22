@@ -1,1 +1,1 @@
-$('.course__form-edit').html('<%= j render 'form_edit', course: @course %>');
+$('.course__form-edit-' + <%= @course.id %>).html('<%= j render 'form_edit', course: @course %>');

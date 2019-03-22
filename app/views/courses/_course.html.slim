@@ -1,6 +1,7 @@
 / - if current_user.course
-= course.title
+div class="course-#{course.id}"
+  = course.title
 
-- if can?(:update, Course)
-  = button_to 'Редактировать', edit_course_path(course), remote: true
-  .course__form-edit
+  - if can?(:update, Course)
+    = button_to 'Редактировать', edit_course_path(course), remote: true, method: :get
+    .course__form-edit class="course__form-edit-#{course.id}"
