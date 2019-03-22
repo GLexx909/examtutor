@@ -10,6 +10,8 @@ RSpec.describe Ability do
     it { should_not be_able_to :tutor_index, Post }
     it { should_not be_able_to :read, Post }
     it { should be_able_to :guests_index, Post }
+
+    it { should_not be_able_to :read, Course }
   end
 
   describe 'for admin' do
@@ -39,5 +41,7 @@ RSpec.describe Ability do
 
     it { should be_able_to :read, User }
     it { should be_able_to :update, User, user.id }
+
+    it { should be_able_to :read, Course }
   end
 end
