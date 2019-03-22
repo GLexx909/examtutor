@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    models:
+      post: 'Post'
+    attributes:
+      post:
+        title: 'Title'
+        body: 'Body of Post'
+    errors:
+      messages:
+        blank: "can't be blank"
+        required: 'non-optional association'
+        not_a_number: 'must be number'

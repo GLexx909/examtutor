@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    models:
+      user: "Пользователь"
+      post: 'Пост'
+    attributes:
+      user:
+        first_name: 'Имя'
+        last_name: "Фамилия"
+        email: "Почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+      post:
+        title: 'Заголовок'
+        body: 'Тело поста'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+        required: 'не выбрана'
+        not_a_number: 'должен быть числом'

@@ -1,0 +1,29 @@
+ru:
+  initials:
+    index:
+      title: 'Это надпись на русском языке'
+
+  devise:
+    confirmations:
+      new:
+        header: "Отправить инструкции по подтверждению "
+    registrations:
+      new:
+        header: "Регистрация"
+    sessions:
+      new:
+        header: "Вход"
+        remember_me: "Запомнить меня"
+        log_in: 'Войти'
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+    nav:
+      signout: "Выйти"
+      signup: "Регистрация"
+      login: "Войти"

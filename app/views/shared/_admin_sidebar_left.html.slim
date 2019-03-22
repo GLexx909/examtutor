@@ -1,0 +1,11 @@
+.container-fluid.pl-0.admin-sidebar-left
+  .row
+    .col-auto.admin-sidebar-left__small
+      .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24')
+
+    .col-auto.admin-sidebar-left__full.hidden
+      p = link_to 'Создать одноразовый пароль', new_admin_one_time_password_path, remote: true, class: 'link-call-password-form'
+      p = link_to 'Посты для гостей', guests_index_posts_path
+      p = link_to 'Все посты', posts_path
+      p = link_to 'Все посты', posts_path
+

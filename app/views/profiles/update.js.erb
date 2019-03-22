@@ -1,0 +1,6 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @user %>');
+
+<% if !@user.errors.present? %>
+  $('.profile-info').html('<%= @user.full_name %>');
+  $('.profile-edit-form').hide(300);
+<% end %>

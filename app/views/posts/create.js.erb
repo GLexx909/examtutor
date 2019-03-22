@@ -1,0 +1,8 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @post %>');
+
+<% if !@post.errors.present? %>
+  $('.card-deck').prepend('<%= j render @post %>');
+  $('.post-form__fields input').val('');
+  tinyMCE.activeEditor.setContent('');
+  $('.post-form__fields').hide(300)
+<% end %>

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title
+      | Examtutor
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.ico'
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+  body
+    .base-space
+      = render 'shared/nav'
+      .flash-block
+        = render_flash
+      .container.mt-5vh
+        = render 'shared/sidebar_left' if can?(:read, User)
+        = render 'shared/admin_sidebar_left' if can?(:manage, :all)
+        = yield

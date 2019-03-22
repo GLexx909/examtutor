@@ -1,0 +1,17 @@
+.div class="post-#{@post.id}"
+  b = @post.title
+  p = @post.body.html_safe
+
+- if can?(:update, @post)
+  .post-edit-form
+    .post-form
+      = button_tag 'Редактировать пост', class: 'btn btn-secondary btn-sm post-form__button-show'
+      .post-form__fields
+        = form_with model: @post, method: :patch, url: post_path(@post) do |f|
+          .field
+            = f.text_field :title, class: 'form-control', placeholder: 'Введите заголовок поста'
+          .field
+            = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
+            = tinymce content_css: asset_path('application.css')
+          .submit
+            = f.submit 'Опубликовать', class: 'btn btn-success'

@@ -1,0 +1,15 @@
+.profile-info
+  = @user.full_name
+
+= button_tag 'Редактировать', class: 'profile-edit-form__button'
+
+.profile-edit-form.hidden
+  = form_with model: @user, method: :patch, url: profile_path(@user), class: 'profile-edit-form__fields' do |f|
+    .field
+      = f.text_field :first_name
+    .field
+      = f.text_field :last_name
+    .field
+      = f.text_field :email
+    .submit
+      = f.submit 'Сохранить изменения'
