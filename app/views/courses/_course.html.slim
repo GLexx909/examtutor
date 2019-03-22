@@ -1,6 +1,6 @@
 / - if current_user.course
 = course.title
 
-= button_to 'Редактировать', edit_course_path(course), remote: true
-
-.course__form-edit
+- if can?(:update, Course)
+  = button_to 'Редактировать', edit_course_path(course), remote: true
+  .course__form-edit

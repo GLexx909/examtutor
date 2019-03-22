@@ -1,1 +1,6 @@
-= render @courses
+- if can?(:create, Course)
+  = button_to 'Создать новый курс', new_course_path, method: :get, remote: true
+  .course__new-form
+
+.courses-list
+  = render @courses

@@ -31,4 +31,12 @@ module ControllerHelpers
   def user_params_new
     { user: { first_name: 'new_first_name', last_name: 'new_last_name' } }
   end
+
+  def course_params
+    { course: attributes_for(:course) }
+  end
+
+  def course_params_invalid
+    { course: attributes_for(:course, :invalid) }
+  end
 end

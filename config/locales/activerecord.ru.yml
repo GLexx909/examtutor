@@ -3,6 +3,7 @@ ru:
     models:
       user: "Пользователь"
       post: 'Пост'
+      course: 'Курс'
     attributes:
       user:
         first_name: 'Имя'
@@ -13,6 +14,8 @@ ru:
       post:
         title: 'Заголовок'
         body: 'Тело поста'
+      course:
+        title: 'Заголовок'
     errors:
       messages:
         blank: 'не может быть пустым'

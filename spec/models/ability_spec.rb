@@ -25,6 +25,7 @@ RSpec.describe Ability do
     let(:user_other)  { create :user }
     let(:post)        { create :post, author: user }
     let(:post_other)  { create :post, author: user_other}
+    let(:course)      { create :course }
 
     it { should_not be_able_to :manage, :all }
 
@@ -43,5 +44,7 @@ RSpec.describe Ability do
     it { should be_able_to :update, User, user.id }
 
     it { should be_able_to :read, Course }
+    it { should_not be_able_to :create, Course }
+    it { should_not be_able_to :update, Course, course.id }
   end
 end
