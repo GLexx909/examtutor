@@ -1,0 +1,2 @@
+class CoursePassage < ApplicationRecord
+end
