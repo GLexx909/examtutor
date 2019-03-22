@@ -1,8 +1,8 @@
-/ - if current_user.course
-div class="course-#{course.id}"
-  = course.title
+- if current_user.have_course?(course)
+  div class="course-#{course.id}"
+    = course.title
 
-  - if can?(:update, Course)
-    = button_to 'Редактировать', edit_course_path(course), remote: true, method: :get
-    = button_to 'Удалить курс', course_path(course), remote: true, method: :delete
-    .course__form-edit class="course__form-edit-#{course.id}"
+    - if can?(:update, Course)
+      = button_to 'Редактировать', edit_course_path(course), remote: true, method: :get
+      = button_to 'Удалить курс', course_path(course), remote: true, method: :delete
+      .course__form-edit class="course__form-edit-#{course.id}"
