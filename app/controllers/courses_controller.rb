@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :course, only: [:new, :edit, :update]
+  before_action :course, only: [:new, :edit, :update, :destroy]
 
   authorize_resource
 
@@ -22,11 +22,15 @@ class CoursesController < ApplicationController
     @course.update(course_params)
   end
 
-  def course
-    @course ||= params[:id] ? Course.find(params[:id]) : Course.new
+  def destroy
+    @course.destroy
   end
 
   private
+
+  def course
+    @course ||= params[:id] ? Course.find(params[:id]) : Course.new
+  end
 
   def course_params
     params.require(:course).permit(:title)

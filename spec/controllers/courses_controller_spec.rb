@@ -68,4 +68,22 @@ RSpec.describe CoursesController, type: :controller do
       it_behaves_like 'To not change the object attributes title body', let(:params) { course_params_invalid }, let(:object) { course }
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:user) { create :user }
+    let!(:admin) { create :user, admin: true }
+
+    context 'Admin' do
+      before { login(admin) }
+
+      it_behaves_like 'To delete the object', let(:object) { course }, let(:object_class) { Course }
+      it_behaves_like 'To render destroy.js view', let(:resource) { course }
+    end
+
+    context 'Not Admin' do
+      before { login(user) }
+
+      it_behaves_like 'To not delete the object', let(:object) { course }, let(:object_class) { Course }
+    end
+  end
 end
