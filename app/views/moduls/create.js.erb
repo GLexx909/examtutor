@@ -1,0 +1,6 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @modul %>');
+
+<% if !@modul.errors.present? %>
+  $('.moduls-list').append('<%= j render 'moduls/modul', modul: @modul  %>')
+  $('.modul__new-form').html('')
+<% end %>

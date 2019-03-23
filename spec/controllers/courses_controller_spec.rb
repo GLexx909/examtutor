@@ -44,6 +44,7 @@ RSpec.describe CoursesController, type: :controller do
     end
 
     it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'course'}, let(:resource) { course }
+    it_behaves_like 'To render edit view'
   end
 
   describe 'PATCH #update' do
@@ -65,7 +66,7 @@ RSpec.describe CoursesController, type: :controller do
       before { login(user) }
       let!(:course) { create :course, title: 'MyTitle' }
 
-      it_behaves_like 'To not change the object attributes title body', let(:params) { course_params_invalid }, let(:object) { course }
+      it_behaves_like 'To not change the object attributes title body', let(:params) { course_params}, let(:object) { course }
     end
   end
 

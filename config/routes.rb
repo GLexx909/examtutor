@@ -11,8 +11,15 @@ Rails.application.routes.draw do
 
   resources :initials, only: [:new, :create]
   resources :profiles
-  resources :courses
+
+  resources :courses, shallow: true do
+    resources :moduls do
+    end
+  end
+
   resources :course_passages, only: [:new, :create]
+  resources :modul_passages, only: [:create]
+
 
   resources :posts do
     get :tutor_index, on: :collection

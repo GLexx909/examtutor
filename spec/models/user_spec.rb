@@ -9,6 +9,8 @@ RSpec.describe User, type: :model do
   it { should have_many(:posts).dependent(:destroy) }
   it { should have_many(:courses).through(:course_passages) }
   it { should have_many(:course_passages).dependent(:destroy) }
+  it { should have_many(:moduls).through(:modul_passages) }
+  it { should have_many(:modul_passages).dependent(:destroy) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }

@@ -35,7 +35,7 @@ feature 'Admin only can create course', %q{
     expect(page).to_not have_button "Создать новый курс"
   end
 
-  scenario 'Unauthenticated user tries to create an answer' do
+  scenario 'Unauthenticated user tries to create an course' do
     visit posts_path
     expect(page).to_not have_button('Написать пост')
   end

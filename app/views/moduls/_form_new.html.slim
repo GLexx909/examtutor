@@ -1,0 +1,7 @@
+.modul-form
+  .modul-form__fields
+    = form_with model: [course, modul], method: :post, url: course_moduls_path(course) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .submit
+        = f.submit 'Создать модуль', class: 'btn btn-success'
