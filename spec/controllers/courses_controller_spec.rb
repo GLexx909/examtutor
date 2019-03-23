@@ -15,6 +15,16 @@ RSpec.describe CoursesController, type: :controller do
     it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'courses'}, let(:resource) { Course.all }
   end
 
+  describe 'GET #show' do
+    before(:each) do
+      login(user)
+      get :show, params: { id: course }
+    end
+
+    it_behaves_like 'To render show view'
+    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'course'}, let(:resource) { course }
+  end
+
   describe 'POST #create' do
     context 'Admin create course' do
       before { login(admin) }

@@ -48,6 +48,16 @@ RSpec.describe ModulsController, type: :controller do
     it_behaves_like 'To render edit view'
   end
 
+  describe 'GET #show' do
+    before(:each) do
+      login(user)
+      get :show, params: { id: modul }
+    end
+
+    it_behaves_like 'To render show view'
+    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'modul'}, let(:resource) { modul }
+  end
+
   describe 'PATCH #update' do
     context 'with valid attributes' do
       before { login(admin) }

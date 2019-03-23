@@ -1,0 +1,9 @@
+h1 = @modul.title
+
+/ - if can?(:create, Modul)
+/   = button_to 'Создать новый модуль', new_course_modul_path(@course), method: :get, remote: true
+/   .modul__new-form
+/
+/ .moduls-list
+/   = render @course.moduls
+
