@@ -46,5 +46,7 @@ RSpec.describe Ability do
     it { should be_able_to :read, Course }
     it { should_not be_able_to :create, Course }
     it { should_not be_able_to :update, Course, course.id }
+
+    it { should_not be_able_to :create, CoursePassage }
   end
 end

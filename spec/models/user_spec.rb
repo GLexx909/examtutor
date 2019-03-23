@@ -14,7 +14,8 @@ RSpec.describe User, type: :model do
   let!(:user_other) { create :user }
   let!(:admin) { create :user, admin: true }
   let!(:post)       { create :post, author: user }
-
+  let!(:course) { create :course }
+  let!(:course_passage) { create :course_passage, user: user, course: course }
 
   describe 'User.author_or_admin_of? check' do
     it 'is user the author of resource' do
@@ -39,6 +40,12 @@ RSpec.describe User, type: :model do
   describe 'User.full_name check' do
     it 'return full user name' do
       expect(user.full_name).to eq 'John Doe'
+    end
+  end
+
+  describe 'User#have_course?(course) check' do
+    it 'return course passage' do
+      expect(user.have_course?(course)).to eq course_passage
     end
   end
 end

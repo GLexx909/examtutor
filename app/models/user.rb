@@ -20,4 +20,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def have_course?(course)
+    course_passages.find_by(course_id: course)
+  end
 end
