@@ -1,1 +1,7 @@
-p = modul.title
+div class="modul-#{modul.id}"
+  = link_to modul.title, modul_path(modul)
+
+  - if can?(:update, modul)
+    = button_to 'Редактировать', edit_modul_path(modul), remote: true, method: :get
+    = button_to 'Удалить модуль', modul_path(modul), remote: true, method: :delete
+    .modul__form-edit class="modul__form-edit-#{modul.id}"
