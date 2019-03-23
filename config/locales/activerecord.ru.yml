@@ -4,6 +4,7 @@ ru:
       user: "Пользователь"
       post: 'Пост'
       course: 'Курс'
+      modul: 'Модуль'
     attributes:
       user:
         first_name: 'Имя'
@@ -15,6 +16,8 @@ ru:
         title: 'Заголовок'
         body: 'Тело поста'
       course:
+        title: 'Заголовок'
+      modul:
         title: 'Заголовок'
     errors:
       messages:

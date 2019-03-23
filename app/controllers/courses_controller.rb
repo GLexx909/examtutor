@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :course, only: [:new, :edit, :update, :destroy]
+  before_action :course, only: [:new, :show,:edit, :update, :destroy]
 
   authorize_resource
 
@@ -9,6 +9,9 @@ class CoursesController < ApplicationController
   end
 
   def new
+  end
+
+  def show
   end
 
   def create

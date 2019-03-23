@@ -12,6 +12,7 @@ RSpec.describe Ability do
     it { should be_able_to :guests_index, Post }
 
     it { should_not be_able_to :read, Course }
+    it { should_not be_able_to :read, Modul }
   end
 
   describe 'for admin' do
@@ -26,6 +27,7 @@ RSpec.describe Ability do
     let(:post)        { create :post, author: user }
     let(:post_other)  { create :post, author: user_other}
     let(:course)      { create :course }
+    let(:modul)       { create :modul, course: course }
 
     it { should_not be_able_to :manage, :all }
 
@@ -46,7 +48,11 @@ RSpec.describe Ability do
     it { should be_able_to :read, Course }
     it { should_not be_able_to :create, Course }
     it { should_not be_able_to :update, Course, course.id }
-
     it { should_not be_able_to :create, CoursePassage }
+
+    it { should be_able_to :read, Modul }
+    it { should_not be_able_to :create, Modul }
+    it { should_not be_able_to :update, Modul, modul.id }
+    it { should_not be_able_to :create, ModulPassage }
   end
 end

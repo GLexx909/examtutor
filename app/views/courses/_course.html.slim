@@ -1,6 +1,6 @@
-- if current_user.have_course?(course) || current_user.admin?
+- if current_user.have_course?(course) || can?(:delete, course)
   div class="course-#{course.id}"
-    = course.title
+    = link_to course.title, course_path(course)
 
     - if can?(:update, Course)
       = button_to 'Редактировать', edit_course_path(course), remote: true, method: :get

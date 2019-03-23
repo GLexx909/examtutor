@@ -1,6 +1,9 @@
 FactoryBot.define do
   factory :modul do
-    title { "MyString" }
-    status { false }
+    title { "ModulTitle" }
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end
