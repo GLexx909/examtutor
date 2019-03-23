@@ -1,10 +1,13 @@
 class ModulsController < ApplicationController
   before_action :authenticate_user!
-  before_action :modul, only: [:new, :edit]
+  before_action :modul, only: [:new, :show, :edit]
 
   authorize_resource
 
   def new
+  end
+
+  def show
   end
 
   def create

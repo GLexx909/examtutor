@@ -1,0 +1,9 @@
+h1 = @modul.title
+
+- if can?(:create, Topic)
+  = button_to 'Создать новую тему', new_modul_topic_path(@modul), method: :get, remote: true
+  .topic__new-form
+
+.topics-list
+  = render @modul.topics
+

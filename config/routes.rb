@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :courses, shallow: true do
     resources :moduls do
+      resources :topics do
+      end
     end
   end
 

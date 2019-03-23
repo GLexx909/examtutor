@@ -1,0 +1,10 @@
+.topic__form-edit
+  .topic__form-edit__fields
+    = form_with model: topic, method: :patch, url: topic_path(topic) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .field
+        = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
+        = tinymce content_css: asset_path('application.css')
+      .submit
+        = f.submit 'Сохранить изменения', class: 'btn btn-success'

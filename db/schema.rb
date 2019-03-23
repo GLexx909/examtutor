@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_23_071815) do
+ActiveRecord::Schema.define(version: 2019_03_23_122813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_071815) do
   create_table "modul_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "modul_id"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["modul_id"], name: "index_modul_passages_on_modul_id"
@@ -64,6 +64,25 @@ ActiveRecord::Schema.define(version: 2019_03_23_071815) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "topic_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_topic_passages_on_topic_id"
+    t.index ["user_id"], name: "index_topic_passages_on_user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.bigint "modul_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modul_id"], name: "index_topics_on_modul_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -86,4 +105,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_071815) do
   add_foreign_key "modul_passages", "moduls"
   add_foreign_key "modul_passages", "users"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "topic_passages", "topics"
+  add_foreign_key "topic_passages", "users"
+  add_foreign_key "topics", "moduls"
 end
