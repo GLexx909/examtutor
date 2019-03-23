@@ -55,4 +55,16 @@ module ControllerHelpers
   def modul_params_new(course)
     { modul: { title: 'new_title' }, course_id: course }
   end
+
+  def topic_params(modul)
+    { topic: attributes_for(:topic), modul_id: modul }
+  end
+
+  def topic_params_invalid(modul)
+    { topic: attributes_for(:topic, :invalid), modul_id: modul }
+  end
+
+  def topic_params_new(modul)
+    { topic: { title: 'new_title', body: 'new_body' }, modul_id: modul }
+  end
 end

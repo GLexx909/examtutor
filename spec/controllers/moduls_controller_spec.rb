@@ -17,7 +17,7 @@ RSpec.describe ModulsController, type: :controller do
   end
 
   describe 'POST #create' do
-    context 'Admin create course' do
+    context 'Admin create modul' do
       before { login(admin) }
       context 'with valid attributes' do
         it_behaves_like 'To save a new object', let(:params) { modul_params(course) }, let(:object_class) { Modul }
@@ -30,7 +30,7 @@ RSpec.describe ModulsController, type: :controller do
       end
     end
 
-    context 'Not admin create course' do
+    context 'Not admin create modul' do
       before { login(user) }
       context 'with valid attributes' do
         it_behaves_like 'To does not save a new object', let(:params) { modul_params(course) }, let(:object_class) { Modul }

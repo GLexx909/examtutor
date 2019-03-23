@@ -33,6 +33,7 @@ feature 'Admin only can create modul', %q{
   end
 
   scenario 'User can not create modul' do
+    visit course_path(course)
     expect(page).to_not have_button "Создать новый модуль"
   end
 

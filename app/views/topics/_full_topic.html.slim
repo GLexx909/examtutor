@@ -1,0 +1,9 @@
+.topic
+  - if can?(:update, @topic)
+    = button_to 'Редактировать', edit_topic_path(@topic), remote: true, method: :get
+    = button_to 'Удалить topic', topic_path(@topic), remote: true, method: :delete
+
+    h1 = @topic.title
+    = @topic.body.html_safe
+
+    .topic__form-edit class="topic__form-edit-#{@topic.id}"

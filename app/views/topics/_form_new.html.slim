@@ -1,0 +1,10 @@
+.topic-form
+  .topic-form__fields
+    = form_with model: [modul, topic], method: :post, url: modul_topics_path(modul) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .field
+        = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
+        = tinymce content_css: asset_path('application.css')
+      .submit
+        = f.submit 'Создать тему', class: 'btn btn-success'

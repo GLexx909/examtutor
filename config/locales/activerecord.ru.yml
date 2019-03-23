@@ -5,6 +5,7 @@ ru:
       post: 'Пост'
       course: 'Курс'
       modul: 'Модуль'
+      topic: 'Тема'
     attributes:
       user:
         first_name: 'Имя'
@@ -19,6 +20,9 @@ ru:
         title: 'Заголовок'
       modul:
         title: 'Заголовок'
+      topic:
+        title: 'Заголовок'
+        body: 'Тело темы'
     errors:
       messages:
         blank: 'не может быть пустым'
