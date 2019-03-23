@@ -1,4 +1,4 @@
-- if current_user.have_course?(course)
+- if current_user.have_course?(course) || current_user.admin?
   div class="course-#{course.id}"
     = course.title
 

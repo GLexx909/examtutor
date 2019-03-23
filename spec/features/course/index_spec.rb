@@ -7,6 +7,9 @@ feature 'User can see his courses list', %q{
 
   given!(:user) { create(:user) }
   given!(:courses) { create_list :course, 3 }
+  given!(:course_passage) { create :course_passage, user: user, course: courses[0] }
+  given!(:course_passage) { create :course_passage, user: user, course: courses[1] }
+  given!(:course_passage) { create :course_passage, user: user, course: courses[2] }
 
   scenario 'User can see questions list' do
     sign_in(user)

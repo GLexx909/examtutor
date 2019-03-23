@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
   has_many :courses, through: :course_passages
   has_many :course_passages, dependent: :destroy
+  has_many :moduls, through: :modul_passages
+  has_many :modul_passages, dependent: :destroy
 
   scope :not_admin, -> { where(admin: false) }
 
