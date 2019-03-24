@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :modul_passages, dependent: :destroy
   has_many :topics, through: :topic_passages
   has_many :topic_passages, dependent: :destroy
+  has_many :essays, through: :essay_passages
+  has_many :essay_passages, dependent: :destroy
 
   scope :not_admin, -> { where(admin: false) }
 

@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :essay_passage do
     user { nil }
     essay { nil }
-    body { "MyString" }
-    tutor_note { "MyString" }
-    status { "MyString" }
+    body { "EssayBody" }
+    tutor_note { "EssayTutorNote" }
+    status { "false" }
   end
 end

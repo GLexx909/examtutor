@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(version: 2019_03_24_054240) do
 
   create_table "essays", force: :cascade do |t|
     t.string "title", null: false
+    t.bigint "modul_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["modul_id"], name: "index_essays_on_modul_id"
   end
 
   create_table "modul_passages", force: :cascade do |t|

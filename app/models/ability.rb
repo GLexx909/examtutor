@@ -23,14 +23,13 @@ class Ability
 
   def user_abilities
     guest_abilities
-    can :read, [Post, User, Course, Modul, Topic]
+    can :read, [Post, User, Course, Modul, Topic, Essay]
     can :tutor_index, Post
     can :own_index, Post
     can :create, [Post]
-    can :update, [Post], author_id: user.id
+    can :update, [Post, EssayPassage], author_id: user.id
     can :destroy, [Post], author_id: user.id
 
-    can :edit, [User], id: user.id
     can :update, [User], id: user.id
   end
 end
