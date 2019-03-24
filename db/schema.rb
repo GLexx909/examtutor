@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_085404) do
+ActiveRecord::Schema.define(version: 2019_03_24_121119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 2019_03_24_085404) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.bigint "test_id"
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
   create_table "test_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "test_id"
@@ -145,6 +153,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_085404) do
   add_foreign_key "modul_passages", "moduls"
   add_foreign_key "modul_passages", "users"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "moduls"

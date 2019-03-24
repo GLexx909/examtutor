@@ -1,0 +1,7 @@
+.question-form
+  .question-form__fields
+    = form_with model: [test, question], method: :post, url: test_questions_path(test) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .submit
+        = f.submit 'Создать вопрос', class: 'btn btn-success'

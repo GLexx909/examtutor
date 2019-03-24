@@ -15,6 +15,8 @@ RSpec.describe Ability do
     it { should_not be_able_to :read, Modul }
     it { should_not be_able_to :read, Topic }
     it { should_not be_able_to :read, Essay }
+    it { should_not be_able_to :read, Test }
+    it { should_not be_able_to :read, Question }
   end
 
   describe 'for admin' do
@@ -33,6 +35,8 @@ RSpec.describe Ability do
     let(:topic)       { create :topic, modul: modul }
     let(:essay)       { create :essay, modul: modul }
     let(:essay_passage){ create :essay_passage, essay: essay, user: user }
+    let(:test)        { create :test, modul: modul }
+    let(:question)    { create :question, test: test }
 
     it { should_not be_able_to :manage, :all }
 
@@ -68,5 +72,13 @@ RSpec.describe Ability do
     it { should_not be_able_to :create, Essay }
     it { should_not be_able_to :update, Essay, essay.id }
     it { should be_able_to :update, EssayPassage, essay_passage.id }
+
+    it { should be_able_to :read, Test }
+    it { should_not be_able_to :create, Test }
+    it { should_not be_able_to :update, Test, test.id }
+
+    it { should be_able_to :read, Question }
+    it { should_not be_able_to :create, Question }
+    it { should_not be_able_to :update, Question, question.id }
   end
 end
