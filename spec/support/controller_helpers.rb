@@ -67,4 +67,16 @@ module ControllerHelpers
   def topic_params_new(modul)
     { topic: { title: 'new_title', body: 'new_body' }, modul_id: modul }
   end
+
+  def essay_params(modul)
+    { essay: attributes_for(:essay), modul_id: modul }
+  end
+
+  def essay_params_invalid(modul)
+    { essay: attributes_for(:essay, :invalid), modul_id: modul }
+  end
+
+  def essay_params_new(modul)
+    { essay: { title: 'new_title' }, modul_id: modul }
+  end
 end

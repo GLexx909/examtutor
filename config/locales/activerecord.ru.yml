@@ -25,7 +25,7 @@ ru:
         title: 'Заголовок'
         body: 'Тело темы'
       essay:
-        body: 'Тело эссе'
+        title: 'Заголовок'
     errors:
       messages:
         blank: 'не может быть пустым'
