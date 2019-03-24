@@ -1,0 +1,7 @@
+.essay__form-edit
+  .essay__form-edit__fields
+    = form_with model: essay, method: :patch, url: essay_path(essay) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .submit
+        = f.submit 'Сохранить изменения', class: 'btn btn-success'

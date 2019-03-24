@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :moduls do
       resources :topics do
       end
+      resources :essays do
+      end
     end
   end
 
