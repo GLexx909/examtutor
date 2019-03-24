@@ -1,6 +1,10 @@
 FactoryBot.define do
   factory :test do
-    title { "MyString" }
+    title { "TestTitle" }
     modul { nil }
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end

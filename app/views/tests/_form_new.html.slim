@@ -1,0 +1,7 @@
+.test-form
+  .test-form__fields
+    = form_with model: [modul, test], method: :post, url: modul_tests_path(modul) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .submit
+        = f.submit 'Создать тест', class: 'btn btn-success'

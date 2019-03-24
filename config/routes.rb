@@ -14,10 +14,9 @@ Rails.application.routes.draw do
 
   resources :courses, shallow: true do
     resources :moduls do
-      resources :topics do
-      end
-      resources :essays do
-      end
+      resources :topics
+      resources :essays
+      resources :tests
     end
   end
 

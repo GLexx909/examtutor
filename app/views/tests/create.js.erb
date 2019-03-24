@@ -1,0 +1,6 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @test %>');
+
+<% if !@test.errors.present? %>
+  $('.tests-list').append('<%= j render 'tests/test', test: @test  %>')
+  $('.test__new-form').html('')
+<% end %>
