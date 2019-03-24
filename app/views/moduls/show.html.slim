@@ -4,6 +4,11 @@ h1 = @modul.title
   = button_to 'Создать новую тему', new_modul_topic_path(@modul), method: :get, remote: true
   .topic__new-form
 
+  = button_to 'Создать новое эссе', new_modul_essay_path(@modul), method: :get, remote: true
+  .essay__new-form
+
 .topics-list
   = render @modul.topics
 
+.essays-list
+  = render @modul.essays

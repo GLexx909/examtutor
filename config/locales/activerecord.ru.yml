@@ -6,6 +6,7 @@ ru:
       course: 'Курс'
       modul: 'Модуль'
       topic: 'Тема'
+      essay: 'Эссе'
     attributes:
       user:
         first_name: 'Имя'
@@ -23,6 +24,8 @@ ru:
       topic:
         title: 'Заголовок'
         body: 'Тело темы'
+      essay:
+        title: 'Заголовок'
     errors:
       messages:
         blank: 'не может быть пустым'

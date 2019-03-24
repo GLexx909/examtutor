@@ -27,7 +27,7 @@ RSpec.describe TopicsController, type: :controller do
       end
 
       context 'with invalid attributes' do
-        it_behaves_like 'To does not save a new object', let(:params) { topic_params_invalid(modul) }, let(:object_class) { Modul }
+        it_behaves_like 'To does not save a new object', let(:params) { topic_params_invalid(modul) }, let(:object_class) { Topic }
         it_behaves_like 'To render create.js view'
       end
     end
@@ -35,7 +35,7 @@ RSpec.describe TopicsController, type: :controller do
     context 'Not admin create topic' do
       before { login(user) }
       context 'with valid attributes' do
-        it_behaves_like 'To does not save a new object', let(:params) { topic_params(modul) }, let(:object_class) { Modul }
+        it_behaves_like 'To does not save a new object', let(:params) { topic_params(modul) }, let(:object_class) { Topic }
       end
     end
   end
