@@ -7,5 +7,7 @@ RSpec.describe Modul, type: :model do
   it { should have_many(:modul_passages).dependent(:destroy) }
   it { should have_many(:topics) }
   it { should have_many(:essays) }
+  it { should have_many(:tests) }
+
   it { should belong_to(:course) }
 end

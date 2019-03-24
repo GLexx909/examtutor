@@ -1,0 +1,7 @@
+.test__form-edit
+  .test__form-edit__fields
+    = form_with model: test, method: :patch, url: test_path(test) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .submit
+        = f.submit 'Сохранить изменения', class: 'btn btn-success'

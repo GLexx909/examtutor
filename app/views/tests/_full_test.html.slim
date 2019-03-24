@@ -1,0 +1,8 @@
+.test
+  - if can?(:update, @essay)
+    = button_to 'Редактировать', edit_test_path(@test), remote: true, method: :get
+    = button_to 'Удалить тест', test_path(@test), remote: true, method: :delete
+
+    h1 = @test.title
+
+    .test__form-edit class="test__form-edit-#{@test.id}"
