@@ -91,4 +91,16 @@ module ControllerHelpers
   def test_params_new(modul)
     { test: { title: 'new_title' }, modul_id: modul }
   end
+
+  def question_params(test)
+    { question: attributes_for(:question), test_id: test }
+  end
+
+  def question_params_invalid(test)
+    { question: attributes_for(:question, :invalid), test_id: test }
+  end
+
+  def question_params_new(test)
+    { question: { title: 'new_title' }, test_id: test }
+  end
 end
