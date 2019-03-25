@@ -4,20 +4,22 @@ class AnswersController < ApplicationController
   authorize_resource
 
   def edit
-    @answer = Answer.find(params[:id])
+    answer
   end
 
   def update
-    @answer = Answer.find(params[:id])
-    @answer.update(answer_params)
+    answer.update(answer_params)
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
-    @answer.destroy
+    answer.destroy
   end
 
   private
+
+  def answer
+    @answer ||= Answer.find(params[:id])
+  end
 
   def answer_params
     params.require(:answer).permit(:body)
