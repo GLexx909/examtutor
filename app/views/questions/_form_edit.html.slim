@@ -1,12 +1,12 @@
 .question-form
   .question-form__fields
-    = form_with model: [test, question], method: :patch, url: question_path(question) do |f|
+    = form_with model: question, method: :patch, url: question_path(question) do |f|
       .field
         = f.text_area :title, :class => "tinymce", :rows => 10, :cols => 120
         = tinymce content_css: asset_path('application.css')
-      p Ответы:
-      p
-        = f.fields_for :answers, @question.answers.build do |l|
+      / p Ответы:
+      / p
+      /   = f.fields_for :answer do |l|
           = render 'answers/answer_fields', f: l
         .links
           = link_to_add_association 'Добавить твет', f, :answers, partial: 'answers/answer_fields'

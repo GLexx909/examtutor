@@ -9,6 +9,8 @@ feature 'Admin only can edit question', %q{
   given!(:modul) { create :modul, course: course  }
   given!(:test) { create :test, modul: modul }
   given!(:question) { create :question, test: test, title: 'QuestionTitle'  }
+  given!(:answer) { create :answer, question: question }
+
 
   describe "Unauthenticated user" do
     scenario 'can not edit question' do

@@ -6,9 +6,9 @@
         = tinymce content_css: asset_path('application.css')
       p Ответы:
       p
-        = f.fields_for :answers, @question.answers.build do |l|
+        = f.fields_for :answer do |l|
           = render 'answers/answer_fields', f: l
-        .links
-          = link_to_add_association 'Добавить твет', f, :answers, partial: 'answers/answer_fields'
+        / .links
+          = link_to_add_association 'Добавить ответ', f, :answers, partial: 'answers/answer_fields'
       .submit
         = f.submit 'Создать вопрос', class: 'btn btn-success'

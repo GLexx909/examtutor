@@ -1,12 +1,11 @@
 div class="question-#{question.id}"
   h3 = question.title.html_safe
 
-  - question.answers.each do |answer|
-    div class="answer-#{answer.id}"
-      p = answer.body
-      = link_to 'Удалить ответ', answer_path(answer), method: :delete, remote: true
-      = link_to 'Редактировать ответ', edit_answer_path(answer), method: :get, remote: true
-      div class="answer__form-edit-#{answer.id}"
+  div class="answer-#{question.answer.id}"
+    p = question.answer.body
+    / = link_to 'Удалить ответ', answer_path(question.answer), method: :delete, remote: true
+    = link_to 'Редактировать ответ', edit_answer_path(question.answer), method: :get, remote: true
+    div class="answer__form-edit-#{question.answer.id}"
 
   - if can?(:update, question)
     = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get

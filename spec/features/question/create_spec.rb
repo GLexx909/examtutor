@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin only can create test', %q{
+feature 'Admin only can create question', %q{
 } do
 
   given!(:admin) {create(:user, admin: true) }
@@ -19,6 +19,8 @@ feature 'Admin only can create test', %q{
       click_on 'Создать новый вопрос'
 
       tinymce_fill_in('question_title', 'QuestionTitle')
+      fill_in 'question[answer_attributes][body]', with: 'AnswerBody'
+
       click_on 'Создать вопрос'
 
       expect(page).to have_content 'QuestionTitle'

@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   authorize_resource
 
   def new
-    question.answers.new
+    question.build_answer
   end
 
   def create
@@ -34,6 +34,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, answers_attributes: [:id, :body, :correct, :_destroy])
+    params.require(:question).permit(:title, answer_attributes: [:id, :body, :correct, :_destroy])
   end
 end

@@ -9,6 +9,7 @@ feature 'Admin only can delete question', %q{
   given!(:modul) { create :modul, course: course }
   given!(:test) { create :test, modul: modul }
   given!(:question) { create :question, test: test, title: 'QuestionTitle' }
+  given!(:answer) { create :answer, question: question }
 
   describe 'Admin' do
     background do
