@@ -18,7 +18,7 @@ feature 'Admin only can create test', %q{
     scenario 'create a question', js: true do
       click_on 'Создать новый вопрос'
 
-      fill_in 'question[title]', with: 'QuestionTitle'
+      tinymce_fill_in('question_title', 'QuestionTitle')
       click_on 'Создать вопрос'
 
       expect(page).to have_content 'QuestionTitle'

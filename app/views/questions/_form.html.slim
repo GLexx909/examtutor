@@ -2,7 +2,8 @@
   .question-form__fields
     = form_with model: [test, question], method: :post, url: test_questions_path(test) do |f|
       .field
-        = f.text_field :title, class:'form-control'
+        = f.text_area :title, :class => "tinymce", :rows => 10, :cols => 120
+        = tinymce content_css: asset_path('application.css')
       p Ответы:
       p
         = f.fields_for :answers, @question.answers.build do |l|
