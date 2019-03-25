@@ -5,5 +5,7 @@ RSpec.describe Test, type: :model do
 
   it { should have_many(:users).through(:test_passages) }
   it { should have_many(:test_passages).dependent(:destroy) }
+  it { should have_many(:questions).dependent(:destroy) }
+
   it { should belong_to(:modul) }
 end

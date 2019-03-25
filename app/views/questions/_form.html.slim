@@ -1,0 +1,13 @@
+.question-form
+  .question-form__fields
+    = form_with model: [test, question], method: :post, url: test_questions_path(test) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      p Ответы:
+      p
+        = f.fields_for :answers, @question.answers.build do |l|
+          = render 'answers/answer_fields', f: l
+        .links
+          = link_to_add_association 'Добавить твет', f, :answers, partial: 'answers/answer_fields'
+      .submit
+        = f.submit 'Создать вопрос', class: 'btn btn-success'

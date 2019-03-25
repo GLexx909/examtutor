@@ -1,5 +1,5 @@
 .test
-  - if can?(:update, @essay)
+  - if can?(:update, @test)
     = button_to 'Редактировать', edit_test_path(@test), remote: true, method: :get
     = button_to 'Удалить тест', test_path(@test), remote: true, method: :delete
 

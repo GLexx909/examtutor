@@ -3,6 +3,14 @@
     = button_to 'Редактировать', edit_test_path(@test), remote: true, method: :get
     = button_to 'Удалить тест', test_path(@test), remote: true, method: :delete
 
-    h1 = @test.title
+  h1 = @test.title
 
-    .test__form-edit class="test__form-edit-#{@test.id}"
+.test__form-edit class="test__form-edit-#{@test.id}"
+
+.question__answers__block
+  - if can?(:create, Question)
+    = button_to 'Создать новый вопрос', new_test_question_path(@test), method: :get, remote: true
+    .question__new-form
+
+.questions-list
+  = render @test.questions
