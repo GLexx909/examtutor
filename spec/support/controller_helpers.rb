@@ -103,4 +103,16 @@ module ControllerHelpers
   def question_params_new(test)
     { question: { title: 'new_title' }, test_id: test }
   end
+
+  def answer_params(question)
+    { answer: attributes_for(:answer), question_id: question }
+  end
+
+  def answer_params_invalid(question)
+    { answer: attributes_for(:answer, :invalid), question_id: question }
+  end
+
+  def answer_params_new(question)
+    { answer: { body: 'new_body' }, question_id: question }
+  end
 end

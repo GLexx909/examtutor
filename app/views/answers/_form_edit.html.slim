@@ -1,0 +1,7 @@
+.answer-form
+  .answer-form__fields
+    = form_with model: answer, method: :patch, url: answer_path(answer) do |f|
+      .field
+        = f.text_field :body, class:'form-control'
+      .submit
+        = f.submit 'Сохранить изменения ответа', class: 'btn btn-success'

@@ -9,6 +9,7 @@ ru:
       essay: 'Эссе'
       test: 'Тест'
       question: 'Вопрос'
+      answer: 'Ответ'
     attributes:
       user:
         first_name: 'Имя'
@@ -32,6 +33,8 @@ ru:
         title: 'Заголовок'
       question:
         title: 'Заголовок'
+      answer:
+        body: 'Тело ответа'
     errors:
       messages:
         blank: 'не может быть пустым'
