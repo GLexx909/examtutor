@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       resources :topics
       resources :essays
       resources :tests do
-        resources :questions
+        resources :questions do
+          resources :answers, only: [:destroy, :edit, :update]
+        end
       end
     end
   end

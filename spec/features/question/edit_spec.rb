@@ -9,6 +9,8 @@ feature 'Admin only can edit question', %q{
   given!(:modul) { create :modul, course: course  }
   given!(:test) { create :test, modul: modul }
   given!(:question) { create :question, test: test, title: 'QuestionTitle'  }
+  given!(:answer) { create :answer, question: question }
+
 
   describe "Unauthenticated user" do
     scenario 'can not edit question' do
@@ -33,10 +35,10 @@ feature 'Admin only can edit question', %q{
 
     click_on 'Редактировать вопрос'
 
-    fill_in 'question[title]', with: 'Question Title New'
+    tinymce_fill_in('question_title', 'Question New Title')
     click_on 'Сохранить изменения'
 
-    expect(page).to have_content 'Question Title New'
+    expect(page).to have_content 'Question New Title'
     expect(page).to_not have_content 'QuestionTitle'
   end
 end
