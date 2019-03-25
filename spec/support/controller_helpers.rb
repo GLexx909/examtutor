@@ -93,15 +93,15 @@ module ControllerHelpers
   end
 
   def question_params(test)
-    { question: attributes_for(:question), test_id: test }
+    { question: attributes_for(:question, answer_attributes: attributes_for(:answer)), test_id: test }
   end
 
   def question_params_invalid(test)
-    { question: attributes_for(:question, :invalid), test_id: test }
+    { question: attributes_for(:question, :invalid, answer_attributes: attributes_for(:answer)), test_id: test }
   end
 
   def question_params_new(test)
-    { question: { title: 'new_title' }, test_id: test }
+    { question: { title: 'new_title', answer_attributes: attributes_for(:answer) }, test_id: test }
   end
 
   def answer_params(question)

@@ -1,10 +1,10 @@
 div class="question-#{question.id}"
-  h3 = question.title.html_safe
+  = question.title.html_safe
 
   div class="answer-#{question.answer.id}"
-    p = question.answer.body
+    = question.answer.body
     / = link_to 'Удалить ответ', answer_path(question.answer), method: :delete, remote: true
-    = link_to 'Редактировать ответ', edit_answer_path(question.answer), method: :get, remote: true
+    p = link_to 'Редактировать ответ', edit_answer_path(question.answer), method: :get, remote: true
     div class="answer__form-edit-#{question.answer.id}"
 
   - if can?(:update, question)

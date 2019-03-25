@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :answer do
     body { "MyString" }
-    correct { false }
+    full_accordance { false }
     question { nil }
 
     trait :invalid do

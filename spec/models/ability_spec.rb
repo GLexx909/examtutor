@@ -83,7 +83,7 @@ RSpec.describe Ability do
     it { should_not be_able_to :create, Question }
     it { should_not be_able_to :update, Question, question.id }
 
-    it { should be_able_to :read, Answer }
+    it { should_not be_able_to :read, Answer }
     it { should_not be_able_to :create, Answer }
     it { should_not be_able_to :update, Answer, answer.id }
   end

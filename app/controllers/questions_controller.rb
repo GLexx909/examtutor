@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = test.questions.create(question_params)
+    @question = test.questions.create(question_params) if params[:question][:answer_attributes][:body]
   end
 
   def edit
@@ -34,6 +34,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, answer_attributes: [:id, :body, :correct, :_destroy])
+    params.require(:question).permit(:title, answer_attributes: [:id, :body, :full_accordance, :_destroy])
   end
 end

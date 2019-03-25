@@ -1,5 +1,5 @@
 $('.flash-block').html('<%= render 'shared/errors', resource: @question %>');
 
 <% if !@question.errors.present? %>
-  $('.question-' + <%= @question.id %>).html('<%= render 'questions/question', question: @question %>')
+  $('.question-' + <%= @question.id %>).html('<%= j render 'questions/question', question: @question %>')
 <% end %>
