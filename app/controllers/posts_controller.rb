@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:guests_index]
   before_action :post, only: [:index, :tutor_index, :own_index, :guests_index, :show]
+  before_action :bread_crumbs, only: [:index, :tutor_index, :own_index]
 
   authorize_resource
 
@@ -47,6 +48,12 @@ class PostsController < ApplicationController
 
   def post
     @post ||= params[:id] ? Post.find(params[:id]) : current_user&.posts&.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Все посты", :posts_path, :title => "Все посты"
+    add_breadcrumb "Посты репетитора", :tutor_index_posts_path, :title => "Все посты репетитора"
+    add_breadcrumb "Мои посты", :own_index_posts_path, :title => "Все мои посты"
   end
 
   def post_params
