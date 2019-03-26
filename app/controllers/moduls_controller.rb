@@ -4,10 +4,13 @@ class ModulsController < ApplicationController
 
   authorize_resource
 
+  add_breadcrumb 'Курсы', :courses_path
+
   def new
   end
 
   def show
+    bread_crumbs
   end
 
   def create
@@ -33,6 +36,11 @@ class ModulsController < ApplicationController
 
   def modul
     @modul ||= params[:id] ? Modul.find(params[:id]) : course.moduls.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Модули", course_path(modul.course), :title => "Модули"
+    add_breadcrumb "Модуль #{modul.title}"
   end
 
   def modul_params

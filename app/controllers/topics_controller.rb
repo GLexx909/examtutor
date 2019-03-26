@@ -4,10 +4,13 @@ class TopicsController < ApplicationController
 
   authorize_resource
 
+  add_breadcrumb "Курсы".html_safe, :courses_path
+
   def new
   end
 
   def show
+    bread_crumbs
   end
 
   def create
@@ -34,6 +37,11 @@ class TopicsController < ApplicationController
 
   def topic
     @topic ||= params[:id] ? Topic.find(params[:id]) : modul.topics.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Модули", course_path(topic.modul.course)
+    add_breadcrumb "Модуль #{topic.modul.title}", modul_path(topic.modul)
   end
 
   def topic_params

@@ -4,10 +4,13 @@ class EssaysController < ApplicationController
 
   authorize_resource
 
+  add_breadcrumb 'Курсы', :courses_path
+
   def new
   end
 
   def show
+    bread_crumbs
   end
 
   def create
@@ -34,6 +37,11 @@ class EssaysController < ApplicationController
 
   def essay
     @essay ||= params[:id] ? Essay.find(params[:id]) : modul.essays.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Модули", course_path(essay.modul.course)
+    add_breadcrumb "Модуль #{essay.modul.title}", modul_path(essay.modul)
   end
 
   def essay_params

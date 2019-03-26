@@ -4,3 +4,5 @@
 
 .card-deck
   = render @posts
+
+= paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"

@@ -15,6 +15,8 @@ html
       .flash-block.alert
         = render_flash
       .container.mt-5vh
+        ol.breadcrumb
+          = render_breadcrumbs tag: :li, separator: "/"
         = render 'shared/sidebar_left' if can?(:read, User)
         = render 'shared/admin_sidebar_left' if can?(:manage, :all)
         = yield

@@ -4,10 +4,13 @@ class TestsController < ApplicationController
 
   authorize_resource
 
+  add_breadcrumb 'Курсы', :courses_path
+
   def new
   end
 
   def show
+    bread_crumbs
   end
 
   def create
@@ -34,6 +37,11 @@ class TestsController < ApplicationController
 
   def test
     @test ||= params[:id] ? Test.find(params[:id]) : modul.tests.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Модули", course_path(test.modul.course)
+    add_breadcrumb "Модуль #{test.modul.title}", modul_path(test.modul)
   end
 
   def test_params

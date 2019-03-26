@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
   before_action :course, only: [:new, :show,:edit, :update, :destroy]
 
   authorize_resource
+  add_breadcrumb "Курсы:", :courses_path, :title => "Все курсы"
 
   def index
     @courses = Course.all
@@ -12,6 +13,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+    bread_crumbs
   end
 
   def create
@@ -33,6 +35,10 @@ class CoursesController < ApplicationController
 
   def course
     @course ||= params[:id] ? Course.find(params[:id]) : Course.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Курс #{course.title}", course_path(course.id)
   end
 
   def course_params
