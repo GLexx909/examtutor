@@ -4,6 +4,7 @@ document.addEventListener('turbolinks:load', function() {
     if(stubElement.length){
         preventDefault();
     }
+
 });
 
 function preventDefault() {
@@ -11,4 +12,3 @@ function preventDefault() {
         e.preventDefault();
     })
 }
-

@@ -15,6 +15,11 @@ document.addEventListener('turbolinks:load', function() {
         slicePostHeader();
         showFullText();
     }
+
+    const cardDesc = $('.card-deck');
+    if(cardDesc.length){
+        removeImage();
+    }
 });
 
 // Show/Hide Post Form by Button
@@ -65,4 +70,10 @@ function showFullText() {
             cardBody.textContent = cardBodyText;
         })
     });
+}
+
+// Remove image tag from Post in card-deck
+function removeImage() {
+    const image = $('.card-deck img');
+    image.remove();
 }
