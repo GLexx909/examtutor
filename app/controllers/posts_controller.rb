@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   authorize_resource
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   def tutor_index

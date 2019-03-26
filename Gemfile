@@ -51,6 +51,9 @@ gem 'rails-i18n'
 
 gem 'tinymce-rails' #redactor
 gem 'cocoon' #nested form
+gem 'kaminari' #pagination
+gem 'bootstrap4-kaminari-views'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
