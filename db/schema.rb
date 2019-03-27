@@ -10,10 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_080500) do
+ActiveRecord::Schema.define(version: 2019_03_24_130234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "body", null: false
+    t.boolean "full_accordance", default: false
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "course_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_course_passages_on_course_id"
+    t.index ["user_id"], name: "index_course_passages_on_user_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "essay_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "essay_id"
+    t.string "body", null: false
+    t.string "tutor_note"
+    t.string "status", default: "false"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["essay_id"], name: "index_essay_passages_on_essay_id"
+    t.index ["user_id"], name: "index_essay_passages_on_user_id"
+  end
+
+  create_table "essays", force: :cascade do |t|
+    t.string "title", null: false
+    t.bigint "modul_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modul_id"], name: "index_essays_on_modul_id"
+  end
+
+  create_table "modul_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "modul_id"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modul_id"], name: "index_modul_passages_on_modul_id"
+    t.index ["user_id"], name: "index_modul_passages_on_user_id"
+  end
+
+  create_table "moduls", force: :cascade do |t|
+    t.string "title"
+    t.bigint "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_moduls_on_course_id"
+  end
 
   create_table "one_time_passwords", force: :cascade do |t|
     t.string "pass_word"
@@ -29,6 +91,51 @@ ActiveRecord::Schema.define(version: 2019_03_11_080500) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_posts_on_author_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "test_id"
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "test_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_test_passages_on_test_id"
+    t.index ["user_id"], name: "index_test_passages_on_user_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "title", null: false
+    t.bigint "modul_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modul_id"], name: "index_tests_on_modul_id"
+  end
+
+  create_table "topic_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_topic_passages_on_topic_id"
+    t.index ["user_id"], name: "index_topic_passages_on_user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.bigint "modul_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modul_id"], name: "index_topics_on_modul_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,5 +157,17 @@ ActiveRecord::Schema.define(version: 2019_03_11_080500) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "essay_passages", "essays"
+  add_foreign_key "essay_passages", "users"
+  add_foreign_key "modul_passages", "moduls"
+  add_foreign_key "modul_passages", "users"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "tests"
+  add_foreign_key "test_passages", "users"
+  add_foreign_key "tests", "moduls"
+  add_foreign_key "topic_passages", "topics"
+  add_foreign_key "topic_passages", "users"
+  add_foreign_key "topics", "moduls"
 end

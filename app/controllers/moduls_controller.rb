@@ -1,0 +1,49 @@
+class ModulsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :modul, only: [:new, :show, :edit]
+
+  authorize_resource
+
+  add_breadcrumb 'Курсы', :courses_path
+
+  def new
+  end
+
+  def show
+    bread_crumbs
+  end
+
+  def create
+    @modul = course.moduls.create(modul_params)
+  end
+
+  def edit
+  end
+
+  def update
+    modul.update(modul_params)
+  end
+
+  def destroy
+    modul.destroy
+  end
+
+  private
+
+  def course
+    @course ||= Course.find(params[:course_id])
+  end
+
+  def modul
+    @modul ||= params[:id] ? Modul.find(params[:id]) : course.moduls.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Модули", course_path(modul.course), :title => "Модули"
+    add_breadcrumb "Модуль #{modul.title}"
+  end
+
+  def modul_params
+    params.require(:modul).permit(:title)
+  end
+end

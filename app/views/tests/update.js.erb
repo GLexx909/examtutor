@@ -1,0 +1,5 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @test %>');
+
+<% if !@test.errors.present? %>
+  $('.test').html('<%= render 'tests/full_test', locale: @test %>')
+<% end %>

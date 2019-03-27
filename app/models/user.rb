@@ -8,6 +8,16 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
+  has_many :courses, through: :course_passages
+  has_many :course_passages, dependent: :destroy
+  has_many :moduls, through: :modul_passages
+  has_many :modul_passages, dependent: :destroy
+  has_many :topics, through: :topic_passages
+  has_many :topic_passages, dependent: :destroy
+  has_many :essays, through: :essay_passages
+  has_many :essay_passages, dependent: :destroy
+  has_many :tests, through: :test_passages
+  has_many :test_passages, dependent: :destroy
 
   scope :not_admin, -> { where(admin: false) }
 
@@ -17,5 +27,9 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def have_course?(course)
+    course_passages.find_by(course_id: course)
   end
 end

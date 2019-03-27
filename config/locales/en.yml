@@ -2,7 +2,15 @@ en:
   initials:
     index:
       title: 'This is the inscription in English'
+      pupil_enter: 'Pupil enter'
+      parent_enter: 'Parent enter'
 
+    modal_pupil_enter:
+      header: 'Sign in / Sign up'
+      log_in: 'Log in'
+      sign_up: 'Sign up'
+      enter_password: 'Enter password'
+      confirm: 'Confirm'
   devise:
     confirmations:
       new:

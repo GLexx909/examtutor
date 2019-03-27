@@ -1,0 +1,50 @@
+class TopicsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :topic, only: [:new, :show, :edit]
+
+  authorize_resource
+
+  add_breadcrumb "Курсы".html_safe, :courses_path
+
+  def new
+  end
+
+  def show
+    bread_crumbs
+  end
+
+  def create
+    @topic = modul.topics.create(topic_params)
+  end
+
+  def edit
+  end
+
+  def update
+    topic.update(topic_params)
+  end
+
+  def destroy
+    topic.destroy
+    redirect_to topic.modul
+  end
+
+  private
+
+  def modul
+    @modul ||= Modul.find(params[:modul_id])
+  end
+
+  def topic
+    @topic ||= params[:id] ? Topic.find(params[:id]) : modul.topics.new
+  end
+
+  def bread_crumbs
+    add_breadcrumb "Модули", course_path(topic.modul.course)
+    add_breadcrumb "Модуль #{topic.modul.title}", modul_path(topic.modul)
+  end
+
+  def topic_params
+    params.require(:topic).permit(:title, :body)
+  end
+end

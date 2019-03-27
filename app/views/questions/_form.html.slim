@@ -1,0 +1,14 @@
+.question-form
+  .question-form__fields
+    = form_with model: [test, question], method: :post, url: test_questions_path(test) do |f|
+      .field
+        = f.text_area :title, :class => "tinymce", :rows => 10, :cols => 120
+        = tinymce content_css: asset_path('application.css')
+      p Ответы:
+      p
+        = f.fields_for :answer do |l|
+          = render 'answers/answer_fields', f: l
+        / .links
+          = link_to_add_association 'Добавить ответ', f, :answers, partial: 'answers/answer_fields'
+      .submit
+        = f.submit 'Создать вопрос', class: 'btn btn-success'

@@ -1,0 +1,7 @@
+.essay-form
+  .essay-form__fields
+    = form_with model: [modul, essay], method: :post, url: modul_essays_path(modul) do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .submit
+        = f.submit 'Создать эссе', class: 'btn btn-success'

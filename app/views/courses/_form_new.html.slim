@@ -1,0 +1,8 @@
+.course-form
+  / = button_tag 'Написать пост', class: 'btn btn-secondary btn-sm post-form__button-show'
+  .course-form__fields
+    = form_with model: course, method: :post, url: courses_path do |f|
+      .field
+        = f.text_field :title, class:'form-control'
+      .submit
+        = f.submit 'Создать', class: 'btn btn-success'

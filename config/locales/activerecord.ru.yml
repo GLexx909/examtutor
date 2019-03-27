@@ -3,6 +3,13 @@ ru:
     models:
       user: "Пользователь"
       post: 'Пост'
+      course: 'Курс'
+      modul: 'Модуль'
+      topic: 'Тема'
+      essay: 'Эссе'
+      test: 'Тест'
+      question: 'Вопрос'
+      answer: 'Ответ'
     attributes:
       user:
         first_name: 'Имя'
@@ -13,6 +20,21 @@ ru:
       post:
         title: 'Заголовок'
         body: 'Тело поста'
+      course:
+        title: 'Заголовок'
+      modul:
+        title: 'Заголовок'
+      topic:
+        title: 'Заголовок'
+        body: 'Тело темы'
+      essay:
+        title: 'Заголовок'
+      test:
+        title: 'Заголовок'
+      question:
+        title: 'Заголовок'
+      answer:
+        body: 'Тело ответа'
     errors:
       messages:
         blank: 'не может быть пустым'

@@ -1,0 +1,6 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @course %>');
+
+<% if !@course.errors.present? %>
+  $('.courses-list').append('<%= render @course %>');
+  $('.course__new-form').html('')
+<% end %>

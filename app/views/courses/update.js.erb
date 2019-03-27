@@ -1,0 +1,5 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @course %>');
+
+<% if !@course.errors.present? %>
+  $('.course-' + <%= @course.id %>).html('<%= render @course %>')
+<% end %>

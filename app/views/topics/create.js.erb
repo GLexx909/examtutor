@@ -1,0 +1,6 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @topic %>');
+
+<% if !@topic.errors.present? %>
+  $('.topics-list').append('<%= j render 'topics/topic', topic: @topic  %>')
+  $('.topic__new-form').html('')
+<% end %>

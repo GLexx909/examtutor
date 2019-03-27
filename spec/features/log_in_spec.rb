@@ -7,7 +7,6 @@ feature 'User can log in', %q{
   background { visit root_path }
 
   scenario 'Registered user tries to log in' do
-    # save_and_open_page
     fill_in 'Почта', with: user.email
     fill_in 'Пароль', with: user.password
     click_on 'Log in'
