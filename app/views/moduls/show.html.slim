@@ -1,20 +1,40 @@
 h1 = @modul.title
 
 - if can?(:create, Topic)
-  = button_to 'Создать новую тему', new_modul_topic_path(@modul), method: :get, remote: true
-  .topic__new-form
+  .d-flex.mb-3
+    = button_to 'Создать новую тему', new_modul_topic_path(@modul), method: :get, remote: true, class:'btn btn-secondary btn-sm mr_1'
+    .topic__new-form
 
-  = button_to 'Создать новое эссе', new_modul_essay_path(@modul), method: :get, remote: true
-  .essay__new-form
+    = button_to 'Создать новое эссе', new_modul_essay_path(@modul), method: :get, remote: true, class:'btn btn-secondary btn-sm mr_1'
+    .essay__new-form
 
-  = button_to 'Создать новый тест', new_modul_test_path(@modul), method: :get, remote: true
-  .test__new-form
+    = button_to 'Создать новый тест', new_modul_test_path(@modul), method: :get, remote: true, class:'btn btn-secondary btn-sm'
+    .test__new-form
 
-.topics-list
-  = render @modul.topics
 
-.essays-list
-  = render @modul.essays
+table.table.table-striped.table-topics
+  thead.thead-dark
+    tr
+      th.w-90 scope='col' Урок
+      th scope='col' Задание
+      th scope='col' Статус
+  tbody
+    = render @modul.topics
 
-.tests-list
-  = render @modul.tests
+table.table.table-striped.table-essays
+  thead.thead-dark
+    tr
+      th.w-90 scope='col' Эссе
+      th scope='col' Задание
+      th scope='col' Статус
+  tbody
+    = render @modul.essays
+
+table.table.table-striped.table-tests
+  thead.thead-dark
+    tr
+      th.w-90 scope='col' Тест
+      th scope='col' Задание
+      th scope='col' Статус
+  tbody
+    = render @modul.tests

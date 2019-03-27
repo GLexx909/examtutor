@@ -1,2 +1,7 @@
-.div class="essay-#{essay.id}"
-  = link_to essay.title, essay_path(essay)
+tr
+  td class="essay-#{essay.id}"
+    = essay.title
+  td
+    = button_to 'Написать', essay_path(essay), class: 'btn btn-outline-info'
+  td
+    = 'Заглушка'

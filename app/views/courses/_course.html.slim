@@ -3,6 +3,6 @@
     = link_to course.title, course_path(course)
 
     - if can?(:update, Course)
-      = button_to 'Редактировать', edit_course_path(course), remote: true, method: :get
-      = button_to 'Удалить курс', course_path(course), remote: true, method: :delete
+      = button_to 'Редактировать', edit_course_path(course), remote: true, method: :get, class:'btn btn-secondary btn-sm'
+      = button_to 'Удалить курс', course_path(course), remote: true, method: :delete, class:'btn btn-danger btn-sm confirm'
       .course__form-edit class="course__form-edit-#{course.id}"

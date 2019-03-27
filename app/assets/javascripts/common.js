@@ -5,10 +5,18 @@ document.addEventListener('turbolinks:load', function() {
         preventDefault();
     }
 
+    const confirmButton = $('.confirm');
+    if(confirmButton.length){
+        confirmButton.on('click', confirmDelete);
+    }
 });
 
 function preventDefault() {
     $('.stub').click(function(e){
         e.preventDefault();
     })
+}
+
+function confirmDelete() {
+    return confirm('Are you sure?');
 }
