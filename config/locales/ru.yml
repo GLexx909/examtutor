@@ -2,6 +2,15 @@ ru:
   initials:
     index:
       title: 'Это надпись на русском языке'
+      pupil_enter: 'Вход для ученика'
+      parent_enter: 'Вход для родителя'
+
+    modal_pupil_enter:
+      header: 'Войти / Зарегистрироваться'
+      log_in: 'Войти'
+      sign_up: 'Зарегистрироваться'
+      enter_password: 'Введите пароль'
+      confirm: 'Подтвердить'
 
   devise:
     confirmations:
