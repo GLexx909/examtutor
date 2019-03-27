@@ -2,12 +2,12 @@
   .modal-dialog role="document"
     .modal-content
       .modal-header
-        h5#pupilEnterModalLabel.modal-title Modal title
+        h5#pupilEnterModalLabel.modal-title = t('.header')
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
       .modal-body
         h2
-          | Log in
+          = t('.log_in')
         = form_for(@user, as: @user, url: session_path(@user)) do |f|
           .form-group
             .field
@@ -20,13 +20,13 @@
               br
               = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Enter password'
           .actions
-            = f.submit "Log in", class: 'btn btn-primary'
+            = f.submit t('.log_in'), class: 'btn btn-primary'
         / = render "devise/shared/links"
 
       .modal-footer
         .modal-footer__registration-button__block
-          = button_tag 'Зарегистироваться', class: 'btn btn-info modal-footer__registration-button'
+          = button_tag t('.sign_up'), class: 'btn btn-info modal-footer__registration-button'
         = form_tag '/initials', class: 'hidden modal-footer__registration-form' do
           .modal-footer__password-form
-            .mr_1 = text_field_tag 'preregistration_pass', '', class: 'form-control', placeholder: 'Enter password'
-            div = submit_tag 'Confirm', class: 'btn btn-primary'
+            .mr_1 = text_field_tag 'preregistration_pass', '', class: 'form-control', placeholder: t('.enter_password')
+            div = submit_tag t('.confirm'), class: 'btn btn-primary'
