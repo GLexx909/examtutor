@@ -31,5 +31,6 @@ class Ability
     can :destroy, [Post], author_id: user.id
 
     can :update, [User], id: user.id
+    can :start, Test
   end
 end

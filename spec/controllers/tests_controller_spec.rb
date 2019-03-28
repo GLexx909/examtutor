@@ -104,4 +104,16 @@ RSpec.describe TestsController, type: :controller do
       it_behaves_like 'To not delete the object', let(:object) { test }, let(:object_class) { Test }
     end
   end
+
+  describe 'GET #start' do
+    before(:each) do
+      login(admin)
+      get :start, params: { id: test.id }, xhr: true
+    end
+
+    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'test'}, let(:resource) { test }
+    it 'render show view' do
+      expect(response).to render_template :start
+    end
+  end
 end

@@ -78,6 +78,7 @@ RSpec.describe Ability do
     it { should be_able_to :read, Test }
     it { should_not be_able_to :create, Test }
     it { should_not be_able_to :update, Test, test.id }
+    it { should be_able_to :start, Test }
 
     it { should be_able_to :read, Question }
     it { should_not be_able_to :create, Question }
@@ -89,5 +90,6 @@ RSpec.describe Ability do
 
     it { should be_able_to :create, TestPassage }
     it { should be_able_to :create, QuestionPassage }
+
   end
 end
