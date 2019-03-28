@@ -3,6 +3,7 @@ class CreateTestPassages < ActiveRecord::Migration[5.2]
     create_table :test_passages do |t|
       t.references :user, foreign_key: true
       t.references :test, foreign_key: true
+      t.integer :points, default: 0
       t.boolean :status, default: false
 
       t.timestamps

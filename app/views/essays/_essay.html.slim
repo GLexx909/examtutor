@@ -2,6 +2,6 @@ tr
   td class="essay-#{essay.id}"
     = essay.title
   td
-    = button_to 'Написать', essay_path(essay), class: 'btn btn-outline-info'
+    = button_to 'Написать', essay_path(essay), method: :get, class: 'btn btn-outline-info'
   td
     = 'Заглушка'

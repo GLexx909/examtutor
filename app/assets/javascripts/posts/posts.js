@@ -10,13 +10,13 @@ document.addEventListener('turbolinks:load', function() {
         slicePostBody();
     }
 
-    const postCardHeader = $('.card-header');
+    const postCardHeader = $('.post-card-deck .card-header');
     if (postCardHeader.length) {
         slicePostHeader();
         showFullText();
     }
 
-    const cardDesc = $('.card-deck');
+    const cardDesc = $('.post-card-deck');
     if(cardDesc.length){
         removeImage();
     }
@@ -45,7 +45,7 @@ function slicePostBody() {
 // Post-Card show only small part of post-header
 function slicePostHeader() {
     const size = 200;
-    const postHeader = $('.card-header');
+    const postHeader = $('.post-card-deck .card-header');
 
     postHeader.each(function(i, elem){
         let text = this.value;
@@ -57,7 +57,7 @@ function slicePostHeader() {
 
 // Post-Card-Header text will be displayed inside Post-Card-Body when you mouse over it.
 function showFullText() {
-    const postHeader = $('.card-header');
+    const postHeader = $('.post-card-deck .card-header');
 
     postHeader.mouseover(function () {
         const id = this.getAttribute('data-id');
@@ -74,6 +74,6 @@ function showFullText() {
 
 // Remove image tag from Post in card-deck
 function removeImage() {
-    const image = $('.card-deck img');
+    const image = $('.post-card-deck img');
     image.remove();
 }

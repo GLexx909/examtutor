@@ -1,16 +1,24 @@
 class TestsController < ApplicationController
+  add_breadcrumb 'Курсы', :courses_path
+
   before_action :authenticate_user!
-  before_action :test, only: [:new, :show, :edit]
+  before_action :test, only: [:start, :new, :show, :edit]
+  before_action :bread_crumbs, only: [:show]
 
   authorize_resource
 
-  add_breadcrumb 'Курсы', :courses_path
+  def start
+    if test.test_passages.find_by(user: current_user)
+      head :found
+    else
+      test.test_passages.create(user: current_user)
+    end
+  end
 
   def new
   end
 
   def show
-    bread_crumbs
   end
 
   def create

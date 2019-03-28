@@ -2,6 +2,6 @@ tr
   td class="topic-#{topic.id}"
     = topic.title
   td
-    = button_to 'Прочесть', topic_path(topic), class: 'btn btn-outline-info'
+    = button_to 'Прочесть', topic_path(topic), method: :get, class: 'btn btn-outline-info'
   td
     = 'Заглушка'

@@ -1,0 +1,19 @@
+.questions-list.questions-list_border
+  - questions.each do |question|
+    .question class="question-#{question.id}"
+      .sign-box
+        .sign_correct.hidden = link_to mi.check_circle.css_class('md-24 stub green'), '#'
+        .sign_wrong.hidden = link_to mi.error.css_class('md-24 stub red'), '#'
+      .card
+        .card-header
+          = question.title.html_safe
+        .card-body
+          = form_tag question_question_passages_path(question), class: 'form-inline answer-for-question', data: { type: :json }, remote: true do
+            .form-group.mr_1
+              = label :answer, 'Введите ответ:'
+              = text_field_tag :answer, '', class: 'form-control'
+            = submit_tag 'Ответить', class: 'btn btn-success'
+        .card-footer.text-muted
+          .user_answer
+            p = "Ваш ответ:"
+            p = "Правильный ответ:"

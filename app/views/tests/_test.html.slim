@@ -5,6 +5,10 @@ tr
     - else
       = test.title
   td
-    = button_to 'Пройти', '#', class: 'btn btn-outline-info'
+    - if test.test_passages.find_by(user: current_user)
+      = button_to 'Посмотреть результат', '#', class: 'btn btn-outline-info'
+    - else
+      = button_to 'Пройти', start_test_path(test), method: :get, class: 'btn btn-outline-info'
+
   td
     = 'Заглушка'
