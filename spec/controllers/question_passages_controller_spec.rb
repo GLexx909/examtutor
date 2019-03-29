@@ -15,6 +15,21 @@ RSpec.describe QuestionPassagesController, type: :controller do
       login(user)
     end
 
-    it_behaves_like 'To save a new object', let(:params) {{ question_id: question.id, answer: '123' }}, let(:object_class) { QuestionPassage }
+    context 'create new object' do
+      it_behaves_like 'To save a new object', let(:params) {{ question_id: question.id, answer: '123' }}, let(:object_class) { QuestionPassage }
+    end
+
+    context 'return result' do
+      let(:point_counter_service) { double(Services::PointsCounterService) }
+
+      before do
+        allow(Services::PointsCounterService).to receive(:new).and_return(point_counter_service)
+      end
+
+      it 'return result' do
+        expect(point_counter_service).to receive(:check_answer)
+        post :create, params: { question_id: question.id, answer: '123' }
+      end
+    end
   end
 end

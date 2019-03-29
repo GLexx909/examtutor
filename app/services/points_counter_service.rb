@@ -28,7 +28,7 @@ class Services::PointsCounterService
     extra_numbers = @user_answer_body.length - @true_answer_body.length
     extra_errors = extra_numbers > 0 ? extra_numbers : 0 # Лишние ответы
 
-    true_answer.full_accordance? ? full_accordance : not_full_accordance # Если ответ должен быть последовательным
+    @true_answer.full_accordance? ? full_accordance : not_full_accordance # Если ответ должен быть последовательным
 
     @points -= @errors
     @points -= extra_errors

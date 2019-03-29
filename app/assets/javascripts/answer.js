@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function(){
 
         $('.question-' + id + ' .user_answer').html('<p>' + 'Ваш ответ: ' + user_answer + '</p>' + '<p>' + 'Правильный ответ: ' + real_answer + '</p>' + '<p>' + 'Кол-во набранных баллов: ' + points + '</p>');
         $('.question-' + id + ' input').val('');
-        $('.question-' + id + ' .button-to-give-answer').remove();
+        $('.question-' + id + ' .answer-for-question_form').remove();
 
         if(result){
             $('.question-' + id + ' .sign_correct').show();
