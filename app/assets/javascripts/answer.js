@@ -1,5 +1,8 @@
 $(document).on('turbolinks:load', function(){
-    $('form.answer-for-question').on('ajax:success', function(e) {
+
+    // Answer response
+
+    $('form.answer-for-question_form').on('ajax:success', function(e) {
         var id = e.detail[0]['id'];
         var user_answer = e.detail[0]['user_answer'];
         var real_answer = e.detail[0]['real_answer'];

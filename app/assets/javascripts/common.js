@@ -18,5 +18,5 @@ function preventDefault() {
 }
 
 function confirmDelete() {
-    return confirm('Are you sure?');
+    return confirm('Вы уверены?');
 }

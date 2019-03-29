@@ -1,6 +1,13 @@
 - if can?(:create, Course)
-  = button_to 'Создать новый курс', new_course_path, method: :get, remote: true, class:'btn btn-secondary btn-sm'
+  = button_to 'Создать новый курс', new_course_path, method: :get, remote: true, class:'btn btn-secondary btn-sm mb_1'
   .course__new-form
 
-.courses-list
-  = render @courses
+table.table.table-striped.table-courses
+  thead.thead-dark
+    tr
+      th.w-90 scope='col' Курсы
+      - if can?(:create, Course)
+        th scope='col' Действие
+        th scope='col' Действие
+  tbody.courses-list
+    = render @courses

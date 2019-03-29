@@ -8,7 +8,7 @@
         .card-header
           = question.title.html_safe
         .card-body
-          = form_tag question_question_passages_path(question), class: 'form-inline answer-for-question', data: { type: :json }, remote: true do
+          = form_tag question_question_passages_path(question), class: 'form-inline answer-for-question_form', data: { type: :json }, remote: true do
             .form-group.mr_1
               = label :answer, 'Введите ответ:'
               = text_field_tag :answer, '', class: 'form-control'

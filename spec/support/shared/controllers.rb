@@ -95,11 +95,6 @@ shared_examples_for 'To change the object attributes title body' do
     expect(object.title).to eq 'new_title' if object.respond_to?(:title)
     expect(object.body).to eq 'new_body' if object.respond_to?(:body)
   end
-
-  it 'render update view' do
-    patch :update, params: params.merge({id: object.id }), format: :js
-    expect(response).to render_template :update
-  end
 end
 
 shared_examples_for 'To not change the object attributes title body' do

@@ -47,16 +47,6 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  describe 'GET #edit' do
-    before(:each) do
-      login(admin)
-      get :edit, params: { id: course.id }, xhr: true
-    end
-
-    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'course'}, let(:resource) { course }
-    it_behaves_like 'To render edit view'
-  end
-
   describe 'PATCH #update' do
     context 'with valid attributes' do
       before { login(admin) }
@@ -69,7 +59,6 @@ RSpec.describe CoursesController, type: :controller do
       let!(:course) { create :course, title: 'MyTitle' }
 
       it_behaves_like 'To not change the object attributes title body', let(:params) { course_params_invalid }, let(:object) { course }
-      it_behaves_like 'To render update view', let(:params) { course_params_invalid }, let(:object) { course }
     end
 
     context 'User can not update course' do

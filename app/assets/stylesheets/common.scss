@@ -84,6 +84,10 @@ body {
   margin-bottom: 5vw;
 }
 
+.mb_1 {
+  margin-bottom: 1vh;
+}
+
 .hidden {
   display: none;
 }
@@ -98,6 +102,10 @@ body {
 
 .w-90 {
   width: 90% !important;
+}
+
+.mr_1_for_child * {
+  margin-right: 1vw;
 }
 
 .form-block_center {

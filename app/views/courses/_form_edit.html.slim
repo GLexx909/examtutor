@@ -1,8 +1,7 @@
 .course-form
-  / = button_tag 'Написать пост', class: 'btn btn-secondary btn-sm post-form__button-show'
   .course-form__fields
-    = form_with model: course, method: :patch, url: course_path(course) do |f|
+    = form_with model: course, method: :patch, url: course_path(course), class: 'edit-course_form', data: { type: :json }, remote: true do |f|
       .field
         = f.text_field :title, class:'form-control'
       .submit
-        = f.submit 'Сохранить изменения', class: 'btn btn-success'
+        = f.submit 'Сохранить изменения', class: 'btn btn-success save-course_button', data: { id: course.id }
