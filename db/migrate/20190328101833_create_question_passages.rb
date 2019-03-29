@@ -4,6 +4,7 @@ class CreateQuestionPassages < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :question, foreign_key: true
       t.string :answer
+      t.integer :points
 
       t.timestamps
     end

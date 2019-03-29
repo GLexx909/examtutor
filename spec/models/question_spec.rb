@@ -15,6 +15,7 @@ RSpec.describe Question, type: :model do
   let!(:test) { create :test, modul: modul }
   let!(:test_passage) { create :test_passage, test: test, user: user, points: 3 }
   let!(:question) { create :question, test: test }
+  let!(:answer) { create :answer, question: question, body: '123' }
 
   describe 'question.test_passage(user)' do
     it 'should return test_passage of question' do

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_101833) do
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "full_accordance", default: false
+    t.integer "points", null: false
     t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_101833) do
     t.bigint "user_id"
     t.bigint "question_id"
     t.string "answer"
+    t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_question_passages_on_question_id"

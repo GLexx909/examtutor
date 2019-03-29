@@ -32,11 +32,11 @@ feature 'Admin only can edit answer', %q{
     sign_in admin
     visit test_path(test)
 
-    click_on 'Редактировать ответ'
+    click_on 'Редактировать вопрос'
 
-    fill_in 'answer[body]', with: 'Answer Body New'
+    fill_in 'question[answer_attributes][body]', with: 'Answer Body New'
 
-    click_on 'Сохранить изменения ответа'
+    click_on 'Сохранить изменения вопроса'
 
     expect(page).to have_content 'Answer Body New'
     expect(page).to_not have_content 'AnswerBody'

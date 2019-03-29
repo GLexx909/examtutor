@@ -12,8 +12,9 @@
             .form-group.mr_1
               = label :answer, 'Введите ответ:'
               = text_field_tag :answer, '', class: 'form-control'
-            = submit_tag 'Ответить', class: 'btn btn-success'
+            = submit_tag 'Ответить', class: 'btn btn-success button-to-give-answer'
         .card-footer.text-muted
           .user_answer
             p = "Ваш ответ:"
             p = "Правильный ответ:"
+            p = "Кол-во набранных баллов:"
