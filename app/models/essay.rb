@@ -5,4 +5,8 @@ class Essay < ApplicationRecord
   belongs_to :modul
 
   validates :title, presence: true
+
+  def essay_passage(current_user)
+    essay_passages.find_by(user: current_user)
+  end
 end

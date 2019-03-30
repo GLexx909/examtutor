@@ -10,6 +10,7 @@ ru:
       test: 'Тест'
       question: 'Вопрос'
       answer: 'Ответ'
+      essay_passage: 'Эссе'
     attributes:
       user:
         first_name: 'Имя'
@@ -36,6 +37,8 @@ ru:
       answer:
         body: 'Тело ответа'
         points: 'Баллы'
+      essay_passage:
+        body: 'Эссе'
     errors:
       messages:
         blank: 'не может быть пустым'

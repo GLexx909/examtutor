@@ -1,0 +1,9 @@
+- if @essay_passage
+  .essay-edit__button = button_tag 'Редактировать эссе', remote: true, class: 'btn btn-primary btn-lg'
+- else
+  .essay-new__button = button_to 'Написать эссе', new_essay_essay_passage_path(@essay), method: :get, remote: true, class: 'btn btn-primary btn-lg'
+
+.essay-passage__body = @essay_passage&.body&.html_safe
+
+.essay_passages__form_new
+

@@ -11,6 +11,7 @@ class EssaysController < ApplicationController
 
   def show
     bread_crumbs
+    @essay_passage = essay.essay_passage(current_user)
   end
 
   def create

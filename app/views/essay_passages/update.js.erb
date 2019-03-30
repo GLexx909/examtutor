@@ -1,0 +1,7 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @essay_passage %>');
+
+<% if !@essay_passage.errors.present? %>
+  $('.essay-passage__body').html('<%= j render 'essay_passages/essay_passage', locale: @essay_passage %>')
+  $('.essay_passages__form_edit').hide(500)
+  $('.essay-passage__body').show(500)
+<% end %>
