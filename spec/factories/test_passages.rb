@@ -3,6 +3,6 @@ FactoryBot.define do
     user { nil }
     test { nil }
     points { 0 }
-    status { "false" }
+    status { false }
   end
 end

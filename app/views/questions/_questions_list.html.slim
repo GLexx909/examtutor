@@ -8,13 +8,23 @@
         .card-header
           = question.title.html_safe
         .card-body
-          = form_tag question_question_passages_path(question), class: 'form-inline answer-for-question_form', data: { type: :json }, remote: true do
-            .form-group.mr_1
-              = label :answer, 'Введите ответ:'
-              = text_field_tag :answer, '', class: 'form-control'
-            = submit_tag 'Ответить', class: 'btn btn-success button-to-give-answer'
+          - unless question.question_passages.find_by(user: current_user)
+            = form_tag question_question_passages_path(question), class: 'form-inline answer-for-question_form', data: { type: :json }, remote: true do
+              .form-group.mr_1
+                = label :answer, 'Введите ответ:'
+                = text_field_tag :answer, '', class: 'form-control'
+              = submit_tag 'Ответить', class: 'btn btn-outline-primary button-to-give-answer'
         .card-footer.text-muted
-          .user_answer
-            p = "Ваш ответ:"
-            p = "Правильный ответ:"
-            p = "Кол-во набранных баллов:"
+          .user-answer_info
+            .user-answer
+              p Ваш ответ:
+              .user-answer_result
+                p = question.question_passages.find_by(user: current_user).answer if question.question_passages.find_by(user: current_user)
+            .right-answer
+              p Правильный ответ:
+              .right-answer_result
+                p = question.answer.body if question.question_passages.find_by(user: current_user)
+            .user-points
+              p Кол-во набранных баллов:
+              .user-points_result
+                p = question.points(current_user) if question.question_passages.find_by(user: current_user)

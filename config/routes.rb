@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :tests do
         get :start, on: :member
 
-        # resources :test_passages, only: [:create]
+        resources :test_passages, only: [:update]
         resources :questions do
           resources :question_passages, only: [:create]
           resources :answers, only: [:destroy, :edit, :update]

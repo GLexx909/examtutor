@@ -8,11 +8,7 @@ class TestsController < ApplicationController
   authorize_resource
 
   def start
-    if test.test_passages.find_by(user: current_user)
-      head :found
-    else
-      test.test_passages.create(user: current_user)
-    end
+    test.test_passages.create(user: current_user) unless test.test_passages.find_by(user: current_user)
   end
 
   def new

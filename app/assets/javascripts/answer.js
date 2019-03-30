@@ -8,8 +8,12 @@ $(document).on('turbolinks:load', function(){
         var real_answer = e.detail[0]['real_answer'];
         var result = e.detail[0]['result'];
         var points = e.detail[0]['points'];
+        var all_points = e.detail[0]['all_points'];
 
-        $('.question-' + id + ' .user_answer').html('<p>' + 'Ваш ответ: ' + user_answer + '</p>' + '<p>' + 'Правильный ответ: ' + real_answer + '</p>' + '<p>' + 'Кол-во набранных баллов: ' + points + '</p>');
+        $('.question-' + id + ' .user-answer_result').html('<p>' + user_answer +'</p>');
+        $('.question-' + id + ' .right-answer_result').html('<p>' + real_answer +'</p>');
+        $('.question-' + id + ' .user-points_result').html('<p>' + points +'</p>');
+        $('.current_points').html('<p>' + all_points +'</p>');
         $('.question-' + id + ' input').val('');
         $('.question-' + id + ' .answer-for-question_form').remove();
 

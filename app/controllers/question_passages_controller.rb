@@ -16,7 +16,7 @@ class QuestionPassagesController < ApplicationController
                      real_answer: @question_passage.question.answer.body,
                      id: @question_passage.question.id,
                      result: result,
-                     points: @question_passage.points }
+                     points: @question_passage.points, all_points: question.points(current_user)}
     end
   end
 

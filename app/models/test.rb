@@ -6,4 +6,12 @@ class Test < ApplicationRecord
   belongs_to :modul
 
   validates :title, presence: true
+
+  def current_points(current_user)
+    test_passages.find_by(user: current_user).points
+  end
+
+  def test_passage(current_user)
+    test_passages.find_by(user: current_user)
+  end
 end

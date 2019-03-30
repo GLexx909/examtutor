@@ -38,6 +38,7 @@ RSpec.describe Ability do
     let(:essay_passage){ create :essay_passage, essay: essay, user: user }
     let(:test)        { create :test, modul: modul }
     let(:question)    { create :question, test: test }
+    let(:test_passage)    { create :test_passage, test: test, user: user }
     let(:answer)      { create :answer, question: question }
 
     it { should_not be_able_to :manage, :all }
@@ -89,6 +90,7 @@ RSpec.describe Ability do
     it { should_not be_able_to :update, Answer, answer.id }
 
     it { should be_able_to :create, TestPassage }
+    it { should be_able_to :update, TestPassage, test_passage.id }
     it { should be_able_to :create, QuestionPassage }
 
   end
