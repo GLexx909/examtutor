@@ -1,6 +1,9 @@
 tr
   td class="essay-#{essay.id}"
-    = essay.title
+    - if can?(:update, essay)
+      = link_to essay.title, essay_path(essay)
+    - else
+      = essay.title
   td
     = button_to 'Написать', essay_path(essay), method: :get, class: 'btn btn-outline-info'
   td

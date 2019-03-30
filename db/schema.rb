@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_101833) do
     t.bigint "user_id"
     t.bigint "essay_id"
     t.string "body", null: false
-    t.string "tutor_note"
-    t.string "status", default: "false"
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["essay_id"], name: "index_essay_passages_on_essay_id"

@@ -4,8 +4,7 @@ class CreateEssayPassages < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :essay, foreign_key: true
       t.string :body, null: false
-      t.string :tutor_note, optional: true
-      t.string :status, default: 'false' #false, rejected, approved
+      t.boolean :status, default: false
 
       t.timestamps
     end
