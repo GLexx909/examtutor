@@ -1,8 +1,7 @@
-.essay-passage__form
-  .essay-passage__fields
-    = form_with model: essay_passage, method: :post, url: essay_essay_passages_path(@essay) do |f|
-      .field
-        = f.text_area :body, :class => "tinymce", rows: 25, cols: 120
-        = tinymce content_css: asset_path('application.css')
-      .submit
-        = f.submit 'Сохранить', class: 'btn btn-primary'
+.essay-passage__fields
+  = form_with model: essay_passage, method: :post, url: essay_essay_passages_path(@essay) do |f|
+    .field
+      = f.text_area :body, :class => "tinymce", rows: 25, cols: 120
+      = tinymce content_css: asset_path('application.css')
+    .submit
+      = f.submit 'Сохранить', class: 'btn btn-primary'
