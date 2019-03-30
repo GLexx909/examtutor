@@ -1,6 +1,6 @@
 $('.flash-block').html('<%= render 'shared/errors', resource: @essay %>');
 
 <% if !@essay.errors.present? %>
-  $('.essays-list').append('<%= j render 'essays/essay', essay: @essay  %>')
+  $('.table-essays').append('<%= j render 'essays/essay', essay: @essay  %>')
   $('.essay__new-form').html('')
 <% end %>

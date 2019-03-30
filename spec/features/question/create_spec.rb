@@ -20,6 +20,7 @@ feature 'Admin only can create question', %q{
 
       tinymce_fill_in('question_title', 'QuestionTitle')
       fill_in 'question[answer_attributes][body]', with: 'AnswerBody'
+      fill_in 'question[answer_attributes][points]', with: 3
 
       click_on 'Создать вопрос'
 

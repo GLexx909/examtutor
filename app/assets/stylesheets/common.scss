@@ -20,6 +20,10 @@ body {
   align-content: space-between;
 }
 
+.table {
+  background-color: white;
+}
+
 .alert {
   text-align: center;
   width: fit-content;
@@ -49,11 +53,18 @@ body {
   }
 }
 
+.mce-content-body {
+  background-color: white !important;
+}
+
 .breadcrumb {
   width: max-content;
   padding: 0 !important;
   background-color: lightblue !important;
   font-family: -apple-system;
+  font-size: 0.9rem;
+  border-bottom: 2px solid black;
+  box-shadow: 0 4px 2px -2px gray;
 
   li {
     margin-right: 5px;
@@ -73,8 +84,32 @@ body {
   margin-bottom: 5vw;
 }
 
+.mb_1 {
+  margin-bottom: 1vh;
+}
+
 .hidden {
   display: none;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.material-icons.green {
+  color: green;
+}
+
+.material-icons.red {
+  color: red;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.mr_1_for_child * {
+  margin-right: 1vw;
 }
 
 .form-block_center {

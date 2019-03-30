@@ -1,0 +1,43 @@
+.questions-list_border {
+  .sign-box {
+    height: 31px;
+  }
+}
+
+.user-answer_info {
+  display: flex;
+  justify-content: space-around;
+
+  * {
+    text-align:center;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.questions-list {
+  .card-footer {
+    height: 78px;
+  }
+}
+
+.test-points {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+
+  * {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .current_points {
+    padding-top: 1rem;
+  }
+
+  p {
+    color: dimgray;
+  }
+}

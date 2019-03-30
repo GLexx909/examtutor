@@ -26,10 +26,11 @@ class Ability
     can :read, [Post, User, Course, Modul, Topic, Essay, Test, Question]
     can :tutor_index, Post
     can :own_index, Post
-    can :create, [Post]
-    can :update, [Post, EssayPassage], author_id: user.id
+    can :create, [Post, TestPassage, QuestionPassage]
+    can :update, [Post, EssayPassage, TestPassage], author_id: user.id
     can :destroy, [Post], author_id: user.id
 
     can :update, [User], id: user.id
+    can :start, Test
   end
 end

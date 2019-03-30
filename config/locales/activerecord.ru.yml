@@ -35,6 +35,7 @@ ru:
         title: 'Заголовок'
       answer:
         body: 'Тело ответа'
+        points: 'Баллы'
     errors:
       messages:
         blank: 'не может быть пустым'

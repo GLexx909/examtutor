@@ -9,9 +9,9 @@ feature 'User can sign out', %q{
   scenario 'Registered user tries to sign out' do
     fill_in 'Почта', with: user.email
     fill_in 'Пароль', with: user.password
-    click_on 'Log in'
+    click_on 'Войти'
 
-    click_on 'Sign out'
+    click_on 'Выйти'
 
     expect(page).to have_content 'Выход из системы выполнен.'
   end

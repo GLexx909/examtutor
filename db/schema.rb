@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_130234) do
+ActiveRecord::Schema.define(version: 2019_03_28_101833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "full_accordance", default: false
+    t.integer "points", null: false
     t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -93,6 +94,17 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "question_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.string "answer"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_passages_on_question_id"
+    t.index ["user_id"], name: "index_question_passages_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.bigint "test_id"
     t.string "title", null: false
@@ -104,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
   create_table "test_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "test_id"
+    t.integer "points", default: 0
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -163,6 +176,8 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
   add_foreign_key "modul_passages", "moduls"
   add_foreign_key "modul_passages", "users"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "question_passages", "questions"
+  add_foreign_key "question_passages", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"

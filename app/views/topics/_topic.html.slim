@@ -1,2 +1,7 @@
-.div class="topic-#{topic.id}"
-  = link_to topic.title, topic_path(topic)
+tr
+  td class="topic-#{topic.id}"
+    = topic.title
+  td
+    = button_to 'Прочесть', topic_path(topic), method: :get, class: 'btn btn-outline-info'
+  td
+    = 'Заглушка'

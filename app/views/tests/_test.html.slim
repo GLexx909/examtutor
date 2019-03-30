@@ -1,2 +1,16 @@
-.div class="test-#{test.id}"
-  = link_to test.title, test_path(test)
+tr
+  td class="test-#{test.id}"
+    - if can?(:update, test)
+      h2 = link_to test.title, test_path(test), class: 'badge'
+    - else
+      h2.badge = test.title
+  td
+    - if test.test_passage(current_user)
+      = button_to 'Посмотреть результат', start_test_path(test), method: :get, class: 'btn btn-outline-info'
+    - else
+      = button_to 'Пройти',               start_test_path(test), method: :get, class: 'btn btn-outline-info'
+  td.ta-center
+    - if test.test_passage(current_user)
+      = link_to mi.done.css_class('md-24 stub green'), '#'
+    - else
+      = link_to mi.remove.css_class('md-24 stub'), '#'

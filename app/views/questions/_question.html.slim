@@ -5,12 +5,12 @@ div class="question-#{question.id}"
     - if can?(:update, question)
       = question.answer.body
       / = link_to 'Удалить ответ', answer_path(question.answer), method: :delete, remote: true
-      p = link_to 'Редактировать ответ', edit_answer_path(question.answer), method: :get, remote: true
-      div class="answer__form-edit-#{question.answer.id}"
+      / p = link_to 'Редактировать ответ', edit_answer_path(question.answer), method: :get, remote: true, class:'badge badge-secondary'
+      / div class="answer__form-edit-#{question.answer.id}"
 
   - if can?(:update, question)
-    = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get
-    = button_to 'Удалить вопрос', question_path(question), remote: true, method: :delete
+    = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get, class:'btn btn-secondary btn-sm'
+    = button_to 'Удалить вопрос', question_path(question), remote: true, method: :delete, class:'btn btn-danger btn-sm confirm'
 
     .question__form-edit class="question__form-edit-#{question.id}"
   hr

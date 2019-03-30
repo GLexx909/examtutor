@@ -18,6 +18,7 @@ feature 'Admin only can delete modul', %q{
       within '.moduls-list' do
         expect(page).to have_content 'ModulTitle'
         click_on 'Удалить модуль'
+        page.driver.browser.switch_to.alert.accept
         expect(page).to_not have_content 'ModulTitle'
       end
     end

@@ -1,0 +1,11 @@
+h1 = @test.title
+
+.test-points.text-white.bg-dark
+  .current_points
+    h4 = @test.current_points(current_user)
+  p = 'баллов'
+
+= render 'questions/questions_list', questions: @test.questions if @test.questions
+
+- unless @test.test_passage(current_user).status?
+  = button_to 'Завершить тест', test_passage_path(@test.test_passage(current_user)), method: :put, class: 'btn btn-success btn-lg btn-block'

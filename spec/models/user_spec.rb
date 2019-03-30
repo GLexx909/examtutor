@@ -17,6 +17,8 @@ RSpec.describe User, type: :model do
   it { should have_many(:essay_passages).dependent(:destroy) }
   it { should have_many(:tests).through(:test_passages) }
   it { should have_many(:test_passages).dependent(:destroy) }
+  it { should have_many(:questions).through(:question_passages) }
+  it { should have_many(:question_passages).dependent(:destroy) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }

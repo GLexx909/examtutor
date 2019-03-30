@@ -9,10 +9,10 @@ feature 'User can sign up', %q{
     visit root_path
 
     click_on 'Вход для ученика'
-    click_on 'Зарегистироваться'
+    click_on 'Зарегистрироваться'
 
     fill_in 'preregistration_pass', with: 123
-    click_on 'Confirm'
+    click_on 'Подтвердить'
 
     fill_in 'Имя', with: 'John'
     fill_in 'Фамилия', with: 'Doe'
@@ -33,10 +33,10 @@ feature 'User can sign up', %q{
     visit root_path
 
     click_on 'Вход для ученика'
-    click_on 'Зарегистироваться'
+    click_on 'Зарегистрироваться'
 
     fill_in 'preregistration_pass', with: 'incorrect'
-    click_on 'Confirm'
+    click_on 'Подтвердить'
 
     expect(page).to have_content 'Доступ закрыт'
   end

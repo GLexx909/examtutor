@@ -1,8 +1,12 @@
 - if current_user.have_course?(course) || can?(:delete, course)
-  div class="course-#{course.id}"
-    = link_to course.title, course_path(course)
+  tr class="course-#{course.id}"
+    td
+      h2.course-title = link_to course.title, course_path(course), class: 'badge'
+      - if can?(:create, Course)
+        td
+          = button_tag 'Редактировать', class:'btn btn-secondary btn-sm edit-course_button', remote: true, data: { id: course.id } if can?(:update, course)
+        td
+          = button_to 'Удалить курс', course_path(course), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm' if can?(:delete, course)
 
-    - if can?(:update, Course)
-      = button_to 'Редактировать', edit_course_path(course), remote: true, method: :get
-      = button_to 'Удалить курс', course_path(course), remote: true, method: :delete
-      .course__form-edit class="course__form-edit-#{course.id}"
+    .course__form-edit.hidden class="course__form-edit-#{course.id}"
+      = render 'form_edit', course: course
