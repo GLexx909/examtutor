@@ -1,9 +1,9 @@
 tr
   td class="test-#{test.id}"
     - if can?(:update, test)
-      = link_to test.title, test_path(test)
+      h2 = link_to test.title, test_path(test), class: 'badge'
     - else
-      = test.title
+      h2.badge = test.title
   td
     - if test.test_passage(current_user)
       = button_to 'Посмотреть результат', start_test_path(test), method: :get, class: 'btn btn-outline-info'
