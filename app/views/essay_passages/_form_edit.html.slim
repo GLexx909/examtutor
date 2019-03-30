@@ -1,0 +1,7 @@
+.essay-passage__fields
+  = form_with model: @essay_passage, method: :put, url: essay_passage_path(@essay_passage), remote: true do |f|
+    .field
+      = f.text_area :body, :class => "tinymce", rows: 25, cols: 120
+      = tinymce content_css: asset_path('application.css')
+    .submit
+      = f.submit 'Сохранить', class: 'btn btn-primary'

@@ -3,7 +3,6 @@ FactoryBot.define do
     user { nil }
     essay { nil }
     body { "EssayBody" }
-    tutor_note { "EssayTutorNote" }
-    status { "false" }
+    status { false }
   end
 end

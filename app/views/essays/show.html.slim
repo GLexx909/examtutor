@@ -3,6 +3,11 @@
     = button_to 'Редактировать', edit_essay_path(@essay), remote: true, method: :get
     = button_to 'Удалить эссе', essay_path(@essay), remote: true, method: :delete
 
-    h1 = @essay.title
+    h3 = @essay.title
 
     .essay__form-edit class="essay__form-edit-#{@essay.id}"
+
+.essay-passage
+  = render 'essay_passages/essay_passage_full'
+
+.essay_passages__form_edit.hidden = render 'essay_passages/form_edit' if @essay_passage

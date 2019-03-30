@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   resources :courses, shallow: true do
     resources :moduls do
       resources :topics
-      resources :essays
+      resources :essays do
+        resources :essay_passages, only: [:new, :create, :update]
+      end
+
       resources :tests do
         get :start, on: :member
 
