@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery3
 //= require tinymce-jquery
+//= require action_cable
 //= require cocoon
 //= require popper
 //= require bootstrap-sprockets

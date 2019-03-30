@@ -45,4 +45,6 @@ Rails.application.routes.draw do
     resources :mainmenus, only: [:index]
     resources :one_time_passwords, only: [:new, :create]
   end
+
+  mount ActionCable.server => '/cable'
 end
