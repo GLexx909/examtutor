@@ -79,7 +79,8 @@ ActiveRecord::Schema.define(version: 2019_03_30_145442) do
 
   create_table "notifications", force: :cascade do |t|
     t.string "title"
-    t.integer "object"
+    t.integer "abonent"
+    t.string "link"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,33 @@
+.nav__right-block {
+  display: flex;
+  .notify-button {
+    margin-right: 0.2rem;
+  }
+
+  .dropdown-menu {
+    width: max-content;
+
+    background: #6c757d;
+    color: white !important;
+
+    p {
+      padding: 0;
+    }
+
+    a {
+      color: white;
+      font-size: 0.7rem;
+
+    }
+
+  }
+}
+
+.notify-button {
+  width: 100px;
+
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+  font-size: 0.7rem !important;
+}

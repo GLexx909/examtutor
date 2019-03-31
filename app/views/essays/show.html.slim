@@ -11,3 +11,7 @@
   = render 'essay_passages/essay_passage_full'
 
 .essay_passages__form_edit.hidden = render 'essay_passages/form_edit' if @essay_passage
+
+= button_to 'Отправить репетитору на проверку',
+        notifications_path( notification:{ abonent: admin.id, title: "На проверку эссе от #{current_user.full_name}", link: essay_path(@essay) }),
+        remote: true, class: 'btn btn-success btn-lg btn-block send-essay__button'
