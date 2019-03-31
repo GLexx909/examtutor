@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
   authorize_resource
 
   def index
-    @notifications = Notification.where(abonent: current_user)
+    @notifications = Notification.where(abonent: current_user).order(created_at: :desc)
   end
 
   def create

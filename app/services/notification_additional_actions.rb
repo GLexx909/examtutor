@@ -5,8 +5,8 @@ class Services::NotificationAdditionalActions
   end
 
   def action
-    case @params[:update_essay_passages]
-    when true
+    case @params[:additional_data]
+    when 'update_essay_passage_status'
       update_essay_passage
     when false
       'Заглушка'
