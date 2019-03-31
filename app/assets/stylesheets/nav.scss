@@ -1,8 +1,5 @@
 .nav__right-block {
   display: flex;
-  .notify-button {
-    margin-right: 0.2rem;
-  }
 
   .dropdown-menu {
     width: max-content;
@@ -26,6 +23,7 @@
 .notify-button {
   width: 100px;
 
+  margin-right: 0.2rem;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 

@@ -4,6 +4,10 @@ class NotificationsController < ApplicationController
 
   authorize_resource
 
+  def index
+    @notifications = Notification.where(abonent: current_user)
+  end
+
   def create
     Notification.create(notification_params)
     Services::NotificationAdditionalActions.new(params).action

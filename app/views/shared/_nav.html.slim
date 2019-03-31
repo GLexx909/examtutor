@@ -16,6 +16,6 @@ nav.navbar.navbar-dark.bg-dark.box-shadow-nav
             span class='sr-only'
               = 'Toggle Dropleft'
           .dropdown-menu aria-labelledby="dropdownMenuButton"
-        = button_tag '', class:'btn btn-secondary stub notify-button'
+        = button_tag '', class:'btn btn-secondary stub notify-button', onclick:"location.href='/notifications'"
           = 'Уведомления'
       = link_to 'Выйти', destroy_user_session_path, method: :delete
