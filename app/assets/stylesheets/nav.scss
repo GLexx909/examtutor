@@ -1,3 +1,15 @@
+.notifications-dropdown {
+  .dropleft {
+    button {
+      background: black;
+
+      &:hover {
+        background: darkorange;
+      }
+    }
+  }
+}
+
 .nav__right-block {
   display: flex;
 
@@ -14,7 +26,6 @@
     a {
       color: white;
       font-size: 0.7rem;
-
     }
 
   }
