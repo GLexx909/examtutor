@@ -1,10 +1,13 @@
 class EssayPassagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :essay_passage, only: [:new]
+  before_action :essay_passage, only: [:new, :show]
 
   authorize_resource
 
   def new
+  end
+
+  def show
   end
 
   def create

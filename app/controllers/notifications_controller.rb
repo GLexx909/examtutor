@@ -5,7 +5,8 @@ class NotificationsController < ApplicationController
   authorize_resource
 
   def create
-    @notification = Notification.create(notification_params)
+    Notification.create(notification_params)
+    Services::NotificationAdditionalActions.new(params).action
   end
 
   private

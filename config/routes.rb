@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :moduls do
       resources :topics
       resources :essays do
-        resources :essay_passages, only: [:new, :create, :update]
+        resources :essay_passages, only: [:new, :show, :create, :update]
       end
 
       resources :tests do

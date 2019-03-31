@@ -7,9 +7,13 @@ $(document).on('turbolinks:load', function(){
 
     const sendButton = $('.send-essay__button');
     if (sendButton.length) {
-        sendButton.on('click', hideEssayButton);
+        sendButton.on('click', checkEssayButton);
     }
 
+    const checkButton = $('.check-essay__button');
+    if (checkButton.length) {
+        checkButton.on('click', checkEssayButton);
+    }
 });
 
 function showEssayForm() {
@@ -19,9 +23,9 @@ function showEssayForm() {
     essayBody.toggle(500);
 }
 
-function hideEssayButton() {
-    const sendButton = $('.send-essay__button');
+function checkEssayButton() {
+    const checkButton = $('.check-essay__button');
     const flashBlock = $('.flash-block');
-    sendButton.hide(500);
-    flashBlock.html('Уведомление отправлен репетитору!')
+    checkButton.hide(500);
+    flashBlock.html('Уведомление отправлено ученику!')
 }
