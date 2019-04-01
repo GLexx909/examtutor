@@ -1,0 +1,14 @@
+.essay
+  h3 = @essay_passage.essay.title
+
+.essay-passage
+  = render 'essay_passages/essay_passage_full'
+
+.essay_passages__form_edit.hidden = render 'essay_passages/form_edit' if @essay_passage
+
+- if can?(:manage, :all)
+  = button_to 'Уведомить ученика об окончании проверки',
+          notifications_path( additional_data: 'update_essay_passage_status',
+                  id: @essay_passage,
+                  notification: {abonent: @essay_passage.user.id, title: "Ваше эссе проверено", link: essay_path(@essay_passage.essay)}),
+          remote: true, class: 'btn btn-primary btn-block check-essay__button'

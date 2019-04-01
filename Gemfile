@@ -55,6 +55,9 @@ gem 'kaminari' #pagination
 gem 'bootstrap4-kaminari-views'
 gem "breadcrumbs_on_rails"
 
+gem 'gon' #use rails variables in js
+gem 'skim' #templates engine. Use template.jst.skim in js rendering
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

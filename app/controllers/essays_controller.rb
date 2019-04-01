@@ -32,6 +32,8 @@ class EssaysController < ApplicationController
 
   private
 
+  helper_method :admin
+
   def modul
     @modul ||= Modul.find(params[:modul_id])
   end
@@ -43,6 +45,10 @@ class EssaysController < ApplicationController
   def bread_crumbs
     add_breadcrumb "Модули", course_path(essay.modul.course)
     add_breadcrumb "Модуль #{essay.modul.title}", modul_path(essay.modul)
+  end
+
+  def admin
+    User.find_by(admin: true)
   end
 
   def essay_params

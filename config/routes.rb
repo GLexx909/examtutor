@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :moduls do
       resources :topics
       resources :essays do
-        resources :essay_passages, only: [:new, :create, :update]
+        resources :essay_passages, only: [:new, :show, :create, :update]
       end
 
       resources :tests do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
-
+  resources :notifications, only: [:create, :index]
 
   resources :posts do
     get :tutor_index, on: :collection
@@ -45,4 +45,6 @@ Rails.application.routes.draw do
     resources :mainmenus, only: [:index]
     resources :one_time_passwords, only: [:new, :create]
   end
+
+  mount ActionCable.server => '/cable'
 end

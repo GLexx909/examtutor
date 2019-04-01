@@ -5,6 +5,7 @@ feature 'User only can update essay', %q{
 
   given!(:admin) {create(:user, admin: true) }
   given!(:user) {create(:user) }
+  given!(:admin) {create(:user, admin: true) }
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
   given!(:essay) {create(:essay, modul: modul) }

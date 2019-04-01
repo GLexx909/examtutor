@@ -6,6 +6,7 @@ RSpec.describe EssayPassagesController, type: :controller do
   let!(:course)  { create :course }
   let!(:modul)  { create :modul, course: course }
   let!(:essay)  { create :essay, modul: modul }
+  let(:essay_passage) { create :essay_passage, essay: essay, user: user }
 
 
   describe 'GET #new' do
@@ -16,6 +17,16 @@ RSpec.describe EssayPassagesController, type: :controller do
 
     it_behaves_like 'To render new view'
     it_behaves_like 'To be a new', let(:object) {'essay_passage'}, let(:object_class) { EssayPassage }
+  end
+
+  describe 'GET #show' do
+    before(:each) do
+      login(user)
+      get :show, params: { id: essay_passage }
+    end
+
+    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'essay_passage'}, let(:resource) { essay_passage }
+    it_behaves_like 'To render show view'
   end
 
   describe 'POST #create' do
