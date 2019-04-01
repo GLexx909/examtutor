@@ -1,3 +1,3 @@
-a href="#{@notification.link}"
+a href="#{@notification.link}" class='badge badge-warning'
 	b = @notification.title
 br	

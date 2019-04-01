@@ -1,2 +1,7 @@
+h2 = 'Уведомления:'
+
 - @notifications.each do |notification|
-  p = link_to notification.title, notification.link
+  - if notification.status
+    p = link_to notification.title, notification_path(id: notification, link: notification.link), method: :patch, class: 'badge badge-light'
+  - else
+    p = link_to notification.title, notification_path(id: notification, link: notification.link), method: :patch, class: 'badge badge-warning'

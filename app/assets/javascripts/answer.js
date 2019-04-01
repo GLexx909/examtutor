@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function(){
         $('.question-' + id + ' .user-answer_result').html('<p>' + user_answer +'</p>');
         $('.question-' + id + ' .right-answer_result').html('<p>' + real_answer +'</p>');
         $('.question-' + id + ' .user-points_result').html('<p>' + points +'</p>');
-        $('.current_points').html('<p>' + all_points +'</p>');
+        $('.current_points').html('<h4>' + all_points +'</h4>');
         $('.question-' + id + ' input').val('');
         $('.question-' + id + ' .answer-for-question_form').remove();
 

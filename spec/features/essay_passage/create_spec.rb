@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User only can create essay', %q{
+feature 'User can create essay', %q{
 } do
 
   given!(:admin) {create(:user, admin: true) }
@@ -8,7 +8,6 @@ feature 'User only can create essay', %q{
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
   given!(:essay) {create(:essay, modul: modul) }
-  # given(:essay_passage) {create(:essay_passage, essay: essay, user: user) }
 
   describe 'User' do
     background do

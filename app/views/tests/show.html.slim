@@ -1,9 +1,5 @@
 .test
   - if can?(:update, @test)
-    / .note
-    /   p = t('.answer_1')
-    /   p = t('.answer_2')
-    /   p = t('.answer_3')
     = button_to 'Редактировать', edit_test_path(@test), remote: true, method: :get, class:'btn btn-secondary btn-sm'
     = button_to 'Удалить тест', test_path(@test), remote: true, method: :delete, class:'btn btn-danger btn-sm confirm'
 

@@ -52,7 +52,7 @@ RSpec.describe TestsController, type: :controller do
 
   describe 'GET #show' do
     before(:each) do
-      login(user)
+      login(admin)
       get :show, params: { id: test }
     end
 

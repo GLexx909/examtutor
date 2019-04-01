@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       resources :tests do
         get :start, on: :member
 
-        resources :test_passages, only: [:update]
+        resources :test_passages, only: [:show]
         resources :questions do
           resources :question_passages, only: [:create]
           resources :answers, only: [:destroy, :edit, :update]
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
-  resources :notifications, only: [:create, :index]
+  resources :notifications, only: [:index, :create, :update]
 
   resources :posts do
     get :tutor_index, on: :collection
