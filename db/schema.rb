@@ -79,11 +79,12 @@ ActiveRecord::Schema.define(version: 2019_03_30_145442) do
 
   create_table "notifications", force: :cascade do |t|
     t.string "title"
-    t.integer "abonent"
+    t.bigint "abonent_id"
     t.string "link"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["abonent_id"], name: "index_notifications_on_abonent_id"
   end
 
   create_table "one_time_passwords", force: :cascade do |t|
@@ -183,6 +184,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_145442) do
   add_foreign_key "essay_passages", "users"
   add_foreign_key "modul_passages", "moduls"
   add_foreign_key "modul_passages", "users"
+  add_foreign_key "notifications", "users", column: "abonent_id"
   add_foreign_key "posts", "users", column: "author_id"
   add_foreign_key "question_passages", "questions"
   add_foreign_key "question_passages", "users"

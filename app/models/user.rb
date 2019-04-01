@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :question_passages, dependent: :destroy
   has_many :questions, through: :question_passages
+  has_many :notifications, foreign_key: 'abonent_id', dependent: :destroy
 
   scope :not_admin, -> { where(admin: false) }
 
