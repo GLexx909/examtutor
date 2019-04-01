@@ -7,14 +7,14 @@ RSpec.describe Question, type: :model do
   it { should have_many(:question_passages).dependent(:destroy) }
   it { should have_many(:users).through(:question_passages) }
 
-  it { should belong_to(:test) }
+  it { should belong_to(:questionable) }
 
   let!(:user)       { create :user }
   let!(:course) { create :course }
   let!(:modul) { create :modul, course: course }
   let!(:test) { create :test, modul: modul }
   let!(:test_passage) { create :test_passage, test: test, user: user, points: 3 }
-  let!(:question) { create :question, test: test }
+  let!(:question) { create :question, questionable: test }
   let!(:answer) { create :answer, question: question, body: '123' }
 
   describe 'question.test_passage(user)' do

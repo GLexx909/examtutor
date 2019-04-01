@@ -11,9 +11,9 @@ RSpec.describe Answer, type: :model do
   let!(:modul) { create :modul, course: course }
   let!(:test) { create :test, modul: modul }
   let!(:test_passage) { create :test_passage, test: test, user: user, points: 3 }
-  let!(:question_1) { create :question, test: test }
+  let!(:question_1) { create :question, questionable: test }
   let!(:answer_1) { create :answer, question: question_1, body: '123' }
-  let!(:question_2) { create :question, test: test }
+  let!(:question_2) { create :question, questionable: test }
   let!(:answer_2) { create :answer, question: question_2, body: 'string' }
 
 

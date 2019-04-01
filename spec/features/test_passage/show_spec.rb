@@ -8,7 +8,7 @@ feature 'User can send test_passage to tutor', %q{
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
   given!(:test) {create(:test, modul: modul) }
-  given!(:question) {create(:question, test: test) }
+  given!(:question) {create(:question, questionable: test) }
   given!(:answer) {create(:answer, question: question, body: '123') }
 
   context 'multiple session', js: true do

@@ -8,7 +8,7 @@ feature 'Admin only can edit answer', %q{
   given!(:course) { create :course }
   given!(:modul) { create :modul, course: course  }
   given!(:test) { create :test, modul: modul }
-  given!(:question) { create :question, test: test  }
+  given!(:question) { create :question, questionable: test  }
   given!(:answer) { create :answer, question: question, body: 'AnswerBody'  }
 
   describe "Unauthenticated user" do

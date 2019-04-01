@@ -7,7 +7,7 @@ feature 'User can take the test', %q{
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
   given!(:test)  { create :test, modul: modul }
-  given!(:question) { create :question, test: test, title: 'Question number 1' }
+  given!(:question) { create :question, questionable: test, title: 'Question number 1' }
   given!(:answer) { create :answer, question: question, body: '123' }
 
   describe 'User' do

@@ -8,7 +8,7 @@ feature 'Admin only can edit question', %q{
   given!(:course) { create :course }
   given!(:modul) { create :modul, course: course  }
   given!(:test) { create :test, modul: modul }
-  given!(:question) { create :question, test: test, title: 'QuestionTitle'  }
+  given!(:question) { create :question, questionable: test, title: 'QuestionTitle'  }
   given!(:answer) { create :answer, question: question }
 
 

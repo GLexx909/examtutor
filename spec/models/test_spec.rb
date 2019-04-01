@@ -14,7 +14,7 @@ RSpec.describe Test, type: :model do
   let!(:modul) { create :modul, course: course }
   let!(:test) { create :test, modul: modul }
   let!(:test_passage) { create :test_passage, test: test, user: user, points: 3 }
-  let!(:question) { create :question, test: test }
+  let!(:question) { create :question, questionable: test }
   let!(:question_passage) { create :question_passage, question: question, user: user, points: 3 }
   let!(:answer) { create :answer, question: question, body: '123' }
 
