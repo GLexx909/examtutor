@@ -14,5 +14,5 @@
 
 - if @essay_passage
   = button_to 'Отправить репетитору на проверку',
-        notifications_path( notification:{ abonent: admin.id, title: "На проверку эссе от #{current_user.full_name}", link: essay_passage_path(@essay_passage) }),
+        notifications_path( notification:{ abonent: admin, title: "На проверку эссе от #{current_user.full_name}", link: essay_passage_path(@essay_passage) }),
         remote: true, class: 'btn btn-success btn-lg btn-block send-essay__button'

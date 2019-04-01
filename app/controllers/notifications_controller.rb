@@ -9,7 +9,8 @@ class NotificationsController < ApplicationController
   end
 
   def create
-    Notification.create(notification_params)
+    notification.abonent = abonent
+    notification.save
     Services::NotificationAdditionalActions.new(params).action
   end
 
@@ -19,7 +20,15 @@ class NotificationsController < ApplicationController
     ActionCable.server.broadcast("notify_user_#{params[:notification][:abonent]}", { notification: params[:notification] } )
   end
 
+  def notification
+    @notification ||= Notification.new(notification_params)
+  end
+
+  def abonent
+    User.find(params[:notification][:abonent]) if params[:notification][:abonent]
+  end
+
   def notification_params
-    params.require(:notification).permit(:abonent, :title, :link)
+    params.require(:notification).permit(:title, :link)
   end
 end

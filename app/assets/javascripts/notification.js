@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
-    // Notification Cable
+    // Notification Cable, send notification to particular person.
 
     const userId = $('.user-icon').data('userId');
     if (userId) {

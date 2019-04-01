@@ -1,0 +1,8 @@
+.notifications-dropdown.btn-group
+  .btn-group.dropleft role="group"
+    = button_tag '' , class: 'btn btn-secondary dropdown-toggle dropdown-toggle-split badge', id:"dropdownMenuButton", data:{ toggle:"dropdown" }, aria:{ haspopup: "true", expanded: "false"}
+      span class='sr-only'
+        = 'Toggle Dropleft'
+    .dropdown-menu aria-labelledby="dropdownMenuButton"
+  = button_tag '', class:'btn btn-secondary stub notify-button', onclick:"location.href='/notifications'"
+    = 'Уведомления'

@@ -15,8 +15,13 @@ RSpec.describe NotificationsController, type: :controller do
   describe 'POST #create' do
     before { login(user) }
     context 'with valid attributes' do
-      it_behaves_like 'To save a new object', let(:params) { { notification: attributes_for(:notification) } }, let(:object_class) { Notification }
-      it_behaves_like 'To render create.js view'
+      it 'saves a new object in the database' do
+        expect { post :create, params: { notification: { abonent: user } }, format: :js }.to change(Notification, :count).by(1)
+      end
+      it 'render create.js view' do
+        post :create, params: { notification: { abonent: user } }, format: :js
+        expect(response).to render_template :create
+      end
     end
 
     context 'additional action' do
@@ -28,7 +33,7 @@ RSpec.describe NotificationsController, type: :controller do
 
       it 'do action' do
         expect(notification_additional_action).to receive(:action)
-        post :create, params: { notification: attributes_for(:notification) }, format: :js
+        post :create, params: { notification: { abonent: user } }, format: :js
       end
     end
   end
