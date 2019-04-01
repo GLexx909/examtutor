@@ -23,7 +23,7 @@ class Ability
 
   def user_abilities
     guest_abilities
-    can :read, [Post, User, Course, Modul, Topic, Essay, Test, Question, Notification, EssayPassage]
+    can :read, [Post, User, Course, Modul, Topic, Essay, Question, Notification, EssayPassage, TestPassage]
     can :tutor_index, Post
     can :own_index, Post
     can :create, [Post, TestPassage, QuestionPassage, Notification, EssayPassage]

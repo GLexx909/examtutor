@@ -76,7 +76,8 @@ RSpec.describe Ability do
     it { should_not be_able_to :update, Essay, essay.id }
     it { should be_able_to :update, EssayPassage, essay_passage.id }
 
-    it { should be_able_to :read, Test }
+    it { should_not be_able_to :read, Test }
+    it { should be_able_to :start, Test }
     it { should_not be_able_to :create, Test }
     it { should_not be_able_to :update, Test, test.id }
     it { should be_able_to :start, Test }
@@ -90,8 +91,9 @@ RSpec.describe Ability do
     it { should_not be_able_to :update, Answer, answer.id }
 
     it { should be_able_to :create, TestPassage }
-    it { should be_able_to :update, TestPassage, test_passage.id }
+    it { should be_able_to :read, TestPassage }
     it { should be_able_to :create, QuestionPassage }
+
     it { should be_able_to :create, EssayPassage }
     it { should be_able_to :read, EssayPassage }
     it { should be_able_to :update, EssayPassage, user.id }

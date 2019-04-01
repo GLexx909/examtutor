@@ -16,8 +16,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  helper_method :admin
+
   def set_locale
     I18n.locale = I18n.locale_available?(params[:locale]) ? params[:locale] : I18n.default_locale
+  end
+
+  def admin
+    User.find_by(admin: true)
   end
 
 end
