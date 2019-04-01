@@ -4,5 +4,10 @@
       span class='sr-only'
         = 'Toggle Dropleft'
     .dropdown-menu aria-labelledby="dropdownMenuButton"
+      - notifications.each do |notification|
+        p = link_to notification.title, notification_path(id: notification, link: notification.link), method: :patch, class: 'badge badge-warning'
   = button_tag '', class:'btn btn-secondary stub notify-button', onclick:"location.href='/notifications'"
-    = 'Уведомления'
+    - if notifications.present?
+      = link_to mi.notifications_active.css_class('md-18 stub red'), '#'
+    - else
+      = 'Уведомления'

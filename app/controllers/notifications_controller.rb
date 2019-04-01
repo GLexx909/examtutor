@@ -5,13 +5,19 @@ class NotificationsController < ApplicationController
   authorize_resource
 
   def index
-    @notifications = Notification.where(abonent: current_user).order(created_at: :desc)
+    @notifications = Notification.where(abonent: current_user).or(Notification.where(abonent: nil)).order(created_at: :desc)
   end
 
   def create
-    notification.abonent = abonent
-    notification.save
+    @notification = Notification.new(notification_params)
+    @notification.abonent = abonent
+    @notification.save
     Services::NotificationAdditionalActions.new(params).action
+  end
+
+  def update
+    notification.update(status: true)
+    redirect_to params[:link]
   end
 
   private
@@ -21,7 +27,7 @@ class NotificationsController < ApplicationController
   end
 
   def notification
-    @notification ||= Notification.new(notification_params)
+    @notification ||= Notification.find(params[:id])
   end
 
   def abonent

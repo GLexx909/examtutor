@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
-  resources :notifications, only: [:create, :index]
+  resources :notifications, only: [:index, :create, :update]
 
   resources :posts do
     get :tutor_index, on: :collection

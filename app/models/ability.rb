@@ -28,7 +28,7 @@ class Ability
     can :own_index, Post
     can :create, [Post, TestPassage, QuestionPassage, Notification, EssayPassage]
     can :update, [Post, EssayPassage, TestPassage], author_id: user.id
-    can :update, [EssayPassage], user_id: user.id
+    can :update, [EssayPassage, Notification], user_id: user.id
     can :destroy, [Post], author_id: user.id
 
     can :update, [User], id: user.id
