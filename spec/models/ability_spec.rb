@@ -93,7 +93,10 @@ RSpec.describe Ability do
     it { should be_able_to :update, TestPassage, test_passage.id }
     it { should be_able_to :create, QuestionPassage }
     it { should be_able_to :create, EssayPassage }
+    it { should be_able_to :read, EssayPassage }
+    it { should be_able_to :update, EssayPassage, user.id }
 
+    it { should be_able_to :read, Notification }
     it { should be_able_to :create, Notification }
 
   end

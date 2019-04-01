@@ -48,7 +48,7 @@ class EssaysController < ApplicationController
   end
 
   def admin
-    User.find_by(admin: true, first_name: 'Анастасия', last_name: 'Владимировна')
+    User.find_by(admin: true)
   end
 
   def essay_params

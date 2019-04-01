@@ -8,10 +8,8 @@ class Services::NotificationAdditionalActions
     case @params[:additional_data]
     when 'update_essay_passage_status'
       update_essay_passage
-    when false
-      'Заглушка'
     else
-      'Заглушка'
+      ''
     end
   end
 

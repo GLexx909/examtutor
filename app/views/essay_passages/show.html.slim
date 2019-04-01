@@ -1,11 +1,5 @@
 .essay
-  / - if can?(:manage, :all)
-    = button_to 'Редактировать', edit_essay_path(@essay), remote: true, method: :get
-  /   = button_to 'Удалить эссе', essay_path(@essay), remote: true, method: :delete
-
   h3 = @essay_passage.essay.title
-
-    / .essay__form-edit class="essay__form-edit-#{@essay.id}"
 
 .essay-passage
   = render 'essay_passages/essay_passage_full'
