@@ -6,4 +6,8 @@ class Topic < ApplicationRecord
   belongs_to :modul
 
   validates :title, :body, presence: true
+
+  def topic_passage(current_user)
+    topic_passages.find_by(user: current_user)
+  end
 end

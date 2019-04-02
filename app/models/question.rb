@@ -14,6 +14,10 @@ class Question < ApplicationRecord
     questionable.test_passages.find_by(user: user)
   end
 
+  def topic_passage(user)
+    questionable.topic_passages.find_by(user: user)
+  end
+
   def points(user)
     test_passage(user).points
   end

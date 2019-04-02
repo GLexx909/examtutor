@@ -39,6 +39,7 @@ RSpec.describe Ability do
     let(:test)        { create :test, modul: modul }
     let(:question)    { create :question, questionable: test }
     let(:test_passage)    { create :test_passage, test: test, user: user }
+    let(:topic_passage)    { create :topic_passage, topic: topic, user: user }
     let(:answer)      { create :answer, question: question }
     let(:notification) { create :notification, abonent: user }
 
@@ -71,6 +72,7 @@ RSpec.describe Ability do
     it { should be_able_to :read, Topic }
     it { should_not be_able_to :create, Topic }
     it { should_not be_able_to :update, Topic, topic.id }
+    it { should be_able_to :update, TopicPassage, topic.id }
 
     it { should be_able_to :read, Essay }
     it { should_not be_able_to :create, Essay }
