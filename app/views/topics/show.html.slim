@@ -7,3 +7,12 @@
   h1 = @topic.title
   p = @topic.body.html_safe
 
+
+.question__answers__block
+  - if can?(:create, Question)
+    = button_to 'Создать новый вопрос', new_topic_question_path(@topic), method: :get, remote: true, class:'btn btn-secondary btn-sm'
+    .question__new-form
+
+/ .questions-list
+/   = render @topic.questions if @topic.questions
+= render 'questions/questions_list', questions: @topic.questions if @topic.questions

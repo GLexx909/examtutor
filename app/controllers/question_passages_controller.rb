@@ -16,7 +16,7 @@ class QuestionPassagesController < ApplicationController
                      real_answer: @question_passage.question.answer.body,
                      id: @question_passage.question.id,
                      result: result,
-                     points: @question_passage.points, all_points: question.points(current_user)}
+                     points: @question_passage.points, all_points: all_points}
     end
   end
 
@@ -24,5 +24,9 @@ class QuestionPassagesController < ApplicationController
 
   def question
     @question ||= Question.find(params[:question_id])
+  end
+
+  def all_points
+    question.points(current_user) if question.questionable_type == 'test'
   end
 end

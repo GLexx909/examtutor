@@ -7,7 +7,7 @@ feature 'Admin only can edit topic', %q{
   given!(:admin) { create(:user, admin: true) }
   given!(:course) { create :course }
   given!(:modul) { create :modul, course: course  }
-  given!(:topic) { create :topic, modul: modul, title: 'Topic'  }
+  given!(:topic) { create :topic, modul: modul, title: 'TopicFirst'  }
 
   describe "Unauthenticated user" do
     scenario 'can not edit topic' do
@@ -36,6 +36,6 @@ feature 'Admin only can edit topic', %q{
     click_on 'Сохранить изменения'
 
     expect(page).to have_content 'Topic Title New'
-    expect(page).to_not have_content 'TopicTitle'
+    expect(page).to_not have_content 'TopicFirst'
   end
 end

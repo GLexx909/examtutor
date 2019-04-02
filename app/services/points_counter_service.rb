@@ -14,10 +14,12 @@ class Services::PointsCounterService
 
     @question_passage.question.answer.is_number? ? number_checking : word_checking
 
-    current_points = @question_passage.question.points(@current_user)
-    @question_passage.question.test_passage(@current_user).update(points: current_points + @points)
     @question_passage.update(points: @points)
 
+    if @question_passage.question.questionable_type == 'test'
+      current_points = @question_passage.question.points(@current_user)
+      @question_passage.question.test_passage(@current_user).update(points: current_points + @points)
+    end
     @points == @true_answer.points # Is the answer completely correct?
   end
 
