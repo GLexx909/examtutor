@@ -6,7 +6,7 @@ RSpec.describe AnswersController, type: :controller do
   let!(:course)  { create :course }
   let!(:modul)  { create :modul, course: course }
   let!(:test)  { create :test, modul: modul }
-  let!(:question)  { create :question, test: test }
+  let!(:question)  { create :question, questionable: test }
   let!(:answer)  { create :answer, question: question }
 
   describe 'GET #edit' do

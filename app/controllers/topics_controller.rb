@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
 
   def show
     bread_crumbs
+    create_topic_passage
   end
 
   def create
@@ -42,6 +43,10 @@ class TopicsController < ApplicationController
   def bread_crumbs
     add_breadcrumb "Модули", course_path(topic.modul.course)
     add_breadcrumb "Модуль #{topic.modul.title}", modul_path(topic.modul)
+  end
+
+  def create_topic_passage
+    topic.topic_passages.create(user: current_user) unless topic.topic_passage(current_user)
   end
 
   def topic_params

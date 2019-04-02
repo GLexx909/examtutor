@@ -7,7 +7,7 @@ RSpec.describe QuestionPassagesController, type: :controller do
   let!(:modul)  { create :modul, course: course }
   let!(:test)  { create :test, modul: modul }
   let!(:test_passage) { create :test_passage, test: test, user: user }
-  let!(:question) { create :question, test: test }
+  let!(:question) { create :question, questionable: test }
   let!(:answer) { create :answer, question: question, body: '123' }
 
   describe 'POST #create' do

@@ -1,5 +1,5 @@
 $('.flash-block').html('<%= render 'shared/errors', resource: @topic %>');
 
 <% if !@topic.errors.present? %>
-  $('.topic').html('<%= render 'topics/full_topic', locale: @topic %>')
+  $('.topic').html('<%= j render 'topics/full_topic', locale: @topic %>')
 <% end %>

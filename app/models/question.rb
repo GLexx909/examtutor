@@ -4,14 +4,18 @@ class Question < ApplicationRecord
 
   has_one :answer, dependent: :destroy, inverse_of: :question
 
-  belongs_to :test
+  belongs_to :questionable, polymorphic: true
 
   validates :title, presence: true
 
   accepts_nested_attributes_for :answer, reject_if: :all_blank
 
   def test_passage(user)
-    test.test_passages.find_by(user: user)
+    questionable.test_passages.find_by(user: user)
+  end
+
+  def topic_passage(user)
+    questionable.topic_passages.find_by(user: user)
   end
 
   def points(user)

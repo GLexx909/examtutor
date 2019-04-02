@@ -24,7 +24,8 @@
               p Правильный ответ:
               .right-answer_result
                 p = question.answer.body if question.question_passages.find_by(user: current_user)
-            .user-points
-              p Кол-во набранных баллов:
-              .user-points_result
-                p = question.points(current_user) if question.question_passages.find_by(user: current_user)
+            - if question.questionable_type == 'test'
+              .user-points
+                p Кол-во набранных баллов:
+                .user-points_result
+                  p = question.points(current_user) if question.question_passages.find_by(user: current_user)

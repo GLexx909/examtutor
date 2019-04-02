@@ -12,13 +12,17 @@ class Services::PointsCounterService
     @points = @true_answer.points
     @errors = 0
 
-    @question_passage.question.answer.is_number? ? number_checking : word_checking
+    @question_passage.question.answer.is_number? ? number_checking : word_checking # The answer is numeric or alphabetic?
 
-    current_points = @question_passage.question.points(@current_user)
-    @question_passage.question.test_passage(@current_user).update(points: current_points + @points)
     @question_passage.update(points: @points)
 
-    @points == @true_answer.points # Is the answer completely correct?
+    if @question_passage.question.questionable_type == 'test'
+      current_points = @question_passage.question.points(@current_user)
+      @question_passage.question.test_passage(@current_user).update(points: current_points + @points)
+    elsif @question_passage.question.questionable_type == 'topic'
+      @question_passage.question.topic_passage(@current_user).update(status: true)
+    end
+    @points == @true_answer.points # If the answer is completely correct?
   end
 
   private
@@ -26,9 +30,9 @@ class Services::PointsCounterService
   def number_checking
     @length = @true_answer_body.length - 1
     extra_numbers = @user_answer_body.length - @true_answer_body.length
-    extra_errors = extra_numbers > 0 ? extra_numbers : 0 # Лишние ответы
+    extra_errors = extra_numbers > 0 ? extra_numbers : 0 # if there are extra answers?
 
-    @true_answer.full_accordance? ? full_accordance : not_full_accordance # Если ответ должен быть последовательным
+    @true_answer.full_accordance? ? full_accordance : not_full_accordance # If the answer must be consistent?
 
     @points -= @errors
     @points -= extra_errors

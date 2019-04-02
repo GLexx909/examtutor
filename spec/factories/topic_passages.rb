@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :topic_passage do
     user { nil }
-    modul { nil }
+    topic { nil }
     status { false }
   end
 end

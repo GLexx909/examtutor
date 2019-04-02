@@ -6,7 +6,7 @@ tr
       = essay.title
   td
     = button_to 'Написать', essay_path(essay), method: :get, class: 'btn btn-outline-info'
-  td
+  td.ta-center
     - if essay.essay_passage(current_user)&.status
       = link_to mi.done.css_class('md-24 stub green'), '#'
     - else

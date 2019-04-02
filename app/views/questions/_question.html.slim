@@ -4,9 +4,6 @@ div class="question-#{question.id}"
   div class="answer-#{question.answer.id}"
     - if can?(:update, question)
       = question.answer.body
-      / = link_to 'Удалить ответ', answer_path(question.answer), method: :delete, remote: true
-      / p = link_to 'Редактировать ответ', edit_answer_path(question.answer), method: :get, remote: true, class:'badge badge-secondary'
-      / div class="answer__form-edit-#{question.answer.id}"
 
   - if can?(:update, question)
     = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get, class:'btn btn-secondary btn-sm'
