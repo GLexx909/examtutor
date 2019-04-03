@@ -16,10 +16,10 @@ class Services::PointsCounterService
 
     @question_passage.update(points: @points)
 
-    if @question_passage.question.questionable_type == 'test'
+    if @question_passage.question.questionable_type == 'Test'
       current_points = @question_passage.question.points(@current_user)
       @question_passage.question.test_passage(@current_user).update(points: current_points + @points)
-    elsif @question_passage.question.questionable_type == 'topic'
+    elsif @question_passage.question.questionable_type == 'Topic'
       @question_passage.question.topic_passage(@current_user).update(status: true)
     end
     @points == @true_answer.points # If the answer is completely correct?

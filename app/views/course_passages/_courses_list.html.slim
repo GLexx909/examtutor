@@ -1,0 +1,5 @@
+- courses.each do |course|
+  h4 = "Курс #{course.title}, студенты:"
+  - course.users.each do |user|
+    p = user.full_name
+

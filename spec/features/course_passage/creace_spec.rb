@@ -7,6 +7,8 @@ feature 'Admin only can create course_passage', %q{
   given!(:user) {create(:user) }
   given!(:admin) {create(:user, admin: true, first_name: 'Admin') }
   given!(:course) { create(:course) }
+  let!(:modul)  { create :modul, course: course }
+  # let!(:modul_passage)  { create :modul_passage, modul: modul, user: user, status: true }
 
   describe 'Admin' do
     background do

@@ -10,11 +10,13 @@ class ModulsController < ApplicationController
   end
 
   def show
+    redirect_to course_path(modul.course) unless modul.modul_passage(current_user)&.status? || can?(:manage, :all)
     bread_crumbs
   end
 
   def create
     @modul = course.moduls.create(modul_params)
+    create_new_modul_passages(@modul)
   end
 
   def edit
@@ -36,6 +38,12 @@ class ModulsController < ApplicationController
 
   def modul
     @modul ||= params[:id] ? Modul.find(params[:id]) : course.moduls.new
+  end
+
+  def create_new_modul_passages(modul)
+    modul.course.users do |user|
+      modul.create.modul_passage(user: user)
+    end
   end
 
   def bread_crumbs

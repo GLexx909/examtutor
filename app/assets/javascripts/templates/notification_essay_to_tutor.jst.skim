@@ -1,3 +1,4 @@
-a href="#{@notification.link}" class='badge badge-warning'
-	b = @notification.title
+a href="/notifications/#{@notification_id}?link=#{@link}" class='badge badge-warning' data-method="patch"
+	= @notification.title
 br	
+

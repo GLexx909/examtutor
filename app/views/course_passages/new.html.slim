@@ -8,3 +8,6 @@
       small id="courseHelp" class="form-text text-muted" Выберите курс, к которому будет добален ученик.
     .submit
       = f.submit 'Добавить ученика', class: 'btn btn-success'
+
+.courses
+  = render 'courses_list'
