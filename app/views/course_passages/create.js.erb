@@ -1,1 +1,2 @@
 $('.flash-block').html('<%= "#{@course_passage.user.full_name} добавлен к курсу #{@course_passage.course.title}" %>');
+$('.courses').html('<%= render 'course_passages/courses_list' %>');

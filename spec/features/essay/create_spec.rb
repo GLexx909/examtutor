@@ -7,6 +7,7 @@ feature 'Admin only can create essay', %q{
   given!(:user) {create(:user) }
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
+  # given!(:modul_passage) { create :modul_passage, modul: modul, user: user, status: true }
 
   describe 'Admin' do
     background do

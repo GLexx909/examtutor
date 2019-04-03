@@ -14,7 +14,3 @@
     .question__new-form
 
 = render 'questions/questions_list', questions: @topic.questions if @topic.questions
-
-- unless @topic.topic_passage(current_user).status?
-  = button_to 'Материал прочитан', topic_passage_path(@topic.topic_passage(current_user)),
-          class: 'btn btn-success btn-lg btn-block button-topic-ready', title: "Получи баллы за прочтение!", remote: true, method: :patch

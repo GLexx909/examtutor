@@ -6,6 +6,7 @@ feature 'User can take the test', %q{
   given!(:user) {create(:user) }
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
+  given!(:modul_passage) { create :modul_passage, modul: modul, user: user, status: true }
   given!(:test)  { create :test, modul: modul }
   given!(:question) { create :question, questionable: test, title: 'Question number 1' }
   given!(:answer) { create :answer, question: question, body: '123' }

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :modul_passage do
     user { nil }
-    modul { "" }
+    modul { nil }
     status { false }
   end
 end

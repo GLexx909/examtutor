@@ -9,5 +9,5 @@ h1 = @test.title
 
 - unless @test.test_passage(current_user).status?
   = button_to 'Отправить репетитору на проверку',
-          notifications_path(notification: {abonent: admin, title: "На проверку тест от #{current_user.full_name}", link: test_passage_path(@test.test_passage(current_user))}),
+          notifications_path(notification: {additional_data: 'update_test_passage_status', id: @test.test_passage(current_user), abonent: admin, title: "На проверку тест от #{current_user.full_name}", link: test_passage_path(@test.test_passage(current_user))}),
           remote: true, class: 'btn btn-success btn-lg btn-block send-essay__button'

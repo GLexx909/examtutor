@@ -5,6 +5,7 @@ RSpec.describe ModulsController, type: :controller do
   let!(:admin)  { create :user, admin: true }
   let!(:course)  { create :course }
   let!(:modul)  { create :modul, course: course }
+  let!(:modul_passage) { create :modul_passage, modul: modul, user: user, status: true }
 
   describe 'GET #new' do
     before(:each) do

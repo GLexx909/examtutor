@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_145442) do
   end
 
   create_table "moduls", force: :cascade do |t|
+    t.integer "position"
     t.string "title"
     t.bigint "course_id"
     t.datetime "created_at", null: false

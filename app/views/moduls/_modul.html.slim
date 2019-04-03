@@ -1,5 +1,8 @@
 div class="modul-#{modul.id}"
-  = link_to modul.title, modul_path(modul)
+  - if modul.modul_passage(current_user)&.status? || can?(:manage, :all)
+    = link_to modul.title, modul_path(modul)
+  - else
+    = modul.title
 
   - if can?(:update, modul)
     = button_to 'Редактировать', edit_modul_path(modul), remote: true, method: :get, class:'btn btn-secondary btn-sm'
