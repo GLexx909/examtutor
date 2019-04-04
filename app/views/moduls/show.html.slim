@@ -3,16 +3,14 @@ h1 = @modul.title
 - if can?(:create, Topic)
   .d-flex.mb-3
     = button_to 'Создать новую тему', new_modul_topic_path(@modul), method: :get, remote: true, class:'btn btn-secondary btn-sm mr_1'
-    .topic__new-form
-
     = button_to 'Создать новое эссе', new_modul_essay_path(@modul), method: :get, remote: true, class:'btn btn-secondary btn-sm mr_1'
-    .essay__new-form
-
     = button_to 'Создать новый тест', new_modul_test_path(@modul), method: :get, remote: true, class:'btn btn-secondary btn-sm'
-    .test__new-form
 
+  .topic__new-form
+  .essay__new-form
+  .test__new-form
 
-table.table.table-striped.table-topics
+table.table.table-topics.table-bordered
   thead.thead-dark
     tr
       th.w-90 scope='col' Тема
@@ -21,7 +19,7 @@ table.table.table-striped.table-topics
   tbody
     = render @modul.topics
 
-table.table.table-striped.table-essays
+table.table.table-essays.table-bordered
   thead.thead-dark
     tr
       th.w-90 scope='col' Эссе
@@ -30,7 +28,7 @@ table.table.table-striped.table-essays
   tbody
     = render @modul.essays
 
-table.table.table-striped.table-tests
+table.table.table-tests.table-bordered
   thead.thead-dark
     tr
       th.w-90 scope='col' Тест

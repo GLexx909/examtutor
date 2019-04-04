@@ -1,9 +1,10 @@
 .essay
   - if can?(:update, @essay)
-    = button_to 'Редактировать', edit_essay_path(@essay), remote: true, method: :get
-    = button_to 'Удалить эссе', essay_path(@essay), remote: true, method: :delete
+    .d-flex.mb-3.mr_1_for_child
+      = button_to 'Редактировать', edit_essay_path(@essay), remote: true, method: :get, class:'btn btn-secondary btn-sm'
+      = button_to 'Удалить эссе', essay_path(@essay), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm'
 
-    h3 = @essay.title
+    h1 = "Тема эссе: #{@essay.title}"
 
     .essay__form-edit class="essay__form-edit-#{@essay.id}"
 

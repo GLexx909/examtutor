@@ -30,7 +30,7 @@ function showPostForm() {
 
 // Post-Card show only small part of post-body
 function slicePostBody() {
-    const size = 160;
+    const size = 260;
     const postBodyDiv = $('.card-text');
 
     postBodyDiv.each(function(i, elem){

@@ -1,10 +1,13 @@
-div class="modul-#{modul.id}"
-  - if modul.modul_passage(current_user)&.status? || can?(:manage, :all)
-    = link_to modul.title, modul_path(modul)
-  - else
-    = modul.title
+tr class="modul-#{modul.id}"
+  td
+    - if modul.modul_passage(current_user)&.status? || can?(:manage, :all)
+      h2.course-title = link_to modul.title, modul_path(modul), class: 'badge'
+    - else
+      h2 = modul.title
+  - if can?(:create, Course)
+    td
+      = button_to 'Редактировать', edit_modul_path(modul), remote: true, method: :get, class: 'btn btn-secondary btn-sm'
+    td
+      = button_to 'Удалить модуль', modul_path(modul), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm'
 
-  - if can?(:update, modul)
-    = button_to 'Редактировать', edit_modul_path(modul), remote: true, method: :get, class:'btn btn-secondary btn-sm'
-    = button_to 'Удалить модуль', modul_path(modul), remote: true, method: :delete, class:'btn btn-danger btn-sm confirm'
-    .modul__form-edit class="modul__form-edit-#{modul.id}"
+  .modul__form-edit class="modul__form-edit-#{modul.id}"

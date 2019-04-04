@@ -2,11 +2,11 @@
   tr class="course-#{course.id}"
     td
       h2.course-title = link_to course.title, course_path(course), class: 'badge'
-      - if can?(:create, Course)
-        td
-          = button_tag 'Редактировать', class:'btn btn-secondary btn-sm edit-course_button', remote: true, data: { id: course.id } if can?(:update, course)
-        td
-          = button_to 'Удалить курс', course_path(course), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm' if can?(:delete, course)
+    - if can?(:create, Course)
+      td
+        = button_tag 'Редактировать', class:'btn btn-secondary btn-sm edit-course_button', remote: true, data: { id: course.id } if can?(:update, course)
+      td
+        = button_to 'Удалить курс', course_path(course), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm' if can?(:delete, course)
 
     .course__form-edit.hidden class="course__form-edit-#{course.id}"
       = render 'form_edit', course: course

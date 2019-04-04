@@ -1,9 +1,15 @@
 h1 = @course.title
 
 - if can?(:create, Modul)
-  = button_to 'Создать новый модуль', new_course_modul_path(@course), method: :get, remote: true
+  = button_to 'Создать новый модуль', new_course_modul_path(@course), method: :get, remote: true, class:'btn btn-secondary btn-sm mb_1'
   .modul__new-form
 
-.moduls-list
-  = render @course.moduls
-
+table.table.table-courses.table-bordered
+  thead.thead-dark
+    tr
+      th.w-90 scope='col' Модули
+      - if can?(:create, Modul)
+        th scope='col' Действие
+        th scope='col' Действие
+  tbody.moduls-list
+    = render @course.moduls

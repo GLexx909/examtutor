@@ -1,5 +1,5 @@
-.div class="post-#{@post.id}"
-  b = @post.title
+article class="post-#{@post.id}"
+  h1 = @post.title
   p = @post.body.html_safe
 
 - if can?(:update, @post)

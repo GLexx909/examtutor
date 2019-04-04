@@ -3,7 +3,7 @@ class TestsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :test, only: [:start, :new, :show, :edit]
-  before_action :bread_crumbs, only: [:show]
+  before_action :bread_crumbs, only: [:show, :start]
 
   authorize_resource
 
