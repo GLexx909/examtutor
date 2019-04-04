@@ -9,6 +9,8 @@ class Modul < ApplicationRecord
 
   validates :title, presence: true
 
+  acts_as_list
+
   def modul_passage(current_user)
     modul_passages.find_by(user: current_user)
   end

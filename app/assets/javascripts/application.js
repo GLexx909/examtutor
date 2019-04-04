@@ -14,6 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
+//= require jquery-ui
 //= require tinymce-jquery
 //= require action_cable
 //= require cocoon
@@ -21,5 +22,5 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-var App = App || {};
-App.cable = ActionCable.createConsumer();
+// var App = App || {};
+// App.cable = ActionCable.createConsumer();

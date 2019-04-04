@@ -7,9 +7,11 @@ h1 = @course.title
 table.table.table-courses.table-bordered
   thead.thead-dark
     tr
+      - if can?(:manage, :all)
+        th
       th.w-90 scope='col' Модули
       - if can?(:create, Modul)
         th scope='col' Действие
         th scope='col' Действие
-  tbody.moduls-list
-    = render @course.moduls
+  tbody.moduls-list#moduls_sortable data-update-url=sort_course_moduls_path(@course)
+    = render @course.moduls.order(:position)

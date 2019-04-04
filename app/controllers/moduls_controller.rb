@@ -1,6 +1,7 @@
 class ModulsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:sort]
   before_action :modul, only: [:new, :show, :edit]
+  skip_before_action :verify_authenticity_token, only: [:sort]
 
   authorize_resource
 
@@ -28,6 +29,14 @@ class ModulsController < ApplicationController
 
   def destroy
     modul.destroy
+  end
+
+  def sort
+    params[:modul].each_with_index do |id, index|
+      Modul.find(id).update(position: index+1)
+    end
+
+    head :ok
   end
 
   private

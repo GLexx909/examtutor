@@ -38,10 +38,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'
 gem 'devise'
 gem 'jquery-rails'
+gem 'jquery-ui-rails' # for sortable models
+
 
 #Style
 gem 'bootstrap', ">= 4.3.1"
 gem 'material_icons'
+gem 'acts_as_list' # to sort model position
 
 #Authorization
 gem 'cancancan'

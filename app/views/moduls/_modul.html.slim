@@ -1,4 +1,8 @@
-tr class="modul-#{modul.id}"
+tr class="modul-#{modul.id}" id="modul_#{modul.id}"
+  - if can?(:manage, :all)
+    td
+      span.handle
+        = link_to mi.unfold_more.css_class('md-36 stub blue'), '#'
   td
     - if modul.modul_passage(current_user)&.status? || can?(:manage, :all)
       h2.course-title = link_to modul.title, modul_path(modul), class: 'badge'

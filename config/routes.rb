@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :courses, shallow: true do
     resources :moduls do
+      post :sort, on: :collection
       resources :topics do
         resources :topic_passages, only: [:update]
         resources :questions do
