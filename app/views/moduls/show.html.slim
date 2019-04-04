@@ -13,11 +13,13 @@ h1 = @modul.title
 table.table.table-topics.table-bordered
   thead.thead-dark
     tr
+      - if can?(:manage, :all)
+        th
       th.w-90 scope='col' Тема
       th scope='col' Задание
       th scope='col' Статус
-  tbody
-    = render @modul.topics
+  tbody.topics-list#topics_sortable data-update-url=sort_modul_topics_path(@modul)
+    = render @modul.topics.order(:position)
 
 table.table.table-essays.table-bordered
   thead.thead-dark

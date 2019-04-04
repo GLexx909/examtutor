@@ -1,4 +1,8 @@
-tr
+tr class="topic-#{topic.id}" id="topic_#{topic.id}"
+  - if can?(:manage, :all)
+    td
+      span.handle
+        = link_to mi.unfold_more.css_class('md-36 stub blue'), '#'
   td class="topic-#{topic.id}"
     = topic.title
   td

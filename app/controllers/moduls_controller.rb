@@ -1,6 +1,7 @@
 class ModulsController < ApplicationController
-  before_action :authenticate_user!, except: [:sort]
+  before_action :authenticate_user!
   before_action :modul, only: [:new, :show, :edit]
+
   skip_before_action :verify_authenticity_token, only: [:sort]
 
   authorize_resource

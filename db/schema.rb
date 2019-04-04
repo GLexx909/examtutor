@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 2019_03_30_145442) do
   create_table "topics", force: :cascade do |t|
     t.string "title"
     t.string "body"
+    t.integer "position"
     t.bigint "modul_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

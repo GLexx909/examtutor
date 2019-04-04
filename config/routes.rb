@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :moduls do
       post :sort, on: :collection
       resources :topics do
+        post :sort, on: :collection
         resources :topic_passages, only: [:update]
         resources :questions do
           resources :question_passages, only: [:create]

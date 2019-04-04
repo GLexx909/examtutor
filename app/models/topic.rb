@@ -7,6 +7,8 @@ class Topic < ApplicationRecord
 
   validates :title, :body, presence: true
 
+  acts_as_list
+
   def topic_passage(current_user)
     topic_passages.find_by(user: current_user)
   end
