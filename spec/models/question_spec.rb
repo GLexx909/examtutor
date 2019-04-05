@@ -17,6 +17,7 @@ RSpec.describe Question, type: :model do
   let!(:test_passage) { create :test_passage, test: test, user: user, points: 3 }
   let!(:topic_passage) { create :topic_passage, topic: topic, user: user }
   let!(:question) { create :question, questionable: test }
+  let!(:question_passage) { create :question_passage, question: question, user: user }
   let!(:question_topic) { create :question, questionable: topic }
   let!(:answer) { create :answer, question: question, body: '123' }
 
@@ -29,6 +30,12 @@ RSpec.describe Question, type: :model do
   describe 'question.topic_passage(user)' do
     it 'should return topic_passage of question' do
       expect(question_topic.topic_passage(user)).to eq topic_passage
+    end
+  end
+
+  describe 'question.question_passage(user)' do
+    it 'should return question_passage of question' do
+      expect(question.question_passage(user)).to eq question_passage
     end
   end
 

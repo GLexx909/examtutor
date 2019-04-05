@@ -34,4 +34,4 @@ h1 = @test.title
             .user-points
               p Кол-во набранных баллов:
               .user-points_result
-                p = question.points(@test_passage.user) if question.question_passages.find_by(user: @test_passage.user)
+                p = question.question_passage(@test_passage.user).points if question.question_passages.find_by(user: @test_passage.user)

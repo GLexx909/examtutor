@@ -27,6 +27,6 @@ class QuestionPassagesController < ApplicationController
   end
 
   def all_points
-    question.points(current_user) if question.questionable_type == 'test'
+    question.points(current_user) if question.questionable_type == 'Test'
   end
 end

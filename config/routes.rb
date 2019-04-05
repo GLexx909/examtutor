@@ -24,13 +24,17 @@ Rails.application.routes.draw do
         end
       end
       resources :essays do
-        resources :essay_passages, only: [:new, :show, :create, :update]
+        resources :essay_passages, only: [:new, :show, :create, :update] do
+          patch :update_status, on: :member
+        end
       end
 
       resources :tests do
         get :start, on: :member
 
-        resources :test_passages, only: [:show]
+        resources :test_passages, only: [:show] do
+          patch :update_status, on: :member
+        end
         resources :questions do
           resources :question_passages, only: [:create]
           resources :answers, only: [:destroy, :edit, :update]

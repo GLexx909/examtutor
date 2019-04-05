@@ -11,7 +11,6 @@ class NotificationsController < ApplicationController
     @notification = Notification.new(notification_params)
     @notification.abonent = abonent
     @notification.save
-    Services::NotificationAdditionalActions.new(params, current_user).action
     send_notification(@notification)
   end
 
@@ -23,7 +22,7 @@ class NotificationsController < ApplicationController
   private
 
   def send_notification(notification)
-    ActionCable.server.broadcast("notify_user_#{params[:notification][:abonent]}", { notification: params[:notification], notification_id: notification.id, link: link } )
+    ActionCable.server.broadcast("notify_user_#{params[:notification][:abonent]}", { notification: notification, link: link } )
   end
 
   def notification

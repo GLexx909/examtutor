@@ -27,19 +27,6 @@ RSpec.describe NotificationsController, type: :controller do
         expect(response).to render_template :create
       end
     end
-
-    context 'additional action' do
-      let(:notification_additional_action) { double(Services::NotificationAdditionalActions) }
-
-      before do
-        allow(Services::NotificationAdditionalActions).to receive(:new).and_return(notification_additional_action)
-      end
-
-      it 'do action' do
-        expect(notification_additional_action).to receive(:action)
-        post :create, params: { notification: { abonent: user } }, format: :js
-      end
-    end
   end
 
   describe 'PATCH #update' do

@@ -33,6 +33,7 @@ class Ability
     can :destroy, [Post], author_id: user.id
 
     can :update, [User], id: user.id
+    can :update_status, [TestPassage], id: user.id
     can :start, Test
   end
 end
