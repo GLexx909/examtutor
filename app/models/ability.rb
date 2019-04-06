@@ -35,5 +35,6 @@ class Ability
     can :update, [User], id: user.id
     can :update_status, [TestPassage], id: user.id
     can :start, Test
+    can :abonents, Message
   end
 end

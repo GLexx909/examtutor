@@ -105,5 +105,7 @@ RSpec.describe Ability do
     it { should be_able_to :read, Notification }
     it { should be_able_to :create, Notification }
     it { should be_able_to :update, Notification, notification.id }
+
+    it { should be_able_to :abonents, Message }
   end
 end

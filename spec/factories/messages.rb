@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :message do
-    author { "MyString" }
-    abonent { "MyString" }
-    body { "MyString" }
-    status { "MyString" }
+    author { nil }
+    abonent { nil }
+    body { "MessageBody" }
+    status { false }
   end
 end

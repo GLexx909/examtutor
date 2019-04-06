@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def have_course?(course)
     course_passages.find_by(course_id: course)
   end
+
+  def messages_with_self(current_user, abonent)
+    Message.where("author_id = #{current_user.id} AND abonent_id = #{abonent.id} OR author_id = #{abonent.id} AND abonent_id = #{current_user.id}")
+  end
 end

@@ -29,6 +29,8 @@ RSpec.describe User, type: :model do
   let!(:post)       { create :post, author: user }
   let!(:course) { create :course }
   let!(:course_passage) { create :course_passage, user: user, course: course }
+  let!(:message1) { create :message, author: user, abonent: user_other }
+  let!(:message2) { create :message, author: user_other, abonent: user }
 
   describe 'User.author_or_admin_of? check' do
     it 'is user the author of resource' do
@@ -59,6 +61,12 @@ RSpec.describe User, type: :model do
   describe 'User#have_course?(course) check' do
     it 'return course passage' do
       expect(user.have_course?(course)).to eq course_passage
+    end
+  end
+
+  describe 'user#messages_with_self(current_user, abonent)' do
+    it 'return messages where user take part' do
+      expect(user.messages_with_self(user, user_other)).to eq [message1,message2]
     end
   end
 end

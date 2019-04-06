@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :courses, shallow: true do
     resources :moduls do
       post :sort, on: :collection
+
       resources :topics do
         post :sort, on: :collection
         resources :topic_passages, only: [:update]
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
           resources :answers, only: [:destroy, :edit, :update]
         end
       end
+
       resources :essays do
         resources :essay_passages, only: [:new, :show, :create, :update] do
           patch :update_status, on: :member
@@ -46,6 +48,10 @@ Rails.application.routes.draw do
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
   resources :notifications, only: [:index, :create, :update]
+
+  resources :messages, only: [] do
+    get :abonents, on: :collection
+  end
 
   resources :posts do
     get :tutor_index, on: :collection
