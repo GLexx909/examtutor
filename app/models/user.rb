@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_many :question_passages, dependent: :destroy
   has_many :questions, through: :question_passages
   has_many :notifications, foreign_key: 'abonent_id', dependent: :destroy
+  has_many :messages, foreign_key: 'author_id'
+  has_many :abonents, through: :messages
 
   scope :not_admin, -> { where(admin: false) }
 
@@ -34,5 +36,9 @@ class User < ApplicationRecord
 
   def have_course?(course)
     course_passages.find_by(course_id: course)
+  end
+
+  def messages_with_self(current_user, abonent)
+    Message.where("author_id = #{current_user.id} AND abonent_id = #{abonent.id} OR author_id = #{abonent.id} AND abonent_id = #{current_user.id}")
   end
 end

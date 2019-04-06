@@ -106,3 +106,11 @@ Answer.create!([
     {body: '123', full_accordance: true, points: 2, question: questions[14]},
     {body: '123', full_accordance: true, points: 2, question: questions[15]},
 ])
+
+Message.create!([
+    {author: users[0], abonent: users[1], body: 'Hello, John! It is Admin.'},
+    {author: users[0], abonent: users[1], body: 'How are you doing?'},
+    {author: users[1], abonent: users[0], body: 'Fine!'},
+
+    {author: users[0], abonent: users[2], body: 'Hello, Jane!'},
+])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_30_145442) do
+ActiveRecord::Schema.define(version: 2019_04_06_054833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 2019_03_30_145442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["modul_id"], name: "index_essays_on_modul_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "abonent_id"
+    t.string "body"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["abonent_id"], name: "index_messages_on_abonent_id"
+    t.index ["author_id"], name: "index_messages_on_author_id"
   end
 
   create_table "modul_passages", force: :cascade do |t|
@@ -185,6 +196,8 @@ ActiveRecord::Schema.define(version: 2019_03_30_145442) do
   add_foreign_key "answers", "questions"
   add_foreign_key "essay_passages", "essays"
   add_foreign_key "essay_passages", "users"
+  add_foreign_key "messages", "users", column: "abonent_id"
+  add_foreign_key "messages", "users", column: "author_id"
   add_foreign_key "modul_passages", "moduls"
   add_foreign_key "modul_passages", "users"
   add_foreign_key "notifications", "users", column: "abonent_id"
