@@ -20,6 +20,8 @@ RSpec.describe User, type: :model do
   it { should have_many(:questions).through(:question_passages) }
   it { should have_many(:question_passages).dependent(:destroy) }
   it { should have_many(:notifications).dependent(:destroy) }
+  it { should have_many(:messages) }
+  it { should have_many(:abonents).through(:messages) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }

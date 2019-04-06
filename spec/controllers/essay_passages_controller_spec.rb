@@ -70,4 +70,38 @@ RSpec.describe EssayPassagesController, type: :controller do
       it_behaves_like 'To render update view', let(:params) { { essay_passage: { body: '' }, id: essay_passage.id } }, let(:object) { essay_passage }
     end
   end
+
+  describe 'PATCH #update_status' do
+    let!(:essay_passage) { create :essay_passage, essay: essay, user: user, status: false }
+
+    before { login(admin) }
+    it 'change status to true' do
+      patch :update_status, params: {  id: essay_passage.id  }
+      essay_passage.reload
+      expect(essay_passage.status).to be_truthy
+    end
+
+    describe 'SendNotificationService#send' do
+      before(:each) do
+        login(admin)
+      end
+
+      it 'saves a new object in the database' do
+        expect { patch :update_status, params: {  id: essay_passage.id  }, format: :js }.to change(Notification, :count).by(1)
+      end
+
+      context 'return result' do
+        let(:send_notification_service) { double(Services::SendNotificationService) }
+
+        before do
+          allow(Services::SendNotificationService).to receive(:new).and_return(send_notification_service)
+        end
+
+        it 'return result' do
+          expect(send_notification_service).to receive(:send)
+          patch :update_status, params: { id: essay_passage.id }
+        end
+      end
+    end
+  end
 end

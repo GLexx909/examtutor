@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_many :question_passages, dependent: :destroy
   has_many :questions, through: :question_passages
   has_many :notifications, foreign_key: 'abonent_id', dependent: :destroy
+  has_many :messages, foreign_key: 'author_id'
+  has_many :abonents, through: :messages
 
   scope :not_admin, -> { where(admin: false) }
 
