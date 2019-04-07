@@ -26,7 +26,7 @@ class Ability
     can :read, [Post, User, Course, Modul, Topic, Essay, Question, Notification, EssayPassage, TestPassage]
     can :tutor_index, Post
     can :own_index, Post
-    can :create, [Post, TestPassage, QuestionPassage, Notification, EssayPassage]
+    can :create, [Post, TestPassage, QuestionPassage, Notification, EssayPassage, Message]
     can :update, [Post, EssayPassage, TestPassage], author_id: user.id
     can :update, [EssayPassage, TopicPassage], user_id: user.id
     can :update, [Notification], abonent_id: user.id

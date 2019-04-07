@@ -100,8 +100,10 @@ body {
   margin-top: 5vh;
 }
 
-.mb-0 {
-  margin-bottom: 0;
+.mb-0-for-child {
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .hidden {

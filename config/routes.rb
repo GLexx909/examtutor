@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   resources :modul_passages, only: [:create]
   resources :notifications, only: [:index, :create, :update]
 
-  resources :messages, only: [] do
+  resources :messages, only: [:create] do
     get :abonents, on: :collection
   end
 
