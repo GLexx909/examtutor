@@ -11,6 +11,7 @@ ru:
       question: 'Вопрос'
       answer: 'Ответ'
       essay_passage: 'Эссе'
+      message: 'Сообщение'
     attributes:
       user:
         first_name: 'Имя'
@@ -39,6 +40,8 @@ ru:
         points: 'Баллы'
       essay_passage:
         body: 'Эссе'
+      message:
+        body: 'Сообщение'
     errors:
       messages:
         blank: 'не может быть пустым'

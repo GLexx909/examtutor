@@ -1,0 +1,17 @@
+#newMessageModal.modal.fade aria-hidden="true" aria-labelledby="newMessageModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5#newMessageModalLabel.modal-title = 'Новое сообщение'
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        h4
+          = @user.full_name
+        = form_with model: Message.new, method: :post, url: messages_path(abonent_id: @user) do |f|
+          .field
+            = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
+            = tinymce :message, content_css: asset_path('application.css')
+          .submit.mr_1_for_child
+            = f.submit 'Отправить', class: 'btn btn-success modal__new-message__button-success btn-sm'
+            = f.submit 'Отмена', class: 'btn btn-secondary btn-sm', data: { dismiss: "modal" }

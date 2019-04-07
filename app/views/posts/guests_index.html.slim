@@ -1,4 +1,8 @@
+= paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
+
 = render 'post_form', resource: @post if can?(:manage, :all)
 
 .card-deck.post-card-deck
   = render @posts
+
+= paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
