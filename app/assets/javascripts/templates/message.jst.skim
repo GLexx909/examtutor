@@ -1,0 +1,8 @@
+- if @message.author_id == gon.current_user_id
+    .card.each-message
+        .card-body
+            p = @safe @message.body
+- else
+    .card.each-message.message_of_abonent
+      .card-body
+        p = @safe @message.body

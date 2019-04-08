@@ -1,6 +1,9 @@
 ul.list-group
   - @abonents.each do |abonent|
-    li.list-group-item.d-flex.justify-content-between.align-items-center.mb-0-for-child
-      p = abonent.full_name
-      p = abonent.messages_with_self(current_user, abonent).last.body.html_safe
-      span.badge.badge-primary.badge-pill 14
+    = link_to messages_path(abonent_id: abonent.id), class:'private-message'  do
+      li.list-group-item.d-flex.justify-content-between.align-items-center.mb-0-for-child
+        p = abonent.full_name
+        p = current_user.messages_with(abonent).last.body.html_safe
+        span.badge.badge-primary.badge-pill 14
+    end
+
