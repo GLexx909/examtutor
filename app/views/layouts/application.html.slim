@@ -18,7 +18,7 @@ html
       = render 'shared/nav'
       .flash-block.alert
         = render_flash
-      .container.mt-5vh.mb-5vh
+      .container.mb-5vh
         ol.breadcrumb
           = render_breadcrumbs tag: :li, separator: "/"
         = render 'shared/sidebar_left' if can?(:read, User)

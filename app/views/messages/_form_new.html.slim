@@ -1,0 +1,6 @@
+= form_with model: Message.new, method: :post, url: messages_path(abonent_id: @abonent), remote: true do |f|
+  .submit.mr_1_for_child
+    = f.submit 'Отправить', class: 'btn btn-success new-message-send__button btn-sm'
+  .field
+    = f.text_area :body, :class => "tinymce", :rows => 1, :cols => 120
+    = tinymce :message, content_css: asset_path('application.css')

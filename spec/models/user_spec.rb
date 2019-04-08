@@ -64,9 +64,9 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'user#messages_with_self(current_user, abonent)' do
+  describe 'user#messages_with_self(abonent)' do
     it 'return messages where user take part' do
-      expect(user.messages_with_self(user, user_other)).to eq [message1,message2]
+      expect(user.messages_with(user_other)).to eq [message1, message2]
     end
   end
 end

@@ -108,5 +108,6 @@ RSpec.describe Ability do
 
     it { should be_able_to :abonents, Message }
     it { should be_able_to :create, Message }
+    it { should be_able_to :read, Message }
   end
 end

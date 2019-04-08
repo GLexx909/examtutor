@@ -1,0 +1,67 @@
+.list-group {
+  a {
+    text-decoration: none !important;
+    color: black;
+    &:hover {
+      color: black;
+    }
+  }
+
+  .private-message {
+
+    li {
+      &:hover {
+        background-color: #e8f9ff;
+      }
+    }
+  }
+
+}
+
+.messages-block {
+  overflow-y: scroll;
+  height: 50vh;
+
+  .messages-list {
+    display: grid;
+
+    margin-bottom: 7vh;
+    .each-message {
+      border-radius: 10px !important;
+      width: max-content !important;
+      max-width: 55vw !important;
+      font-size: 0.9rem;
+
+      .card-body {
+        padding: 5px !important;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    .message_of_abonent {
+      background-color: #e8f9ff;
+      justify-self: end !important;
+    }
+  }
+
+  #bottomOfMessageList {
+    margin-top: 5vh;
+  }
+}
+
+.form-footer {
+  position: fixed;
+  bottom: 3vh;
+
+  width: 75vw;
+  //height: 25vh;
+}
+
+@media screen and (max-width: 600px) {
+  .form-footer {
+    position: relative;
+  }
+}

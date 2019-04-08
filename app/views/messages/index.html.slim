@@ -1,0 +1,17 @@
+.correspondence-block data-id-one=pelpals_users[0] data-id-two=pelpals_users[1]
+  h1 = @abonent.full_name
+  hr
+  .messages-block
+    .messages-list
+      - @messages.each do |message|
+        - if message.author == current_user
+          .card.each-message
+            .card-body
+              p = message.body.html_safe
+        - else
+          .card.each-message.message_of_abonent
+            .card-body
+              p = message.body.html_safe
+    #bottomOfMessageList
+
+  .form-footer = render 'form_new'

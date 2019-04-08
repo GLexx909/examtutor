@@ -5,10 +5,12 @@ default:
   plugins:
     - image
     - link
+  branding: false
 
 message:
   menubar:
     - false
+  branding: false
   toolbar:
     - image | link
   plugins:
