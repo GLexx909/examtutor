@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin only can see messages list and create new message', %q{
+feature 'User can see messages list and create new message', %q{
 } do
 
   given!(:admin) {create(:user, admin: true) }

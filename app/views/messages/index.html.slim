@@ -5,13 +5,17 @@
     .messages-list
       - @messages.each do |message|
         - if message.author == current_user
-          .card.each-message
+          .card.each-message class="message-#{message.id}"
             .card-body
               p = message.body.html_safe
+            = link_to 'Удалить', message_path(message, abonent_id: @abonent.id), method: :delete, class: 'message-delete__button',
+                    remote: true, data: {button_id: message.id }
         - else
-          .card.each-message.message_of_abonent
+          .card.each-message.message_of_abonent class="message-#{message.id}"
             .card-body
               p = message.body.html_safe
+            = link_to 'Удалить', message_path(message, abonent_id: @abonent.id), method: :delete, class: 'message-delete__button',
+                    remote: true, data: {button_id: message.id } if can?(:destroy, message)
     #bottomOfMessageList
 
   .form-footer = render 'form_new'

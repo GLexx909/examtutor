@@ -42,6 +42,8 @@ RSpec.describe Ability do
     let(:topic_passage)    { create :topic_passage, topic: topic, user: user }
     let(:answer)      { create :answer, question: question }
     let(:notification) { create :notification, abonent: user }
+    let(:message) { create :message, author: user, abonent: user_other, body: 'Message' }
+    let(:message_other) { create :message, author: user_other, abonent: user, body: 'Message' }
 
     it { should_not be_able_to :manage, :all }
 
@@ -109,5 +111,7 @@ RSpec.describe Ability do
     it { should be_able_to :abonents, Message }
     it { should be_able_to :create, Message }
     it { should be_able_to :read, Message }
+    it { should be_able_to :destroy, message }
+    it { should_not be_able_to :destroy, message_other }
   end
 end
