@@ -30,7 +30,7 @@ class Ability
     can :update, [Post, EssayPassage, TestPassage], author_id: user.id
     can :update, [EssayPassage, TopicPassage], user_id: user.id
     can :update, [Notification], abonent_id: user.id
-    can :destroy, [Post], author_id: user.id
+    can :destroy, [Post, Message], author_id: user.id
 
     can :update, [User], id: user.id
     can :update_status, [TestPassage], id: user.id

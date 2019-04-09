@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin only can create message', %q{
+feature 'User can create message', %q{
 } do
 
   given!(:admin) {create(:user, admin: true) }

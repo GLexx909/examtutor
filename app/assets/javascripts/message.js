@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', function() {
         modalNewMessageButtonSuccess.on('click', hideModalNewMessageForm);
     }
 
-    // Action Cable publish new message
+    // Action Cable publish new message or delete message
     const userId1 = $('.correspondence-block').data('idOne');
     const userId2 = $('.correspondence-block').data('idTwo');
     if (userId1) {
@@ -16,9 +16,14 @@ document.addEventListener('turbolinks:load', function() {
             },
 
             received: function (data) {
-                const messagesList = $('.messages-list');
-                messagesList.append(JST["templates/message"]({ message: data['message'] }));
-                scrollToElement();
+                if (data['action'] === 'create') {
+                    const messagesList = $('.messages-list');
+                    messagesList.append(JST["templates/message"]({ message: data['message'], is_admin: data['is_admin?'] }));
+                    scrollToElement();
+                } else if (data['action'] === 'delete') {
+                    const messageId = data['message_id'];
+                    $('.message-' + messageId).slideToggle(500);
+                }
             }
         });
     }
@@ -60,6 +65,7 @@ function scrollToElementAndCreatForm() {
     scrollToElement();
     tinyMCEClear();
 }
+
 function tinyMCEClear() {
     setTimeout('tinyMCE.activeEditor.setContent(\'\')', 'fast');
 }

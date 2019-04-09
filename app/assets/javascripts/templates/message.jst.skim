@@ -1,8 +1,13 @@
 - if @message.author_id == gon.current_user_id
-    .card.each-message
+    .card.each-message class="message-#{@message.id}"
         .card-body
             p = @safe @message.body
+        a class='message-delete__button' data-remote='true' data-method='delete' href="/messages/#{@message.id}?abonent_id=#{@message.abonent_id}" data-button-id="#{@message.id}"
+            | Удалить
 - else
-    .card.each-message.message_of_abonent
-      .card-body
-        p = @safe @message.body
+    .card.each-message.message_of_abonent class="message-#{@message.id}"
+        .card-body
+            p = @safe @message.body
+        - if !@is_admin
+            a class='message-delete__button' data-remote='true' data-method='delete' href="/messages/#{@message.id}?abonent_id=#{@message.author_id}" data-button-id="#{@message.id}"
+                | Удалить
