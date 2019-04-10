@@ -115,4 +115,16 @@ module ControllerHelpers
   def answer_params_new(question)
     { answer: { body: 'new_body' }, question_id: question }
   end
+
+  def comment_params(author, post)
+    { comment: attributes_for(:comment), author_id: author, post_id: post }
+  end
+
+  def comment_params_invalid(author, post)
+    { comment: attributes_for(:comment, :invalid), author_id: author, post_id: post }
+  end
+
+  def comment_params_new(author, post)
+    { comment: { body: 'new_body' }, author_id: author, post_id: post }
+  end
 end

@@ -109,6 +109,18 @@ body {
 .small_text {
   font-size: 0.7rem;
   color: #6c757d;
+  margin-bottom: 0;
+  margin-top: 0.3rem;
+
+  a {
+    color: grey;
+
+    &:hover{
+      text-decoration: none;
+
+      color: #00b7ea;
+    }
+  }
 }
 
 .hidden {

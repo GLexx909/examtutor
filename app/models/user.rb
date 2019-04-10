@@ -22,9 +22,10 @@ class User < ApplicationRecord
   has_many :questions, through: :question_passages
   has_many :notifications, foreign_key: 'abonent_id', dependent: :destroy
   has_many :notifications, foreign_key: 'author_id', dependent: :destroy
-  has_many :messages, foreign_key: 'author_id'
-  has_many :messages, foreign_key: 'abonent_id'
+  has_many :messages, foreign_key: 'author_id', dependent: :destroy
+  has_many :messages, foreign_key: 'abonent_id', dependent: :destroy
   has_many :abonents, through: :messages
+  has_many :comments, foreign_key: 'author_id', dependent: :destroy
 
   scope :not_admin, -> { where(admin: false) }
 
@@ -52,12 +53,20 @@ class User < ApplicationRecord
     Notification.where(abonent: self, type_of: 'message')
   end
 
-  def uniq_notifications
+  def uniq_notifications_of_message
     uniq_titles = self.notifications_type_message.pluck(:title).uniq
     notifications = []
     uniq_titles.each do |title|
       notifications << Notification.all_of_user(self).where(title: title).first
     end
     notifications
+  end
+
+  def all_uniq_notifications
+    all_notification = Notification.all_of_user(self)
+    all_notification -= Notification.where(abonent: self, type_of: 'message')
+    uniq_notifications_of_message = self.uniq_notifications_of_message
+
+    all_notification + uniq_notifications_of_message
   end
 end

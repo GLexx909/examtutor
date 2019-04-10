@@ -1,0 +1,5 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @comment %>');
+
+<% if !@comment.errors.present? %>
+  $('.comments-list' + ' .comment-'+ <%= @comment.id %>).html('<%= j render 'comments/comment', comment: @comment %>');
+<% end %>

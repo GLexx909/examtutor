@@ -12,6 +12,7 @@ ru:
       answer: 'Ответ'
       essay_passage: 'Эссе'
       message: 'Сообщение'
+      comment: 'Комментарий'
     attributes:
       user:
         first_name: 'Имя'
@@ -42,6 +43,8 @@ ru:
         body: 'Эссе'
       message:
         body: 'Сообщение'
+      comment:
+        body: 'Комментарий'
     errors:
       messages:
         blank: 'не может быть пустым'

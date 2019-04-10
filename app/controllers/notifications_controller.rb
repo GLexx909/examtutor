@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   authorize_resource
 
   def index
-    @uniq_notifications = current_user.uniq_notifications
+    @all_uniq_notifications = current_user.all_uniq_notifications
   end
 
   def create

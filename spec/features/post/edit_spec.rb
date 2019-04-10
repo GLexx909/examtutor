@@ -20,16 +20,20 @@ feature 'User can edit his post', %q{
     scenario 'edit his post', js: true do
       sign_in user
       visit post_path(post)
-      click_on 'Редактировать пост'
 
-      fill_in 'post[title]', with: 'Post Title New'
-      tinymce_fill_in('post_body', 'Post Body New')
-      click_on 'Опубликовать'
+      within '.post-edit-form' do
+        click_on 'Редактировать пост'
 
-      expect(page).to have_content 'Post Title New'
-      expect(page).to_not have_content 'PostTitle'
+        fill_in 'post[title]', with: 'Post Title New'
+        tinymce_fill_in('post_body', 'Post Body New')
+        click_on 'Опубликовать'
+      end
+
+      within 'article' do
+        expect(page).to have_content 'Post Title New'
+        expect(page).to_not have_content 'PostTitle'
+      end
     end
-
 
     scenario "tries to edit other user's answer" do
       sign_in user2
@@ -43,13 +47,17 @@ feature 'User can edit his post', %q{
     sign_in admin
     visit post_path(post)
 
-    click_on 'Редактировать пост'
+    within '.post-edit-form' do
+      click_on 'Редактировать пост'
 
-    fill_in 'post[title]', with: 'Post Title New'
-    tinymce_fill_in('post_body', 'Post Body New')
-    click_on 'Опубликовать'
+      fill_in 'post[title]', with: 'Post Title New'
+      tinymce_fill_in('post_body', 'Post Body New')
+      click_on 'Опубликовать'
+    end
 
-    expect(page).to have_content 'Post Title New'
-    expect(page).to_not have_content 'PostTitle'
+    within 'article' do
+      expect(page).to have_content 'Post Title New'
+      expect(page).to_not have_content 'PostTitle'
+    end
   end
 end
