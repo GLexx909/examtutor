@@ -31,6 +31,8 @@ RSpec.describe User, type: :model do
   let!(:course_passage) { create :course_passage, user: user, course: course }
   let!(:message1) { create :message, author: user, abonent: user_other }
   let!(:message2) { create :message, author: user_other, abonent: user }
+  let!(:notification1) { create :notification, author: user_other, abonent: user, type_of: 'message' }
+  let!(:notification2) { create :notification, author: user_other, abonent: user, type_of: 'message' }
 
   describe 'User.author_or_admin_of? check' do
     it 'is user the author of resource' do
@@ -67,6 +69,18 @@ RSpec.describe User, type: :model do
   describe 'user#messages_with_self(abonent)' do
     it 'return messages where user take part' do
       expect(user.messages_with(user_other)).to eq [message1, message2]
+    end
+  end
+
+  describe 'user#notifications_from_penpals(abonent)' do
+    it 'return notifications where user is abonent of other person' do
+      expect(user.notifications_from_penpals(user_other)).to eq [notification1, notification2]
+    end
+  end
+
+  describe 'user#uniq_notifications' do
+    it 'return notifications where user is abonent of other person in single copy' do
+      expect(user.uniq_notifications).to eq [notification2]
     end
   end
 end

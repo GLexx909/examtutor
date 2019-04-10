@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
   authorize_resource
 
   def index
-    @notifications = Notification.where(abonent: current_user).or(Notification.where(abonent: nil)).order(created_at: :desc)
+    @uniq_notifications = current_user.uniq_notifications
   end
 
   def create
@@ -17,6 +17,11 @@ class NotificationsController < ApplicationController
   def update
     notification.update(status: true) unless notification.status?
     redirect_to params[:link]
+  end
+
+  def update_all
+    Notification.where(abonent: current_user).update_all(status: true)
+    head :ok
   end
 
   private

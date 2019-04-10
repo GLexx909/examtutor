@@ -42,4 +42,19 @@ RSpec.describe NotificationsController, type: :controller do
       end
     end
   end
+
+  describe 'PATCH #update_all' do
+    let!(:notification1)  { create :notification, link: "/essays/#{essay.id}", abonent: user, status: false, author: user }
+    let!(:notification2)  { create :notification, link: "/essays/#{essay.id}", abonent: user, status: false, author: user }
+
+    before { login(user) }
+    it 'change all notifications attribute' do
+      patch :update_all, format: :js
+      notification1.reload
+      notification2.reload
+
+      expect(notification1.status).to be_truthy
+      expect(notification2.status).to be_truthy
+    end
+  end
 end

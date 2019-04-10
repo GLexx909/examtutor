@@ -34,7 +34,7 @@ RSpec.describe MessagesController, type: :controller do
     before { login(user) }
 
     context 'with valid attributes' do
-      it_behaves_like 'To save a new object', let(:params) { { message: { body: 'MessageTExt' }, abonent_id: user2.id} }, let(:object_class) { Message }
+      it_behaves_like 'To save a new object', let(:params) { { message: { body: 'MessageTExt' }, abonent_id: user2.id, author_id: user.id} }, let(:object_class) { Message }
     end
 
     context 'with invalid attributes' do

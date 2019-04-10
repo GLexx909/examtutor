@@ -12,12 +12,15 @@ class MessagesController < ApplicationController
 
   def create
     message.abonent = abonent
+    message.author = current_user
     message.save
+    Services::SendNotificationService.new("Сообщение от #{current_user.full_name}", messages_path(abonent_id: current_user.id), abonent, current_user, type: 'message').send
   end
 
   def index
-    @messages = abonent.messages_with(current_user)
+    @messages = abonent.messages_with(current_user).order(created_at: :asc)
     abonent
+    update_notifications(abonent)
     gon.current_user_id = current_user.id
   end
 
@@ -31,7 +34,7 @@ class MessagesController < ApplicationController
   helper_method :pelpals_users
 
   def message
-    @message ||= params[:id] ? Message.find(params[:id]) : current_user.messages.new(messages_params)
+    @message ||= params[:id] ? Message.find(params[:id]) : Message.new(messages_params)
   end
 
   def abonent
@@ -49,6 +52,10 @@ class MessagesController < ApplicationController
 
   def pelpals_users
     [current_user.id, abonent.id].sort
+  end
+
+  def update_notifications(abonent)
+    current_user.notifications_from_penpals(abonent).update_all(status: true)
   end
 
   def messages_params

@@ -21,7 +21,9 @@ class User < ApplicationRecord
   has_many :question_passages, dependent: :destroy
   has_many :questions, through: :question_passages
   has_many :notifications, foreign_key: 'abonent_id', dependent: :destroy
+  has_many :notifications, foreign_key: 'author_id', dependent: :destroy
   has_many :messages, foreign_key: 'author_id'
+  has_many :messages, foreign_key: 'abonent_id'
   has_many :abonents, through: :messages
 
   scope :not_admin, -> { where(admin: false) }
@@ -40,5 +42,22 @@ class User < ApplicationRecord
 
   def messages_with(abonent)
     Message.where("author_id = #{self.id} AND abonent_id = #{abonent.id} OR author_id = #{abonent.id} AND abonent_id = #{self.id}")
+  end
+
+  def notifications_from_penpals(abonent)
+    Notification.where(abonent: self, author: abonent, type_of: 'message')
+  end
+
+  def notifications_type_message
+    Notification.where(abonent: self, type_of: 'message')
+  end
+
+  def uniq_notifications
+    uniq_titles = self.notifications_type_message.pluck(:title).uniq
+    notifications = []
+    uniq_titles.each do |title|
+      notifications << Notification.all_of_user(self).where(title: title).first
+    end
+    notifications
   end
 end

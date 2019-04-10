@@ -47,7 +47,9 @@ Rails.application.routes.draw do
 
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
-  resources :notifications, only: [:index, :create, :update]
+  resources :notifications, only: [:index, :create, :update] do
+    put :update_all, on: :collection
+  end
 
   resources :messages, only: [:create, :index, :destroy] do
     get :abonents, on: :collection
