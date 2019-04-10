@@ -1,0 +1,6 @@
+= form_with model: comment, url: comment_path(comment), metod: :put,  class: 'edit-comment__form' do |f|
+  .submit
+    = f.submit 'Сохранить комментарий', class: 'btn btn-success btn-sm'
+  .field
+    = f.text_area :body, class: 'form-control'
+

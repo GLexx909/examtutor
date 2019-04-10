@@ -1,0 +1,39 @@
+.new-comment__form {
+  position: fixed;
+  bottom: 3vh;
+
+  width: 55%;
+}
+
+.edit-comment__form {
+  width: 100%;
+}
+
+.comments-list {
+  margin-bottom: 10vh;
+
+  .each-comment {
+
+    .comment-content {
+
+      .comment-body {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1370px) {
+  .new-comment__form {
+    position: fixed;
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .new-comment__form {
+    position: relative;
+    width: 100%;
+  }
+}
+

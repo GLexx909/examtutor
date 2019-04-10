@@ -55,7 +55,9 @@ Rails.application.routes.draw do
     get :abonents, on: :collection
   end
 
-  resources :posts do
+  resources :posts, shallow: true do
+    resources :comments, except: [:index, :show]
+
     get :tutor_index, on: :collection
     get :own_index, on: :collection
     get :guests_index, on: :collection

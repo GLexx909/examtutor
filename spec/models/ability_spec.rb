@@ -44,6 +44,7 @@ RSpec.describe Ability do
     let(:notification) { create :notification, abonent: user }
     let(:message) { create :message, author: user, abonent: user_other, body: 'Message' }
     let(:message_other) { create :message, author: user_other, abonent: user, body: 'Message' }
+    let(:comment) { create :comment, author: user, post: post }
 
     it { should_not be_able_to :manage, :all }
 
@@ -115,5 +116,9 @@ RSpec.describe Ability do
     it { should_not be_able_to :destroy, message_other }
 
     it { should be_able_to :update_all, Notification }
+
+    it { should be_able_to :create, Comment }
+    it { should be_able_to :update, comment }
+    it { should be_able_to :destroy, comment }
   end
 end

@@ -13,11 +13,11 @@ users = User.create!([
 ])
 
 30.times do
-  Post.create!(title:  "User Title", body: 'User Body', author: users[0])
+  Post.create!(title:  "User Title", body: 'User Body', author: users[1])
 end
 
 30.times do
-  Post.create!(title:  "Admin Title", body: 'Admin Body', author: users[1])
+  Post.create!(title:  "Admin Title", body: 'Admin Body', author: users[0])
 end
 
 30.times do

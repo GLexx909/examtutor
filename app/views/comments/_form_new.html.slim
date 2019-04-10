@@ -1,0 +1,6 @@
+= form_with model: Comment.new, url: post_comments_path(@post), class: 'new-comment__form' do |f|
+  .submit
+    = f.submit 'Опубликовать комментарий', class: 'btn btn-success btn-sm'
+  .field
+    = f.text_area :body, class: 'form-control'
+

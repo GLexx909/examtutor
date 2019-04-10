@@ -1,9 +1,9 @@
-article class="post-#{@post.id}"
+article.mt-5 class="post-#{@post.id}"
   h1 = @post.title
   p = @post.body.html_safe
 
 - if can?(:update, @post)
-  .post-edit-form
+  .post-edit-form.mb-5vh
     .post-form
       = button_tag 'Редактировать пост', class: 'btn btn-secondary btn-sm post-form__button-show'
       .post-form__fields
@@ -15,3 +15,9 @@ article class="post-#{@post.id}"
             = tinymce content_css: asset_path('application.css')
           .submit
             = f.submit 'Опубликовать', class: 'btn btn-success'
+
+.comments-list
+  = render @post.comments
+
+- if can?(:create, Comment)
+  = render 'comments/form_new'
