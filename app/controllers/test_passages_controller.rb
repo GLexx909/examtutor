@@ -10,7 +10,7 @@ class TestPassagesController < ApplicationController
 
   def update_status
     test_passage.update(status: true)
-    Services::SendNotificationService.new("На проверку тест от #{current_user.full_name}", test_passage_path(test_passage), admin).send
+    Services::SendNotificationService.new("На проверку тест от #{current_user.full_name}", test_passage_path(test_passage), admin, current_user).send
     head :ok
     create_next_modul_passage
   end

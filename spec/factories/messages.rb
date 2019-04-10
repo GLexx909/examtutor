@@ -3,6 +3,5 @@ FactoryBot.define do
     author { nil }
     abonent { nil }
     body { "MessageBody" }
-    status { false }
   end
 end

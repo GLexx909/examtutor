@@ -17,4 +17,12 @@ $(document).on('turbolinks:load', function() {
             }
         });
     }
+
+    const notificationButtonReady = $('.notification-button__read-already');
+    if (notificationButtonReady) {
+        notificationButtonReady.on('click', function () {
+
+            $('.notifications-list a').removeClass('badge-warning').addClass('badge-light');
+        })
+    }
 });

@@ -23,7 +23,7 @@ class EssayPassagesController < ApplicationController
 
   def update_status
     essay_passage.update(status: true)
-    Services::SendNotificationService.new('Ваше эссе проверено', essay_path(essay_passage.essay), essay_passage.user).send
+    Services::SendNotificationService.new('Ваше эссе проверено', essay_path(essay_passage.essay), essay_passage.user, current_user).send
     head :ok
   end
 

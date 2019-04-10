@@ -1,3 +1,10 @@
+.correspondence-block {
+  img{
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
 .list-group {
   a {
     text-decoration: none !important;
@@ -24,20 +31,37 @@
 
   .messages-list {
     display: grid;
-
     margin-bottom: 7vh;
+
+    .message-delete__button {
+      position: absolute;
+      right: 5px;
+      bottom: 0;
+
+      font-size: 0.6rem;
+      text-decoration: none;
+      color: #6c757d;
+
+      &:hover {
+        color: #00b7ea;
+      }
+    }
+
     .each-message {
       border-radius: 10px !important;
-      width: max-content !important;
-      max-width: 55vw !important;
+      justify-self: start !important;
+      min-width: 5vw !important;
+      max-width: 35vw !important;
+
       font-size: 0.9rem;
 
       .card-body {
         padding: 5px !important;
-      }
+        margin-bottom: 1vh;
 
-      p {
-        margin-bottom: 0;
+        p {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -56,12 +80,70 @@
   position: fixed;
   bottom: 3vh;
 
-  width: 75vw;
-  //height: 25vh;
+  width: 55%;
+}
+
+@media screen and (max-width: 1370px) {
+  .form-footer {
+    position: fixed;
+    width: 75%;
+
+  }
 }
 
 @media screen and (max-width: 600px) {
   .form-footer {
     position: relative;
+    width: 100%;
+  }
+
+  .messages-block {
+    overflow-y: scroll;
+    height: 50vh;
+
+    .messages-list {
+      display: grid;
+      margin-bottom: 7vh;
+
+      .message-delete__button {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+
+        font-size: 0.6rem;
+        text-decoration: none;
+        color: #6c757d;
+
+        &:hover {
+          color: #00b7ea;
+        }
+      }
+
+      .each-message {
+        border-radius: 10px !important;
+        min-width: 15vw !important;
+        max-width: 55vw !important;
+
+        font-size: 0.9rem;
+
+        .card-body {
+          padding: 5px !important;
+          margin-bottom: 1vh;
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .message_of_abonent {
+        background-color: #e8f9ff;
+      }
+    }
+
+    #bottomOfMessageList {
+      margin-top: 5vh;
+    }
   }
 }
+
