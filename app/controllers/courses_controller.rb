@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :course, only: [:new, :show,:edit, :update, :destroy]
+  before_action :course, only: [:new, :show, :update, :destroy]
 
   authorize_resource
   add_breadcrumb "Курсы:", :courses_path, :title => "Все курсы"
@@ -20,11 +20,9 @@ class CoursesController < ApplicationController
     @course = Course.create(course_params)
   end
 
-  def edit
-  end
-
   def update
     @course.update(course_params)
+    render json: { title: @course.title, id: @course.id, errors: @course.errors }
   end
 
   def destroy

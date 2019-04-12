@@ -10,18 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_130234) do
+ActiveRecord::Schema.define(version: 2019_04_11_081005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "full_accordance", default: false
+    t.integer "points", null: false
     t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "post_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "course_passages", force: :cascade do |t|
@@ -43,8 +75,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
     t.bigint "user_id"
     t.bigint "essay_id"
     t.string "body", null: false
-    t.string "tutor_note"
-    t.string "status", default: "false"
+    t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["essay_id"], name: "index_essay_passages_on_essay_id"
@@ -59,6 +90,16 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
     t.index ["modul_id"], name: "index_essays_on_modul_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "abonent_id"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["abonent_id"], name: "index_messages_on_abonent_id"
+    t.index ["author_id"], name: "index_messages_on_author_id"
+  end
+
   create_table "modul_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "modul_id"
@@ -70,11 +111,25 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
   end
 
   create_table "moduls", force: :cascade do |t|
+    t.integer "position"
     t.string "title"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_moduls_on_course_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "title"
+    t.bigint "abonent_id"
+    t.bigint "author_id"
+    t.string "type_of"
+    t.string "link"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["abonent_id"], name: "index_notifications_on_abonent_id"
+    t.index ["author_id"], name: "index_notifications_on_author_id"
   end
 
   create_table "one_time_passwords", force: :cascade do |t|
@@ -93,17 +148,30 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "question_passages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.string "answer"
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_passages_on_question_id"
+    t.index ["user_id"], name: "index_question_passages_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
-    t.bigint "test_id"
+    t.string "questionable_type"
+    t.bigint "questionable_id"
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["test_id"], name: "index_questions_on_test_id"
+    t.index ["questionable_type", "questionable_id"], name: "index_questions_on_questionable_type_and_questionable_id"
   end
 
   create_table "test_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "test_id"
+    t.integer "points", default: 0
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -132,6 +200,7 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
   create_table "topics", force: :cascade do |t|
     t.string "title"
     t.string "body"
+    t.integer "position"
     t.bigint "modul_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -157,13 +226,21 @@ ActiveRecord::Schema.define(version: 2019_03_24_130234) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "essay_passages", "essays"
   add_foreign_key "essay_passages", "users"
+  add_foreign_key "messages", "users", column: "abonent_id"
+  add_foreign_key "messages", "users", column: "author_id"
   add_foreign_key "modul_passages", "moduls"
   add_foreign_key "modul_passages", "users"
+  add_foreign_key "notifications", "users", column: "abonent_id"
+  add_foreign_key "notifications", "users", column: "author_id"
   add_foreign_key "posts", "users", column: "author_id"
-  add_foreign_key "questions", "tests"
+  add_foreign_key "question_passages", "questions"
+  add_foreign_key "question_passages", "users"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "moduls"

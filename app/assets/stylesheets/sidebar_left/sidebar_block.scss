@@ -14,8 +14,8 @@
 
 
     border-radius: 0 10px 10px 0;
-    border: 2px solid cadetblue;
-    background: #29b297;
+    border: 2px solid #00b7ea;
+    background: #343a40;
   }
 
   .sidebar-left__full {
@@ -23,7 +23,7 @@
     font-size: 14px;
 
     border-radius: 10px;
-    background: #29b297;
+    background: #343a40;
 
     p {
       margin-bottom: 11px;
@@ -33,7 +33,7 @@
         color: white;
 
         &:hover {
-          color: black;
+          color: #00b7ea;
         }
       }
     }

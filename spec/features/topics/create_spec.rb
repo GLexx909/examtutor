@@ -21,7 +21,7 @@ feature 'Admin only can create topic', %q{
       tinymce_fill_in('topic_body', 'TopicBody')
       click_on 'Создать тему'
 
-      within '.topics-list' do
+      within '.table-topics' do
         expect(page).to have_content 'TopicTitle'
       end
     end

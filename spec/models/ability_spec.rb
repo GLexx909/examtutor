@@ -37,8 +37,14 @@ RSpec.describe Ability do
     let(:essay)       { create :essay, modul: modul }
     let(:essay_passage){ create :essay_passage, essay: essay, user: user }
     let(:test)        { create :test, modul: modul }
-    let(:question)    { create :question, test: test }
+    let(:question)    { create :question, questionable: test }
+    let(:test_passage)    { create :test_passage, test: test, user: user }
+    let(:topic_passage)    { create :topic_passage, topic: topic, user: user }
     let(:answer)      { create :answer, question: question }
+    let(:notification) { create :notification, abonent: user }
+    let(:message) { create :message, author: user, abonent: user_other, body: 'Message' }
+    let(:message_other) { create :message, author: user_other, abonent: user, body: 'Message' }
+    let(:comment) { create :comment, author: user, post: post }
 
     it { should_not be_able_to :manage, :all }
 
@@ -69,15 +75,18 @@ RSpec.describe Ability do
     it { should be_able_to :read, Topic }
     it { should_not be_able_to :create, Topic }
     it { should_not be_able_to :update, Topic, topic.id }
+    it { should be_able_to :update, TopicPassage, topic.id }
 
     it { should be_able_to :read, Essay }
     it { should_not be_able_to :create, Essay }
     it { should_not be_able_to :update, Essay, essay.id }
     it { should be_able_to :update, EssayPassage, essay_passage.id }
 
-    it { should be_able_to :read, Test }
+    it { should_not be_able_to :read, Test }
+    it { should be_able_to :start, Test }
     it { should_not be_able_to :create, Test }
     it { should_not be_able_to :update, Test, test.id }
+    it { should be_able_to :start, Test }
 
     it { should be_able_to :read, Question }
     it { should_not be_able_to :create, Question }
@@ -86,5 +95,32 @@ RSpec.describe Ability do
     it { should_not be_able_to :read, Answer }
     it { should_not be_able_to :create, Answer }
     it { should_not be_able_to :update, Answer, answer.id }
+
+    it { should be_able_to :create, TestPassage }
+    it { should be_able_to :read, TestPassage }
+    it { should be_able_to :update_status, TestPassage, essay_passage.id }
+    it { should be_able_to :create, QuestionPassage }
+
+    it { should be_able_to :create, EssayPassage }
+    it { should be_able_to :read, EssayPassage }
+    it { should be_able_to :update, EssayPassage, user.id }
+
+    it { should be_able_to :read, Notification }
+    it { should be_able_to :create, Notification }
+    it { should be_able_to :update, Notification, notification.id }
+
+    it { should be_able_to :abonents, Message }
+    it { should be_able_to :create, Message }
+    it { should be_able_to :read, Message }
+    it { should be_able_to :destroy, message }
+    it { should_not be_able_to :destroy, message_other }
+
+    it { should be_able_to :update_all, Notification }
+
+    it { should be_able_to :create, Comment }
+    it { should be_able_to :update, comment }
+    it { should be_able_to :destroy, comment }
+
+    it { should be_able_to :manage, ActiveStorage::Attachment }
   end
 end

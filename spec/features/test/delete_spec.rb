@@ -18,6 +18,7 @@ feature 'Admin only can delete test', %q{
     scenario 'can delete the test', js: true do
       expect(page).to have_content 'TestTitle'
       click_on 'Удалить тест'
+      page.driver.browser.switch_to.alert.accept
       expect(page).to_not have_content 'TestTitle'
     end
   end

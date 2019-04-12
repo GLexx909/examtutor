@@ -1,0 +1,10 @@
+.essay
+  h3 = @essay_passage.essay.title
+
+.essay-passage
+  = render 'essay_passages/essay_passage_full'
+
+.essay_passages__form_edit.hidden = render 'essay_passages/form_edit' if @essay_passage
+
+- if can?(:manage, :all)
+  = button_to 'Уведомить ученика об окончании проверки', update_status_essay_passage_path(@essay_passage), method: :patch, remote: true, class: 'btn btn-primary btn-block check-essay__button'

@@ -1,11 +1,24 @@
-nav.navbar.navbar-dark.bg-dark.box-shadow-nav
-  - if current_user&.admin?
-    = link_to 'Examtutor', admin_mainmenus_path
-  - else
-    = link_to 'Examtutor', root_path
+.pos-f-t
+  .collapse id="navbarToggleExternalContent"
+    .bg-dark.p-4
+      h5.text-white.h4.user-icon data-user-id="#{current_user&.id}" = current_user&.full_name
+      span.text-muted oggleable via the navbar brand.
+  nav.navbar.navbar-dark.bg-dark
+    .d-flex.mr_5_for_child
+      = button_tag '', type: "button", class:'navbar-toggler', data: { toggle: "collapse", target: "#navbarToggleExternalContent" },
+                   aria: {  controls: "navbarToggleExternalContent", expanded: "false", label: "Toggle navigation" }
+        span.navbar-toggler-icon
+      .title-examtutor
+        - if current_user&.admin?
+          = link_to 'ExamtutoR', admin_mainmenus_path
+        - else
+          = link_to 'ExamtutoR', root_path
 
 
-  p style="color: white" = current_user&.email
+      / p style="color: white" = current_user&.email
 
-  - if current_user
-    = link_to 'Выйти', destroy_user_session_path, method: :delete
+    - if current_user
+      .nav__right-block
+        = render 'shared/notification'
+        = render 'shared/dropdown-profile-menu'
+

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProfilesController, type: :controller do
   let!(:user)  { create :user }
+  let!(:admin)  { create :user, admin: true }
   let!(:user_other)  { create :user }
 
   describe 'GET #index' do
@@ -14,13 +15,34 @@ RSpec.describe ProfilesController, type: :controller do
   end
 
   describe 'GET #show' do
-    before(:each) do
-      login(user)
-      get :show, params: { id: user_other }
+    describe 'User can see the profile of other users' do
+      before(:each) do
+        login(user)
+        get :show, params: { id: user_other }
+      end
+
+      it_behaves_like 'To render show view'
+      it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'user'}, let(:resource) { user_other }
     end
 
-    it_behaves_like 'To render show view'
-    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'user'}, let(:resource) { user_other }
+    describe 'User can not see the profile of admin' do
+      before(:each) do
+        login(user)
+        get :show, params: { id: admin }
+      end
+
+      it_behaves_like 'To redirect to path', let(:path) { root_path }
+    end
+
+    describe 'Admin can see the profile of admin' do
+      before(:each) do
+        login(admin)
+        get :show, params: { id: admin }
+      end
+
+      it_behaves_like 'To render show view'
+      it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'user'}, let(:resource) { admin }
+    end
   end
 
   describe 'GET #edit' do

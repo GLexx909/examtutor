@@ -1,2 +1,13 @@
-.div class="essay-#{essay.id}"
-  = link_to essay.title, essay_path(essay)
+tr
+  td class="essay-#{essay.id}"
+    - if can?(:update, essay)
+      = link_to essay.title, essay_path(essay)
+    - else
+      = essay.title
+  td
+    = button_to 'Написать', essay_path(essay), method: :get, class: 'btn btn-outline-info'
+  td.ta-center
+    - if essay.essay_passage(current_user)&.status
+      = link_to mi.done.css_class('md-24 stub green'), '#'
+    - else
+      = link_to mi.remove.css_class('md-24 stub'), '#'

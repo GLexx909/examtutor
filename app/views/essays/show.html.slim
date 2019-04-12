@@ -1,8 +1,19 @@
 .essay
   - if can?(:update, @essay)
-    = button_to 'Редактировать', edit_essay_path(@essay), remote: true, method: :get
-    = button_to 'Удалить эссе', essay_path(@essay), remote: true, method: :delete
+    .d-flex.mb-3.mr_1_for_child
+      = button_to 'Редактировать', edit_essay_path(@essay), remote: true, method: :get, class:'btn btn-secondary btn-sm'
+      = button_to 'Удалить эссе', essay_path(@essay), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm'
 
-    h1 = @essay.title
+    h1 = "Тема эссе: #{@essay.title}"
 
     .essay__form-edit class="essay__form-edit-#{@essay.id}"
+
+.essay-passage
+  = render 'essay_passages/essay_passage_full'
+
+.essay_passages__form_edit.hidden = render 'essay_passages/form_edit' if @essay_passage
+
+- if @essay_passage
+  = button_to 'Отправить репетитору на проверку',
+        notifications_path( notification:{ abonent: admin, title: "На проверку эссе от #{current_user.full_name}", link: essay_passage_path(@essay_passage) }),
+        remote: true, class: 'btn btn-success btn-lg btn-block send-essay__button'

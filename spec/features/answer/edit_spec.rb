@@ -8,7 +8,7 @@ feature 'Admin only can edit answer', %q{
   given!(:course) { create :course }
   given!(:modul) { create :modul, course: course  }
   given!(:test) { create :test, modul: modul }
-  given!(:question) { create :question, test: test  }
+  given!(:question) { create :question, questionable: test  }
   given!(:answer) { create :answer, question: question, body: 'AnswerBody'  }
 
   describe "Unauthenticated user" do
@@ -32,11 +32,11 @@ feature 'Admin only can edit answer', %q{
     sign_in admin
     visit test_path(test)
 
-    click_on 'Редактировать ответ'
+    click_on 'Редактировать вопрос'
 
-    fill_in 'answer[body]', with: 'Answer Body New'
+    fill_in 'question[answer_attributes][body]', with: 'Answer Body New'
 
-    click_on 'Сохранить изменения ответа'
+    click_on 'Сохранить изменения вопроса'
 
     expect(page).to have_content 'Answer Body New'
     expect(page).to_not have_content 'AnswerBody'

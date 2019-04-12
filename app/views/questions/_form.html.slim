@@ -1,6 +1,6 @@
 .question-form
   .question-form__fields
-    = form_with model: [test, question], method: :post, url: test_questions_path(test) do |f|
+    = form_with model: [questionable, question], method: :post, url: polymorphic_path([questionable, question]) do |f|
       .field
         = f.text_area :title, :class => "tinymce", :rows => 10, :cols => 120
         = tinymce content_css: asset_path('application.css')

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :question do
-    test { nil }
+    questionable { nil }
     title { "QuestionTitle" }
 
     trait :invalid do

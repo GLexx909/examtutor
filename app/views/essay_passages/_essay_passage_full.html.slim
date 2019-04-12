@@ -1,0 +1,16 @@
+- if @essay_passage
+  .essay-edit__button = button_tag 'Редактировать эссе', remote: true, class: 'btn btn-primary btn-lg'
+- else
+  .essay-new__button = button_to 'Написать эссе', new_essay_essay_passage_path(@essay), method: :get, remote: true, class: 'btn btn-primary btn-lg'
+
+.essay-passage__body = @essay_passage&.body&.html_safe
+
+- unless @essay_passage
+  .essay_passages__form_new.hidden
+    .essay-passage__fields
+      = form_with model: EssayPassage.new, method: :post, url: essay_essay_passages_path(@essay) do |f|
+        .field
+          = f.text_area :body, :class => "tinymce", rows: 25, cols: 120
+          = tinymce content_css: asset_path('application.css')
+        .submit
+          = f.submit 'Сохранить', class: 'btn btn-primary'

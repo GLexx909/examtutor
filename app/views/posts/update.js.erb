@@ -2,4 +2,6 @@ $('.flash-block').html('<%= render 'shared/errors', resource: @post %>');
 
 <% if !@post.errors.present? %>
   $('.post-' + <%= @post.id %>).html('<%= j render 'show' %>');
+  $('.file-field input').val('')
+  $('.post-form__fields').slideToggle(500);
 <% end %>

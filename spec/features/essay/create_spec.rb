@@ -7,6 +7,7 @@ feature 'Admin only can create essay', %q{
   given!(:user) {create(:user) }
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
+  # given!(:modul_passage) { create :modul_passage, modul: modul, user: user, status: true }
 
   describe 'Admin' do
     background do
@@ -20,7 +21,7 @@ feature 'Admin only can create essay', %q{
       fill_in 'essay[title]', with: 'EssayTitle'
       click_on 'Создать эссе'
 
-      within '.essays-list' do
+      within '.table-essays' do
         expect(page).to have_content 'EssayTitle'
       end
     end

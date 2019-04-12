@@ -1,0 +1,14 @@
+h2 = 'Уведомления:'
+
+= link_to 'Отметить все, как прочитанные', update_all_notifications_path, remote: true, method: :put, class: 'btn btn-success notification-button__read-already'
+
+.notifications-list
+  - @all_uniq_notifications.each do |notification|
+    - if notification.status
+      .d-flex.mb-3.mr_1_for_child
+        p = link_to notification.title, notification_path(id: notification, link: notification.link), method: :patch, class: 'badge badge-light'
+        .small_text = I18n.localize notification.created_at, format: :short
+    - else
+      .d-flex.mb-3.mr_1_for_child
+        p = link_to notification.title, notification_path(id: notification, link: notification.link), method: :patch, class: 'badge badge-warning'
+        .small_text = I18n.localize notification.created_at, format: :short

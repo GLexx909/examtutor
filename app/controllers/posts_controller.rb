@@ -10,15 +10,15 @@ class PostsController < ApplicationController
   end
 
   def tutor_index
-    @posts = Post.of_admin
+    @posts = Post.of_admin.page(params[:page])
   end
 
   def own_index
-    @posts = Post.of_user(current_user)
+    @posts = Post.of_user(current_user).page(params[:page])
   end
 
   def guests_index
-    @posts = Post.for_guests
+    @posts = Post.for_guests.page(params[:page])
   end
 
   def create
@@ -57,6 +57,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :for_guests)
+    params.require(:post).permit(:title, :body, :for_guests, files: [])
   end
 end

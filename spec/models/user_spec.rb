@@ -17,6 +17,12 @@ RSpec.describe User, type: :model do
   it { should have_many(:essay_passages).dependent(:destroy) }
   it { should have_many(:tests).through(:test_passages) }
   it { should have_many(:test_passages).dependent(:destroy) }
+  it { should have_many(:questions).through(:question_passages) }
+  it { should have_many(:question_passages).dependent(:destroy) }
+  it { should have_many(:notifications).dependent(:destroy) }
+  it { should have_many(:messages).dependent(:destroy) }
+  it { should have_many(:abonents).through(:messages) }
+  it { should have_many(:comments).dependent(:destroy) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }
@@ -24,6 +30,20 @@ RSpec.describe User, type: :model do
   let!(:post)       { create :post, author: user }
   let!(:course) { create :course }
   let!(:course_passage) { create :course_passage, user: user, course: course }
+  let!(:message1) { create :message, author: user, abonent: user_other }
+  let!(:message2) { create :message, author: user_other, abonent: user }
+  let!(:notification1) { create :notification, author: user_other, abonent: user, type_of: 'message' }
+  let!(:notification2) { create :notification, author: user_other, abonent: user, type_of: 'message' }
+
+  describe 'User#author_of? check' do
+    it 'is user the author of entry' do
+      expect(user).to be_author_of(post)
+    end
+
+    it 'is user not author of entry' do
+      expect(user_other).to_not be_author_of(post)
+    end
+  end
 
   describe 'User.author_or_admin_of? check' do
     it 'is user the author of resource' do
@@ -54,6 +74,24 @@ RSpec.describe User, type: :model do
   describe 'User#have_course?(course) check' do
     it 'return course passage' do
       expect(user.have_course?(course)).to eq course_passage
+    end
+  end
+
+  describe 'user#messages_with_self(abonent)' do
+    it 'return messages where user take part' do
+      expect(user.messages_with(user_other)).to eq [message1, message2]
+    end
+  end
+
+  describe 'user#notifications_from_penpals(abonent)' do
+    it 'return notifications where user is abonent of other person' do
+      expect(user.notifications_from_penpals(user_other)).to eq [notification1, notification2]
+    end
+  end
+
+  describe 'user#uniq_notifications' do
+    it 'return notifications where user is abonent of other person in single copy' do
+      expect(user.uniq_notifications_of_message).to eq [notification2]
     end
   end
 end

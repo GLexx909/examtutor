@@ -9,16 +9,17 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    redirect_to root_path if @user.admin?
+    redirect_to root_path if cannot?(:manage, :all) && user.admin?
+    user_posts
   end
 
   def edit
-    redirect_to root_path if cannot?(:update, @user)
+    redirect_to root_path if cannot?(:update, user)
   end
 
   def update
-    redirect_to root_path if cannot?(:update, @user)
-    @user.update(user_params)
+    redirect_to root_path if cannot?(:update, user)
+    user.update(user_params)
   end
 
   private
@@ -27,7 +28,11 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def user_posts
+    @user_posts ||= user.posts.page(params[:page])
+  end
+
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email, :avatar)
   end
 end

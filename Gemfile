@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
+gem "aws-sdk-s3", require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -38,10 +39,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'
 gem 'devise'
 gem 'jquery-rails'
+gem 'jquery-ui-rails' # for sortable models
+
 
 #Style
 gem 'bootstrap', ">= 4.3.1"
 gem 'material_icons'
+gem 'acts_as_list' # to sort model position
 
 #Authorization
 gem 'cancancan'
@@ -54,6 +58,9 @@ gem 'cocoon' #nested form
 gem 'kaminari' #pagination
 gem 'bootstrap4-kaminari-views'
 gem "breadcrumbs_on_rails"
+
+gem 'gon' #use rails variables in js
+gem 'skim' #templates engine. Use template.jst.skim in js rendering
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

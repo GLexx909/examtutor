@@ -1,6 +1,18 @@
-toolbar:
-  - styleselect | bold italic | undo redo
-  - image | link
-plugins:
-  - image
-  - link
+default:
+  toolbar:
+    - styleselect | bold italic | undo redo
+    - image | link
+  plugins:
+    - image
+    - link
+  branding: false
+
+message:
+  menubar:
+    - false
+  branding: false
+  toolbar:
+    - image | link
+  plugins:
+    - image
+    - link

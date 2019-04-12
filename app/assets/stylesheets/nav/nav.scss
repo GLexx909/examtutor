@@ -1,0 +1,41 @@
+.notifications-dropdown {
+  .dropleft {
+    button {
+      background: black;
+
+      &:hover {
+        background: darkorange;
+      }
+    }
+  }
+}
+
+.nav__right-block {
+  display: flex;
+
+  .dropdown-menu {
+    width: max-content;
+
+    background: #6c757d;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: black;
+      font-size: 0.7rem;
+    }
+
+  }
+}
+
+.notify-button {
+  width: 100px;
+
+  margin-right: 0.2rem;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+  font-size: 0.7rem !important;
+}

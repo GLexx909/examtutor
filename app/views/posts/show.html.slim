@@ -1,9 +1,14 @@
-.div class="post-#{@post.id}"
-  b = @post.title
+article.post-show-block.mt-5 class="post-#{@post.id}"
+  h1 = @post.title
   p = @post.body.html_safe
-
+  - if @post.files.attached?
+    - @post.files.each do |file|
+      .display-flex.mr_1_for_child.mb-0-for-child class="file-#{file.id}"
+        p = link_to file.filename.to_s, url_for(file), target: '_blank', rel: 'noopener'
+        .small_text = link_to 'Удалить файл', attachment_path(file.id), method: :delete, remote: true,
+                class: 'post-file__delete-button', data: {id: file.id} if can?(:destroy, file)
 - if can?(:update, @post)
-  .post-edit-form
+  .post-edit-form.mb-5vh
     .post-form
       = button_tag 'Редактировать пост', class: 'btn btn-secondary btn-sm post-form__button-show'
       .post-form__fields
@@ -13,5 +18,18 @@
           .field
             = f.text_area :body, :class => "tinymce", :rows => 10, :cols => 120
             = tinymce content_css: asset_path('application.css')
+          .d-flex.justify-content-between
+            - if can?(:manage, :all)
+              .field
+                = f.check_box :for_guests
+                = ' Доступно для гостей?'
+            .field
+              = f.file_field :files, multiple: true
           .submit
             = f.submit 'Опубликовать', class: 'btn btn-success'
+
+.comments-list
+  = render @post.comments
+
+- if can?(:create, Comment)
+  = render 'comments/form_new'

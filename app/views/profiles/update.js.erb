@@ -1,6 +1,10 @@
 $('.flash-block').html('<%= render 'shared/errors', resource: @user %>');
 
+<% if @user.avatar.attached? %>
+  $('.profile-avatar').html('<img src="<%= url_for(@user.avatar) %>"</img>');
+<% end %>
+
 <% if !@user.errors.present? %>
-  $('.profile-info').html('<%= @user.full_name %>');
+  $('.full-name').html('<h1><%= @user.full_name %></h1>');
   $('.profile-edit-form').hide(300);
 <% end %>

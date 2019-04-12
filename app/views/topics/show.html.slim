@@ -1,9 +1,17 @@
 .topic
   - if can?(:update, @topic)
-    = button_to 'Редактировать', edit_topic_path(@topic), remote: true, method: :get
-    = button_to 'Удалить тему', topic_path(@topic), remote: true, method: :delete
-
-    h1 = @topic.title
-    = @topic.body.html_safe
-
+    .d-flex.mb-3.mr_1_for_child
+      = button_to 'Редактировать', edit_topic_path(@topic), remote: true, method: :get, class:'btn btn-secondary btn-sm'
+      = button_to 'Удалить тему', topic_path(@topic), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm'
     .topic__form-edit class="topic__form-edit-#{@topic.id}"
+
+  h1 = "Тема: #{@topic.title}"
+  p = @topic.body.html_safe
+
+
+.question__answers__block
+  - if can?(:create, Question)
+    = button_to 'Создать новый вопрос', new_topic_question_path(@topic), method: :get, remote: true, class:'btn btn-secondary btn-sm'
+    .question__new-form
+
+= render 'questions/questions_list', questions: @topic.questions if @topic.questions

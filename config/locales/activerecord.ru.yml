@@ -10,6 +10,9 @@ ru:
       test: 'Тест'
       question: 'Вопрос'
       answer: 'Ответ'
+      essay_passage: 'Эссе'
+      message: 'Сообщение'
+      comment: 'Комментарий'
     attributes:
       user:
         first_name: 'Имя'
@@ -35,6 +38,13 @@ ru:
         title: 'Заголовок'
       answer:
         body: 'Тело ответа'
+        points: 'Баллы'
+      essay_passage:
+        body: 'Эссе'
+      message:
+        body: 'Сообщение'
+      comment:
+        body: 'Комментарий'
     errors:
       messages:
         blank: 'не может быть пустым'

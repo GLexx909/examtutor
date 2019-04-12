@@ -95,11 +95,6 @@ shared_examples_for 'To change the object attributes title body' do
     expect(object.title).to eq 'new_title' if object.respond_to?(:title)
     expect(object.body).to eq 'new_body' if object.respond_to?(:body)
   end
-
-  it 'render update view' do
-    patch :update, params: params.merge({id: object.id }), format: :js
-    expect(response).to render_template :update
-  end
 end
 
 shared_examples_for 'To not change the object attributes title body' do
@@ -121,5 +116,12 @@ end
 shared_examples_for 'To does not save a new object' do
   it 'does not save a new object' do
     expect { post :create, params: params, format: :js }.to_not change(object_class, :count)
+  end
+end
+
+shared_examples_for 'DELETE to render status 200' do
+  it 'render status 403' do
+    delete :destroy, params: params, format: :js
+    expect(response).to have_http_status 200
   end
 end

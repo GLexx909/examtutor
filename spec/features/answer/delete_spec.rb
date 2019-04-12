@@ -8,7 +8,7 @@ feature 'Admin only can delete question', %q{
   given!(:course) { create :course }
   given!(:modul) { create :modul, course: course }
   given!(:test) { create :test, modul: modul }
-  given!(:question) { create :question, test: test, title: 'QuestionTitle' }
+  given!(:question) { create :question, questionable: test, title: 'QuestionTitle' }
   given!(:answer) { create :answer, question: question }
 
   describe 'Admin' do
@@ -20,6 +20,7 @@ feature 'Admin only can delete question', %q{
     scenario 'can delete the question', js: true do
       expect(page).to have_content 'QuestionTitle'
       click_on 'Удалить вопрос'
+      page.driver.browser.switch_to.alert.accept
       expect(page).to_not have_content 'QuestionTitle'
     end
   end

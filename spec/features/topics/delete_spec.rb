@@ -18,6 +18,7 @@ feature 'Admin only can delete topic', %q{
     scenario 'can delete the topic', js: true do
       expect(page).to have_content 'TopicTitle'
       click_on 'Удалить тему'
+      page.driver.browser.switch_to.alert.accept
       expect(page).to_not have_content 'TopicTitle'
     end
   end

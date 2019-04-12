@@ -14,21 +14,51 @@ Rails.application.routes.draw do
 
   resources :courses, shallow: true do
     resources :moduls do
-      resources :topics
-      resources :essays
-      resources :tests do
+      post :sort, on: :collection
+
+      resources :topics do
+        post :sort, on: :collection
+        resources :topic_passages, only: [:update]
         resources :questions do
+          resources :question_passages, only: [:create]
+          resources :answers, only: [:destroy, :edit, :update]
+        end
+      end
+
+      resources :essays do
+        resources :essay_passages, only: [:new, :show, :create, :update] do
+          patch :update_status, on: :member
+        end
+      end
+
+      resources :tests do
+        get :start, on: :member
+
+        resources :test_passages, only: [:show] do
+          patch :update_status, on: :member
+        end
+        resources :questions do
+          resources :question_passages, only: [:create]
           resources :answers, only: [:destroy, :edit, :update]
         end
       end
     end
   end
 
+  resources :attachments, only: :destroy
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
+  resources :notifications, only: [:index, :create, :update] do
+    put :update_all, on: :collection
+  end
 
+  resources :messages, only: [:create, :index, :destroy] do
+    get :abonents, on: :collection
+  end
 
-  resources :posts do
+  resources :posts, shallow: true do
+    resources :comments, except: [:index, :show]
+
     get :tutor_index, on: :collection
     get :own_index, on: :collection
     get :guests_index, on: :collection
@@ -38,4 +68,6 @@ Rails.application.routes.draw do
     resources :mainmenus, only: [:index]
     resources :one_time_passwords, only: [:new, :create]
   end
+
+  mount ActionCable.server => '/cable'
 end

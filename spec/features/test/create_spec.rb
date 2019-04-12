@@ -20,7 +20,7 @@ feature 'Admin only can create test', %q{
       fill_in 'test[title]', with: 'EssayTitle'
       click_on 'Создать тест'
 
-      within '.tests-list' do
+      within '.table-tests' do
         expect(page).to have_content 'EssayTitle'
       end
     end

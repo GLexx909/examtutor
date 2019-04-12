@@ -18,6 +18,7 @@ feature 'Admin only can delete essay', %q{
     scenario 'can delete the essay', js: true do
       expect(page).to have_content 'EssayTitle'
       click_on 'Удалить эссе'
+      page.driver.browser.switch_to.alert.accept
       expect(page).to_not have_content 'EssayTitle'
     end
   end

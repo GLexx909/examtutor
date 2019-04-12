@@ -18,6 +18,7 @@ feature 'Admin only can delete course', %q{
       within '.courses-list' do
         expect(page).to have_content 'CourseTitle'
         click_on 'Удалить курс'
+        page.driver.browser.switch_to.alert.accept
         expect(page).to_not have_content 'CourseTitle'
       end
     end

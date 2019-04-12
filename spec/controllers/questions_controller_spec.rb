@@ -6,7 +6,7 @@ RSpec.describe QuestionsController, type: :controller do
   let!(:course)  { create :course }
   let!(:modul)  { create :modul, course: course }
   let!(:test)  { create :test, modul: modul }
-  let!(:question)  { create :question, test: test }
+  let!(:question)  { create :question, questionable: test }
 
 
   describe 'GET #new' do
@@ -60,7 +60,7 @@ RSpec.describe QuestionsController, type: :controller do
 
     context 'with invalid attributes' do
       before { login(admin) }
-      let!(:question) { create :question, title: 'MyTitle', test: test }
+      let!(:question) { create :question, title: 'MyTitle', questionable: test }
 
       it_behaves_like 'To not change the object attributes title body', let(:params) { question_params_invalid(test) }, let(:object) { question }
       it_behaves_like 'To render update view', let(:params) { question_params_invalid(test) }, let(:object) { question }
@@ -68,7 +68,7 @@ RSpec.describe QuestionsController, type: :controller do
 
     context 'User can not update question' do
       before { login(user) }
-      let!(:question) { create :question, title: 'MyTitle', test: test }
+      let!(:question) { create :question, title: 'MyTitle', questionable: test }
 
       it_behaves_like 'To not change the object attributes title body', let(:params) { question_params(test) }, let(:object) { question }
     end
