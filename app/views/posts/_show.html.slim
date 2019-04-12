@@ -1,2 +1,8 @@
 b = @post.title
 p = @post.body.html_safe
+- if @post.files.attached?
+  - @post.files.each do |file|
+    .display-flex.mr_1_for_child.mb-0-for-child class="file-#{file.id}"
+      p = link_to file.filename.to_s, url_for(file), target: '_blank', rel: 'noopener'
+      .small_text = link_to 'Удалить файл', attachment_path(file.id), method: :delete, remote: true,
+              class: 'post-file__delete-button', data: {id: file.id} if can?(:destroy, file)

@@ -35,6 +35,16 @@ RSpec.describe User, type: :model do
   let!(:notification1) { create :notification, author: user_other, abonent: user, type_of: 'message' }
   let!(:notification2) { create :notification, author: user_other, abonent: user, type_of: 'message' }
 
+  describe 'User#author_of? check' do
+    it 'is user the author of entry' do
+      expect(user).to be_author_of(post)
+    end
+
+    it 'is user not author of entry' do
+      expect(user_other).to_not be_author_of(post)
+    end
+  end
+
   describe 'User.author_or_admin_of? check' do
     it 'is user the author of resource' do
       expect(user).to be_author_or_admin_of(post)

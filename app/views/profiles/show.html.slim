@@ -1,5 +1,5 @@
 h1 = @user.full_name
-p = link_to 'Редактировать профиль', edit_profile_path(@user) if can?(:update, @user)
+p = link_to 'Редактировать профиль', edit_profile_path(@user), class: 'badge badge-dark' if can?(:update, @user)
 = button_to 'Написать сообщение', '#', remote: true, class: "btn btn-outline-dark btn-sm stub", data: {toggle: 'modal', target: '#newMessageModal'}
 .new-message__modal-form
   = render 'messages/modal_new_message_form'

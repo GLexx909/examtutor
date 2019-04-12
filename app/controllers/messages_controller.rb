@@ -25,7 +25,12 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    message.destroy if can?(:destroy, message)
+    if can?(:destroy, message)
+      message.destroy
+    else
+      head 403
+    end
+
     head :ok
   end
 
@@ -43,7 +48,17 @@ class MessagesController < ApplicationController
 
   def publish_message
     return if message.errors.any?
-    ActionCable.server.broadcast("correspondence_of_#{pelpals_users[0]}_and_#{pelpals_users[1]}", action: 'create', message: message, is_admin?: current_user.admin?)
+
+    # To get url address from each file
+    urls = message.files.inject([]) do |memo, file|
+      memo << url_for(file)
+    end
+
+    ActionCable.server.broadcast("correspondence_of_#{pelpals_users[0]}_and_#{pelpals_users[1]}",
+                                 action: 'create',
+                                 message: message,
+                                 files: message.files_info_hash(urls),
+                                 is_admin?: current_user.admin?)
   end
 
   def delete_message
@@ -59,6 +74,6 @@ class MessagesController < ApplicationController
   end
 
   def messages_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, files: [])
   end
 end

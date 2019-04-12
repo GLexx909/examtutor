@@ -35,6 +35,28 @@ feature 'User can edit his post', %q{
       end
     end
 
+    scenario 'edit his post with attach files', js: true do
+      sign_in user
+      visit post_path(post)
+
+      within '.post-edit-form' do
+        click_on 'Редактировать пост'
+
+        fill_in 'post[title]', with: 'Post Title New'
+        tinymce_fill_in('post_body', 'Post Body New')
+        attach_file 'post_files', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+
+        click_on 'Опубликовать'
+      end
+
+      within 'article' do
+        expect(page).to have_content 'Post Title New'
+        expect(page).to_not have_content 'PostTitle'
+        expect(page).to have_link 'rails_helper.rb'
+        expect(page).to have_link 'spec_helper.rb'
+      end
+    end
+
     scenario "tries to edit other user's answer" do
       sign_in user2
       visit post_path(post)

@@ -2,12 +2,24 @@
     .card.each-message class="message-#{@message.id}"
         .card-body
             p = @safe @message.body
+        - for file in @files
+            - if file.name
+                p
+                    a target='_blank' rel='noopener' href="#{file.url}"
+                        = file.name
         a class='message-delete__button' data-remote='true' data-method='delete' href="/messages/#{@message.id}?abonent_id=#{@message.abonent_id}" data-button-id="#{@message.id}"
             | Удалить
+
 - else
     .card.each-message.message_of_abonent class="message-#{@message.id}"
         .card-body
             p = @safe @message.body
+        - for file in @files
+            - if file        
+                p
+                    a target='_blank' rel='noopener' href="#{file.url}"
+                        = file.name
         - if !@is_admin
             a class='message-delete__button' data-remote='true' data-method='delete' href="/messages/#{@message.id}?abonent_id=#{@message.author_id}" data-button-id="#{@message.id}"
                 | Удалить
+

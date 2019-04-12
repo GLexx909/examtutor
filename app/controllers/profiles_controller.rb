@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 
   def update
     redirect_to root_path if cannot?(:update, user)
-    @user.update(user_params)
+    user.update(user_params)
   end
 
   private
@@ -33,6 +33,6 @@ class ProfilesController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email, :avatar)
   end
 end

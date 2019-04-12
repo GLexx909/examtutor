@@ -43,4 +43,17 @@ feature "User can edit own profile", %q{
       end
     end
   end
+
+  scenario 'create a message with attached file', js: true do
+    sign_in(user)
+    visit edit_profile_path(user)
+
+    click_on 'Редактировать'
+
+    attach_file 'user_avatar', "#{Rails.root}/app/assets/images/favicon.ico"
+
+    click_on 'Сохранить изменения'
+
+    expect(page).to have_css('.profile-avatar img')
+  end
 end

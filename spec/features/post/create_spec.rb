@@ -42,4 +42,17 @@ feature 'User can create post', %q{
     visit posts_path
     expect(page).to_not have_button('Написать пост')
   end
+
+  scenario 'create a post with attached file', js: true do
+    sign_in(user)
+    visit posts_path
+
+    click_on 'Написать пост'
+
+    fill_in 'post[title]', with: 'Post Title'
+    tinymce_fill_in('post_body', 'Post Body')
+    attach_file 'post_files', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+
+    click_on 'Опубликовать'
+  end
 end

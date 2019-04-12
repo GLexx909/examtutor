@@ -58,4 +58,18 @@ feature 'User can see messages list and create new message', %q{
       end
     end
   end
+
+  scenario 'create a message with attached file', js: true do
+    sign_in(user)
+    visit messages_path(abonent_id: user2)
+
+    attach_file 'message_files', ["#{Rails.root}/spec/rails_helper.rb", "#{Rails.root}/spec/spec_helper.rb"]
+    tinymce_fill_in('message_body', 'NewMessage')
+
+    click_on 'Отправить'
+
+    expect(page).to have_content "NewMessage"
+    expect(page).to have_link 'rails_helper.rb'
+    expect(page).to have_link 'spec_helper.rb'
+  end
 end

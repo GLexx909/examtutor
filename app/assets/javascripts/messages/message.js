@@ -18,7 +18,8 @@ document.addEventListener('turbolinks:load', function() {
             received: function (data) {
                 if (data['action'] === 'create') {
                     const messagesList = $('.messages-list');
-                    messagesList.append(JST["templates/message"]({ message: data['message'], is_admin: data['is_admin?'] }));
+                    console.log(data['files']);
+                    messagesList.append(JST["templates/message"]({ message: data['message'], is_admin: data['is_admin?'], files: data['files']}));
                     scrollToElement();
                 } else if (data['action'] === 'delete') {
                     const messageId = data['message_id'];
@@ -64,8 +65,14 @@ function scrollToElement() {
 function scrollToElementAndCreatForm() {
     scrollToElement();
     tinyMCEClear();
+    setTimeout(clearFileField, 1000);
 }
 
 function tinyMCEClear() {
     setTimeout('tinyMCE.activeEditor.setContent(\'\')', 'fast');
+}
+
+function clearFileField() {
+    const input = $('.new-message__form .file-field input');
+    input.val('')
 }

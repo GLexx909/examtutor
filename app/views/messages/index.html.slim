@@ -8,12 +8,18 @@
           .card.each-message class="message-#{message.id}"
             .card-body
               p = message.body.html_safe
+              - if message.files.attached?
+                - message.files.each do |file|
+                  p = link_to file.filename.to_s, url_for(file), target: '_blank', rel: 'noopener'
             = link_to 'Удалить', message_path(message, abonent_id: @abonent.id), method: :delete, class: 'message-delete__button',
                     remote: true, data: {button_id: message.id }
         - else
           .card.each-message.message_of_abonent class="message-#{message.id}"
             .card-body
               p = message.body.html_safe
+              - if message.files.attached?
+                - message.files.each do |file|
+                  p = link_to file.filename.to_s, url_for(file), target: '_blank', rel: 'noopener'
             = link_to 'Удалить', message_path(message, abonent_id: @abonent.id), method: :delete, class: 'message-delete__button',
                     remote: true, data: {button_id: message.id } if can?(:destroy, message)
     #bottomOfMessageList
