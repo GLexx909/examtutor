@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :comments, foreign_key: 'post_id', dependent: :destroy
 
+  has_many_attached :files, dependent: :purge_later
+
   validates :title, :body, presence: true
 
   default_scope -> { order(created_at: :desc) }

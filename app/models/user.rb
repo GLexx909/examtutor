@@ -27,6 +27,8 @@ class User < ApplicationRecord
   has_many :abonents, through: :messages
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
 
+  has_one_attached :avatar, dependent: :purge_later
+
   scope :not_admin, -> { where(admin: false) }
 
   def author_or_admin_of?(resource)
@@ -46,7 +48,7 @@ class User < ApplicationRecord
   end
 
   def notifications_from_penpals(abonent)
-    Notification.where(abonent: self, author: abonent, type_of: 'message')
+    Notification.where(abonent: self, author: abonent, type_of: 'message', status: false)
   end
 
   def notifications_type_message
@@ -68,5 +70,17 @@ class User < ApplicationRecord
     uniq_notifications_of_message = self.uniq_notifications_of_message
 
     all_notification + uniq_notifications_of_message
+  end
+
+  def author_of?(resource)
+    id == resource.author_id
+  end
+
+  def profile_avatar
+    avatar.attached? ? avatar : 'no-photo.jpg'
+  end
+
+  def nav_avatar
+    avatar.attached? ? avatar&.variant(resize: '30x30') : 'no-photo-sm.jpg'
   end
 end

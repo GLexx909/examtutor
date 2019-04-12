@@ -8,7 +8,7 @@ feature 'User can see profile of user', %q{
 
   given(:user) { create(:user) }
   given(:user_other) { create(:user) }
-  given(:admin) { create(:user, admin: true) }
+  given(:admin) { create(:user, admin: true, first_name: 'Admin', last_name: 'Admin') }
 
   scenario 'User can see other user profile' do
     sign_in(user)

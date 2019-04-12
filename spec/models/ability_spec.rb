@@ -120,5 +120,7 @@ RSpec.describe Ability do
     it { should be_able_to :create, Comment }
     it { should be_able_to :update, comment }
     it { should be_able_to :destroy, comment }
+
+    it { should be_able_to :manage, ActiveStorage::Attachment }
   end
 end

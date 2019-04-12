@@ -37,5 +37,9 @@ class Ability
     can :start, Test
     can :abonents, Message
     can :update_all, Notification
+
+    can :manage, ActiveStorage::Attachment do |attachment|
+      user.author_of?(attachment.record)
+    end
   end
 end

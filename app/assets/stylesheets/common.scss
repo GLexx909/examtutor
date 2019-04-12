@@ -83,6 +83,9 @@ body {
 .mr_1 {
   margin-right: 1vw;
 }
+.display-flex{
+  display: flex;
+}
 
 .mt-5vh{
   margin-top: 5vw;
@@ -166,6 +169,12 @@ body {
 
 .handle {
   cursor: pointer;
+}
+
+.text-1rem {
+  a {
+    font-size: 1rem !important;
+  }
 }
 
 @media screen and (max-width: 600px) {

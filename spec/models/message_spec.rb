@@ -14,6 +14,8 @@ RSpec.describe Message, type: :model do
   let!(:message3) { create :message, author: user2, abonent: user3 }
   let!(:message4) { create :message, author: user3, abonent: user }
 
+  it_behaves_like 'Have many attached file', let(:object_class){ Message }
+
   describe 'Message.own(current_user)' do
     it 'return messages where user take part' do
       arr = [message4, message2, message1]
