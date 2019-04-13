@@ -42,6 +42,11 @@ ru:
       signout: "Выйти"
       signup: "Регистрация"
       login: "Войти"
+      points:
+        one: "%{count} очко"
+        few: "%{count} очка"
+        many: "%{count} очков"
+        other: "%{count} очков"
 
   date:
     abbr_day_names:

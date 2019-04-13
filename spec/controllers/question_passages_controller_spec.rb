@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe QuestionPassagesController, type: :controller do
   let!(:user)  { create :user }
+  let!(:characteristic)  { create :characteristic, user: user }
   let!(:admin)  { create :user, admin: true }
   let!(:course)  { create :course }
   let!(:modul)  { create :modul, course: course }

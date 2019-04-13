@@ -116,6 +116,7 @@ RSpec.describe Ability do
     it { should_not be_able_to :destroy, message_other }
 
     it { should be_able_to :update_all, Notification }
+    it { should be_able_to :destroy_all, Notification }
 
     it { should be_able_to :create, Comment }
     it { should be_able_to :update, comment }

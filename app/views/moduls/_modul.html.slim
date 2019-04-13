@@ -7,7 +7,7 @@ tr class="modul-#{modul.id}" id="modul_#{modul.id}"
     - if modul.modul_passage(current_user)&.status? || can?(:manage, :all)
       h2.course-title = link_to modul.title, modul_path(modul), class: 'badge'
     - else
-      h2 = modul.title
+      h4 = modul.title
   - if can?(:create, Course)
     td
       = button_to 'Редактировать', edit_modul_path(modul), remote: true, method: :get, class: 'btn btn-secondary btn-sm'

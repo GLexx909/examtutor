@@ -24,6 +24,10 @@ class NotificationsController < ApplicationController
     head :ok
   end
 
+  def destroy_all
+    Notification.where(abonent: current_user).delete_all
+  end
+
   private
 
   def send_notification(notification)

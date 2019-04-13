@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   resources :modul_passages, only: [:create]
   resources :notifications, only: [:index, :create, :update] do
     put :update_all, on: :collection
+    delete :destroy_all, on: :collection
   end
 
   resources :messages, only: [:create, :index, :destroy] do

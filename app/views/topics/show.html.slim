@@ -1,3 +1,5 @@
+= link_to 'Назад', :back, class: 'badge badge-pill badge-info mb-1'
+
 .topic
   - if can?(:update, @topic)
     .d-flex.mb-3.mr_1_for_child
@@ -15,3 +17,4 @@
     .question__new-form
 
 = render 'questions/questions_list', questions: @topic.questions if @topic.questions
+

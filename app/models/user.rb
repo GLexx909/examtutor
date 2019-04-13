@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :messages, foreign_key: 'abonent_id', dependent: :destroy
   has_many :abonents, through: :messages
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
+  has_one :characteristic, dependent: :destroy
 
   has_one_attached :avatar, dependent: :purge_later
 
@@ -81,6 +82,6 @@ class User < ApplicationRecord
   end
 
   def nav_avatar
-    avatar.attached? ? avatar&.variant(resize: '30x30') : 'no-photo-sm.jpg'
+    avatar.attached? ? avatar : 'no-photo-sm.jpg'
   end
 end

@@ -6,6 +6,7 @@ feature 'User can create message', %q{
   given!(:admin) {create(:user, admin: true) }
   given!(:user) {create(:user) }
   given!(:user2) {create(:user) }
+  given!(:characteristic)  { create :characteristic, user: user2, points: 50 }
 
   describe 'User' do
     background do

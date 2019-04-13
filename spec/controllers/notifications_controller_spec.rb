@@ -57,4 +57,21 @@ RSpec.describe NotificationsController, type: :controller do
       expect(notification2.status).to be_truthy
     end
   end
+
+  describe 'DELETE #destroy_all' do
+    let!(:notification1)  { create :notification, link: "/topics/#{essay.id}", abonent: user, status: false, author: user }
+
+    before(:each) do
+      login(user)
+      delete :destroy_all, format: :js
+    end
+
+    it 'deletes the object' do
+      expect(Notification.where(abonent: user).count).to eq 0
+    end
+
+    it 'deletes the object' do
+      expect(response).to render_template :destroy_all
+    end
+  end
 end
