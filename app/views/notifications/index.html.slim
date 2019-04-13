@@ -1,6 +1,7 @@
 h2 = 'Уведомления:'
-
-= link_to 'Отметить все, как прочитанные', update_all_notifications_path, remote: true, method: :put, class: 'btn btn-success notification-button__read-already'
+.mr_1_for_child.mb-5vh
+  = link_to 'Отметить все, как прочитанные', update_all_notifications_path, remote: true, method: :put, class: 'btn-sm btn btn-success p-0 font-weight-bold notification-button__read-already'
+  = link_to 'Удалить все уведомления', destroy_all_notifications_path, remote: true, method: :delete, class: 'btn-sm btn btn-danger p-0 font-weight-bold'
 
 .notifications-list
   - @all_uniq_notifications.each do |notification|

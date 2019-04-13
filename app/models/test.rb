@@ -14,4 +14,12 @@ class Test < ApplicationRecord
   def test_passage(current_user)
     test_passages.find_by(user: current_user)
   end
+
+  def all_points
+    # It is the maximum number of points
+    all_points = questions.inject(0) do |memo, question|
+      memo += question.answer.points
+    end
+    all_points
+  end
 end

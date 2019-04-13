@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 2019_04_12_092948) do
 
   create_table "characteristics", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "points"
+    t.integer "points", default: 0
     t.text "description"
-    t.string "rank"
+    t.string "rank", default: "рядовой"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_characteristics_on_user_id"

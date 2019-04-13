@@ -11,6 +11,7 @@ class TestPassagesController < ApplicationController
   def update_status
     test_passage.update(status: true)
     Services::SendNotificationService.new("На проверку тест от #{current_user.full_name}", test_passage_path(test_passage), admin, current_user).send
+    Services::CharacteristicChangeService.new(current_user, requests, test_passage.points, profile_path(current_user), test: test_passage.test).change
     head :ok
     create_next_modul_passage
   end
@@ -27,6 +28,10 @@ class TestPassagesController < ApplicationController
 
   def modul
     test_passage.test.modul
+  end
+
+  def requests
+    request&.referrer&.split('/')&[3]
   end
 
   def create_next_modul_passage

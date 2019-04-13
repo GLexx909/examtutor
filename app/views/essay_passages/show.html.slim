@@ -7,4 +7,10 @@
 .essay_passages__form_edit.hidden = render 'essay_passages/form_edit' if @essay_passage
 
 - if can?(:manage, :all)
-  = button_to 'Уведомить ученика об окончании проверки', update_status_essay_passage_path(@essay_passage), method: :patch, remote: true, class: 'btn btn-primary btn-block check-essay__button'
+  .essay-passage-ready-form
+    .essay-passage-ready-form__fields
+      = form_with model: @essay_passage, method: :patch, url: update_status_essay_passage_path(@essay_passage), class: 'form-inline', remote: true do |f|
+        .form-group.mb-2
+          = f.number_field :points, class: 'form-control', placeholder: 'Очки'
+        .mb-2
+          = f.submit 'Уведомить ученика об окончании проверки', class: 'btn btn-success check-essay__button'
