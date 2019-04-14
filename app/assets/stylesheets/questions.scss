@@ -31,6 +31,10 @@
 }
 
 .test-points {
+  position: fixed;
+  left: 3vw;
+  top: 40vh;
+
   width: 5em;
   height: 5em;
   border-radius: 50%;
@@ -48,3 +52,19 @@
     color: dimgray;
   }
 }
+
+
+@media screen and (max-width: 1370px) {
+  .test-points {
+    position: fixed;
+    left: 2vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .test-points {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+

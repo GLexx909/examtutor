@@ -20,7 +20,6 @@ class Modul < ApplicationRecord
 
     topics.each do |topic|
       status = false unless topic.topic_passage(current_user)&.status?
-
     end
 
     essays.each do |essay|

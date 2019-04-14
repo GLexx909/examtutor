@@ -8,7 +8,12 @@ class TestsController < ApplicationController
   authorize_resource
 
   def start
-    test.test_passages.create(user: current_user) unless test.test_passages.find_by(user: current_user)
+    if test_passage
+      test_passage.update(left_time: left_time)
+      test_passage.update(status: true, left_time: 0) if left_time <= 0
+    else
+      test.test_passages.create(user: current_user, left_time: test.timer)
+    end
   end
 
   def new
@@ -43,12 +48,20 @@ class TestsController < ApplicationController
     @test ||= params[:id] ? Test.find(params[:id]) : modul.tests.new
   end
 
+  def test_passage
+    test.test_passage(current_user)
+  end
+
+  def left_time
+    test.timer - ((Time.now - test_passage.created_at)/60).ceil
+  end
+
   def bread_crumbs
     add_breadcrumb "Модули", course_path(test.modul.course)
     add_breadcrumb "Модуль #{test.modul.title}", modul_path(test.modul)
   end
 
   def test_params
-    params.require(:test).permit(:title)
+    params.require(:test).permit(:title, :timer)
   end
 end

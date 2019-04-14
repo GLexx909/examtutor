@@ -4,7 +4,7 @@ p = link_to 'Редактировать профиль', edit_profile_path(@user
 .new-message__modal-form
   = render 'messages/modal_new_message_form'
 
-h1 = @user.characteristic.points
+h1 = @user&.characteristic&.points
 
 = paginate @user_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
 .card-deck

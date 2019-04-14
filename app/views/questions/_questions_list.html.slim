@@ -8,7 +8,7 @@
         .card-header
           = question.title.html_safe
         .card-body
-          - unless question.question_passages.find_by(user: current_user)
+          - if !question.question_passages.find_by(user: current_user) && ( question.questionable_type == 'Topic' || @test.test_passage(current_user).status == false )
             = form_tag question_question_passages_path(question), class: 'form-inline answer-for-question_form', data: { type: :json }, remote: true do
               .form-group.mr_1
                 = label :answer, 'Введите ответ:'
