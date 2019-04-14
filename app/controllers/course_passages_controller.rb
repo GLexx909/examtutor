@@ -31,7 +31,7 @@ class CoursePassagesController < ApplicationController
   end
 
   def create_user_characteristic
-    Characteristic.create(user: user)
+    Characteristic.create(user: user) if !user&.characteristic
   end
 
   def course_passage_params

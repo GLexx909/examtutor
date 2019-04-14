@@ -39,7 +39,7 @@ class EssayPassagesController < ApplicationController
   end
 
   def requests
-    request&.referrer&.split('/')&[3]
+    request.referrer.split('/')[3]
   end
 
   def essay_passage_params

@@ -16,3 +16,38 @@
     height: 78px;
   }
 }
+
+.test-time__block {
+  position: fixed;
+
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+
+  //display: flex;
+  left: 3vw;
+  top: 50vh;
+
+  background-color: #00b7ea;
+
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  //align-items: center;
+}
+
+
+@media screen and (max-width: 1370px) {
+  .test-time__block {
+    position: fixed;
+    left: 2vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .test-time__block {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+

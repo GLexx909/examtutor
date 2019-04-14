@@ -27,6 +27,6 @@
           .form-group.row
             = f.label :avatar, class: 'col-sm-2 col-form-label', value: 'Загрузить Аватар'
             .col-sm-10
-              = f.file_field :avatar, accept:"image/*,image/jpeg,image/png"
+              = f.file_field :avatar, accept:"image/png, image/jpeg"
           .submit
             = f.submit 'Сохранить изменения', class: 'btn btn-success'

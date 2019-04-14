@@ -11,6 +11,7 @@ class Services::CharacteristicChangeService
   def change
     case @request
     when 'topics'
+
       score_for_topic
     when 'essay_passages'
       score_for_essay_passage
@@ -124,6 +125,6 @@ class Services::CharacteristicChangeService
              'Предиктор-корректор'
            end
 
-    @user.characteristic.update(rank: rank)
+    @user.characteristic.update(rank: rank) if rank
   end
 end

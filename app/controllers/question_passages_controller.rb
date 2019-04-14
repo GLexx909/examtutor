@@ -33,6 +33,6 @@ class QuestionPassagesController < ApplicationController
   end
 
   def requests
-    request&.referrer&.split('/')&[3]
+    request.referrer.split('/')[3]
   end
 end

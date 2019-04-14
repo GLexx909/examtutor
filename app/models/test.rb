@@ -5,7 +5,7 @@ class Test < ApplicationRecord
 
   belongs_to :modul
 
-  validates :title, presence: true
+  validates :title, :timer, presence: true
 
   def current_points(current_user)
     test_passage(current_user).points
@@ -21,5 +21,19 @@ class Test < ApplicationRecord
       memo += question.answer.points
     end
     all_points
+  end
+
+  def ready_to_show?(current_user)
+    status = true
+
+    modul.topics.each do |topic|
+      status = false unless topic.topic_passage(current_user)&.status?
+    end
+
+    modul.essays.each do |essay|
+      status = false unless essay.essay_passage(current_user)&.status?
+    end
+
+    status
   end
 end

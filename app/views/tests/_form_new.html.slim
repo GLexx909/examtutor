@@ -1,7 +1,9 @@
 .test-form
   .test-form__fields
-    = form_with model: [modul, test], method: :post, url: modul_tests_path(modul) do |f|
-      .field
-        = f.text_field :title, class:'form-control'
-      .submit
+    = form_with model: [modul, test], method: :post, url: modul_tests_path(modul), class: 'form-inline' do |f|
+      .form-group.mb-2
+        = f.number_field :timer, class: 'form-control', placeholder: 'Таймер'
+      .form-group.mb-2
+        = f.text_field :title, class: 'form-control'
+      .mb-2
         = f.submit 'Создать тест', class: 'btn btn-success'

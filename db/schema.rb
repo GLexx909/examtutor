@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_092948) do
   create_table "messages", force: :cascade do |t|
     t.bigint "author_id"
     t.bigint "abonent_id"
-    t.string "body"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["abonent_id"], name: "index_messages_on_abonent_id"
@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_092948) do
   create_table "questions", force: :cascade do |t|
     t.string "questionable_type"
     t.bigint "questionable_id"
-    t.string "title", null: false
+    t.text "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["questionable_type", "questionable_id"], name: "index_questions_on_questionable_type_and_questionable_id"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_092948) do
     t.bigint "user_id"
     t.bigint "test_id"
     t.integer "points", default: 0
+    t.integer "left_time"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -191,6 +192,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_092948) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
+    t.integer "timer", null: false
     t.bigint "modul_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
