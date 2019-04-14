@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :avatar, file_size: { less_than_or_equal_to: 5.megabytes },
-                     file_content_type: { allow: ['image/jpeg', 'image/png'] }
 
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
   has_many :course_passages, dependent: :destroy
