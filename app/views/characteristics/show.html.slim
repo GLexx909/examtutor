@@ -1,0 +1,11 @@
+h1 = @user.full_name
+
+.attendance-list.mr_1_for_child
+  - @user.attendances.order(created_at: :desc).each do |attend|
+    = link_to  '#', class:"attend_small mb_1 attend-#{attend.id}", style:"background: #{attend.color}",
+                                                                   data: { id: attend.id, toggle: 'modal', target: "#attendFullModal-#{attend.id}" } do
+      .attend-date = "#{I18n.localize attend.created_at, format: '%-d'}"
+      .attend-month = "#{I18n.localize attend.created_at, format: '%B'}"
+    end
+
+    = render 'modal_attend', attend: attend

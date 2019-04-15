@@ -3,7 +3,7 @@
     .submit.mr_1_for_child
       = f.submit 'Отправить', class: 'btn btn-success new-message-send__button btn-sm'
     .field.file-field
-      = f.file_field :files, multiple: true
+      = f.file_field :files, multiple: true, id: 'messageFiles'
   .field
     = f.text_area :body, :class => "tinymce", :rows => 1, :cols => 120
     = tinymce :message, content_css: asset_path('application.css')

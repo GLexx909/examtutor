@@ -13,6 +13,7 @@ ru:
       essay_passage: 'Эссе'
       message: 'Сообщение'
       comment: 'Комментарий'
+      attendance: 'Посещение'
     attributes:
       user:
         first_name: 'Имя'
@@ -45,6 +46,9 @@ ru:
         body: 'Сообщение'
       comment:
         body: 'Комментарий'
+      attendance:
+        user: 'Ученик'
+        description: 'Описание'
     errors:
       messages:
         blank: 'не может быть пустым'

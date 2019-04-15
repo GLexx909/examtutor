@@ -1,1 +1,26 @@
 $('.flash-block').html('<%= render 'shared/errors', resource: @message %>');
+
+<% if !@message.errors.present? %>
+  scrollToElement();
+  clearFileField();
+  tinyMCEClear();
+<% end %>
+
+
+function scrollToElement() {
+    const messagesBlock = $('.messages-block');
+    const length = $('.each-message').length;
+
+    messagesBlock.animate({scrollTop: messagesBlock.height()*length },"fast");
+    return false;
+}
+
+function clearFileField() {
+    const input = $('#messageFiles');
+    input.val('');
+}
+
+function tinyMCEClear() {
+    tinyMCE.activeEditor.setContent('')
+}
+

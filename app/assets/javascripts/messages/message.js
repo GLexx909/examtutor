@@ -28,23 +28,6 @@ document.addEventListener('turbolinks:load', function() {
             }
         });
     }
-
-    // Scroll to bottom of message list
-    const correspondenceBlock = $('.correspondence-block');
-    const newMessageSendButton = $('.new-message-send__button');
-    if (correspondenceBlock.length) {
-        function delay(ms) {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve();
-                }, ms)
-            });
-        }
-
-        const promise = delay(1000);
-        promise.then(() => scrollToElement());
-        promise.then(() => newMessageSendButton.on('click', scrollToElementAndCreatForm));
-    }
 });
 
 function hideModalNewMessageForm() {
@@ -62,17 +45,6 @@ function scrollToElement() {
     return false;
 }
 
-function scrollToElementAndCreatForm() {
-    scrollToElement();
-    tinyMCEClear();
-    setTimeout(clearFileField, 1000);
-}
-
 function tinyMCEClear() {
     setTimeout('tinyMCE.activeEditor.setContent(\'\')', 'fast');
-}
-
-function clearFileField() {
-    const input = $('.new-message__form .file-field input');
-    input.val('')
 }

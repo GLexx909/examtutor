@@ -1,0 +1,12 @@
+= form_with model: @attendance, url: attendances_path do |f|
+  .form-group
+    = f.collection_select :user_id, User.all, :id, :full_name, {prompt: true}, class: 'form-control'
+    small id="userHelp" class="form-text text-muted" Выберите ученика.
+  .form-group
+    = select_tag :color, options_for_select(attendance_colors), class: 'btn btn-outline-primary'
+    small id="courseHelp" class="form-text text-muted" Выберите цвет.
+  .form-group
+    = f.text_area :description, class: 'form-control'
+    small id="descriptionHelp" class="form-text text-muted" Добавьте описание к проведённому уроку.
+  .submit
+    = f.submit 'Добавить посещение', class: 'btn btn-success'
