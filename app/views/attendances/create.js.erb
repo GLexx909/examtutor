@@ -1,0 +1,6 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @attendance %>');
+
+<% if !@attendance.errors.present? %>
+  $('.flash-block').html("<div class='alert alert-success'><button class='close clear' data-dismiss='alert'>×</button>Посещение успешно добавлено!</div>")
+  $('#attendance_description').val('');
+<% end %>

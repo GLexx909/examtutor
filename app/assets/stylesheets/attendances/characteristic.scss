@@ -1,0 +1,42 @@
+.attendance-list {
+  .attend_small {
+    display: inline-block;
+
+    width: 5rem;
+    height: 5rem;
+    padding: 3px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 1px grey;
+
+    font-size: 0.9rem;
+    border-radius: 10px;
+    box-shadow:
+            inset rgba(0,0,0,.5) -3px -3px 8px,
+            inset rgba(255,255,255,.9) 3px 3px 8px,
+            rgba(0,0,0,.8) 3px 3px 8px -3px;
+
+    &:hover {
+      cursor: zoom-in;
+    }
+
+    .attend-date {
+      font-size: 2.2rem;
+      text-align: center;
+    }
+
+    .attend-month {
+      color: black;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .attendance-list {
+    .attend_small {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

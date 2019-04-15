@@ -3,6 +3,10 @@ module ApplicationHelper
     %w(notice alert).select { |type| flash.key?(type) }.map { |type| flash_block(type) }.join.html_safe
   end
 
+  def attendance_colors
+    %w(LimeGreen OrangeRed Gold DeepSkyBlue DarkGrey)
+  end
+
   private
 
   def flash_block(type)

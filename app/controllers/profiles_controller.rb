@@ -19,6 +19,7 @@ class ProfilesController < ApplicationController
 
   def update
     redirect_to root_path if cannot?(:update, user)
+    # user.update(user_params) if check_avatar_extension?
     user.update(user_params)
   end
 
@@ -31,6 +32,14 @@ class ProfilesController < ApplicationController
   def user_posts
     @user_posts ||= user.posts.page(params[:page])
   end
+
+  # def check_avatar_extension?
+  #   return true unless params[:user][:avatar]
+  #   %w(png jpg jpeg).each do |ext|
+  #     return true if params[:user][:avatar].tempfile.path.split('.').last == ext
+  #   end
+  #   false
+  # end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :avatar)

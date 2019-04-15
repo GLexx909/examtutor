@@ -1,0 +1,10 @@
+table.table.table-users.table-bordered
+  thead.thead-dark
+    tr
+      th scope='col' Характеристики учеников
+  tbody
+    - @users.each do |user|
+      tr
+        td
+          = link_to user.full_name, characteristic_path(user), class: 'badge badge-light'
+

@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   end
 
   resources :attachments, only: :destroy
+  resources :attendances, only: [:new, :create]
+  resources :characteristics
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
   resources :notifications, only: [:index, :create, :update] do
