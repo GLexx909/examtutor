@@ -1,0 +1,5 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @progress %>');
+
+<% if !@progress.errors.present?%>
+$('.flash-block').html("<div class='alert alert-success'><button class='close clear' data-dismiss='alert'>×</button><a href='/characteristics/<%=@progress.user.id%>'>Успеваемость</a> успешно изменена!</div>")
+<% end %>

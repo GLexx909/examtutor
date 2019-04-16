@@ -1,5 +1,6 @@
 class AttendancesController < ApplicationController
   before_action :authenticate_user!
+  before_action :attendance, only: [:new, :edit]
 
   authorize_resource
 
@@ -11,6 +12,22 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
     @attendance.color = params[:color]
     @attendance.save
+  end
+
+  def edit
+    attendance
+  end
+
+  def update
+    if can?(:update, attendance)
+      attendance.color = params[:color]
+      attendance.update(attendance_params)
+      attendance.save
+    end
+  end
+
+  def destroy
+    attendance.destroy if can?(:destroy, attendance)
   end
 
   private

@@ -46,7 +46,7 @@ gem 'jquery-ui-rails' # for sortable models
 gem 'bootstrap', ">= 4.3.1"
 gem 'material_icons'
 gem 'acts_as_list' # to sort model position
-
+gem 'googlecharts', '~> 1.6', '>= 1.6.12'
 #Authorization
 gem 'cancancan'
 

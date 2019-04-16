@@ -7,4 +7,8 @@
           span aria-hidden="true"  &times;
       .modal-body
         = attend.description
+      - if can?(:update, attend)
+        .modal-footer.d-flex.justify-content-between
+          = link_to 'Редактировать', edit_attendance_path(attend), class:"btn btn-primary"
+          = link_to 'Удалить', attendance_path(attend), method: :delete, remote: true, class:"btn btn-danger"
 

@@ -28,6 +28,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
   has_one :characteristic, dependent: :destroy
   has_many :attendances, dependent: :destroy
+  has_many :progresses, dependent: :destroy
 
   has_one_attached :avatar, dependent: :purge_later
 
