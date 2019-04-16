@@ -1,6 +1,15 @@
 h1 = @user.full_name
 
+.chart-image.mb_1 = image_tag @chart
+
+- if can?(:manage, :all)
+  .progresses-list.mr_1_for_child.mb-5vh
+    h5 = 'Ссылки на редактирование любой успеваемости:'
+    - @user.progresses.each do |progress|
+      = link_to '', edit_progress_path(progress), class: 'progress-square', title: "#{progress.date}"
+
 .attendance-list.mr_1_for_child
+  h3 = 'Даты посещения:'
   - @user.attendances.order(created_at: :desc).each do |attend|
     = link_to  '#', class:"attend_small mb_1 attend-#{attend.id}", style:"background: #{attend.color}",
                                                                    data: { id: attend.id, toggle: 'modal', target: "#attendFullModal-#{attend.id}" } do

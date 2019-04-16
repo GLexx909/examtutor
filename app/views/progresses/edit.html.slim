@@ -1,0 +1,18 @@
+h2 = "Изменение одного месяца прогресса: #{@progress.date}"
+
+.progress-form_edit
+  = form_with model: @progress, method: :put, url: progress_path(@progress) do |f|
+    .form-group.row
+      = f.label :user_id
+      .col-sm-10 = f.collection_select :user_id, User.all, :id, :full_name, {prompt: true}, class: 'form-control'
+    .form-group.row
+      = f.label :points
+      .col-sm-10 = f.number_field :points, class: 'form-control', placeholder: 'Очки успеваемости за месяц'
+    .form-group.row
+      = f.label 'date(2i)', title: 'Месяц', value: "Месяц"
+      .col-sm-10 = f.select 'date(2i)', (1..12).to_a
+    .form-group.row
+      = f.label 'date(1i)', title: 'Год', value: "Год"
+      .col-sm-10 = f.select 'date(1i)', (2019..2027).to_a
+    .submit
+      = f.submit 'Изменить', class: 'btn btn-info'

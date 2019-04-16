@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_092546) do
+ActiveRecord::Schema.define(version: 2019_04_15_152927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,15 @@ ActiveRecord::Schema.define(version: 2019_04_14_092546) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "progresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "date", null: false
+    t.integer "points", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_progresses_on_user_id"
+  end
+
   create_table "question_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "question_id"
@@ -262,6 +271,7 @@ ActiveRecord::Schema.define(version: 2019_04_14_092546) do
   add_foreign_key "notifications", "users", column: "abonent_id"
   add_foreign_key "notifications", "users", column: "author_id"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "progresses", "users"
   add_foreign_key "question_passages", "questions"
   add_foreign_key "question_passages", "users"
   add_foreign_key "test_passages", "tests"

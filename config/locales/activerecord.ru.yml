@@ -14,6 +14,7 @@ ru:
       message: 'Сообщение'
       comment: 'Комментарий'
       attendance: 'Посещение'
+      progress: 'Успеваемость'
     attributes:
       user:
         first_name: 'Имя'
@@ -49,6 +50,9 @@ ru:
       attendance:
         user: 'Ученик'
         description: 'Описание'
+      progress:
+        points: 'Очки'
+        user: 'Ученик'
     errors:
       messages:
         blank: 'не может быть пустым'

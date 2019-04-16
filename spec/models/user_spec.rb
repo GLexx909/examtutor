@@ -25,6 +25,7 @@ RSpec.describe User, type: :model do
   it { should have_many(:comments).dependent(:destroy) }
   it { should have_one(:characteristic).dependent(:destroy) }
   it { should have_many(:attendances).dependent(:destroy) }
+  it { should have_many(:progresses).dependent(:destroy) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }

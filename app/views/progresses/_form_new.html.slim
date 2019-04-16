@@ -1,0 +1,10 @@
+.progress-form_new
+  = form_with model: Progress.new, method: :post, url: progresses_path do |f|
+    .form-group
+      = f.collection_select :user_id, User.all, :id, :full_name, {prompt: true}, class: 'form-control'
+    .form-group
+      = f.number_field :points, class: 'form-control', placeholder: 'Очки успеваемости за месяц'
+    .form-group
+      = f.date_select :date, with_css_classes: true, type: 'month', order: [:month, :year], class: 'form-control'
+    .submit
+      = f.submit 'Создать', class: 'btn btn-info'
