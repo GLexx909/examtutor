@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_152927) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "attendances", force: :cascade do |t|
+  create_table "characteristics", force: :cascade do |t|
     t.bigint "user_id"
     t.text "description"
     t.string "color"
@@ -258,7 +258,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_152927) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
-  add_foreign_key "attendances", "users"
+  add_foreign_key "characteristics", "users"
   add_foreign_key "characteristics", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users", column: "author_id"

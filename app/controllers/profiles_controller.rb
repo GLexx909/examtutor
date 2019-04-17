@@ -5,7 +5,8 @@ class ProfilesController < ApplicationController
   authorize_resource class: User
 
   def index
-    @users = User.not_admin
+    @q = User.not_admin.ransack(params[:q])
+    @users = @q.result.page(params[:page])
   end
 
   def show

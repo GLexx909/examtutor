@@ -32,11 +32,27 @@
   }
 }
 
+.chart-image-full {
+  display: block;
+}
+
+.chart-image-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
   .attendance-list {
     .attend_small {
       width: 60px;
       height: 60px;
     }
+  }
+
+  .chart-image-full {
+    display: none;
+  }
+
+  .chart-image-mobile {
+    display: block;
   }
 }

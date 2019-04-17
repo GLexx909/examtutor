@@ -47,6 +47,8 @@ gem 'bootstrap', ">= 4.3.1"
 gem 'material_icons'
 gem 'acts_as_list' # to sort model position
 gem 'googlecharts', '~> 1.6', '>= 1.6.12'
+gem 'ransack' # to sort by attributes
+
 #Authorization
 gem 'cancancan'
 

@@ -150,6 +150,19 @@ body {
   width: 90% !important;
 }
 
+.white-for-child {
+   * {
+     color: white;
+   }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      color: #00b7ea;
+    }
+  }
+}
+
 .mr_1_for_child * {
   margin-right: 1%;
 }
