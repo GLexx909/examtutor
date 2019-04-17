@@ -6,6 +6,15 @@ class InitialsController < ApplicationController
     @user = User.new
   end
 
+  def get_availability
+    if User.find_by(id: identify_id, last_name: identify_name)
+      redirect_to characteristic_path(identify_id)
+    else
+      flash[:alert] = 'Идентификатор набран неверно'
+      redirect_to root_path
+    end
+  end
+
   def create
     password = params[:preregistration_pass]
     one_time_password = OneTimePassword.find_by_pass_word(password)
@@ -18,5 +27,19 @@ class InitialsController < ApplicationController
     else
       redirect_to root_path, alert: 'Доступ закрыт'
     end
+  end
+
+  private
+
+  def identify_full
+    params[:identify_name][0]
+  end
+
+  def identify_id
+    identify_full.split('-').last
+  end
+
+  def identify_name
+    identify_full.split('-').first
   end
 end

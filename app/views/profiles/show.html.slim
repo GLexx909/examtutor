@@ -1,10 +1,27 @@
-h1 = @user.full_name
+.d-flex.justify-content-between.bg-dark.br-10
+  .d-flex
+    h1.white.p-1.mr_1 = @user.full_name
+
+    .profile-points
+      .text-muted.text-shadow-black-for-child.d-flex
+        h1.align-self-end.mb-0.mr-1 = @user&.characteristic&.points
+        span.align-self-end баллов
+      .text-muted.text-shadow-black-for-child
+        b = @user&.characteristic&.rank
+
+  - if can?(:update, @user)
+    div
+      h6.mr_1.blue = 'Идентификатор:'
+      h5.white = current_user.identify_name
+
+
 p = link_to 'Редактировать профиль', edit_profile_path(@user), class: 'badge badge-dark' if can?(:update, @user)
+
 = button_to 'Написать сообщение', '#', remote: true, class: "btn btn-outline-dark btn-sm stub", data: {toggle: 'modal', target: '#newMessageModal'}
 .new-message__modal-form
   = render 'messages/modal_new_message_form'
 
-h1 = @user&.characteristic&.points
+
 
 = paginate @user_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
 .card-deck

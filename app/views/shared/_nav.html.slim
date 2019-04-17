@@ -1,12 +1,17 @@
 .pos-f-t
-  .collapse id="navbarToggleExternalContent"
-    .bg-dark.p-4
-      h5.text-white.h4.user-icon data-user-id="#{current_user&.id}" = current_user&.full_name
-      .text-muted.text-shadow-black-for-child.d-flex
-        h1.align-self-end.mb-0.mr-1 = current_user&.characteristic&.points
-        span.align-self-end баллов
-      .text-muted.text-shadow-black-for-child
-        b = current_user&.characteristic&.rank
+  .collapse#navbarToggleExternalContent
+    .bg-dark.p-4.d-flex.justify-content-between
+      .nav-profile-info
+        h5.text-white.h4.user-icon data-user-id="#{current_user&.id}" = current_user&.full_name
+        .text-muted.text-shadow-black-for-child.d-flex
+          h1.align-self-end.mb-0.mr-1 = current_user&.characteristic&.points
+          span.align-self-end баллов
+        .text-muted.text-shadow-black-for-child
+          b = current_user&.characteristic&.rank
+      .d-flex.justify-content-end
+        h6.mr_1.blue = 'Идентификатор:'
+        .mr-auto
+          h5.white = current_user&.identify_name
 
   nav.navbar.navbar-dark.bg-dark
     .d-flex.mr_5_for_child

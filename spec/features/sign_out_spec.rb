@@ -9,7 +9,7 @@ feature 'User can sign out', %q{
   scenario 'Registered user tries to sign out' do
     fill_in 'Почта', with: user.email
     fill_in 'Пароль', with: user.password
-    click_on 'Войти'
+    find('.pupil-submit').click
 
     click_on 'Выйти'
 

@@ -10,6 +10,7 @@
       = button_tag t('.pupil_enter'), class: 'pupil-enter-button btn btn-light', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
     = render 'modal_pupil_enter'
     .initial__registration-block__button-parent
-      = button_to t('.parent_enter'), '#', remote: true, class: 'parent-enter-button btn btn-light'
+      = button_tag t('.parent_enter'), class: 'parent-enter-button btn btn-light', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
+    = render 'modal_parent_enter'
   .initial__two
   .initial__three

@@ -1,10 +1,19 @@
 class CharacteristicsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   authorize_resource
 
   def index
     @users = User.all
+  end
+
+  def edit
+    user
+  end
+
+  def update
+    user.characteristic.update(characteristic_params)
+    @characteristic = user.characteristic
   end
 
   def show
@@ -21,6 +30,8 @@ class CharacteristicsController < ApplicationController
                           data: progress_points,
                           labels: progress_date
     )
+
+    authorize! :read, Characteristic
   end
 
   private
@@ -35,5 +46,9 @@ class CharacteristicsController < ApplicationController
 
   def progress_date
     user.progresses.pluck(:date)
+  end
+
+  def characteristic_params
+    params.require(:characteristic).permit(:description)
   end
 end

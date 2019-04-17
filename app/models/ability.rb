@@ -15,6 +15,7 @@ class Ability
 
   def guest_abilities
     can :guests_index, Post
+    can :read, Characteristic
   end
 
   def admin_abilities
