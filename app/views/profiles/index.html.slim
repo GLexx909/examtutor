@@ -1,4 +1,12 @@
-- @users.each do |user|
-  p = link_to user.full_name, profile_path(user)
-  hr
-
+table.table.table-users.table-bordered
+  thead.thead-dark
+    tr.white-for-child
+      th.ta-center scope='col' = link_to mi.face.css_class('md-24 stub white'), '#'
+      th.ta-center scope='col' = sort_link(@q, :first_name)
+      th.ta-center scope='col' = sort_link(@q, :characteristic_points, 'Очки')
+  tbody
+    - @users.each do |user|
+      tr
+        td.ta-center = link_to (image_tag user.nav_avatar, class: 'nav_avatar'), profile_path(user)
+        td.ta-center = link_to user.full_name, profile_path(user), class: 'badge badge-light'
+        td.ta-center = user.characteristic&.points

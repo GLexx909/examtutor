@@ -23,8 +23,8 @@ RSpec.describe User, type: :model do
   it { should have_many(:messages).dependent(:destroy) }
   it { should have_many(:abonents).through(:messages) }
   it { should have_many(:comments).dependent(:destroy) }
-  it { should have_one(:characteristic).dependent(:destroy) }
   it { should have_many(:attendances).dependent(:destroy) }
+  it { should have_one(:characteristic).dependent(:destroy) }
   it { should have_many(:progresses).dependent(:destroy) }
 
   let!(:user)       { create :user }

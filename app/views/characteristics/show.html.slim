@@ -1,6 +1,7 @@
 h1 = @user.full_name
 
-.chart-image.mb_1 = image_tag @chart
+.chart-image-full = image_tag @chart
+.chart-image-mobile = link_to 'График успеваемости', (image_path @chart), class: 'btn btn-info'
 
 - if can?(:manage, :all)
   .progresses-list.mr_1_for_child.mb-5vh
