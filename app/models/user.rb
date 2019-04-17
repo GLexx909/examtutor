@@ -86,4 +86,8 @@ class User < ApplicationRecord
   def nav_avatar
     avatar.attached? ? avatar : 'no-photo-sm.jpg'
   end
+
+  def identify_name
+    "#{last_name}-#{id}"
+  end
 end

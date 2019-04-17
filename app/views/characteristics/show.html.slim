@@ -1,4 +1,13 @@
-h1 = @user.full_name
+.bg-dark.p-1.br-10
+  h1.text-white = @user.full_name
+
+.characteristic-description
+  h6.text-secondary = 'Общая характеристика:'
+  p = @user.characteristic.description
+
+- if can?(:manage, :all)
+  = link_to 'Редактировать общую характеристику', edit_characteristic_path(@user), remote: true, class: 'btn btn-primary'
+  .characteristic-description__edit-form
 
 .chart-image-full = image_tag @chart
 .chart-image-mobile = link_to 'График успеваемости', (image_path @chart), class: 'btn btn-info'
@@ -10,7 +19,7 @@ h1 = @user.full_name
       = link_to '', edit_progress_path(progress), class: 'progress-square', title: "#{progress.date}"
 
 .attendance-list.mr_1_for_child
-  h3 = 'Даты посещения:'
+  h3.text-secondary = 'Даты посещения:'
   - @user.attendances.order(created_at: :desc).each do |attend|
     = link_to  '#', class:"attend_small mb_1 attend-#{attend.id}", style:"background: #{attend.color}",
                                                                    data: { id: attend.id, toggle: 'modal', target: "#attendFullModal-#{attend.id}" } do

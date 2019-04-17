@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     root 'posts#tutor_index'
   end
 
-  resources :initials, only: [:new, :create]
+  resources :initials, only: [:new, :create] do
+    get :get_availability, on: :collection
+  end
   resources :profiles
 
   resources :courses, shallow: true do

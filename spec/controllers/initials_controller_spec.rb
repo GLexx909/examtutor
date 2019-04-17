@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe InitialsController, type: :controller do
+  let!(:user) { create :user }
   let!(:one_time_password) { create :one_time_password }
 
   describe 'GET #index' do
@@ -24,7 +25,23 @@ RSpec.describe InitialsController, type: :controller do
 
     context 'with invalid attributes' do
       it 'redirects to root_path view' do
-        post :create, params: { preregistration_pass: 'invalid' }
+        post :create, params: { identify_name: ["Doe-#{user.id}"] }
+        expect(response).to redirect_to root_path
+      end
+    end
+  end
+
+  describe 'POST #get_availability' do
+    context 'with valid attributes' do
+      it 'redirects to new_user_registration_path view' do
+        post :get_availability, params: { identify_name: ["Doe-#{user.id}"] }
+        expect(response).to redirect_to characteristic_path(user)
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'redirects to root_path view' do
+        post :get_availability, params: { identify_name: ["error-#{user.id}"] }
         expect(response).to redirect_to root_path
       end
     end

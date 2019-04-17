@@ -1,0 +1,5 @@
+= form_with model: @user.characteristic, url: characteristic_path(@user), method: :put, remote: true do |f|
+  .form-group
+    = f.text_area :description, class: 'form-control'
+  .submit
+    = f.submit 'Сохранить', class: 'btn btn-success'
