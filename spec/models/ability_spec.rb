@@ -124,5 +124,8 @@ RSpec.describe Ability do
     it { should be_able_to :destroy, comment }
 
     it { should be_able_to :manage, ActiveStorage::Attachment }
+
+    it { should be_able_to :vote_up, post_other }
+    it { should be_able_to :vote_down, post_other }
   end
 end

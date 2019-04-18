@@ -1,6 +1,10 @@
 .each-comment.d-flex.mb-3.mr_1_for_child class="comment-#{comment.id}"
-  .avarat
-    | Avatar
+
+  .avatar
+    = image_tag comment.author.nav_avatar, class: 'dropdown-toggle handle nav_avatar', id: "dropdownProfileMenuLink",
+            data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
+  .comment-votes.p-0.mr-0
+    = render 'shared/vote_links', resource: comment
   .comment-content.col-10
     .d-flex.mb-3.mr_1_for_child
       b = comment.author.full_name

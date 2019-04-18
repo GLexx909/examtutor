@@ -31,6 +31,21 @@ document.addEventListener('turbolinks:load', function() {
             $('.file-' + id).hide(300);
         });
     }
+
+    // Post Vote update
+    const postVotes = $('.post-votes');
+    if(postVotes.length){
+        postVotes.on('ajax:success', '.vote', function(e) {
+            let rating = e.detail[0]['rating'];
+
+            $('.post-votes .rating').html('<b>' + rating + '</b>');
+
+        }).on('ajax:error', '.vote', function (e) {
+            var errors = e.detail[0];
+            $('.notice').html(errors)
+        });
+    }
+
 });
 
 // Show/Hide Post Form by Button
