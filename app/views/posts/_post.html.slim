@@ -8,4 +8,6 @@
       .row
         .col-auto.mr-auto
           = post.author.full_name
+        .col-auto.mr-auto
+          = I18n.localize post.created_at, format: :short
         .col-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post', remote: true if current_user&.author_or_admin_of?(post)

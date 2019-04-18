@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
+  it { should have_many(:votes).dependent(:destroy) }
+
   it { should belong_to :author }
   it { should belong_to :post }
 

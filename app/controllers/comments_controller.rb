@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  include Voted
   before_action :authenticate_user!, except: [:guests_index]
 
   authorize_resource

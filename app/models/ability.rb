@@ -43,5 +43,13 @@ class Ability
     can :manage, ActiveStorage::Attachment do |attachment|
       user.author_of?(attachment.record)
     end
+
+    can :vote_up, [Post, Comment] do |votable|
+      !user.author_of?(votable)
+    end
+
+    can :vote_down, [Post, Comment] do|votable|
+      !user.author_of?(votable)
+    end
   end
 end

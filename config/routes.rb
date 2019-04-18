@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     root 'posts#tutor_index'
   end
 
+  concern :votable do
+    member do
+      post :vote_up
+      post :vote_down
+    end
+  end
+
   resources :initials, only: [:new, :create] do
     get :get_availability, on: :collection
   end
@@ -62,8 +69,8 @@ Rails.application.routes.draw do
     get :abonents, on: :collection
   end
 
-  resources :posts, shallow: true do
-    resources :comments, except: [:index, :show]
+  resources :posts, concerns: [:votable], shallow: true do
+    resources :comments, concerns: [:votable], except: [:index, :show]
 
     get :tutor_index, on: :collection
     get :own_index, on: :collection

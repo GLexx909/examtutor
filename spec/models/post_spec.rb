@@ -5,6 +5,7 @@ RSpec.describe Post, type: :model do
   it { should validate_presence_of :body }
 
   it { should have_many(:comments).dependent(:destroy) }
+  it { should have_many(:votes).dependent(:destroy) }
   it { should belong_to :author }
 
   it_behaves_like 'Have many attached file', let(:object_class){ Post }

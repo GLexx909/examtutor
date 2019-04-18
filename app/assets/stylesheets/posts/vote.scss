@@ -1,0 +1,13 @@
+.vote {
+  &:hover {
+    .material-icons {
+      color: #00b7ea;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .post-votes {
+    display: none;
+  }
+}
