@@ -1,0 +1,4 @@
+= form_tag 'notifications/send_for_all', remote: true
+  = text_field :title, '', class: 'form-control'
+  .d-flex.justify-content-end
+    = submit_tag 'Отправить всем', class: 'btn btn-success'

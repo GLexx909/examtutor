@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe NotificationsController, type: :controller do
   let!(:user)  { create :user }
+  let!(:admin)  { create :user, admin: true }
   let!(:course) { create :course }
   let!(:modul) { create :modul, course: course }
   let!(:essay) { create :essay, modul: modul }
@@ -72,6 +73,20 @@ RSpec.describe NotificationsController, type: :controller do
 
     it 'deletes the object' do
       expect(response).to render_template :destroy_all
+    end
+  end
+
+  describe 'POST #send_for_all' do
+    before { login(admin) }
+
+    context 'Admin can' do
+      it 'saves a new object in the database' do
+        expect { post :send_for_all, params: { title: ['New Notification'], format: :js }}.to change(Notification, :count).by(2)
+      end
+      it 'render send_for_all.js view' do
+        post :send_for_all, params: { title: ['New Notification'] }, format: :js
+        expect(response).to render_template :send_for_all
+      end
     end
   end
 end

@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index, :create, :update] do
     put :update_all, on: :collection
     delete :destroy_all, on: :collection
+    post :send_for_all, on: :collection
   end
 
   resources :messages, only: [:create, :index, :destroy] do
