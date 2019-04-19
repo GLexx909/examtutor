@@ -10,6 +10,9 @@ users = User.create!([
    {first_name: "Admin", last_name: 'Admin', email: "admin@mail.ru", password: '123456', admin: true},
    {first_name: "John", last_name: 'Doe', email: "john@mail.ru", password: '123456'},
    {first_name: "Jane", last_name: 'Doe', email: "jane@mail.ru", password: '123456'},
+   {first_name: "Jane1", last_name: 'Doe', email: "jane1@mail.ru", password: '123456'},
+   {first_name: "Jane2", last_name: 'Doe', email: "jane2@mail.ru", password: '123456'},
+   {first_name: "Jane3", last_name: 'Doe', email: "jane3@mail.ru", password: '123456'},
 ])
 
 30.times do

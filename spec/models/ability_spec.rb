@@ -19,6 +19,7 @@ RSpec.describe Ability do
     it { should_not be_able_to :read, Test }
     it { should_not be_able_to :read, Question }
     it { should_not be_able_to :read, Answer }
+    it { should_not be_able_to :destroy, user }
   end
 
   describe 'for admin' do

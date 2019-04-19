@@ -24,6 +24,14 @@ class ProfilesController < ApplicationController
     user.update(user_params)
   end
 
+  def destroy
+    if can?(:destroy, user)
+      user.destroy
+    else
+      head :forbidden
+    end
+  end
+
   private
 
   def user

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :initials, only: [:new, :create] do
     get :get_availability, on: :collection
   end
+
   resources :profiles
 
   resources :courses, shallow: true do
