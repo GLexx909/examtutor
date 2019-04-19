@@ -41,6 +41,8 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails' # for sortable models
 
+gem 'mysql2' #for sphinx search
+gem 'thinking-sphinx' # search
 
 #Style
 gem 'bootstrap', ">= 4.3.1"
@@ -58,6 +60,7 @@ gem 'rails-i18n'
 gem 'tinymce-rails' #redactor
 gem 'cocoon' #nested form
 gem 'kaminari' #pagination
+gem 'will_paginate', '~> 3.1.0' #pagination for thinking sphinx
 gem 'bootstrap4-kaminari-views'
 gem "breadcrumbs_on_rails"
 
