@@ -81,8 +81,11 @@ RSpec.describe NotificationsController, type: :controller do
 
     context 'Admin can' do
       it 'saves a new object in the database' do
-        expect { post :send_for_all, params: { title: ['New Notification'], format: :js }}.to change(Notification, :count).by(2)
+        post :send_for_all, params: { title: ['New Notification'], format: :js }
+        sleep 1
+        expect(Notification.count).to eq 2
       end
+
       it 'render send_for_all.js view' do
         post :send_for_all, params: { title: ['New Notification'] }, format: :js
         expect(response).to render_template :send_for_all

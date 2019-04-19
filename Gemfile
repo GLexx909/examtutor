@@ -34,6 +34,11 @@ gem "aws-sdk-s3", require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#background processing
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'whenever', require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'

@@ -29,7 +29,7 @@ class NotificationsController < ApplicationController
   end
 
   def send_for_all
-    Services::SendNotificationService.new(params[:title][0], notifications_path, User.all, current_user, type: 'Notification to all').send
+    NotificationsForAllJob.perform_later(params[:title][0], notifications_path, 'User.all', current_user, 'Notification to all')
   end
 
   private
