@@ -9,6 +9,9 @@
       .text-muted.text-shadow-black-for-child
         b = @user&.characteristic&.rank
 
+    - @user.courses.each do |course|
+      .white.mr_1 = course.title
+
   - if can?(:update, @user)
     div
       h6.mr_1.blue = 'Идентификатор:'
