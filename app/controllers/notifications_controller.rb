@@ -28,6 +28,10 @@ class NotificationsController < ApplicationController
     Notification.where(abonent: current_user).delete_all
   end
 
+  def send_for_all
+    NotificationsForAllJob.perform_later(params[:title][0], notifications_path, 'User.all', current_user, 'Notification to all')
+  end
+
   private
 
   def send_notification(notification)
