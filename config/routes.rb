@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :searches, only: [:index]
   resources :attachments, only: :destroy
   resources :attendances
   resources :characteristics

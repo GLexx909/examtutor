@@ -51,5 +51,7 @@ class Ability
     can :vote_down, [Post, Comment] do|votable|
       !user.author_of?(votable)
     end
+
+    can :index, Services::SearchSphinxService
   end
 end

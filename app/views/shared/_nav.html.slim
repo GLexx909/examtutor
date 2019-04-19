@@ -26,6 +26,8 @@
 
     - if current_user
       .nav__right-block
+        .search-block.row.mr-1
+          .search_field = render 'shared/search_field'
         = render 'shared/notification'
         = render 'shared/dropdown-profile-menu'
 

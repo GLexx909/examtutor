@@ -1,0 +1,4 @@
+= form_tag(searches_path, method: :get) do
+  = select_tag :category, options_for_select(category_list), class: 'btn btn-outline-secondary btn-sm'
+  = text_field_tag :search, '', placeholder: 'Поиск по сайту'
+  = submit_tag 'Найти', class: 'btn btn-outline-secondary btn-sm'
