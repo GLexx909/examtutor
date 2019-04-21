@@ -1,0 +1,24 @@
+.feedback-block
+  .feedback-title.font-oswald = 'Что говорят наши ученики'
+  .d-flex.justify-content-center
+    .feedback_slider
+      .carousel.slide id="carouselFeedbackIndicators" data-ride="carousel"
+        ol.carousel-indicators
+          li data-target="#carouselFeedbackIndicators" data-slide-to="0" class="active"
+          - (User.count-1).times do |index|
+            li data-target="#carouselFeedbackIndicators" data-slide-to="#{index}"
+          end
+          / li data-target="#carouselFeedbackIndicators" data-slide-to="2"
+        .carousel-inner
+          - User.all.each do |user|
+            - active = (user == User.first) ? "active" : ''
+            .carousel-item class="#{active}"
+              .d-block.w-100
+                / = image_tag('slide_one.png')
+                = render 'feedback-text-1', user: user
+        a.carousel-control-prev href="#carouselFeedbackIndicators" role="button" data-slide="prev"
+          span.carousel-control-prev-icon aria-hidden="true"
+          span.sr-only
+        a.carousel-control-next href="#carouselFeedbackIndicators" role="button" data-slide="next"
+          span.carousel-control-next-icon aria-hidden="true"
+          span.sr-only

@@ -1,0 +1,87 @@
+.keyboard_arrow_down {
+  position: absolute;
+  bottom: 5vw;
+  margin: 0 auto;
+
+  .keyboard{
+    color: red;
+  }
+}
+
+.initial__registration-block {
+  display: grid;
+  grid-template-areas: 'button-pupil button-parent';
+  grid-area: initial__registration-block;
+
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+
+}
+
+.initial__registration-block__button-pupil {
+  display: flex;
+
+  grid-area: button-pupil;
+  .pupil-enter-button {
+    background-color: #00b7ea;
+    color: white;
+  }
+}
+
+.image-pupil img{
+  max-width: 40px;
+}
+
+.initial__registration-block__button-parent {
+  display: flex;
+  grid-area: button-parent;
+
+  .parent-enter-button {
+    background-color: #00b7ea;
+    color: white;
+  }
+}
+
+.image-parent img{
+  max-width: 40px;
+}
+
+.modal-footer{
+  display: block !important;
+
+  .modal-footer__password-form{
+    display: flex;
+    justify-content: center;
+  }
+
+  .modal-footer__registration-button__block{
+    text-align: center;
+    margin-bottom: 1vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .initial__registration-block {
+    position: relative;
+    font-size: 6vmin;
+
+    align-items: flex-start;
+
+    .initial__registration-block__button-pupil {
+      display: block;
+      text-align: center;
+
+      .pupil-enter-button {
+        background-color:#00b7ea;
+      }
+    }
+
+    .initial__registration-block__button-parent {
+      display: block;
+      text-align: center;
+      background-color: #00b7ea;
+    }
+  }
+}

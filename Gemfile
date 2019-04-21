@@ -34,6 +34,8 @@ gem "aws-sdk-s3", require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'redis-rails'
+
 #background processing
 gem 'sidekiq'
 gem 'sinatra', require: false

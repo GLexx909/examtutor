@@ -3,7 +3,7 @@
 
 .characteristic-description
   h6.text-secondary = 'Общая характеристика:'
-  p = @user.characteristic.description
+  p = @user&.characteristic&.description
 
 - if can?(:manage, :all)
   = link_to 'Редактировать общую характеристику', edit_characteristic_path(@user), remote: true, class: 'btn btn-primary'

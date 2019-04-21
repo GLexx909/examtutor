@@ -1,0 +1,137 @@
+.initial__one {
+  grid-area: initial__one;
+
+  position: relative;
+  display: grid;
+  grid-template-areas:  'initial__one__title initial__one__title'
+  'initial_slider phone_number_block';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60vh
+  30vh;
+
+  font-size: 3vmin;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  background: white;
+
+  .initial__list-button {
+    position: absolute;
+
+  }
+
+  .initial_slider {
+    grid-area: initial_slider;
+
+    width: 800px;
+
+    //justify-self: center;
+    align-self: end;
+    margin-left: 1vw;
+
+    border-left: 10px solid #00b7ea;
+    border-right: 10px solid #00b7ea;
+    border-radius: 40px;
+
+    .slider-text {
+      font-size: 6vh;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px grey;
+
+      &:hover {
+        color: #343a40;
+      }
+    }
+
+    li {
+      background-color: black;
+    }
+  }
+
+  .initial__one__title {
+    grid-area: initial__one__title;
+    width: 90%;
+    justify-self: center;
+
+    margin-top: 7vh;
+    .title {
+      font-size: 3vw;
+    }
+
+    .title-text {
+      a {
+        font-size: 2vw ;
+      }
+    }
+  }
+}
+
+.phone-number-block {
+  grid-area: phone_number_block;
+
+  .phone-number {
+    display: inline-block;
+
+    width: fit-content;
+    border-radius: 30px;
+    background-color: #00b7ea;
+    padding: 1vh;
+
+    color: white;
+    font-size: 8vh;
+    height: fit-content;
+
+  }
+}
+
+
+@media screen and (max-width: 1100px) {
+
+  .initial-page__flash-block {
+    left: auto;
+  }
+
+  .initial__one {
+    grid-template-areas: 'initial__one__title' 'initial_slider';
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh 30vh;
+
+    .initial_slider {
+      margin-left: 0;
+
+      .slider-text {
+        font-size: 1rem !important;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      width: 100% !important;
+    }
+
+    .initial__one__title {
+      .title {
+        text-align: center;
+        font-size: 7vw;
+      }
+
+      .title-text {
+        a {
+          font-size: 5vh;
+        }
+      }
+    }
+
+    .phone-number-block {
+      display: none !important;
+    }
+  }
+}
