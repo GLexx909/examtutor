@@ -1,13 +1,14 @@
-.each-comment.d-flex.mb-3.mr_1_for_child class="comment-#{comment.id}"
+- cache comment do
+  .each-comment.d-flex.mb-3.mr_1_for_child class="comment-#{comment.id}"
 
-  .avatar
-    = image_tag comment.author.nav_avatar, class: 'dropdown-toggle handle nav_avatar', id: "dropdownProfileMenuLink",
-            data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
-  .comment-votes.p-0.mr-0
-    = render 'shared/vote_links', resource: comment
-  .comment-content.col-10
-    .d-flex.mb-3.mr_1_for_child
-      b = comment.author.full_name
-      p.small_text = link_to 'Редактировать', edit_comment_path(comment), method: :get, remote: true if can?(:update, comment)
-      p.small_text = link_to 'Удалить', comment_path(comment), method: :delete, remote: true if can?(:destroy, comment)
-    p.comment-body = comment.body
+    .avatar
+      = image_tag comment.author.nav_avatar, class: 'dropdown-toggle handle nav_avatar', id: "dropdownProfileMenuLink",
+              data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"}
+    .comment-votes.p-0.mr-0
+      = render 'shared/vote_links', resource: comment
+    .comment-content.col-10
+      .d-flex.mb-3.mr_1_for_child
+        b = comment.author.full_name
+        p.small_text = link_to 'Редактировать', edit_comment_path(comment), method: :get, remote: true if can?(:update, comment)
+        p.small_text = link_to 'Удалить', comment_path(comment), method: :delete, remote: true if can?(:destroy, comment)
+      p.comment-body = comment.body

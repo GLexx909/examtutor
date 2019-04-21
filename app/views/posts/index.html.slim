@@ -2,7 +2,8 @@
 
 = render 'post_form', resource: @post
 
-.card-deck.post-card-deck
-  = render @posts
+- cache collection_cache_key_for(:post) do
+  .card-deck.post-card-deck
+    = render @posts
 
 = paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"

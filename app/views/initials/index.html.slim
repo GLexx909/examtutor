@@ -1,16 +1,32 @@
 .initial
   .initial__one
-    .initial__list-button = link_to mi.list.css_class('md-48 white'), remote: true
-    = render 'slider'
+    .initial__list-button = link_to mi.list.css_class('md-48 white blue stub')
     .initial__one__title
-      h1 = t('.title')
-    / .keyboard_arrow_down = link_to mi.keyboard_arrow_down.css_class('keyboard md-48'), remote: true
+      .title.row.font-oswald.d-flex.justify-content-center.mb-5vh
+        = t('.title')
+      .title-text.row.d-flex.justify-content-center.mr_1_for_child
+        = link_to 'Истории', '#', class: 'badge badge-pill badge-light stub history-button'
+        = link_to 'Обществознанию', '#', class: 'badge badge-pill stub badge-light social-button'
+        = link_to 'Русскому языку', '#', class: 'badge badge-pill stub badge-light russian-button'
+        = link_to 'Английскому языку', '#', class: 'badge badge-pill stub badge-light english-button'
+    = render 'slider'
+    = render 'phone-number'
+
   .initial__registration-block
     .initial__registration-block__button-pupil.mr_1
-      = button_tag t('.pupil_enter'), class: 'pupil-enter-button btn btn-light', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
+      = button_tag t('.pupil_enter'), class: 'pupil-enter-button btn', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
     = render 'modal_pupil_enter'
     .initial__registration-block__button-parent
-      = button_tag t('.parent_enter'), class: 'parent-enter-button btn btn-light', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
+      = button_tag t('.parent_enter'), class: 'parent-enter-button btn', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
     = render 'modal_parent_enter'
-  .initial__two
+  .initial__two.mt-3
+    .subject = render 'history_block'
+    .d-flex.justify-content-end
+      .subject = render 'social_block'
+    .subject = render 'russian_block'
+    .d-flex.justify-content-end
+      .subject = render 'english_block'
   .initial__three
+    = render 'feedback'
+    = render 'requirements'
+    = render 'footer-phone-number_block'
