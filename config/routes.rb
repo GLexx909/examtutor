@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'oauth_callbacks' }
 
   scope constraints: lambda { |r| r.env['warden'].user.nil? } do
     root 'initials#index'
@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :preregistrations, only: [:new, :create]
   resources :searches, only: [:index]
   resources :attachments, only: :destroy
   resources :attendances

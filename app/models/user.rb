@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable, :confirmable,
+         :omniauthable, omniauth_providers: [:facebook, :github]
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true
@@ -31,6 +32,7 @@ class User < ApplicationRecord
   has_many :progresses, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_one :feedback
+  has_many :authorizations, dependent: :destroy
 
   has_one_attached :avatar, dependent: :purge_later
 
@@ -82,14 +84,22 @@ class User < ApplicationRecord
   end
 
   def profile_avatar
-    avatar.attached? ? avatar : 'no-photo.jpg'
+    oauth_image || (avatar.attached? ? avatar : 'no-photo.jpg')
   end
 
   def nav_avatar
-    avatar.attached? ? avatar : 'no-photo-sm.jpg'
+    oauth_image || (avatar.attached? ? avatar : 'no-photo-sm.jpg')
   end
 
   def identify_name
     "#{last_name}-#{id}"
+  end
+
+  def self.find_for_oauth(auth, email)
+    Services::FindForOauth.new(auth, email).call
+  end
+
+  def create_authorization(auth)
+    self.authorizations.create(provider: auth.provider, uid: auth.uid)
   end
 end
