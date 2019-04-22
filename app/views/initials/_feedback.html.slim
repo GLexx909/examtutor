@@ -1,21 +1,22 @@
 .feedback-block
   .feedback-title.font-oswald = 'Что говорят наши ученики'
+  .feedback-all__button = button_tag 'Посмотреть все отзывы', class: 'btn stub', data: {toggle: 'modal', target: '#feedbacksAllModal'}
+  = render 'modal_feedbacks-all'
   .d-flex.justify-content-center
-    .feedback_slider
+    .feedback_slider.row.align-items-end.justify-content-center
       .carousel.slide id="carouselFeedbackIndicators" data-ride="carousel"
         ol.carousel-indicators
           li data-target="#carouselFeedbackIndicators" data-slide-to="0" class="active"
-          - (User.count-1).times do |index|
-            li data-target="#carouselFeedbackIndicators" data-slide-to="#{index}"
+          - (Feedback.approved.count-1).times do |index|
+            li data-target="#carouselFeedbackIndicators" data-slide-to="#{index+1}"
           end
-          / li data-target="#carouselFeedbackIndicators" data-slide-to="2"
         .carousel-inner
-          - User.all.each do |user|
-            - active = (user == User.first) ? "active" : ''
+          - Feedback.approved.each do |feedback|
+            - active = (feedback == Feedback.first) ? "active" : ''
             .carousel-item class="#{active}"
               .d-block.w-100
                 / = image_tag('slide_one.png')
-                = render 'feedback-text-1', user: user
+                = render 'feedback-text', user: feedback.user
         a.carousel-control-prev href="#carouselFeedbackIndicators" role="button" data-slide="prev"
           span.carousel-control-prev-icon aria-hidden="true"
           span.sr-only

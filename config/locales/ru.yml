@@ -3,7 +3,7 @@ ru:
     index:
       title: 'Профессиональный репетитор по'
       pupil_enter: 'Вход для ученика'
-      parent_enter: 'Вход для родителя'
+      parent_enter: 'Вход для родителей'
 
     modal_pupil_enter:
       header: 'Войти / Зарегистрироваться'
@@ -313,4 +313,5 @@ ru:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
+      dBY: "%d %B %Y"
     pm: вечера

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_073323) do
+ActiveRecord::Schema.define(version: 2019_04_21_121437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,16 @@ ActiveRecord::Schema.define(version: 2019_04_18_073323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["modul_id"], name: "index_essays_on_modul_id"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "body", null: false
+    t.boolean "moderation", default: false
+    t.boolean "approved", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -275,6 +285,7 @@ ActiveRecord::Schema.define(version: 2019_04_18_073323) do
   add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "essay_passages", "essays"
   add_foreign_key "essay_passages", "users"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "messages", "users", column: "abonent_id"
   add_foreign_key "messages", "users", column: "author_id"
   add_foreign_key "modul_passages", "moduls"

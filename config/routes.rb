@@ -60,6 +60,7 @@ Rails.application.routes.draw do
   resources :attendances
   resources :characteristics
   resources :progresses
+  resources :feedbacks, except: [:show, :new]
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
   resources :notifications, only: [:index, :create, :update] do

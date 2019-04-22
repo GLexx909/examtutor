@@ -15,6 +15,7 @@ ru:
       comment: 'Комментарий'
       attendance: 'Посещение'
       progress: 'Успеваемость'
+      feedback: 'Отзыв'
     attributes:
       user:
         first_name: 'Имя'
@@ -53,6 +54,8 @@ ru:
       progress:
         points: 'Очки'
         user: 'Ученик'
+      feedback:
+        body: 'Отзыв'
     errors:
       messages:
         blank: 'не может быть пустым'

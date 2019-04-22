@@ -1,0 +1,16 @@
+#feedbacksAllModal.modal.fade aria-hidden="true" aria-labelledby="feedbacksAllModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5#feedbacksAllModalLabel.modal-title = 'Все отзывы'
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        h3.pull-right = 'Что говорят ученики'
+        - Feedback.moderation.each do |feedback|
+          .feedback-text
+            .avatar = image_tag feedback.user.nav_avatar, class: 'handle nav_avatar'
+            .name
+              b = feedback.user.full_name
+            .text
+              p = feedback.body

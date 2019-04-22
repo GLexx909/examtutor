@@ -27,6 +27,7 @@ RSpec.describe User, type: :model do
   it { should have_one(:characteristic).dependent(:destroy) }
   it { should have_many(:progresses).dependent(:destroy) }
   it { should have_many(:votes).dependent(:destroy) }
+  it { should have_one(:feedback) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }

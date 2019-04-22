@@ -1,0 +1,4 @@
+= form_with model: Feedback.new, remote: true , class: 'hidden feedback__form-new' do |f|
+  .form-group
+    = f.text_area :body, class: 'form-control'
+  .submit = f.submit 'Создать', class: 'btn btn-success'
