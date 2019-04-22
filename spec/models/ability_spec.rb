@@ -47,6 +47,7 @@ RSpec.describe Ability do
     let(:message) { create :message, author: user, abonent: user_other, body: 'Message' }
     let(:message_other) { create :message, author: user_other, abonent: user, body: 'Message' }
     let(:comment) { create :comment, author: user, post: post }
+    let(:feedback) { create :feedback, user: user }
 
     it { should_not be_able_to :manage, :all }
 
@@ -129,5 +130,10 @@ RSpec.describe Ability do
 
     it { should be_able_to :vote_up, post_other }
     it { should be_able_to :vote_down, post_other }
+
+    it { should be_able_to :create, Feedback }
+    it { should be_able_to :read, Feedback }
+    it { should be_able_to :update, feedback }
+    it { should be_able_to :destroy, feedback }
   end
 end

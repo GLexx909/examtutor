@@ -1,0 +1,26 @@
+.feedback__forms {
+  height: 15vh;
+
+  .feedback__form-new {
+    .submit {
+      text-align: right;
+    }
+  }
+
+  .feedback__form-edit {
+    .submit {
+      text-align: right;
+    }
+  }
+}
+
+.feedbacks-list {
+  .feedback-body {
+    padding: 1rem;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+
+    background: white;
+    box-shadow: 0 5px 50px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+  }
+}

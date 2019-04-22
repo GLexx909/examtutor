@@ -28,6 +28,8 @@ document.addEventListener('turbolinks:load', function() {
             }
         });
     }
+
+    scrollToElement()
 });
 
 function hideModalNewMessageForm() {
