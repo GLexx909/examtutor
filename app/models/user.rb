@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: [:facebook, :github]
+         :omniauthable, omniauth_providers: [:facebook, :github, :vkontakte]
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true, uniqueness: true
@@ -21,10 +21,10 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :question_passages, dependent: :destroy
   has_many :questions, through: :question_passages
-  has_many :notifications, foreign_key: 'abonent_id', dependent: :destroy
+  has_many :notifications_from, foreign_key: 'abonent_id', dependent: :destroy, class_name: 'Notification'
   has_many :notifications, foreign_key: 'author_id', dependent: :destroy
   has_many :messages, foreign_key: 'author_id', dependent: :destroy
-  has_many :messages, foreign_key: 'abonent_id', dependent: :destroy
+  has_many :messages_from, foreign_key: 'abonent_id', class_name: 'Message', dependent: :destroy
   has_many :abonents, through: :messages
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
   has_one :characteristic, dependent: :destroy
@@ -84,11 +84,11 @@ class User < ApplicationRecord
   end
 
   def profile_avatar
-    oauth_image || (avatar.attached? ? avatar : 'no-photo.jpg')
+     (avatar.attached? ? avatar : oauth_image) || 'no-photo.jpg'
   end
 
   def nav_avatar
-    oauth_image || (avatar.attached? ? avatar : 'no-photo-sm.jpg')
+    (avatar.attached? ? avatar : oauth_image ) || 'no-photo-sm.jpg'
   end
 
   def identify_name

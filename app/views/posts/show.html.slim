@@ -4,7 +4,9 @@
       = render 'shared/vote_links', resource: @post
     .col-sm-11.p-0
       article.post-show-block.mt-5 class="post-#{@post.id}"
-        .small_text = I18n.localize @post.created_at, format: :short
+        .d-flex.mr_1_for_child
+          .small_text = @post.author.full_name
+          .small_text = I18n.localize @post.created_at, format: :short
         h1 = @post.title
         p = @post.body.html_safe
         - if @post.files.attached?

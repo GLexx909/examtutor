@@ -15,6 +15,7 @@ RSpec.describe Services::FindForOauth do
 
   context 'user has not authorization' do
     context 'user already exists' do
+      let!(:user1) { create :user, first_name: 'temporary', last_name: 'temporary' }
       let!(:auth) { OmniAuth::AuthHash.new(provider: 'github', uid: '123456', info: { email: user1.email, name: 'John Doe' }) }
 
       it 'does not create new user' do

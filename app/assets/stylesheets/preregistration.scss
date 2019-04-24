@@ -1,0 +1,16 @@
+.preregistration__block {
+  .confirmation_mail_text {
+    box-shadow: 0 0 30px 4px rgba(255, 0, 0, 0.32);
+    padding: 1rem;
+    margin-bottom: 3vh;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  form {
+    text-align: right;
+    .btn {
+      margin-top: 1vh;
+    }
+  }
+}

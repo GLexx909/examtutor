@@ -5,7 +5,7 @@
     .profile-points
       .text-muted.text-shadow-black-for-child.d-flex
         h1.align-self-end.mb-0.mr-1 = @user&.characteristic&.points
-        span.align-self-end баллов
+        span.align-self-end = 'баллов' if @user&.characteristic&.points
       .text-muted.text-shadow-black-for-child
         b = @user&.characteristic&.rank
 

@@ -7,6 +7,10 @@ class OauthCallbacksController < Devise::OmniauthCallbacksController
     do_action(__method__.to_s)
   end
 
+  def vkontakte
+    do_action(__method__.to_s)
+  end
+
   private
 
   def do_action(provider_name)
@@ -19,7 +23,7 @@ class OauthCallbacksController < Devise::OmniauthCallbacksController
       return
     end
 
-    @user = User.find_for_oauth(request.env['omniauth.auth'], session[:pre_email])
+    @user = User.find_for_oauth(request.env['omniauth.auth'], cookies[:pre_email])
 
     if @user&.persisted?
       sign_in_and_redirect @user, event: :authentication
@@ -30,6 +34,6 @@ class OauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def email_not_persisted?(auth)
-    auth['info']['email'].blank? && !user_signed_in? && !session[:pre_email]
+    auth['info']['email'].blank? && !user_signed_in? && !cookies[:pre_email]
   end
 end

@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'

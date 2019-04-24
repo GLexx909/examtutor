@@ -20,7 +20,7 @@ class InitialsController < ApplicationController
     one_time_password = OneTimePassword.find_by_pass_word(password)
 
     if one_time_password
-      session[:pre_password] = password
+      cookies[:pre_password] = password
       one_time_password.destroy
 
       redirect_to new_user_registration_path, notice: 'Успешно!'
