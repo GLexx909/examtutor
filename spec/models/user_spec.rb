@@ -99,4 +99,16 @@ RSpec.describe User, type: :model do
       expect(user.uniq_notifications_of_message).to eq [notification2]
     end
   end
+
+  describe '.find_for_oauth' do
+    let!(:auth) { OmniAuth::AuthHash.new(provider: 'github', uid: '123456') }
+    let!(:email) { 'email@example.com' }
+    let(:service) { double('Services::FindForOauth') }
+
+    it 'calls Services::FindForOauth' do
+      expect(Services::FindForOauth).to receive(:new).with(auth, email).and_return(service)
+      expect(service).to receive(:call)
+      User.find_for_oauth(auth, email)
+    end
+  end
 end

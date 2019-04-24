@@ -62,6 +62,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def access_to_page
-    redirect_to root_path unless session[:pre_password]
+    redirect_to root_path unless cookies[:pre_password]
   end
 end

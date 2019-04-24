@@ -2,18 +2,24 @@
   = link_to "Войти", new_session_path(resource_name)
   br
 - if devise_mapping.registerable? && controller_name != 'registrations'
-  = link_to "Зарегистрироваться", new_registration_path(resource_name)
+  = link_to "Зарегистрироваться", new_registration_path(resource_name), class: 'badge badge-light mb-1'
   br
 - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-  = link_to "Забыли пароль?", new_password_path(resource_name)
+  = link_to "Забыли пароль?", new_password_path(resource_name), class: 'badge badge-light mb-1'
   br
 - if devise_mapping.confirmable? && controller_name != 'confirmations'
-  = link_to "Не пришли инструкции по подтверждению?", new_confirmation_path(resource_name)
+  = link_to "Не пришли инструкции по подтверждению?", new_confirmation_path(resource_name), class: 'badge badge-light mb-1'
   br
 - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-  = link_to "Не пришли инструкции по разблокированию?", new_unlock_path(resource_name)
+  = link_to "Не пришли инструкции по разблокированию?", new_unlock_path(resource_name), class: 'badge badge-light mb-1'
   br
 - if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider|
-    = link_to "Войти с #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
-    br
+  / - resource_class.omniauth_providers.each do |provider|
+  /   = link_to "Войти с #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider)
+  /
+  /   br
+  - if cookies[:pre_password]
+    .display-flex.mr_1_for_child
+      = link_to image_tag('vk.png'), '/users/auth/vkontakte'
+      = link_to image_tag('fb.png'), '/users/auth/facebook'
+      = link_to image_tag('github.png'), '/users/auth/github'

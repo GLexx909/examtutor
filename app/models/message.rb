@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  belongs_to :author,  foreign_key:  'author_id', class_name: 'User'
-  belongs_to :abonent, foreign_key: 'abonent_id', class_name: 'User'
+  belongs_to :author, class_name: 'User'
+  belongs_to :abonent, class_name: 'User'
 
   has_many_attached :files, dependent: :purge_later
 
