@@ -1,5 +1,8 @@
-.bg-dark.p-1.br-10
+.bg-dark.p-1.br-10.d-flex.justify-content-between
   h1.text-white = @user.full_name
+  div
+    h6.mr_1.blue = 'Идентификатор:'
+    h5.white = @user.identify_name
 
 .characteristic-description
   h6.text-secondary = 'Общая характеристика:'
@@ -28,3 +31,6 @@
     end
 
     = render 'modal_attend', attend: attend
+
+= render 'message_to_tutor'
+= render 'modal_message_to_tutor'

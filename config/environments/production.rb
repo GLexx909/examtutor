@@ -64,7 +64,20 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "examtutor_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.default_options = {from: 'info@examtutor.ru'}
+  config.action_mailer.default_url_options = { host: 'examtutor.ru' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.yandex.ru',
+      port:                 465,
+      domain:               "examtutor.ru",
+      # user_name:             Rails.application.credentials[:production][:google_mail][:username],
+      # password:             Rails.application.credentials[:production][:google_mail][:password],
+      # authentication:       'plain',
+      # ssl: true,
+      # tls: true,
+      enable_starttls_auto: true
+  }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
