@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :mailers, only: [:create]
   resources :preregistrations, only: [:new, :create]
   resources :searches, only: [:index]
   resources :attachments, only: :destroy

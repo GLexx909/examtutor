@@ -8,6 +8,7 @@ class InitialsController < ApplicationController
 
   def get_availability
     if User.find_by(id: identify_id, last_name: identify_name)
+      cookies[:parent] = identify_id
       redirect_to characteristic_path(identify_id)
     else
       flash[:alert] = 'Идентификатор набран неверно'

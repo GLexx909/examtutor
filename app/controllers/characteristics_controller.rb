@@ -17,6 +17,8 @@ class CharacteristicsController < ApplicationController
   end
 
   def show
+    redirect_to root_path unless current_user&.admin? || cookies[:parent]
+
     user
 
     @chart = Gchart.line(  size: '1000x300',

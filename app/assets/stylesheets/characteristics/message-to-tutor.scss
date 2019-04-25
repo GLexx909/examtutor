@@ -1,0 +1,21 @@
+.message-to-tutor__block {
+  position: fixed;
+  bottom: 4vh;
+  right: 3vw;
+
+  width: 4vw;
+  height: 4vw;
+
+  background-color: #00b7ea;
+  border-radius: 50%;
+  box-shadow:
+          inset rgba(0,0,0,.5) -3px -3px 8px,
+          inset rgba(255,255,255,.9) 3px 3px 8px,
+          rgba(0,0,0,.8) 3px 3px 8px -3px;
+
+  text-align: center;
+}
+
+.form_message-to-tutor {
+  text-align: right;
+}

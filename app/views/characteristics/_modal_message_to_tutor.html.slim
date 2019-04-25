@@ -1,0 +1,13 @@
+#messageToTutorModal.modal.fade aria-hidden="true" aria-labelledby="messageToTutorModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header.bg-dark
+        h5#messageToTutorModalLabel.modal-title.text-light = 'Написать репетитору'
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span.text-light aria-hidden="true"  &times;
+      .modal-body
+        / h3.pull-right = 'Что говорят ученики'
+        .form_message-to-tutor
+          = form_tag '/mailers', remote: true do
+            = text_area_tag 'message', '', class: 'form-control mb_1', placeholder: 'Введите сообщение...', style: "height: 300px"
+            = submit_tag 'Отправить сообщение', class: 'btn btn-success'
