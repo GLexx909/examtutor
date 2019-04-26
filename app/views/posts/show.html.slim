@@ -1,7 +1,7 @@
 - cache @post do
   .row
     .post-votes.col-sm-1.mt-5.p-0
-      = render 'shared/vote_links', resource: @post
+      = render 'shared/vote_links', resource: @post if user_signed_in?
     .col-sm-11.p-0
       article.post-show-block.mt-5 class="post-#{@post.id}"
         .d-flex.mr_1_for_child

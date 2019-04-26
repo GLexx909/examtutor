@@ -12,6 +12,12 @@
   = link_to 'Редактировать общую характеристику', edit_characteristic_path(@user), remote: true, class: 'btn btn-primary'
   .characteristic-description__edit-form
 
+.d-flex.mt-3.mb-3
+  .weekly-digest-mobile__block.row.align-items-center
+    .col = button_to 'Подписаться на рассылку', '#', data: {toggle: 'modal', target: '#weeklyDigestModal'}, class: 'btn btn-outline-info stub'
+  .message-to-tutor-mobile__block.row.align-items-center
+    .col = button_to 'Написать репетитору', '#', data: {toggle: 'modal', target: '#messageToTutorModal'}, class: 'btn btn-outline-info stub'
+
 .chart-image-full = image_tag @chart
 .chart-image-mobile = link_to 'График успеваемости', (image_path @chart), class: 'btn btn-info'
 
@@ -32,5 +38,7 @@
 
     = render 'modal_attend', attend: attend
 
+= render 'weekly_digest'
+= render 'modal_weekly_digest'
 = render 'message_to_tutor'
 = render 'modal_message_to_tutor'

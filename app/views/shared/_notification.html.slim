@@ -3,7 +3,7 @@
     = button_tag '' , class: 'btn btn-secondary dropdown-toggle dropdown-toggle-split badge', id:"dropdownMenuButton", data:{ toggle:"dropdown" }, aria:{ haspopup: "true", expanded: "false"}
       span class='sr-only'
         = 'Toggle Dropleft'
-    .dropdown-menu aria-labelledby="dropdownMenuButton"
+    .dropdown-menu.dropdown-menu__notifications aria-labelledby="dropdownMenuButton"
       - notifications.each do |notification|
         p = link_to notification.title, notification_path(id: notification, link: notification.link), method: :patch, class: 'badge badge-warning'
   = button_tag '', class:'btn btn-secondary stub notify-button', onclick:"location.href='/notifications'"

@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
   authorize_resource
 
   def index
-    @feedbacks = Feedback.order(created_at: :desc)
+    @feedbacks = Feedback.order(updated_at: :desc, created_at: :desc)
   end
 
   def create
@@ -22,6 +22,7 @@ class FeedbacksController < ApplicationController
 
   def update
     feedback.update(feedback_params) if can?(:update, feedback)
+    Services::SendNotificationService.new('Учеником обновлён отзыв', feedbacks_path, User.where(admin: true), current_user, type: 'feedback').send
   end
 
   def destroy

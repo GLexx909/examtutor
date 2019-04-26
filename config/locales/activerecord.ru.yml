@@ -16,6 +16,7 @@ ru:
       attendance: 'Посещение'
       progress: 'Успеваемость'
       feedback: 'Отзыв'
+      weekly_digest: 'Подписка'
     attributes:
       user:
         first_name: 'Имя'
@@ -56,6 +57,8 @@ ru:
         user: 'Ученик'
       feedback:
         body: 'Отзыв'
+      weekly_digest:
+        user: 'Пользователь'
     errors:
       messages:
         blank: 'не может быть пустым'

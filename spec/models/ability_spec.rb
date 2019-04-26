@@ -8,7 +8,7 @@ RSpec.describe Ability do
 
     it { should_not be_able_to :manage, :all }
     it { should_not be_able_to :tutor_index, Post }
-    it { should_not be_able_to :read, Post }
+    it { should be_able_to :read, Post }
     it { should be_able_to :guests_index, Post }
     it { should be_able_to :read, Characteristic }
 

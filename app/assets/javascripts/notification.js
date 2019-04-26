@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function() {
             },
 
             received: function (data) {
-                const dropdownDiv = $('.nav__right-block .dropdown-menu');
+                const dropdownDiv = $('.nav__right-block .dropdown-menu__notifications');
                 const dropdownButton = $('.nav__right-block .notify-button');
                 dropdownButton.html('<i class="material-icons md-18 stub red">notifications_active</i>');
                 dropdownDiv.prepend(JST["templates/notification_essay_to_tutor"]({notification: data['notification'], link: data['link']}));

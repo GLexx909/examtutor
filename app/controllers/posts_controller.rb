@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   include Voted
-  before_action :authenticate_user!, except: [:guests_index]
+  before_action :authenticate_user!, except: [:guests_index, :show]
   before_action :post, only: [:index, :tutor_index, :own_index, :guests_index, :show]
   before_action :bread_crumbs, only: [:index, :tutor_index, :own_index]
 
@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    redirect_to root_path if !user_signed_in? && !post.for_guests? # redirect if guest try to see post not for guests
   end
 
   def update
