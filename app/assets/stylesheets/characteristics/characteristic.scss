@@ -52,7 +52,11 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1100px) {
+  .base-space {
+    background-color: white;
+  }
+
   .attendance-list {
     .attend_small {
       width: 60px;

@@ -1,6 +1,9 @@
 .initial
   .initial__one
-    .initial__list-button = link_to mi.list.css_class('md-48 white blue stub')
+    .dropdown
+      = link_to mi.list.css_class('md-48 blue'), '#', class: '', id: "dropdownInitialMenu",
+              data: { toggle: "dropdown" },  aria: { haspopup: "true", expanded: "false" }
+      = render 'dropdown-initial-menu'
     .initial__one__title
       .title.row.font-oswald.d-flex.justify-content-center.mb-5vh
         = t('.title')
@@ -20,11 +23,11 @@
       = button_tag t('.parent_enter'), class: 'parent-enter-button btn', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
     = render 'modal_parent_enter'
   .initial__two.mt-3
-    .subject = render 'history_block'
-    .d-flex.justify-content-end
+    .subject.ml-3.mr-3 = render 'history_block'
+    .d-flex.justify-content-end.ml-3.mr-3
       .subject = render 'social_block'
-    .subject = render 'russian_block'
-    .d-flex.justify-content-end
+    .subject.ml-3.mr-3 = render 'russian_block'
+    .d-flex.justify-content-end.ml-3.mr-3
       .subject = render 'english_block'
   .initial__three
     = render 'feedback'

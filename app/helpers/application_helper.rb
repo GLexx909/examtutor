@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def render_flash
     %w(notice alert).select { |type| flash.key?(type) }.map { |type| flash_block(type) }.join.html_safe
   end

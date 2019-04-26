@@ -1,0 +1,15 @@
+#weeklyDigestModal.modal.fade aria-hidden="true" aria-labelledby="weeklyDigestModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header.bg-dark
+        h5#weeklyDigestModalLabel.modal-title.text-light = 'Подписаться на рассылку'
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span.text-light aria-hidden="true"  &times;
+      .modal-body
+        .errors-weekly-digest
+        .small_text.mb-2 = t('.explanation', user: @user.full_name)
+        = link_to 'Отписаться от рассылки', weekly_digest_path(@user), method: :delete, class: 'mb-2 badge badge-light', remote: true
+        .form_subscribe-weekly-digest
+          = form_tag '/weekly_digests', remote: true do
+            = text_field_tag 'email', '', class: 'form-control mb_1', placeholder: 'Введите Email...'
+            = submit_tag 'Подписаться на рассылку', class: 'btn btn-success'

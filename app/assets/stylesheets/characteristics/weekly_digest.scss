@@ -1,12 +1,12 @@
-.message-to-tutor__block {
+.weekly-digest__block {
   position: fixed;
-  bottom: 4vh;
+  bottom: 15vh;
   right: 3vw;
 
   width: 4vw;
   height: 4vw;
 
-  background-color: #00b7ea;
+  background-color: #6dc0c8;
   border-radius: 50%;
   box-shadow:
           inset rgba(0,0,0,.5) -3px -3px 8px,
@@ -23,16 +23,16 @@
   }
 }
 
-.form_message-to-tutor {
+.form_subscribe-weekly-digest {
   text-align: right;
 }
 
-.message-to-tutor-mobile__block {
+.weekly-digest-mobile__block {
   display: none !important;
 }
 
 @media screen and (max-width: 1100px) {
-  .message-to-tutor__block {
+  .weekly-digest__block {
     display: none !important;
   }
 }

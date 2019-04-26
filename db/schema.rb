@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_133156) do
+ActiveRecord::Schema.define(version: 2019_04_25_080937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -288,6 +288,14 @@ ActiveRecord::Schema.define(version: 2019_04_22_133156) do
     t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
   end
 
+  create_table "weekly_digests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_weekly_digests_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
   add_foreign_key "attendances", "users"
@@ -315,4 +323,5 @@ ActiveRecord::Schema.define(version: 2019_04_22_133156) do
   add_foreign_key "topic_passages", "users"
   add_foreign_key "topics", "moduls"
   add_foreign_key "votes", "users"
+  add_foreign_key "weekly_digests", "users"
 end

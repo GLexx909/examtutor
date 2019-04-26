@@ -1,0 +1,5 @@
+.dropdown-menu aria-labelledby='dropdownInitialMenu'
+  = link_to 'О себе', '#', class: 'stub dropdown-item', data: {toggle: 'modal', target: '#aboutTutorModal'}
+  = link_to 'Авторские статьи', guests_index_posts_path, class: 'dropdown-item'
+
+= render 'modal_about_tutor'

@@ -13,7 +13,7 @@ RSpec.describe FeedbacksController, type: :controller do
     end
 
     it_behaves_like 'To render index view'
-    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'feedbacks'}, let(:resource) { Feedback.order(created_at: :desc) }
+    it_behaves_like 'To assigns the request resource to @resource', let(:instance) {'feedbacks'}, let(:resource) { Feedback.order(updated_at: :desc, created_at: :desc) }
   end
 
   describe 'POST #create' do

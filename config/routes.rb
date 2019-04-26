@@ -1,4 +1,11 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+
+  authenticate :user, lambda { |user| user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'oauth_callbacks' }
 
   scope constraints: lambda { |r| r.env['warden'].user.nil? } do
@@ -55,6 +62,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :weekly_digests, only: [:create, :destroy]
   resources :mailers, only: [:create]
   resources :preregistrations, only: [:new, :create]
   resources :searches, only: [:index]

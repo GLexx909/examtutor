@@ -9,7 +9,7 @@
         .text-muted.text-shadow-black-for-child
           b = current_user&.characteristic&.rank
       .d-flex.justify-content-end
-        h6.mr_1.blue = 'Идентификатор:'
+        h6.mr_1.blue = 'Идентификатор:' if current_user
         .mr-auto
           h5.white = current_user&.identify_name
 

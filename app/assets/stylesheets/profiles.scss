@@ -10,6 +10,12 @@
   height: auto;
 }
 
+.feedback_avatar {
+  width: 4vh;
+  height: auto;
+
+  border-radius: 50%;
+}
 
 @media screen and (max-width: 600px) {
   .profile-avatar {

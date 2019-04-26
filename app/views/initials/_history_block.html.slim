@@ -1,7 +1,11 @@
 .history-block
   .title.font-oswald.d-flex.justify-content-center.align-items-center
     = 'История'
+  .text.pl-3.mt-2
+    b = "ЕГЭ по истории"
+  .text.pl-3
+    b = "ОГЭ по истории"
+  .text.pl-3
+    b = "Опыт: #{ Time.current.year - 2012 } лет"
   .text.p-3
-    b = 'С помощью CSS-гридов должна быть возможность размещать элементы в этой сетке как угодно. Однако, грид-контейнер'
-  .text.p-3
-    b = 'С помощью CSS-гридов должна быть возможность размещать элементы в этой сетке как угодно. Однако, грид-контейнер'
+    b = t('.history_description')

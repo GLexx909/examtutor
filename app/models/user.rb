@@ -33,6 +33,7 @@ class User < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_one :feedback
   has_many :authorizations, dependent: :destroy
+  has_one :weekly_digest, dependent: :destroy
 
   has_one_attached :avatar, dependent: :purge_later
 
