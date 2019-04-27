@@ -1,0 +1,21 @@
+.tutor-info__block
+  .d-flex.justify-content-center.mb-3
+    h1.font-oswald = 'Информация о себе'
+  .row.mb-5vh
+    .col-6
+      .profile-photo
+        = image_tag t('.profile_photo'), class: 'profile-photo-image'
+    .col-6
+      .profile-text
+        p = t('.profile-text')
+
+  .d-flex.justify-content-center.mb-3
+    h1.font-oswald = 'Документы об образовании'
+
+  .d-flex.justify-content-center.mb-3
+    h5.font-oswald = 'Дипломы о высшем образовании'
+
+  .d-flex.justify-content-center.mb-3.mr_1_for_child
+    div = image_tag t('.diplom-1'), class: 'diplom-size'
+    div = image_tag t('.diplom-1'), class: 'diplom-size'
+

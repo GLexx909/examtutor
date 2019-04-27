@@ -1,0 +1,27 @@
+.tutor-info__block {
+  .profile-photo {
+    width: inherit;
+
+    img {
+      width: inherit;
+      height: auto;
+    }
+
+    //width: 100%;
+    //height: 40vw;
+
+    //background: url('https://downloader.disk.yandex.ru/preview/6461a151e7d4c2e29bbe53302d71c42c0517cd5388179c7001b3adbf6b2c642b/5cc44dcd/z8R8gXGcEDjwKS47QRuM0iO7knGyZ-5ouI3fPiY8Yopl9ySBKoerRyMhnBVUJJojbaZyr6BlQ1HoHPu2QFrHkg%3D%3D?uid=0&filename=profile.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&tknv=v2&size=2048x2048');
+    //background-repeat:no-repeat;
+    //background-size: contain;
+    //box-shadow: inset 0px 0px 20px 20px #000;
+  }
+
+  .profile-text {
+    text-align: justify;
+  }
+
+  .diplom-size {
+    width: 20vh;
+    height: auto;
+  }
+}
