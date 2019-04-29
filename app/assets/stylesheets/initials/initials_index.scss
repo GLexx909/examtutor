@@ -1,6 +1,6 @@
-html, body {
-  background-color: white;
-}
+//html, body {
+//  background-color: #f3f3f3 !important;
+//}
 
 .initial-page__flash-block {
   position: absolute;
@@ -14,8 +14,8 @@ html, body {
                        'initial__two'
                        'initial__three';
   grid-template-columns: 1fr;
-  grid-template-rows: 100vh
-                      100vh
+  grid-template-rows: auto
+                      auto
                       auto;
 
   background-color: white;
@@ -29,10 +29,10 @@ html, body {
                           'initial__three';
 
     grid-template-columns: 1fr;
-    grid-template-rows: 100vh
+    grid-template-rows: auto
                         auto
-                        100vh
-                        100vh;
+                        auto
+                        auto;
   }
 
   .initial-page__flash-block {

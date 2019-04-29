@@ -4,10 +4,10 @@
   position: relative;
   display: grid;
   grid-template-areas:  'initial__one__title initial__one__title'
-  'initial_slider phone_number_block';
+                        'initial_slider phone_number_block';
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 60vh
-  30vh;
+  grid-template-rows: auto
+                      auto;
 
   font-size: 3vmin;
 
@@ -15,6 +15,7 @@
   background-size: cover;
   background-position: center bottom;
 
+  margin-bottom: 10vh;
   background: white;
 
   .dropdown {
@@ -102,7 +103,7 @@
   .initial__one {
     grid-template-areas: 'initial__one__title' 'initial_slider';
     grid-template-columns: 1fr;
-    grid-template-rows: 60vh 30vh;
+    grid-template-rows: auto auto;
 
     .initial_slider {
       margin-left: 0;
