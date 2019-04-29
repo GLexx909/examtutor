@@ -4,7 +4,7 @@ class AttachmentsController < ApplicationController
     @file = ActiveStorage::Attachment.find(params[:id])
     authorize! :manage, @file
 
-    if current_user.author_of?(@file.record)
+    if can?(:manage, :all) || current_user.author_of?(@file.record)
       @file.purge
     else
       return head 403

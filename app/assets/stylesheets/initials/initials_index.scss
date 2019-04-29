@@ -14,8 +14,8 @@
                        'initial__two'
                        'initial__three';
   grid-template-columns: 1fr;
-  grid-template-rows: 100vh
-                      100vh
+  grid-template-rows: auto
+                      auto
                       auto;
 
   background-color: white;
@@ -29,10 +29,10 @@
                           'initial__three';
 
     grid-template-columns: 1fr;
-    grid-template-rows: 100vh
+    grid-template-rows: auto
                         auto
-                        100vh
-                        100vh;
+                        auto
+                        auto;
   }
 
   .initial-page__flash-block {

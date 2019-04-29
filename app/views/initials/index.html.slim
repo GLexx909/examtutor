@@ -4,14 +4,18 @@
       = link_to mi.list.css_class('md-48 blue'), '#', class: '', id: "dropdownInitialMenu",
               data: { toggle: "dropdown" },  aria: { haspopup: "true", expanded: "false" }
       = render 'dropdown-initial-menu'
-    .initial__one__title
+    .initial__one__title.mb-5vh
       .title.row.font-oswald.d-flex.justify-content-center.mb-5vh
         = t('.title')
-      .title-text.row.d-flex.justify-content-center.mr_1_for_child
+      .title-text.row.d-flex.justify-content-center.mr_1_for_child.mb-5vh
         = link_to 'Истории', '#', class: 'badge badge-pill badge-light stub history-button'
         = link_to 'Обществознанию', '#', class: 'badge badge-pill stub badge-light social-button'
         = link_to 'Русскому языку', '#', class: 'badge badge-pill stub badge-light russian-button'
         = link_to 'Английскому языку', '#', class: 'badge badge-pill stub badge-light english-button'
+
+      .title-text.row.d-flex.justify-content-center
+        = image_tag url_for(TutorInfo.first.initial_profile_photo), class: 'initial_profile_photo' if TutorInfo.first
+
     = render 'slider'
     = render 'phone-number'
 

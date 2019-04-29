@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_25_080937) do
+ActiveRecord::Schema.define(version: 2019_04_28_084525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -255,6 +255,12 @@ ActiveRecord::Schema.define(version: 2019_04_25_080937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["modul_id"], name: "index_topics_on_modul_id"
+  end
+
+  create_table "tutor_infos", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

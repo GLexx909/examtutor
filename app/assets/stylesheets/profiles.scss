@@ -17,6 +17,13 @@
   border-radius: 50%;
 }
 
+.initial_profile_photo {
+  width: 40vh;
+  height: 40vh;
+
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 600px) {
   .profile-avatar {
     img {

@@ -62,7 +62,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tutor_infos, only: [:index]
+  resources :tutor_infos, only: [:index, :update]
   resources :weekly_digests, only: [:create, :destroy]
   resources :mailers, only: [:create]
   resources :preregistrations, only: [:new, :create]
