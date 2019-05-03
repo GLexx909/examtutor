@@ -19,6 +19,11 @@ module Examtutor
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    #
+    config.active_job.queue_adapter = :sidekiq
+
+    config.action_cable.disable_request_forgery_protection = false
+
     config.generators do |g|
       g.test_framework :rspec,
                        view_specs: false,
@@ -29,5 +34,7 @@ module Examtutor
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
     config.autoload_paths += [config.root.join('app')]
+
+    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
   end
 end

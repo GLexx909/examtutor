@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe NotificationsController, type: :controller do
   let!(:user)  { create :user }
+  let!(:admin)  { create :user, admin: true }
   let!(:course) { create :course }
   let!(:modul) { create :modul, course: course }
   let!(:essay) { create :essay, modul: modul }
@@ -55,6 +56,40 @@ RSpec.describe NotificationsController, type: :controller do
 
       expect(notification1.status).to be_truthy
       expect(notification2.status).to be_truthy
+    end
+  end
+
+  describe 'DELETE #destroy_all' do
+    let!(:notification1)  { create :notification, link: "/topics/#{essay.id}", abonent: user, status: false, author: user }
+
+    before(:each) do
+      login(user)
+      delete :destroy_all, format: :js
+    end
+
+    it 'deletes the object' do
+      expect(Notification.where(abonent: user).count).to eq 0
+    end
+
+    it 'deletes the object' do
+      expect(response).to render_template :destroy_all
+    end
+  end
+
+  describe 'POST #send_for_all' do
+    before { login(admin) }
+
+    context 'Admin can' do
+      it 'saves a new object in the database' do
+        post :send_for_all, params: { title: ['New Notification'], format: :js }
+        sleep 1
+        expect(Notification.count).to eq 2
+      end
+
+      it 'render send_for_all.js view' do
+        post :send_for_all, params: { title: ['New Notification'] }, format: :js
+        expect(response).to render_template :send_for_all
+      end
     end
   end
 end

@@ -23,6 +23,12 @@ RSpec.describe User, type: :model do
   it { should have_many(:messages).dependent(:destroy) }
   it { should have_many(:abonents).through(:messages) }
   it { should have_many(:comments).dependent(:destroy) }
+  it { should have_many(:attendances).dependent(:destroy) }
+  it { should have_one(:characteristic).dependent(:destroy) }
+  it { should have_many(:progresses).dependent(:destroy) }
+  it { should have_many(:votes).dependent(:destroy) }
+  it { should have_one(:feedback) }
+  it { should have_one(:weekly_digest).dependent(:destroy) }
 
   let!(:user)       { create :user }
   let!(:user_other) { create :user }
@@ -92,6 +98,18 @@ RSpec.describe User, type: :model do
   describe 'user#uniq_notifications' do
     it 'return notifications where user is abonent of other person in single copy' do
       expect(user.uniq_notifications_of_message).to eq [notification2]
+    end
+  end
+
+  describe '.find_for_oauth' do
+    let!(:auth) { OmniAuth::AuthHash.new(provider: 'github', uid: '123456') }
+    let!(:email) { 'email@example.com' }
+    let(:service) { double('Services::FindForOauth') }
+
+    it 'calls Services::FindForOauth' do
+      expect(Services::FindForOauth).to receive(:new).with(auth, email).and_return(service)
+      expect(service).to receive(:call)
+      User.find_for_oauth(auth, email)
     end
   end
 end

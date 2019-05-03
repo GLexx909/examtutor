@@ -1,5 +1,12 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  authenticate :user, lambda { |user| user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'oauth_callbacks' }
 
   scope constraints: lambda { |r| r.env['warden'].user.nil? } do
     root 'initials#index'
@@ -9,7 +16,17 @@ Rails.application.routes.draw do
     root 'posts#tutor_index'
   end
 
-  resources :initials, only: [:new, :create]
+  concern :votable do
+    member do
+      post :vote_up
+      post :vote_down
+    end
+  end
+
+  resources :initials, only: [:new, :create] do
+    get :get_availability, on: :collection
+  end
+
   resources :profiles
 
   resources :courses, shallow: true do
@@ -45,19 +62,30 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tutor_infos, only: [:index, :update]
+  resources :weekly_digests, only: [:create, :destroy]
+  resources :mailers, only: [:create]
+  resources :preregistrations, only: [:new, :create]
+  resources :searches, only: [:index]
   resources :attachments, only: :destroy
+  resources :attendances
+  resources :characteristics
+  resources :progresses
+  resources :feedbacks, except: [:show, :new]
   resources :course_passages, only: [:new, :create]
   resources :modul_passages, only: [:create]
   resources :notifications, only: [:index, :create, :update] do
     put :update_all, on: :collection
+    delete :destroy_all, on: :collection
+    post :send_for_all, on: :collection
   end
 
   resources :messages, only: [:create, :index, :destroy] do
     get :abonents, on: :collection
   end
 
-  resources :posts, shallow: true do
-    resources :comments, except: [:index, :show]
+  resources :posts, concerns: [:votable], shallow: true do
+    resources :comments, concerns: [:votable], except: [:index, :show]
 
     get :tutor_index, on: :collection
     get :own_index, on: :collection

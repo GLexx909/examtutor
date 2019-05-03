@@ -8,8 +8,9 @@ RSpec.describe Ability do
 
     it { should_not be_able_to :manage, :all }
     it { should_not be_able_to :tutor_index, Post }
-    it { should_not be_able_to :read, Post }
+    it { should be_able_to :read, Post }
     it { should be_able_to :guests_index, Post }
+    it { should be_able_to :read, Characteristic }
 
     it { should_not be_able_to :read, Course }
     it { should_not be_able_to :read, Modul }
@@ -18,6 +19,7 @@ RSpec.describe Ability do
     it { should_not be_able_to :read, Test }
     it { should_not be_able_to :read, Question }
     it { should_not be_able_to :read, Answer }
+    it { should_not be_able_to :destroy, user }
   end
 
   describe 'for admin' do
@@ -45,6 +47,7 @@ RSpec.describe Ability do
     let(:message) { create :message, author: user, abonent: user_other, body: 'Message' }
     let(:message_other) { create :message, author: user_other, abonent: user, body: 'Message' }
     let(:comment) { create :comment, author: user, post: post }
+    let(:feedback) { create :feedback, user: user }
 
     it { should_not be_able_to :manage, :all }
 
@@ -108,6 +111,7 @@ RSpec.describe Ability do
     it { should be_able_to :read, Notification }
     it { should be_able_to :create, Notification }
     it { should be_able_to :update, Notification, notification.id }
+    it { should_not be_able_to :send_all_notification, Notification }
 
     it { should be_able_to :abonents, Message }
     it { should be_able_to :create, Message }
@@ -116,11 +120,20 @@ RSpec.describe Ability do
     it { should_not be_able_to :destroy, message_other }
 
     it { should be_able_to :update_all, Notification }
+    it { should be_able_to :destroy_all, Notification }
 
     it { should be_able_to :create, Comment }
     it { should be_able_to :update, comment }
     it { should be_able_to :destroy, comment }
 
     it { should be_able_to :manage, ActiveStorage::Attachment }
+
+    it { should be_able_to :vote_up, post_other }
+    it { should be_able_to :vote_down, post_other }
+
+    it { should be_able_to :create, Feedback }
+    it { should be_able_to :read, Feedback }
+    it { should be_able_to :update, feedback }
+    it { should be_able_to :destroy, feedback }
   end
 end

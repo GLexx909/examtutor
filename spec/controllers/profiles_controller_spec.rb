@@ -120,4 +120,23 @@ RSpec.describe ProfilesController, type: :controller do
       it_behaves_like 'To redirect to path', let(:path){ root_path }
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:other_user) { create :user }
+    let!(:admin) { create :user, admin: true }
+
+    context 'Admin' do
+      before { login(admin) }
+
+      it_behaves_like 'To delete the object', let(:object) { user }, let(:object_class) { User }
+      it_behaves_like 'To render destroy.js view', let(:resource) { user }
+    end
+
+    context 'Not admin' do
+      before { login(other_user) }
+
+      it_behaves_like 'To not delete the object', let(:object) { user }, let(:object_class) { User }
+      it_behaves_like 'DELETE to render status 403', let(:params) { user }
+    end
+  end
 end

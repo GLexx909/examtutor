@@ -120,7 +120,7 @@ shared_examples_for 'To does not save a new object' do
 end
 
 shared_examples_for 'DELETE to render status 200' do
-  it 'render status 403' do
+  it 'render status 200' do
     delete :destroy, params: params, format: :js
     expect(response).to have_http_status 200
   end

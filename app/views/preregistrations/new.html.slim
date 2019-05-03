@@ -1,0 +1,8 @@
+.email_errors
+
+.preregistration__block
+  .confirmation_mail_text = t('.confirmation_mail_text')
+
+  = form_tag '/preregistrations', remote: true do
+    = text_field_tag 'email', '', class: 'form-control', placeholder: 'Введите почту...'
+    = submit_tag 'Подтвердить почту', class: 'btn btn-success'

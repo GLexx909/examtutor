@@ -1,0 +1,14 @@
+/ = paginate @date, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
+
+ul
+  - @data.each do |resource|
+    ol.d-flex
+      - if path_to_resource(resource)
+        .small_text.text-info.mr_1 = link_to mi.forward.css_class('md-24 blue'), path_to_resource(resource)
+      - else
+        .text-info.mr_1 = resource.class.name
+      .pt-2 = h truncate(text_of_resource(resource), length: 80)
+
+/ = paginate @date, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
+.digg_pagination
+  = will_paginate @data, container: false

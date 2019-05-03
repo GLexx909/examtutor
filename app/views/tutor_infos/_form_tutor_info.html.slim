@@ -1,0 +1,24 @@
+.form_tutor_info
+  = button_tag 'Редактировать описание', class: 'btn btn-secondary btn-sm form_tutor_info__button'
+  .form_tutor_info__fields.hidden
+    = form_with model: @tutor_info, method: :put, url: tutor_info_path(@tutor_info) do |f|
+      .field
+        = f.text_area :description, :class => "tinymce", :rows => 10, :cols => 120
+        = tinymce content_css: asset_path('application.css')
+      .field.initial_profile_photos-field
+        = f.label :initial_profile_photo, 'Фото лица на главной странице'
+        = f.file_field :initial_profile_photo
+      .field.profile_photos-field
+        = f.label :profile_photo, 'Фото лица на этой странице'
+        = f.file_field :profile_photo
+      .field.diploms-field
+        = f.label :diploms, 'Дипломы о высшем образовании'
+        = f.file_field :diploms, multiple: true
+      .field.diploms_perekval-field
+        = f.label :diploms_perekval, 'Дипломы о профессиональной переподготовке'
+        = f.file_field :diploms_perekval, multiple: true
+      .field.diploms_povishkval-field
+        = f.label :diploms_povishkval, 'Документы о повышении квалификации'
+        = f.file_field :diploms_povishkval, multiple: true
+      .submit
+        = f.submit 'Сохранить', class: 'btn btn-success'

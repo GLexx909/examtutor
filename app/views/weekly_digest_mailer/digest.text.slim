@@ -1,0 +1,28 @@
+= "Examtutor.ru"
+= "\r\n" * 2
+= 'Еженедельный отчёт'
+= "\r\n" * 2
+
+= "Общее описание:"
+= "\r\n"
+= @description
+= "\r\n" * 2
+
+= "Количесво вероятных баллов по ЕГЭ"
+= "\r\n"
+= @points
+= "\r\n" * 2
+
+= "Описание по дням:"
+= "\r\n"
+- @attendances.each do |attend|
+  = "\r\n"
+  = "За #{I18n.localize attend.created_at, format: :short}:"
+  = "\r\n"
+  = attend.description
+
+
+= "\r\n" * 10
+= 'Отписаться от рассылки можно на сайте Examtutor.ru на странице с Характеристикой Ученика (т.е. там, где вы оформляли подписку), нажав на Колокольчик и кликнув на надпись Отписаться от рассылки.'
+= "\r\n"
+= "https://examtutor.ru/characteristics/#{@attendances.first.user.id}"

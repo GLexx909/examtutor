@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+  it_behaves_like 'voted', let(:user){ create :user }, let(:user2){ create :user },
+                  let(:votable) { create(:post, author: user) }
+
   let!(:user)  { create :user }
   let!(:user_other)  { create :user }
   let!(:admin)  { create :user, admin: true }

@@ -1,0 +1,14 @@
+.modal.fade aria-hidden="true" aria-labelledby="attendFullModalLabel" role="dialog" tabindex="-1" id="attendFullModal-#{attend.id}"
+  .modal-dialog.modal-dialog-centered role="document"
+    .modal-content
+      .modal-header
+        h5#attendFullModalLabel.modal-title = "Посещение за #{I18n.localize attend.created_at, format: '%-d %B'}"
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        = attend.description
+      - if can?(:update, attend)
+        .modal-footer.d-flex.justify-content-between
+          = link_to 'Редактировать', edit_attendance_path(attend), class:"btn btn-primary"
+          = link_to 'Удалить', attendance_path(attend), method: :delete, remote: true, class:"btn btn-danger"
+

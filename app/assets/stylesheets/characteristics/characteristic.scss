@@ -1,0 +1,74 @@
+.attendance-list {
+  .attend_small {
+    display: inline-block;
+
+    width: 5rem;
+    height: 5rem;
+    padding: 3px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 1px grey;
+
+    font-size: 0.9rem;
+    border-radius: 10px;
+    box-shadow:
+            inset rgba(0,0,0,.5) -3px -3px 8px,
+            inset rgba(255,255,255,.9) 3px 3px 8px,
+            rgba(0,0,0,.8) 3px 3px 8px -3px;
+
+    &:hover {
+      cursor: zoom-in;
+    }
+
+    .attend-date {
+      font-size: 2.2rem;
+      text-align: center;
+    }
+
+    .attend-month {
+      color: black;
+      text-align: center;
+    }
+  }
+}
+
+.characteristic-description {
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+
+  box-shadow: 0 -5px 3px white;
+  border-radius: 0 0 10px 10px;
+
+  padding: 1rem;
+  margin-bottom: 3vh;
+}
+
+.chart-image-full {
+  display: block;
+}
+
+.chart-image-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1100px) {
+  .base-space {
+    background-color: #f3f3f3;
+  }
+
+  .attendance-list {
+    .attend_small {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .chart-image-full {
+    display: none;
+  }
+
+  .chart-image-mobile {
+    display: block;
+  }
+}

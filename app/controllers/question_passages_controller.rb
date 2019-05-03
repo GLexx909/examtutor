@@ -12,6 +12,8 @@ class QuestionPassagesController < ApplicationController
       @question_passage = question.question_passages.create(user: current_user, answer: params[:answer])
 
       result = Services::PointsCounterService.new(@question_passage, current_user).check_answer
+      Services::CharacteristicChangeService.new(current_user, requests, @question_passage.points, profile_path(current_user)).change
+
       render json: { user_answer: @question_passage.answer,
                      real_answer: @question_passage.question.answer.body,
                      id: @question_passage.question.id,
@@ -28,5 +30,9 @@ class QuestionPassagesController < ApplicationController
 
   def all_points
     question.points(current_user) if question.questionable_type == 'Test'
+  end
+
+  def requests
+    request.referrer.split('/')[3]
   end
 end

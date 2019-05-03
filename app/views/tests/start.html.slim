@@ -1,14 +1,17 @@
 h1 = "Тест: #{@test.title}"
 
-.test-points.text-white.bg-dark
-  .current_points
-    h4 = @test.current_points(current_user)
-  p = 'баллов'
+.d-flex.justify-content-between
+  .test-time__block.d-flex.justify-content-center.align-items-center
+    = link_to mi.timer.css_class('md-24 stub white'), '#'
+    .test-time.justify-content-center
+      = @test.test_passage(current_user).left_time
+
+  .test-points.text-white.bg-dark
+    .current_points
+      h4 = @test.current_points(current_user)
+    p = 'баллов'
 
 = render 'questions/questions_list', questions: @test.questions if @test.questions
 
 - unless @test.test_passage(current_user).status?
-  / = button_to 'Отправить репетитору на проверку',
-  /         notifications_path(notification: {additional_data: 'update_test_passage_status', id: @test.test_passage(current_user), abonent: admin, title: "На проверку тест от #{current_user.full_name}", link: test_passage_path(@test.test_passage(current_user))}),
-  /         remote: true, class: 'btn btn-success btn-lg btn-block send-essay__button'
   = button_to 'Отправить репетитору на проверку', update_status_test_passage_path(@test.test_passage(current_user)), method: :patch, remote: true, class: 'btn btn-primary btn-block send-essay__button'

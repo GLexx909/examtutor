@@ -1,10 +1,28 @@
 .profile-avatar {
   img {
-    width: 50%;
+    width: 100%;
     height: auto;
   }
 }
 
+.nav_avatar {
+  width: 30px;
+  height: auto;
+}
+
+.feedback_avatar {
+  width: 4vh;
+  height: auto;
+
+  border-radius: 50%;
+}
+
+.initial_profile_photo {
+  width: 40vh;
+  height: 40vh;
+
+  border-radius: 50%;
+}
 
 @media screen and (max-width: 600px) {
   .profile-avatar {

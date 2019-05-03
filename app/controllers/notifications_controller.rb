@@ -24,6 +24,15 @@ class NotificationsController < ApplicationController
     head :ok
   end
 
+  def destroy_all
+    Notification.where(abonent: current_user).delete_all
+  end
+
+  def send_for_all
+    # NotificationsForAllJob.perform_later(params[:title][0], notifications_path, 'User.all', current_user, 'Notification to all')
+    Services::SendNotificationService.new(params[:title][0], notifications_path, User.all, current_user, type: 'Notification to all').send
+  end
+
   private
 
   def send_notification(notification)

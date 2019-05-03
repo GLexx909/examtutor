@@ -15,6 +15,7 @@ class Ability
 
   def guest_abilities
     can :guests_index, Post
+    can :read, [Characteristic, Post, TutorInfo]
   end
 
   def admin_abilities
@@ -23,23 +24,35 @@ class Ability
 
   def user_abilities
     guest_abilities
-    can :read, [Post, User, Course, Modul, Topic, Essay, Question, Notification, EssayPassage, TestPassage, Message]
+    can :read, [Post, User, Course, Modul, Topic, Essay, Question, Notification, EssayPassage, TestPassage, Message, Feedback]
     can :tutor_index, Post
     can :own_index, Post
-    can :create, [Post, TestPassage, QuestionPassage, Notification, EssayPassage, Message, Comment]
+    can :create, [Post, TestPassage, QuestionPassage, Notification, EssayPassage, Message, Comment, Feedback]
     can :update, [Post, EssayPassage, TestPassage, Comment], author_id: user.id
-    can :update, [EssayPassage, TopicPassage], user_id: user.id
+    can :update, [EssayPassage, TopicPassage, Feedback], user_id: user.id
     can :update, [Notification], abonent_id: user.id
     can :destroy, [Post, Message, Comment], author_id: user.id
+    can :destroy, [Feedback], user_id: user.id
 
     can :update, [User], id: user.id
     can :update_status, [TestPassage], id: user.id
     can :start, Test
     can :abonents, Message
     can :update_all, Notification
+    can :destroy_all, Notification
 
     can :manage, ActiveStorage::Attachment do |attachment|
       user.author_of?(attachment.record)
     end
+
+    can :vote_up, [Post, Comment] do |votable|
+      !user.author_of?(votable)
+    end
+
+    can :vote_down, [Post, Comment] do|votable|
+      !user.author_of?(votable)
+    end
+
+    can :index, Services::SearchSphinxService
   end
 end

@@ -1,0 +1,44 @@
+.bg-dark.p-1.br-10.d-flex.justify-content-between
+  h1.text-white = @user.full_name
+  div
+    h6.mr_1.blue = 'Идентификатор:'
+    h5.white = @user.identify_name
+
+.characteristic-description
+  h6.text-secondary = 'Общая характеристика:'
+  p = @user&.characteristic&.description
+
+- if can?(:manage, :all)
+  = link_to 'Редактировать общую характеристику', edit_characteristic_path(@user), remote: true, class: 'btn btn-primary'
+  .characteristic-description__edit-form
+
+.d-flex.mt-3.mb-3
+  .weekly-digest-mobile__block.row.align-items-center
+    .col = button_to 'Подписаться на рассылку', '#', data: {toggle: 'modal', target: '#weeklyDigestModal'}, class: 'btn btn-outline-info stub'
+  .message-to-tutor-mobile__block.row.align-items-center
+    .col = button_to 'Написать репетитору', '#', data: {toggle: 'modal', target: '#messageToTutorModal'}, class: 'btn btn-outline-info stub'
+
+.chart-image-full = image_tag @chart
+.chart-image-mobile = link_to 'График успеваемости', (image_path @chart), class: 'btn btn-info'
+
+- if can?(:manage, :all)
+  .progresses-list.mr_1_for_child.mb-5vh
+    h5 = 'Ссылки на редактирование любой успеваемости:'
+    - @user.progresses.each do |progress|
+      = link_to '', edit_progress_path(progress), class: 'progress-square', title: "#{progress.date}"
+
+.attendance-list.mr_1_for_child
+  h3.text-secondary = 'Даты посещения:'
+  - @user.attendances.order(created_at: :desc).each do |attend|
+    = link_to  '#', class:"attend_small mb_1 attend-#{attend.id}", style:"background: #{attend.color}",
+                                                                   data: { id: attend.id, toggle: 'modal', target: "#attendFullModal-#{attend.id}" } do
+      .attend-date = "#{I18n.localize attend.created_at, format: '%-d'}"
+      .attend-month = "#{I18n.localize attend.created_at, format: '%B'}"
+    end
+
+    = render 'modal_attend', attend: attend
+
+= render 'weekly_digest'
+= render 'modal_weekly_digest'
+= render 'message_to_tutor'
+= render 'modal_message_to_tutor'

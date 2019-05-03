@@ -5,6 +5,7 @@ feature 'User can send test_passage to tutor', %q{
 
   given!(:admin) {create(:user, admin: true) }
   given!(:user) {create(:user) }
+  given!(:characteristic)  { create :characteristic, user: user, points: 50 }
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
   given!(:modul_passage) { create :modul_passage, modul: modul, user: user, status: true }

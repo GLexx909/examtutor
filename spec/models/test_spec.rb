@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Test, type: :model do
   it { should validate_presence_of :title }
+  it { should validate_presence_of :timer }
 
   it { should have_many(:users).through(:test_passages) }
   it { should have_many(:test_passages).dependent(:destroy) }
@@ -15,8 +16,16 @@ RSpec.describe Test, type: :model do
   let!(:test) { create :test, modul: modul }
   let!(:test_passage) { create :test_passage, test: test, user: user, points: 3 }
   let!(:question) { create :question, questionable: test }
+  let!(:question2) { create :question, questionable: test }
   let!(:question_passage) { create :question_passage, question: question, user: user, points: 3 }
-  let!(:answer) { create :answer, question: question, body: '123' }
+  let!(:answer) { create :answer, question: question, body: '123', points: 3 }
+  let!(:answer2) { create :answer, question: question2, body: '123', points: 3 }
+
+  describe 'test#all_points' do
+    it 'return all points' do
+      expect(test.all_points).to eq 6
+    end
+  end
 
   describe 'test#current_points(current_user)' do
     it 'return points' do

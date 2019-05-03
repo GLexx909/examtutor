@@ -1,0 +1,11 @@
+= form_with model: feedback, class: "hidden feedback__form-edit-#{feedback.id}", remote: true, method: :put do |f|
+  .form-group
+    = f.text_area :body, class: 'form-control'
+  - if can?(:manage, :all)
+    .custom-control.custom-switch
+      = f.check_box :moderation, class: 'custom-control-input', id: "moderation-#{feedback.id}"
+      = f.label :moderation, 'Модерация. Означает, что проверен репетитором и одобрен к показу.', class: "custom-control-label", for: "moderation-#{feedback.id}"
+    .custom-control.custom-switch
+      = f.check_box :approved, class: 'custom-control-input', id: "approved-#{feedback.id}"
+      = f.label :approved, 'Полное одобрение. Означает, что одобрен к показу в слайдере.', class: "custom-control-label", for: "approved-#{feedback.id}"
+  .submit = f.submit 'Создать', class: 'btn btn-success'

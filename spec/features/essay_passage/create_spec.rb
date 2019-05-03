@@ -5,6 +5,7 @@ feature 'User can create essay', %q{
 
   given!(:admin) {create(:user, admin: true) }
   given!(:user) {create(:user) }
+  given!(:characteristic)  { create :characteristic, user: user }
   given!(:course) {create(:course) }
   given!(:modul) {create(:modul, course: course) }
   given!(:essay) {create(:essay, modul: modul) }

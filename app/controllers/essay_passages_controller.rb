@@ -24,6 +24,7 @@ class EssayPassagesController < ApplicationController
   def update_status
     essay_passage.update(status: true)
     Services::SendNotificationService.new('Ваше эссе проверено', essay_path(essay_passage.essay), essay_passage.user, current_user).send
+    Services::CharacteristicChangeService.new(essay_passage.user, requests, params[:essay_passage][:points], profile_path(essay_passage.user)).change
     head :ok
   end
 
@@ -35,6 +36,10 @@ class EssayPassagesController < ApplicationController
 
   def essay
     @essay ||= Essay.find(params[:essay_id])
+  end
+
+  def requests
+    request.referrer.split('/')[3]
   end
 
   def essay_passage_params

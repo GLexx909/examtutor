@@ -1,0 +1,12 @@
+.display-flex class="feedback-single-#{feedback.id}"
+  .avatar
+    = image_tag feedback.user.nav_avatar
+  .feedback-single__content.col-10
+    .display-flex.mb-3.mr_1_for_child
+      b = feedback.user.full_name
+      p.small_text = I18n.localize feedback.created_at, format: :dBY
+      p.small_text = link_to 'Редактировать', edit_feedback_path(feedback), method: :get, remote: true if can?(:update, feedback)
+      p.small_text = link_to 'Удалить', feedback_path(feedback), method: :delete, remote: true if can?(:destroy, feedback)
+    p.feedback-body = feedback.body
+
+= render 'form_edit', feedback: feedback

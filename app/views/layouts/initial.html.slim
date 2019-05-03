@@ -2,13 +2,14 @@ doctype html
 html
   head
     title
-      | Examtutor
+      = "Репетитор по ЕГЭ в Таганроге по Истории, Обществознанию, Русскому языку, Английскому языку Examtutor.ru"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag 'favicon.ico'
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" /
   body
     .base-space
       .flash-block.initial-page__flash-block

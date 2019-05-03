@@ -1,0 +1,8 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @progress %>');
+
+<% if @progress === nil %>
+$('.flash-block').html("<div class='alert alert-danger'><button class='close clear' data-dismiss='alert'>×</button>Уже была создана!</div>")
+<% elsif !@progress.errors.present?%>
+$('.progress-form_new').html('<%= j render 'progresses/form_new'  %>')
+$('.flash-block').html("<div class='alert alert-success'><button class='close clear' data-dismiss='alert'>×</button><a href='/characteristics/<%=@progress.user.id%>'>Успеваемость</a> успешно добавлена!</div>")
+<% end %>

@@ -18,7 +18,7 @@ feature 'User can delete his comment', %q{
     scenario 'can delete the comment', js: true do
       within '.comments-list' do
         click_on 'Удалить'
-        expect(page).to have_content 'CommentBody'
+        expect(page).to_not have_content 'CommentBody'
       end
     end
   end

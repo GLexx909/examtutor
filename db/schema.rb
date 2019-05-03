@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_081005) do
+ActiveRecord::Schema.define(version: 2019_04_28_084525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,35 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "attendances", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "description"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_attendances_on_user_id"
+  end
+
+  create_table "authorizations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_authorizations_on_provider_and_uid"
+    t.index ["user_id"], name: "index_authorizations_on_user_id"
+  end
+
+  create_table "characteristics", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "points", default: 0
+    t.text "description"
+    t.string "rank", default: "рядовой"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_characteristics_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -90,10 +119,20 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
     t.index ["modul_id"], name: "index_essays_on_modul_id"
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "body", null: false
+    t.boolean "moderation", default: false
+    t.boolean "approved", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "author_id"
     t.bigint "abonent_id"
-    t.string "body"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["abonent_id"], name: "index_messages_on_abonent_id"
@@ -148,6 +187,15 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
+  create_table "progresses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "date", null: false
+    t.integer "points", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_progresses_on_user_id"
+  end
+
   create_table "question_passages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "question_id"
@@ -162,7 +210,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
   create_table "questions", force: :cascade do |t|
     t.string "questionable_type"
     t.bigint "questionable_id"
-    t.string "title", null: false
+    t.text "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["questionable_type", "questionable_id"], name: "index_questions_on_questionable_type_and_questionable_id"
@@ -172,6 +220,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
     t.bigint "user_id"
     t.bigint "test_id"
     t.integer "points", default: 0
+    t.integer "left_time"
     t.boolean "status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -181,6 +230,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
+    t.integer "timer", null: false
     t.bigint "modul_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -207,6 +257,12 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
     t.index ["modul_id"], name: "index_topics_on_modul_id"
   end
 
+  create_table "tutor_infos", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -222,16 +278,40 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.boolean "admin", default: false
+    t.string "oauth_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "value"
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_votes_on_user_id"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+  end
+
+  create_table "weekly_digests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "email", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_weekly_digests_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
+  add_foreign_key "attendances", "users"
+  add_foreign_key "authorizations", "users"
+  add_foreign_key "characteristics", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "essay_passages", "essays"
   add_foreign_key "essay_passages", "users"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "messages", "users", column: "abonent_id"
   add_foreign_key "messages", "users", column: "author_id"
   add_foreign_key "modul_passages", "moduls"
@@ -239,6 +319,7 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
   add_foreign_key "notifications", "users", column: "abonent_id"
   add_foreign_key "notifications", "users", column: "author_id"
   add_foreign_key "posts", "users", column: "author_id"
+  add_foreign_key "progresses", "users"
   add_foreign_key "question_passages", "questions"
   add_foreign_key "question_passages", "users"
   add_foreign_key "test_passages", "tests"
@@ -247,4 +328,6 @@ ActiveRecord::Schema.define(version: 2019_04_11_081005) do
   add_foreign_key "topic_passages", "topics"
   add_foreign_key "topic_passages", "users"
   add_foreign_key "topics", "moduls"
+  add_foreign_key "votes", "users"
+  add_foreign_key "weekly_digests", "users"
 end

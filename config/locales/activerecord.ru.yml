@@ -13,6 +13,10 @@ ru:
       essay_passage: 'Эссе'
       message: 'Сообщение'
       comment: 'Комментарий'
+      attendance: 'Посещение'
+      progress: 'Успеваемость'
+      feedback: 'Отзыв'
+      weekly_digest: 'Подписка'
     attributes:
       user:
         first_name: 'Имя'
@@ -45,6 +49,16 @@ ru:
         body: 'Сообщение'
       comment:
         body: 'Комментарий'
+      attendance:
+        user: 'Ученик'
+        description: 'Описание'
+      progress:
+        points: 'Очки'
+        user: 'Ученик'
+      feedback:
+        body: 'Отзыв'
+      weekly_digest:
+        user: 'Пользователь'
     errors:
       messages:
         blank: 'не может быть пустым'

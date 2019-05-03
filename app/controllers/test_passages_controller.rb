@@ -10,9 +10,11 @@ class TestPassagesController < ApplicationController
 
   def update_status
     test_passage.update(status: true)
+    timer_check
     Services::SendNotificationService.new("На проверку тест от #{current_user.full_name}", test_passage_path(test_passage), admin, current_user).send
-    head :ok
+    Services::CharacteristicChangeService.new(current_user, requests, test_passage.points, profile_path(current_user), test: test_passage.test).change
     create_next_modul_passage
+    head :ok
   end
 
   private
@@ -27,6 +29,14 @@ class TestPassagesController < ApplicationController
 
   def modul
     test_passage.test.modul
+  end
+
+  def requests
+    request.referrer.split('/')[3]
+  end
+
+  def timer_check
+    test_passage.update(points: 0) if (test.timer*60 - ((test_passage.updated_at - test_passage.created_at)/60).round) <= 5
   end
 
   def create_next_modul_passage

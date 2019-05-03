@@ -18,6 +18,7 @@ feature 'Admin only can create test', %q{
       click_on 'Создать новый тест'
 
       fill_in 'test[title]', with: 'EssayTitle'
+      fill_in 'test[timer]', with: '1'
       click_on 'Создать тест'
 
       within '.table-tests' do

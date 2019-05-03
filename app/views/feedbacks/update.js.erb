@@ -1,0 +1,7 @@
+$('.flash-block').html('<%= render 'shared/errors', resource: @feedback %>');
+
+<% if !@feedback.errors.present? %>
+$('.feedback-single-' + <%= @feedback.id %>).show(500);
+$('.feedback__form-edit-' + <%= @feedback.id %>).hide(500);
+$('.feedback-single-' + <%= @feedback.id %>).html('<%= j render 'feedback', feedback: @feedback %>')
+<% end %>

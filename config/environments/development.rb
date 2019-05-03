@@ -22,7 +22,8 @@ Rails.application.configure do
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
-    config.action_controller.perform_caching = false
+    config.action_controller.perform_caching = true
+    config.action_controller.enable_fragment_cache_logging = true # For Rails 5.1+
 
     config.cache_store = :null_store
   end
@@ -35,7 +36,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.perform_caching = false
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

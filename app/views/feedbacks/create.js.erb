@@ -1,0 +1,11 @@
+<% if @feedback.present? %>
+  $('.flash-block').html('<%= render 'shared/errors', resource: @feedback %>');
+  <% if !@feedback.errors.present? %>
+    $('.feedback__form-new textarea').val('')
+    $('.feedback__form-new').slideUp(800)
+    $('.feedbacks-list').prepend('<%= j render 'feedback', feedback: @feedback %>')
+    $('.feedback__show-form__button').hide()
+  <% end %>
+<% else %>
+  $('.flash-block').html("<div class='alert alert-danger'><button class='close clear' data-dismiss='alert'>×</button>Отзыв уже был создан!</div>")
+<% end %>

@@ -10,6 +10,9 @@ users = User.create!([
    {first_name: "Admin", last_name: 'Admin', email: "admin@mail.ru", password: '123456', admin: true},
    {first_name: "John", last_name: 'Doe', email: "john@mail.ru", password: '123456'},
    {first_name: "Jane", last_name: 'Doe', email: "jane@mail.ru", password: '123456'},
+   {first_name: "Jane1", last_name: 'Doe', email: "jane1@mail.ru", password: '123456'},
+   {first_name: "Jane2", last_name: 'Doe', email: "jane2@mail.ru", password: '123456'},
+   {first_name: "Jane3", last_name: 'Doe', email: "jane3@mail.ru", password: '123456'},
 ])
 
 30.times do
@@ -59,10 +62,10 @@ Essay.create!([
 ])
 
 tests = Test.create!([
-   {title: 'Тест Древнее время', modul: moduls[0]},
-   {title: 'Тест Новое время', modul: moduls[1]},
-   {title: 'Тест Общество и мы', modul: moduls[2]},
-   {title: 'Тест Социальные группы', modul: moduls[3]},
+   {title: 'Тест Древнее время', modul: moduls[0], timer: 3},
+   {title: 'Тест Новое время', modul: moduls[1], timer: 3},
+   {title: 'Тест Общество и мы', modul: moduls[2], timer: 3},
+   {title: 'Тест Социальные группы', modul: moduls[3], timer: 3},
 ])
 
 questions = Question.create!([

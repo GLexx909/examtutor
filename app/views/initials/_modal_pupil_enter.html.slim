@@ -8,6 +8,12 @@
       .modal-body
         h2
           = t('.log_in')
+          - if cookies[:pre_email]
+            .display-flex.mr_1_for_child
+              = link_to image_tag('vk.png'), new_user_session_path
+              = link_to image_tag('fb.png'), new_user_session_path
+              = link_to image_tag('github.png'), new_user_session_path
+
         = form_for(@user, as: @user, url: session_path(@user)) do |f|
           .form-group
             .field
@@ -20,8 +26,10 @@
               br
               = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Enter password'
           .actions
-            = f.submit t('.log_in'), class: 'btn btn-primary'
+            = f.submit t('.log_in'), class: 'btn btn-primary pupil-submit'
         / = render "devise/shared/links"
+        = link_to "Забыли пароль?", new_password_path('user'), class: 'badge badge-light mb-1'
+        = link_to "Не пришли инструкции по подтверждению?", new_confirmation_path('user'), class: 'badge badge-light mb-1'
 
       .modal-footer
         .modal-footer__registration-button__block

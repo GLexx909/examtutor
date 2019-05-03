@@ -1,0 +1,38 @@
+.weekly-digest__block {
+  position: fixed;
+  bottom: 15vh;
+  right: 3vw;
+
+  width: 4vw;
+  height: 4vw;
+
+  background-color: #6dc0c8;
+  border-radius: 50%;
+  box-shadow:
+          inset rgba(0,0,0,.5) -3px -3px 8px,
+          inset rgba(255,255,255,.9) 3px 3px 8px,
+          rgba(0,0,0,.8) 3px 3px 8px -3px;
+
+  text-align: center;
+
+  &:hover {
+    box-shadow:
+            inset rgba(0,0,0,.5) -3px -3px 8px,
+            inset rgba(25,255,255,.9) 3px 3px 8px,
+            rgba(0,0,0,.8) 3px 3px 8px -3px;
+  }
+}
+
+.form_subscribe-weekly-digest {
+  text-align: right;
+}
+
+.weekly-digest-mobile__block {
+  display: none !important;
+}
+
+@media screen and (max-width: 1100px) {
+  .weekly-digest__block {
+    display: none !important;
+  }
+}

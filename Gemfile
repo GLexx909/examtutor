@@ -26,6 +26,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+#
+# omniauth
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
@@ -34,6 +40,13 @@ gem "aws-sdk-s3", require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'redis-rails'
+
+#background processing
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'whenever', require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'
@@ -41,11 +54,16 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jquery-ui-rails' # for sortable models
 
+gem 'mysql2' #for sphinx search
+gem 'thinking-sphinx' # search
 
 #Style
 gem 'bootstrap', ">= 4.3.1"
 gem 'material_icons'
 gem 'acts_as_list' # to sort model position
+gem 'googlecharts', '~> 1.6', '>= 1.6.12'
+gem 'ransack' # to sort by attributes
+gem 'lightbox2-rails' # js to watch photo
 
 #Authorization
 gem 'cancancan'
@@ -56,6 +74,7 @@ gem 'rails-i18n'
 gem 'tinymce-rails' #redactor
 gem 'cocoon' #nested form
 gem 'kaminari' #pagination
+gem 'will_paginate', '~> 3.1.0' #pagination for thinking sphinx
 gem 'bootstrap4-kaminari-views'
 gem "breadcrumbs_on_rails"
 

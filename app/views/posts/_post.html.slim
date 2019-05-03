@@ -1,11 +1,14 @@
-.post-card.card.shadow.border-0 class="post-#{post.id}"
-  = button_to post.title, post_path(post), class: "card-header btn card-header-#{post.id}", method: :get,  data: {id: post.id}
-  .card-body
-    .card-text class="card-text-#{post.id}"
-      = post.body.html_safe
-  .card-footer.p-0
-    .container-fluid
-      .row
-        .col-auto.mr-auto
-          = post.author.full_name
-        .col-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post', remote: true if current_user&.author_or_admin_of?(post)
+- cache post do
+  .post-card.card.shadow.border-0 class="post-#{post.id}"
+    = button_to post.title, post_path(post), class: "card-header btn card-header-#{post.id}", method: :get,  data: {id: post.id}
+    .card-body
+      .card-text class="card-text-#{post.id}"
+        = post.body.html_safe
+    .card-footer.p-0
+      .container-fluid
+        .row
+          .col-auto.mr-auto
+            = post.author.full_name
+          .col-auto.mr-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post', remote: true if current_user&.author_or_admin_of?(post)
+          .col-auto
+            = I18n.localize post.created_at, format: :short

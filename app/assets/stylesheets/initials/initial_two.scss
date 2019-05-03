@@ -1,0 +1,88 @@
+.initial__two {
+  grid-area: initial__two;
+
+  display: grid;
+  grid-template-areas:  'history-block'
+                        'social-block'
+                        'russian-block'
+                        'english-block';
+  grid-template-columns: 1fr;
+  grid-template-rows: auto
+                      auto
+                      auto
+                      auto;
+
+margin-bottom:  20vh;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  background-color: white;
+}
+
+.history-block {
+  grid-area: history-block;
+
+}
+
+.social-block{
+  grid-area: social-block;
+}
+
+.russian-block {
+  grid-area: russian-block;
+}
+
+.english-block {
+  grid-area: english-block;
+}
+
+.subject{
+  width: 40vw;
+  height: 20vh;
+
+
+  .title {
+    font-size: 2rem;
+    background-color: #00b7ea;
+    color: white;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .initial__two {
+    grid-area: initial__two;
+
+    display: grid;
+    grid-template-areas:  'history-block'
+                          'social-block'
+                          'russian-block'
+                          'english-block';
+    grid-template-columns: 1fr;
+    grid-template-rows: auto
+                        auto
+                        auto
+                        auto;
+  }
+
+  .subject{
+    width: 100vw;
+    height: auto;
+
+
+    .title {
+      font-size: 4vh;
+
+      background-color: #00b7ea;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .text {
+      padding: 0 !important;
+      font-size: 2vh;
+      line-height: 1 !important;
+    }
+  }
+}

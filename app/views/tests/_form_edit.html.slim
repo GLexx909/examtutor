@@ -1,7 +1,9 @@
 .test__form-edit
   .test__form-edit__fields
-    = form_with model: test, method: :patch, url: test_path(test) do |f|
-      .field
-        = f.text_field :title, class:'form-control'
-      .submit
+    = form_with model: test, method: :patch, url: test_path(test), class: 'form-inline' do |f|
+      .form-group.mb-2
+        = f.number_field :timer, class: 'form-control', placeholder: 'Назначте таймер в минутах'
+      .form-group.mb-2
+        = f.text_field :title, class: 'form-control'
+      .mb-2
         = f.submit 'Сохранить изменения', class: 'btn btn-success'

@@ -1,24 +1,50 @@
-h1 = @user.full_name
+.row.mb-5vh
+  .col-12.d-flex.mr_1_for_child
+    .profile-avatar.col-2
+      = image_tag @user.profile_avatar
+    .bg-dark.br-10.col-10
+      .row.d-flex.justify-content-between.pl-2
+        h1.white.p-1.mr_1 = @user.full_name
+
+        - @user.courses.each do |course|
+          .white.mr_1 = course.title
+        - if can?(:update, @user)
+          div
+            h6.mr_1.blue = 'Идентификатор:'
+            h5.white = @user.identify_name
+      .row.pl-2
+        .profile-points
+          .text-muted.text-shadow-black-for-child.d-flex
+            h1.align-self-end.mb-0.mr-1 = @user&.characteristic&.points
+            span.align-self-end = 'баллов' if @user&.characteristic&.points
+          .text-muted.text-shadow-black-for-child
+            b = @user&.characteristic&.rank
+
+
 p = link_to 'Редактировать профиль', edit_profile_path(@user), class: 'badge badge-dark' if can?(:update, @user)
+
 = button_to 'Написать сообщение', '#', remote: true, class: "btn btn-outline-dark btn-sm stub", data: {toggle: 'modal', target: '#newMessageModal'}
 .new-message__modal-form
   = render 'messages/modal_new_message_form'
 
-= paginate @user_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
-.card-deck
-  - @user_posts.each do |post|
-    .post-card.card.shadow.border-0 class="post-#{post.id}"
-      = button_to post.title, post_path(post), class: "card-header btn card-header-#{post.id}", method: :get, data: {id: post.id}
-      .card-body
-        .card-text class="card-text-#{post.id}"
-          = post.body.html_safe
-      .card-footer.p-0
-        .container-fluid
-          .row
-            .col-auto.mr-auto
-              = post.author.first_name
-              = ' '
-              = post.author.last_name
-            .col-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post', remote: true if current_user.author_or_admin_of?(post)
 
-= paginate @user_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
+.row
+  .col-12
+    = paginate @user_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"
+    .card-deck
+      - @user_posts.each do |post|
+        .post-card.card.shadow.border-0 class="post-#{post.id}"
+          = button_to post.title, post_path(post), class: "card-header btn card-header-#{post.id}", method: :get, data: {id: post.id}
+          .card-body
+            .card-text class="card-text-#{post.id}"
+              = post.body.html_safe
+          .card-footer.p-0
+            .container-fluid
+              .row
+                .col-auto.mr-auto
+                  = post.author.first_name
+                  = ' '
+                  = post.author.last_name
+                .col-auto = link_to 'Удалить пост', post_path(post), method: :delete, class: 'link-delete-post', remote: true if current_user.author_or_admin_of?(post)
+
+    = paginate @user_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm justify-content-end"

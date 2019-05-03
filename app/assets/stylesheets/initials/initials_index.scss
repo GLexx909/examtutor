@@ -1,3 +1,7 @@
+//html, body {
+//  background-color: #f3f3f3 !important;
+//}
+
 .initial-page__flash-block {
   position: absolute;
   z-index: 1;
@@ -10,140 +14,14 @@
                        'initial__two'
                        'initial__three';
   grid-template-columns: 1fr;
-  grid-template-rows: 100vh
-                      100vh
-                      100vh;
+  grid-template-rows: auto
+                      auto
+                      auto;
+
+  background-color: white;
 }
 
-// Initial block one {
-
-.initial__one {
-  grid-area: initial__one;
-
-  position: relative;
-
-  display: grid;
-
-  grid-template-areas:  'initial_slider'
-                        'initial__one__title';
-  grid-template-columns: 1fr;
-  grid-template-rows: 60vh
-                      30vh;
-
-  font-size: 3vmin;
-  font-family: sen-serif;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
-
-  color: white;
-
-  background: #00b7ea;
-
-  .initial__list-button {
-    position: absolute;
-
-  }
-
-  .initial_slider {
-    grid-area: initial_slider;
-
-    width: 800px;
-
-    justify-self: center;
-    align-self: end;
-  }
-
-  .initial__one__title {
-    grid-area: initial__one__title;
-    justify-self: center;
-  }
-}
-
-.keyboard_arrow_down {
-  position: absolute;
-  bottom: 5vw;
-  margin: 0 auto;
-
-  .keyboard{
-    color: red;
-  }
-}
-// }
-
-// Initial registration block {
-
-.initial__registration-block {
-  display: grid;
-  grid-template-areas: 'button-pupil button-parent';
-  grid-area: initial__registration-block;
-
-  position: absolute;
-  top: 1vw;
-  right: 1vw;
-
-  //color: white;
-  font-family: sen-serif;
-}
-
-.initial__registration-block__button-pupil {
-  display: flex;
-
-  grid-area: button-pupil;
-  //margin-right: 1vw;
-}
-
-.image-pupil img{
-  max-width: 40px;
-}
-
-.initial__registration-block__button-parent {
-  display: flex;
-  grid-area: button-parent;
-}
-
-.image-parent img{
-  max-width: 40px;
-}
-
-.modal-footer{
-  display: block !important;
-
-  .modal-footer__password-form{
-    display: flex;
-    justify-content: center;
-  }
-
-  .modal-footer__registration-button__block{
-    text-align: center;
-    margin-bottom: 1vw;
-  }
-}
-// }
-
-.initial__two {
-  grid-area: initial__two;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
-}
-
-.initial__three {
-  grid-area: initial__three;
-
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
-
-  background: #999999;
-
-}
-
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1100px) {
   .initial {
     grid-template-areas:  'initial__one'
                           'initial__registration-block'
@@ -151,45 +29,13 @@
                           'initial__three';
 
     grid-template-columns: 1fr;
-    grid-template-rows: 100vh
+    grid-template-rows: auto
                         auto
-                        100vh
-                        100vh;
+                        auto
+                        auto;
   }
 
   .initial-page__flash-block {
     left: auto;
   }
-
-  .initial_slider {
-    img {
-      width: 100%;
-      height: auto;
-    }
-
-    width: 100% !important;
-  }
-
-  .initial__one__title {
-    text-align: center;
-  }
-
-  .initial__registration-block {
-    position: relative;
-    font-size: 6vmin;
-
-    align-items: start;
-
-    .initial__registration-block__button-pupil {
-      display: block;
-      text-align: center;
-    }
-
-    .initial__registration-block__button-parent {
-      display: block;
-      text-align: center;
-    }
-  }
-
-
 }

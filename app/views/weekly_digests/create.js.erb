@@ -1,0 +1,6 @@
+$('.errors-weekly-digest').html('<%= render 'shared/errors', resource: @weekly_digest %>');
+
+<% if !@weekly_digest.errors.present? %>
+  $('.flash-block').html("<div class='alert alert-success'><button class='close clear' data-dismiss='alert'>×</button>Подписка успешно оформлена!</div>")
+  $('#weeklyDigestModal').modal('hide')
+<% end %>

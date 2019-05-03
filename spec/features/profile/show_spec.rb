@@ -7,7 +7,9 @@ feature 'User can see profile of user', %q{
 } do
 
   given(:user) { create(:user) }
+  given!(:characteristic)  { create :characteristic, user: user, points: 50 }
   given(:user_other) { create(:user) }
+  given!(:characteristic)  { create :characteristic, user: user_other, points: 50 }
   given(:admin) { create(:user, admin: true, first_name: 'Admin', last_name: 'Admin') }
 
   scenario 'User can see other user profile' do

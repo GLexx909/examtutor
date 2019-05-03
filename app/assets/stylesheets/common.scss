@@ -146,8 +146,25 @@ body {
   color: #00b7ea
 }
 
+.material-icons.grey {
+  color: #BBBBBB;
+}
+
 .w-90 {
   width: 90% !important;
+}
+
+.white-for-child {
+   * {
+     color: white;
+   }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      color: #00b7ea;
+    }
+  }
 }
 
 .mr_1_for_child * {
@@ -167,14 +184,27 @@ body {
   color: white;
 }
 
+.blue {
+  color: #00b7ea;
+}
+
 .handle {
   cursor: pointer;
+}
+
+.br-10 {
+  border-radius: 10px;
 }
 
 .text-1rem {
   a {
     font-size: 1rem !important;
   }
+}
+
+
+.font-oswald {
+  font-family: 'Oswald', sans-serif !important;
 }
 
 @media screen and (max-width: 600px) {

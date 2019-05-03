@@ -44,7 +44,7 @@ feature "User can edit own profile", %q{
     end
   end
 
-  scenario 'create a message with attached file', js: true do
+  scenario 'edit a profile with attached file', js: true do
     sign_in(user)
     visit edit_profile_path(user)
 

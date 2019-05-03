@@ -1,0 +1,3 @@
+$('.flash-block').html("<div class='alert alert-success'><button class='close clear' data-dismiss='alert'>×</button> Посещение успешно удалено!</div>")
+$('#attendFullModal-' + <%= @attendance.id %>).modal('hide')
+$('.attend-' + <%= @attendance.id %>).slideUp(1500)
