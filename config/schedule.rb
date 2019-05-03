@@ -20,7 +20,7 @@ every 1.week do
   runner "WeeklyDigestJob.perform_now"
 end
 
-every 60.minutes do
+every 1.day do
   rake "ts:index"
 end
 # Learn more: http://github.com/javan/whenever

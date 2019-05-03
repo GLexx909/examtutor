@@ -31,15 +31,21 @@
 
   .card-header {
     width: 100%;
-    background-color: #00b7ea !important;
+    background-color: #343a40 !important;
+    color: white;
+
+    &:hover {
+      color: #00b7ea;
+    }
   }
 
   .card-body {
     height: 170px;
     font-family: Proxima Nova Regular, "helvetica neue", arial, helvetica, sans-serif !important;
     font-size: 0.9rem;
-    background-color: black;
-    color: white;
+    background-color: white;
+    border-left: 3px solid #00b7ea;
+    //color: white;
   }
 
   .card-footer {
