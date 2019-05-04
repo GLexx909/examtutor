@@ -71,7 +71,7 @@ Rails.application.configure do
       address:              'smtp.yandex.ru',
       port:                 465,
       domain:               "examtutor.ru",
-      login:             Rails.application.credentials[:production][:yandex_mail][:login],
+      user_name:             Rails.application.credentials[:production][:yandex_mail][:user_name],
       password:             Rails.application.credentials[:production][:yandex_mail][:password],
       # authentication:       'plain',
       # ssl: true,
