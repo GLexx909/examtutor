@@ -39,6 +39,7 @@ gem "aws-sdk-s3", require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'unicorn'
 
 gem 'redis-rails'
 
@@ -98,7 +99,14 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  end
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano3-unicorn', require: false
+  gem 'capistrano-sidekiq', require: false
+
+end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

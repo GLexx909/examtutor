@@ -1,0 +1,29 @@
+.requirements_block
+  .requirements_title.font-oswald
+    = 'Возможности платформы Examtutor'
+
+  ul.nav.nav-tabs role="tablist"
+    li.nav-item
+      a.nav-link.active href="#pupil" data-toggle="tab" Для учеников
+    li.nav-item
+      a.nav-link href="#parent" data-toggle="tab" Для родителей
+
+  .tab-content.mt-5
+    #pupil.tab-pane.active role="tabpanel"
+      .requirements_list.container
+        - (1..6).each do |number|
+          .row.mb-1
+            .col.align-self-start
+              = link_to mi.check_box.css_class('md-24 stub blue'), '#'
+              span = t(".#{number}")
+
+    #parent.tab-pane role="tabpanel"
+      .requirements_list.container
+        - (51..55).each do |number|
+          .row.mb-1
+            .col.align-self-start
+              = link_to mi.check_box.css_class('md-24 stub blue'), '#'
+              span = t(".#{number}")
+
+
+

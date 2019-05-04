@@ -6,6 +6,9 @@ class TutorInfosController < ApplicationController
     tutor_info
   end
 
+  def site_features
+  end
+
   def update
     if can?(:manage, :all)
       delete_photos_if_need
