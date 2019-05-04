@@ -1,6 +1,6 @@
 .form-block_center
   h2
-    | Sign up
+    | Регистрация
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
     .form-group
@@ -21,11 +21,11 @@
     .form-group
       .field
         = f.label :password
-        - if @minimum_password_length
-          em
-            | (
-            = @minimum_password_length
-            |  characters minimum)
+        / - if @minimum_password_length
+        /   em
+        /     | (
+        /     = @minimum_password_length
+        /     |  characters minimum)
         br
         = f.password_field :password, autocomplete: "new-password", class: 'form-control'
     .form-group
