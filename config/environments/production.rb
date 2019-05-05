@@ -73,9 +73,9 @@ Rails.application.configure do
       domain:               "examtutor.ru",
       user_name:             Rails.application.credentials[:production][:yandex_mail][:user_name],
       password:             Rails.application.credentials[:production][:yandex_mail][:password],
-      authentication:       :login,
+      authentication:       'plain',
       ssl: true,
-      tls: true,
+      # tls: true,
       enable_starttls_auto: true
   }
   # Ignore bad email addresses and do not raise email delivery errors.
