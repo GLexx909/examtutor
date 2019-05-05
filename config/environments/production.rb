@@ -65,15 +65,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.default_options = {from: 'info@examtutor.ru'}
-  config.action_mailer.default_url_options = { host: 'examtutor.ru' }
+  config.action_mailer.default_url_options = { host: 'examtutor.ru', from: 'info@examtutor.ru' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       address:              'smtp.yandex.ru',
-      port:                 465,
+      port:                 587,
       domain:               "examtutor.ru",
       user_name:             Rails.application.credentials[:production][:yandex_mail][:user_name],
       password:             Rails.application.credentials[:production][:yandex_mail][:password],
-      authentication:       'plain',
+      authentication:       :login,
       ssl: true,
       tls: true,
       enable_starttls_auto: true
