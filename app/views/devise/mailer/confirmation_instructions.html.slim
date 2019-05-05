@@ -1,8 +1,11 @@
-p
-  | Welcome 
-  = @email
-  | !
-p
-  | You can confirm your account email through the link below:
-p
-  = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+center style="background-color: #ededed; border: 10px solid #00b7ea; margin: 5vw"
+  .title__block style="background-color: #007bff; text-align: center;"
+    div style="color: white; background-color: #00b7ea;"
+      h1 style="margin-bottom: 0; margin-top: 0" = "Examtutor.ru"
+
+  .block style="padding-left: 3vw; padding-right: 3vw"
+    .description__block
+      .title style="background-color: black; color: white; width: fit-content; padding-left: 13px; padding-right: 13px"
+        h3 = "Подтверждение регистрации"
+      p = 'Подтвердите регистрацию, перейдя по ссылке ниже:'
+      p = link_to 'Перейти на сайт examtutor.ru', confirmation_url(@resource, confirmation_token: @token)
