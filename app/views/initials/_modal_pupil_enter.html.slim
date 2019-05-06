@@ -8,11 +8,11 @@
       .modal-body
         h2
           = t('.log_in')
-          - if cookies[:pre_email]
+          - if cookies[:pre_password]
             .display-flex.mr_1_for_child
-              = link_to image_tag('vk.png'), new_user_session_path
-              = link_to image_tag('fb.png'), new_user_session_path
-              = link_to image_tag('github.png'), new_user_session_path
+              = link_to image_tag('vk.png'), '/users/auth/vkontakte'
+              = link_to image_tag('fb.png'), '/users/auth/facebook'
+              = link_to image_tag('github.png'), '/users/auth/github'
 
         = form_for(@user, as: @user, url: session_path(@user)) do |f|
           .form-group
