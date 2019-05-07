@@ -22,7 +22,7 @@ center style="background-color: #ededed; border: 10px solid #00b7ea; margin: 5vw
         h3 = "Описание по дням:"
       - @attendances.each do |attend|
         .title style="background-color: grey; color: white; width: fit-content; padding-left: 13px; padding-right: 13px; font-size: 1.5vh"
-          h3 = "За #{I18n.localize attend.created_at, format: :dBY}:"
+          h3 = "За #{I18n.localize attend.date, format: :dBY}:"
         .description-body
           = attend.description
 

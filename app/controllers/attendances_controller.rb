@@ -10,6 +10,7 @@ class AttendancesController < ApplicationController
 
   def create
     @attendance = Attendance.new(attendance_params)
+    @attendance.date += 1.day
     @attendance.color = params[:color]
     @attendance.save
   end
@@ -22,7 +23,6 @@ class AttendancesController < ApplicationController
     if can?(:update, attendance)
       attendance.color = params[:color]
       attendance.update(attendance_params)
-      attendance.save
     end
   end
 
@@ -41,6 +41,6 @@ class AttendancesController < ApplicationController
   end
 
   def attendance_params
-    params.require(:attendance).permit(:user_id, :description, :color)
+    params.require(:attendance).permit(:user_id, :description, :color, :date)
   end
 end

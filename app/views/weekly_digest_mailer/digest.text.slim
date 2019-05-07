@@ -17,7 +17,7 @@
 = "\r\n"
 - @attendances.each do |attend|
   = "\r\n"
-  = "За #{I18n.localize attend.created_at, format: :short}:"
+  = "За #{I18n.localize attend.date, format: :short}:"
   = "\r\n"
   = attend.description
 

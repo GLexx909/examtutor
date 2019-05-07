@@ -5,6 +5,8 @@ h1 = 'Редактирование посещения ученика'
     = f.collection_select :user_id, User.all, :id, :full_name, {prompt: true}, class: 'form-control'
     small id="userHelp" class="form-text text-muted" Выберите ученика.
   .form-group
+    = f.date_select :date
+  .form-group
     = select_tag :color, options_for_select(attendance_colors), class: 'btn btn-outline-primary'
     small id="courseHelp" class="form-text text-muted" Выберите цвет.
   .form-group

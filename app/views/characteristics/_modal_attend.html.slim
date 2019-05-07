@@ -2,7 +2,7 @@
   .modal-dialog.modal-dialog-centered role="document"
     .modal-content
       .modal-header
-        h5#attendFullModalLabel.modal-title = "Посещение за #{I18n.localize attend.created_at, format: '%-d %B'}"
+        h5#attendFullModalLabel.modal-title = "Посещение за #{I18n.localize attend.date, format: '%-d %B'}"
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
       .modal-body
