@@ -29,14 +29,13 @@
 
 .attendance-list.mr_1_for_child
   h3.text-secondary = 'Даты посещения:'
-  - @user.attendances.order(date: :desc).each do |attend|
-    = link_to  '#', class:"attend_small mb_1 attend-#{attend.id}", style:"background: #{attend.color}",
-                                                                   data: { id: attend.id, toggle: 'modal', target: "#attendFullModal-#{attend.id}" } do
-      .attend-date = "#{I18n.localize attend.date, format: '%-d'}"
-      .attend-month = "#{I18n.localize attend.date, format: '%B'}"
-
-
-    = render 'modal_attend', attend: attend
+  - if @user.attendances
+    - @user.attendances.order(date: :desc).each do |attend|
+      = link_to  '#', class:"attend_small mb_1 attend-#{attend.id}", style:"background: #{attend.color}",
+                                                                     data: { id: attend.id, toggle: 'modal', target: "#attendFullModal-#{attend.id}" } do
+        .attend-date = "#{I18n.localize attend.date, format: '%-d'}"
+        .attend-month = "#{I18n.localize attend.date, format: '%B'}"
+      = render 'modal_attend', attend: attend
 
 = render 'weekly_digest'
 = render 'modal_weekly_digest'
