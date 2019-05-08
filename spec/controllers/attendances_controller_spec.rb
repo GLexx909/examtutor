@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AttendancesController, type: :controller do
   let!(:user)  { create :user }
   let!(:admin)  { create :user, admin: true }
-  let!(:attendance)  { create :attendance, user: user }
+  let!(:attendance)  { create :attendance, user: user, date: DateTime.now }
 
   describe 'GET #new' do
     before(:each) do
@@ -18,12 +18,12 @@ RSpec.describe AttendancesController, type: :controller do
     context 'Admin create course' do
       before { login(admin) }
       context 'with valid attributes' do
-        it_behaves_like 'To save a new object', let(:params) { { attendance: { user_id: user.id, description: 'Description' }, color: 'Red' } }, let(:object_class) { Attendance }
+        it_behaves_like 'To save a new object', let(:params) { { attendance: { user_id: user.id, description: 'Description', date: DateTime.now }, color: 'Red' } }, let(:object_class) { Attendance }
         it_behaves_like 'To render create.js view'
       end
 
       context 'with invalid attributes' do
-        it_behaves_like 'To does not save a new object', let(:params) { { attendance: { user_id: nil, description: 'Description' }, color: 'Red' } }, let(:object_class) { Attendance }
+        it_behaves_like 'To does not save a new object', let(:params) { { attendance: { user_id: nil, description: 'Description', date: DateTime.now }, color: 'Red' } }, let(:object_class) { Attendance }
         it_behaves_like 'To render create.js view'
       end
     end

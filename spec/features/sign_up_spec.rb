@@ -20,11 +20,11 @@ feature 'User can sign up', %q{
     fill_in 'Пароль', with: '12345678'
     fill_in 'Подтверждение пароля', with: '12345678'
 
-    find_button('Sign up').click
+    find_button('Зарегистрироваться').click
     expect(page).to have_content 'В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи.'
 
     open_email('user@test.com')
-    current_email.click_link 'Confirm my account'
+    current_email.click_link 'Перейти на сайт examtutor.ru'
 
     expect(page).to have_content 'Ваша учётная запись успешно подтверждена.'
   end

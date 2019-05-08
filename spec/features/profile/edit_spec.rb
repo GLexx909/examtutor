@@ -50,7 +50,7 @@ feature "User can edit own profile", %q{
 
     click_on 'Редактировать'
 
-    attach_file 'user_avatar', "#{Rails.root}/app/assets/images/favicon.ico"
+    attach_file 'user_avatar', "#{Rails.root}/app/assets/images/favicon.png"
 
     click_on 'Сохранить изменения'
 
