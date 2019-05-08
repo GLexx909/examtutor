@@ -1,5 +1,6 @@
 class WeeklyDigestMailer < ApplicationMailer
-  def digest(email, description, points, attendances)
+  def digest(user, email, description, points, attendances)
+    @user = user
     @email = email
     @description = description
     @points = points

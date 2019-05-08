@@ -15,14 +15,15 @@
 
 = "Описание по дням:"
 = "\r\n"
-- @attendances.each do |attend|
-  = "\r\n"
-  = "За #{I18n.localize attend.date, format: :short}:"
-  = "\r\n"
-  = attend.description
+- if @attendances
+  - @attendances.each do |attend|
+    = "\r\n"
+    = "За #{attend[:date]}"
+    = "\r\n"
+    = attend[:description]
 
 
 = "\r\n" * 10
 = 'Отписаться от рассылки можно на сайте Examtutor.ru на странице с Характеристикой Ученика (т.е. там, где вы оформляли подписку), нажав на Колокольчик и кликнув на надпись Отписаться от рассылки.'
 = "\r\n"
-= "https://examtutor.ru/characteristics/#{@attendances.first.user.id}"
+= "https://examtutor.ru/characteristics/#{@user.id}"

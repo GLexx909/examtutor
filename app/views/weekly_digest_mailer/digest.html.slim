@@ -20,12 +20,13 @@ center style="background-color: #ededed; border: 10px solid #00b7ea; margin: 5vw
     .attendance-descriptions__block
       .title style="background-color: black; color: white; width: fit-content; padding-left: 13px; padding-right: 13px"
         h3 = "Описание по дням:"
-      - @attendances.each do |attend|
-        .title style="background-color: grey; color: white; width: fit-content; padding-left: 13px; padding-right: 13px; font-size: 1.5vh"
-          h3 = "За #{I18n.localize attend.date, format: :dBY}:"
-        .description-body
-          = attend.description
+      - if @attendances
+        - @attendances.each do |attend|
+          .title style="background-color: grey; color: white; width: fit-content; padding-left: 13px; padding-right: 13px; font-size: 1.5vh"
+            h3 = "За #{attend[:date]}"
+          .description-body
+            = attend[:description]
 
   .unsubscribe style="margin-top: 15vh; background-color: white; border-top: 1px solid #00b7ea;"
     h4 style="margin-bottom: 0" = 'Отписаться от рассылки можно на сайте Examtutor.ru на странице с Характеристикой Ученика (т.е. там, где вы оформляли подписку), нажав на "Колокольчик" и кликнув на надпись "Отписаться от рассылки".'
-    = link_to 'Перейти на сайт Examtutor.ru', characteristic_url(@attendances.first.user)
+    = link_to 'Перейти на сайт Examtutor.ru', characteristic_url(@user.id)
