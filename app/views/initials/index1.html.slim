@@ -1,0 +1,37 @@
+.initial
+  .initial__one
+    .dropdown
+      = render 'dropdown-initial-menu'
+    .initial__one__title.mb-5vh
+      .title.row.font-oswald.d-flex.justify-content-center.mb-5vh
+        = t('.title')
+      .title-text.row.d-flex.justify-content-center.mr_1_for_child.mb-5vh
+        = link_to 'Истории', '#', class: 'badge badge-pill badge-light stub history-button'
+        = link_to 'Обществознанию', '#', class: 'badge badge-pill stub badge-light social-button'
+        = link_to 'Русскому языку', '#', class: 'badge badge-pill stub badge-light russian-button'
+        = link_to 'Английскому языку', '#', class: 'badge badge-pill stub badge-light english-button'
+
+      .title-text.row.d-flex.justify-content-center
+        = image_tag url_for(TutorInfo.first.initial_profile_photo), class: 'initial_profile_photo' if TutorInfo.first
+
+    = render 'slider'
+    = render 'phone-number'
+
+  .initial__registration-block
+    .initial__registration-block__button-pupil.mr_1
+      = button_tag t('.pupil_enter'), class: 'pupil-enter-button btn', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
+    = render 'modal_pupil_enter'
+    .initial__registration-block__button-parent
+      = button_tag t('.parent_enter'), class: 'parent-enter-button btn', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
+    = render 'modal_parent_enter'
+  .initial__two.mt-3
+    .subject.ml-3.mr-3 = render 'history_block'
+    .d-flex.justify-content-end.ml-3.mr-3
+      .subject = render 'social_block'
+    .subject.ml-3.mr-3 = render 'russian_block'
+    .d-flex.justify-content-end.ml-3.mr-3
+      .subject = render 'english_block'
+  .initial__three
+    = render 'feedback'
+    = render 'requirements'
+    = render 'footer-phone-number_block'

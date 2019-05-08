@@ -1,37 +1,1057 @@
-.initial
-  .initial__one
-    .dropdown
-      = render 'dropdown-initial-menu'
-    .initial__one__title.mb-5vh
-      .title.row.font-oswald.d-flex.justify-content-center.mb-5vh
-        = t('.title')
-      .title-text.row.d-flex.justify-content-center.mr_1_for_child.mb-5vh
-        = link_to 'Истории', '#', class: 'badge badge-pill badge-light stub history-button'
-        = link_to 'Обществознанию', '#', class: 'badge badge-pill stub badge-light social-button'
-        = link_to 'Русскому языку', '#', class: 'badge badge-pill stub badge-light russian-button'
-        = link_to 'Английскому языку', '#', class: 'badge badge-pill stub badge-light english-button'
+#preloader
+.menu-area.navbar-fixed-top
+  .container
+    .row
+      .col-md-12
+        .mainmenu
+          .navbar.navbar-nobg
+            .navbar-header
+              a.navbar-brand[href="index.html.slim"]
+                | Bizniz
+              button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+                span.sr-only
+                  | Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            .navbar-collapse.collapse
+              nav
+                ul.nav.navbar-nav.navbar-right
+                  li.active
+                    a.smooth_scroll[href="#slider"]
+                      | HOME
+                  li
+                    a.smooth_scroll[href="#about"]
+                      | ABOUT
+                  li
+                    a.smooth_scroll[href="#service"]
+                      | SERVICE
+                  li
+                    a.smooth_scroll[href="#work"]
+                      | WORK
+                  li
+                    a.smooth_scroll[href="#team"]
+                      | TEAM
+                  li
+                    a.smooth_scroll[href="#pricing"]
+                      | PRICE
+                  li
+                    a.smooth_scroll[href="#news"]
+                      | NEWS
+                  li
+                    a.smooth_scroll[href="#contact"]
+                      | CONTACT
+section#slider
+  #carousel-example-generic.carousel.slide.carousel-fade
+    .carousel-inner[role="listbox"]
+      .item.active.slide1
+        .table
+          .table-cell
+            .intro-text
+              h2[data-animation="animated fadeInDown"]
+                | Welcome To Our Studio!
+              h1[data-animation="animated fadeInDown"]
+                | It's Nice To Meet You
+              a.btn.btn-trnsp[href="#" data-animation="animated fadeInDown"]
+                | Tell Me More
+      .item.slide2
+        .table
+          .table-cell
+            .intro-text
+              h2[data-animation="animated fadeInDown"]
+                | Welcome To Our Office!
+              h1[data-animation="animated fadeInDown"]
+                | We Want To Meet You
+              a.btn.btn-trnsp[href="#" data-animation="animated fadeInDown"]
+                | Tell Me More
+      .item.slide3
+        .table
+          .table-cell
+            .intro-text
+              h2[data-animation="animated fadeInDown"]
+                | Welcome To Our Home!
+              h1[data-animation="animated fadeInDown"]
+                | Let's Start Walking
+              a.btn.trnsp[href="#" data-animation="animated fadeInDown"]
+                | Tell Me More
+    a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
+      = image_tag "left-arrow.png"
+    a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
+      = image_tag "right-arrow.png"
+section#about.about-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | About Us
+    .row
+      .col-md-6.about-img.text-center
+        = image_tag "/about/about.png"
+      .col-md-6
+        .about-text
+          h3
+            | We are creative
+          p
+            | A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.
+          p
+            | It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyIt has survived not only five electronic but also the leap into electronic typesetting, typesetting, remaining essentiallyIt has survived not only five typesetting industry.
+          a.btn[href=""]
+            | Read more
+#skills.skill-area.section-big
+  .container
+    .row
+      .col-md-6.col-sm-6
+        h3
+          | Our Work Process
+        ul.nav.nav-tabs
+          li.active
+            a[data-toggle="tab" href="#tab1"]
+              | Planning
+          li
+            a[data-toggle="tab" href="#tab2"]
+              | Research
+          li
+            a[data-toggle="tab" href="#tab3"]
+              | Target
+        .tab-content
+          #tab1.tab-pane.fade.in.active
+            p
+              | Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer.
+          #tab2.tab-pane.fade
+            p
+              | Coctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer.
+          #tab3.tab-pane.fade
+            p
+              | Consect adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lincidunt ut laoreet dolore magna aliquam erat sit amet adipiscing.
+      .col-md-6.col-sm-6
+        h3
+          | Our Skills
+        .skill-bar-container
+          h4
+            | Monitoring
+          .skill-progress-bar
+            span[data-percent="90" style="transition: width 2.5s; width: 90%;"]
+        .skill-bar-container
+          h4
+            | Branding
+          .skill-progress-bar
+            span[data-percent="80" style="transition: width 2.5s; width: 80%;"]
+        .skill-bar-container
+          h4
+            | Supporting
+          .skill-progress-bar
+            span[data-percent="85" style="transition: width 2.5s; width: 85%;"]
+section#service.service-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Our Services
+          p
+            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    .row
+      .home-services
+        .service-box
+          i.fa.fa-shopping-cart
+          h3
+            | Ecommerce
+          p
+            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+        .service-box
+          i.fa.fa-envelope-o
+          h3
+            | Marketing
+          p
+            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+        .service-box
+          i.fa.fa-lightbulb-o
+          h3
+            | Branding
+          p
+            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+        .service-box
+          i.fa.fa-television
+          h3
+            | UX Design
+          p
+            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+        .service-box
+          i.fa.fa-envelope-o
+          h3
+            | Marketing
+          p
+            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+        .service-box
+          i.fa.fa-lightbulb-o
+          h3
+            | Branding
+          p
+            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+section#work.latest-project-area.section-big
+  .container-fluid
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Our Latest Projects
+          p
+            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    .row
+      .project-carousel
+        .project-item.imghvr-flip-vert
+          = image_tag "/works/1.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Caption title
+              p
+                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
+              a[href="#"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "/works/2.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Caption title
+              p
+                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
+              a[href="#"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "/works/3.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Caption title
+              p
+                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
+              a[href="#"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "/works/4.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Caption title
+              p
+                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
+              a[href="#"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "/works/5.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Caption title
+              p
+                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
+              a[href="#"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "/works/6.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Caption title
+              p
+                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
+              a[href="#"]
+                i.fa.fa-external-link
+section#team.team-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Our Team
+          p
+            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    .row
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "/team/member-1.png"
+          .member-info
+            h3
+              | Kay Garland
+            p.text-muted
+              | Lead Designer
+            .member-social
+              a[href="#"]
+                i.fa.fa-facebook
+              a[href="#"]
+                i.fa.fa-twitter
+              a[href="#"]
+                i.fa.fa-google-plus
+              a[href="#"]
+                i.fa.fa-linkedin
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "/team/member-2.png"
+          .member-info
+            h3
+              | Larry Parker
+            p.text-muted
+              | Lead Marketer
+            .member-social
+              a[href="#"]
+                i.fa.fa-facebook
+              a[href="#"]
+                i.fa.fa-twitter
+              a[href="#"]
+                i.fa.fa-google-plus
+              a[href="#"]
+                i.fa.fa-linkedin
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "/team/member-3.png"
+          .member-info
+            h3
+              | Diana Pertersen
+            p.text-muted
+              | Lead Developer
+            .member-social
+              a[href="#"]
+                i.fa.fa-facebook
+              a[href="#"]
+                i.fa.fa-twitter
+              a[href="#"]
+                i.fa.fa-google-plus
+              a[href="#"]
+                i.fa.fa-linkedin
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "/team/member-4.png"
+          .member-info
+            h3
+              | Aman Ullah
+            p.text-muted
+              | Lead Developer
+            .member-social
+              a[href="#"]
+                i.fa.fa-facebook
+              a[href="#"]
+                i.fa.fa-twitter
+              a[href="#"]
+                i.fa.fa-google-plus
+              a[href="#"]
+                i.fa.fa-linkedin
+section#testimonial.testimonial-area.section-big
+  .container
+    .row
+      .testimonial-list
+        .single-testimonial.text-center
+          i.fa.fa-quote-left
+          p
+            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+          = image_tag "testimonial/1.jpg"
+          h4
+            | Aman Ullah
+          p.desg
+            | Founder of Coderspoint
+        .single-testimonial.text-center
+          i.fa.fa-quote-left
+          p
+            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+          = image_tag "/testimonial/1.jpg"
+          h4
+            | John doe
+          p.desg
+            | Founder of WeBean
+        .single-testimonial.text-center
+          i.fa.fa-quote-left
+          p
+            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+          = image_tag "/testimonial/1.jpg"
+          h4
+            | John doe
+          p.desg
+            | Founder of Coderspoint
+section#video.video-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Help & FAQ
+          p
+            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    .row
+      .col-md-6
+        .video-area
+          iframe[width="555" height="315" src="https://player.vimeo.com/video/121536763?title=0&portrait=0&byline=0&autoplay=0" allowfullscreen]
+      .col-md-6.accordion
+        #accordion.panel-group[role="tablist"]
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a[href="#accordion01" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"]
+                i.fa.fa-minus
+              h4.panel-title
+                | Dolor sit amet adipiscing
+            #accordion01.panel-collapse.collapse.in[role="tabpanel" aria-expanded="true"]
+              .panel-body
+                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a.collapsed[href="#accordion02" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
+                i.fa.fa-minus
+              h4.panel-title
+                | Anim pariatur cliche reprit
+            #accordion02.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
+              .panel-body
+                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a.collapsed[href="#accordion03" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
+                i.fa.fa-minus
+              h4.panel-title
+                | Laborum eiusmod tempor sunt
+            #accordion03.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
+              .panel-body
+                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a.collapsed[href="#accordion04" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
+                i.fa.fa-minus
+              h4.panel-title
+                | Accusamus terry richard squid
+            #accordion04.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
+              .panel-body
+                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+        .tabbable.tabs-left[style="display: none;"]
+          ul.nav.nav-tabs
+            li.active
+              a[href="#a" data-toggle="tab"]
+                i.fa.fa-lightbulb-o[aria-hidden="true"]
+              h3
+                | Bright Ideas
+            li
+              a[href="#b" data-toggle="tab"]
+                i.fa.fa-tablet[aria-hidden="true"]
+              h3
+                | Responsive
+            li
+              a[href="#c" data-toggle="tab"]
+                i.fa.fa-hand-pointer-o[aria-hidden="true"]
+              h3
+                | Easy to use
+            li
+              a[href="#d" data-toggle="tab"]
+                i.fa.fa-life-ring[aria-hidden="true"]
+              h3
+                | Support
+            li
+              a[href="#e" data-toggle="tab"]
+                i.fa.fa-life-ring[aria-hidden="true"]
+              h3
+                | Support
+          .tab-content
+            #a.tab-pane.active
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #b.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #c.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #d.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #e.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+section#action.action-area.section-small
+  .container
+    .row
+      .col-md-10
+        h2
+          strong
+            | Bizniz
+          |  is the perfect template for your next project
+      .col-md-2
+        a.btn[href=""]
+          | GET IT NOW
+section#pricing.pricing-area.section-big
+  .container
+    .row
+      .col-md-12
+        .section-title.text-center
+          h2
+            | Our Pricing
+          p
+            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    .row
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item[data-connectors="1"]
+          .info
+            p.level
+              | Free
+            p.price
+              span.dollar
+                | $
+              span.number
+                | 0
+              span
+                | / mon
+          .features
+            ul
+              li
+                | 15 Users
+              li.even
+                | 10 Projects
+              li
+                | 30 GB of Storage
+              li.even
+                | 5 Workspaces
+              li
+                | X
+              li.even
+                | X
+          a.btn[href="#"]
+            | Start Trial
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item[data-connectors="1"]
+          .info
+            p.level
+              | Basic
+            p.price
+              span.dollar
+                | $
+              span.number
+                | 20
+              span
+                | / mon
+          .features
+            ul
+              li
+                | 15 Users
+              li.even
+                | 10 Projects
+              li
+                | 30 GB of Storage
+              li.even
+                | 5 Workspaces
+              li
+                | Private Forums
+              li.even
+                | X
+          a.btn[href="#"]
+            | Start Trial
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item.featured[data-connectors="1"]
+          .info
+            p.level
+              | Plus
+            p.price
+              span.dollar
+                | $
+              span.number
+                | 45
+              span
+                | / mon
+          .features
+            ul
+              li
+                | 25 Users
+              li.even
+                | 100 Projects
+              li
+                | 500 GB of Storage
+              li.even
+                | 5 Workspaces
+              li
+                | Private Forums
+              li.even
+                | Enhanced Security
+          a.btn[href="#"]
+            | Start Trial
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item[data-connectors="1"]
+          .info
+            p.level
+              | Premium
+            p.price
+              span.dollar
+                | $
+              span.number
+                | 99
+              span
+                | / mon
+          .features
+            ul
+              li
+                | 15 Users
+              li.even
+                | 10 Projects
+              li
+                | 30 GB of Storage
+              li.even
+                | 5 Workspaces
+              li
+                | Private Forums
+              li.even
+                | Enhanced Security
+          a.btn[href="#"]
+            | Start Trial
+section#fun-facts.fun-facts-area.section-big
+  .container
+    .row
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-thumbs-o-up
+        .fun-fact.text-center.tab-margin-bottom
+          h3
+            span.cp-counter
+              | 5687
+          p
+            | Happy Clients
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-calendar-check-o.fa-6
+        .fun-fact.text-center.tab-margin-bottom
+          h3
+            span.cp-counter
+              | 8496
+          p
+            | Completed Projects
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-lemon-o
+        .fun-fact.text-center
+          h3
+            span.cp-counter
+              | 93265
+          p
+            | Buy a Lemon
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-code
+        .fun-fact.text-center
+          h3
+            span.cp-counter
+              | 06324
+          p
+            | Lines of Code
+section#why-choose.why-choose-area.section-big
+  .container
+    .row
+      .col-md-12
+        .section-title.text-center
+          h2
+            | Why Choose Us?
+          p
+            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    .row
+      .col-md-6
+        .slide-carousel
+          = image_tag "/choose/01.jpg", class: 'why-choose-img'
+          = image_tag "/choose/02.jpg", class: 'why-choose-img'
+      .col-sm-6
+        .choose-box.right
+          i.fa.fa-send[aria-hidden="true"]
+          .choose-content
+            h3
+              | Email Marketing
+            p
+              | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give account.
+        .choose-box.right
+          i.fa.fa-line-chart[aria-hidden="true"]
+          .choose-content
+            h3
+              | Analysis & Consulting
+            p
+              | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give account.
+        .choose-box.right
+          i.fa.fa-cog[aria-hidden="true"]
+          .choose-content
+            h3
+              | Quality Service & Support
+            p
+              | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give account.
+#subscribe.subscribe-area.section-big
+  .container
+    .subscribe-box
+      h2
+        | Stay up to date
+      p
+        strong
+          | Subscribe
+        |  to our Newsletter. We'll send email notifications everytime we release new Theme.
+      form#mc-form.mc-form
+        .newsletter-form
+          input#mc-email.form-control[type="email" autocomplete="off" placeholder="Enter your email address"]
+          .mailchimp-alerts
+            .mailchimp-submitting
+            .mailchimp-success
+            .mailchimp-error
+          .clearfix
+          button.mc-submit[type="submit"]
+            i.fa.fa-paper-plane
+            |  Subscribe now
+section#news.news-area.section-big
+  .container
+    .row
+      .col-md-12
+        .section-title.text-center
+          h2
+            | Our Latest News
+          p
+            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    .row
+      .news-carousel
+        .single-news
+          .news-image
+            a[href="#news-modal-1" data-toggle="modal"]
+              = image_tag "/news/news-1.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-1" data-toggle="modal"]
 
-      .title-text.row.d-flex.justify-content-center
-        = image_tag url_for(TutorInfo.first.initial_profile_photo), class: 'initial_profile_photo' if TutorInfo.first
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title one
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-1" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-2" data-toggle="modal"]
+              = image_tag "/news/news-2.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-2" data-toggle="modal"]
 
-    = render 'slider'
-    = render 'phone-number'
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Two
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-2" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-3" data-toggle="modal"]
+              = image_tag "/news/news-3.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-3" data-toggle="modal"]
 
-  .initial__registration-block
-    .initial__registration-block__button-pupil.mr_1
-      = button_tag t('.pupil_enter'), class: 'pupil-enter-button btn', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
-    = render 'modal_pupil_enter'
-    .initial__registration-block__button-parent
-      = button_tag t('.parent_enter'), class: 'parent-enter-button btn', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
-    = render 'modal_parent_enter'
-  .initial__two.mt-3
-    .subject.ml-3.mr-3 = render 'history_block'
-    .d-flex.justify-content-end.ml-3.mr-3
-      .subject = render 'social_block'
-    .subject.ml-3.mr-3 = render 'russian_block'
-    .d-flex.justify-content-end.ml-3.mr-3
-      .subject = render 'english_block'
-  .initial__three
-    = render 'feedback'
-    = render 'requirements'
-    = render 'footer-phone-number_block'
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Three
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-3" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-4" data-toggle="modal"]
+              = image_tag "/news/news-4.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-3" data-toggle="modal"]
+
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Four
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-3" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-5" data-toggle="modal"]
+              = image_tag "/news/news-5.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-3" data-toggle="modal"]
+
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Four
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-3" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+    #news-modal-1.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "/news/news-1.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-2.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "/news/news-2.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-3.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "/news/news-3.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-4.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "/news/news-3.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-5.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "/news/news-3.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+#client.client-area.section-small
+  .container
+    .owl-client
+      .item.active.text-center
+        = image_tag "/clients/1.png"
+      .item.active.text-center
+        = image_tag "/clients/2.png"
+      .item.active.text-center
+        = image_tag "/clients/3.png"
+      .item.active.text-center
+        = image_tag "/clients/4.png"
+      .item.active.text-center
+        = image_tag "/clients/5.png"
+      .item.active.text-center
+        = image_tag "/clients/6.png"
+      .item.active.text-center
+        = image_tag "/clients/7.png"
+      .item.active.text-center
+        = image_tag "/clients/8.png"
+      .item.active.text-center
+        = image_tag "/clients/9.png"
+section#contact.contact-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Contact Us
+    .row
+      .col-md-6
+        .contact-form
+          form#ajax-contact[action="mailer.php" method="post"]
+            .form-group.in_name
+              input#name.form-control[type="text" name="name" placeholder="Name" required="required"]
+            .form-group.in_email
+              input#email.form-control[type="email" name="email" placeholder="Email" required="required"]
+            .form-group.in_message
+              textarea#message.form-control[rows="5" name="message" placeholder="Message" required="required"]
+            .actions
+              input#submitButton.btn[type="submit" value="Send" name="submit" title="Submit Your Message!"]
+          #form-messages
+      .col-md-6
+        p.contact-info
+          | Bizniz is a clean and awesome template for your company. Bizniz is a clean and awesome template for your company. Bizniz is a clean and awesome template for your company.
+        .address-box.clearfix
+          i.fa.fa-map-marker
+          p
+            | 7503 Wakehurst St, Perrysburg, OH 43551
+        .address-box.clearfix
+          i.fa.fa-phone
+          p
+            a[href="tel:015110022"]
+              | +00 123-456-789
+        .address-box.clearfix
+          i.fa.fa-send
+          p
+            a[href="mailto:email@yourdomain.com"]
+              | email@yourdomain.com
+        .address-box.clearfix
+          i.fa.fa-globe
+          p
+            a[href="http://www.yourdomain.com"]
+              | www.yourdomain.com
+#contactgoogleMap
+footer.footer-area
+  .container
+    .row
+      .col-md-6.col-sm-6
+        p
+          | © 2016 Copyright Web_bean
+      .col-md-6.col-sm-6
+        ul.social-links
+          li
+            a[href=""]
+              i.fa.fa-facebook
+          li
+            a[href=""]
+              i.fa.fa-twitter
+          li
+            a[href=""]
+              i.fa.fa-google-plus
+          li
+            a[href=""]
+              i.fa.fa-youtube
+          li
+            a[href=""]
+              i.fa.fa-pinterest
+
+

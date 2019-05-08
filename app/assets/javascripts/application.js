@@ -16,6 +16,7 @@
 //= require jquery3
 //= require jquery-ui
 //= require tinymce-jquery
+//= require mixitup
 //= require lightbox
 //= require action_cable
 //= require cocoon

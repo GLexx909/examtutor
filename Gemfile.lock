@@ -215,6 +215,7 @@ GEM
     mini_racer (0.2.4)
       libv8 (>= 6.3)
     minitest (5.11.3)
+    mixitup_rails (0.0.3)
     msgpack (1.2.7)
     multi_json (1.13.1)
     multi_xml (0.6.0)
@@ -480,6 +481,7 @@ DEPENDENCIES
   material_icons
   mini_magick (~> 4.8)
   mini_racer
+  mixitup_rails
   mysql2
   omniauth
   omniauth-facebook
@@ -516,4 +518,4 @@ RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   1.16.6
+   1.17.3
