@@ -8,8 +8,10 @@ class Services::WeeklyDigestService
       description = characteristic.description
       points = user.progresses.last.points if user.progresses.present?
 
-      attendances = attendances.inject([]) do |memo, attend|
-        memo << { date: attend.date.to_formatted_s(:short), description: attend.description }
+      if attendances
+        attendances = attendances.inject([]) do |memo, attend|
+          memo << { date: attend.date.to_formatted_s(:short), description: attend.description }
+        end
       end
 
       WeeklyDigestMailer.digest(user, w_d.email, description, points, attendances).deliver_later
