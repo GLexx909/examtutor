@@ -4,7 +4,7 @@ class Services::WeeklyDigestService
       user = w_d.user
       characteristic = user.characteristic
 
-      attendances = user.attendances.where(created_at: (Time.now.midnight - 1.week)..Time.now.midnight) if user.attendances.present?
+      attendances = user.attendances.where(date: (Time.now.midnight - 1.week)..Time.now.midnight) if user.attendances.present?
       description = characteristic.description
       points = user.progresses.last.points if user.progresses.present?
 
