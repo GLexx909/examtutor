@@ -10,9 +10,15 @@ html
     / Yandex.Metrika counter
     title
       = "Репетитор по ЕГЭ в Таганроге по Истории, Обществознанию, Русскому языку, Английскому языку Examtutor.ru"
-    link href="https://www.examtutor.ru" rel="canonical" /
-    link[rel="shortcut icon" type="image/x-icon" href="favicon.png"]
-    link[href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"
+    link href="https://www.examtutor.ru" rel="canonical"
+    link rel="shortcut icon" type="image/x-icon" href="favicon.png"
+    link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"
     / link[href="bootstrap.min.css" rel="stylesheet"]
     / link[href="font-awesome.min.css" rel="stylesheet"]
     / link[href="animate.min.css" rel="stylesheet"]
@@ -36,13 +42,6 @@ html
     / script[src="main_script.js"]
 
 
-    = javascript_include_tag "jquery.min.js"
-    = javascript_include_tag "bootstrap.min.js"
-    = javascript_include_tag "jquery.mixitup.js"
-    = javascript_include_tag "jquery.magnific-popup.min.js"
-    = javascript_include_tag "jquery.waypoints.min.js"
-    = javascript_include_tag "jquery.ajaxchimp.min.js"
-    = javascript_include_tag "main_script.js"
 
 
     = stylesheet_link_tag "bootstrap.min.css"
@@ -58,13 +57,16 @@ html
     = stylesheet_link_tag "skin/blue.css"
 
 
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag "jquery.min.js"
+    = javascript_include_tag "bootstrap.min.js"
+    = javascript_include_tag "jquery.mixitup.js"
+    = javascript_include_tag "jquery.magnific-popup.min.js"
+    = javascript_include_tag "jquery.waypoints.min.js"
+    = javascript_include_tag "jquery.ajaxchimp.min.js"
+    = javascript_include_tag "main_script.js"
+
     = favicon_link_tag 'favicon.png'
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
-    link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" /
+
   body
     / .base-space
     /   .flash-block.initial-page__flash-block
