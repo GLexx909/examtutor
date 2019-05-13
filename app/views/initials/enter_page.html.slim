@@ -1,0 +1,17 @@
+.enter-block
+  .row
+    .col-md-6
+      = button_tag class: 'btn', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
+        .enter-block__pupil.each-block
+          .text
+            h1.font-oswald = "Вход для ученика"
+            p = "Вход / Регистрация"
+    .col-md-6
+      = button_tag class: 'btn', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
+        .enter-block__parent.each-block
+          .text
+            h1.font-oswald = "Вход для родителей"
+            p = "Просмотр информации по успеваемости"
+
+= render 'modal_pupil_enter'
+= render 'modal_parent_enter'

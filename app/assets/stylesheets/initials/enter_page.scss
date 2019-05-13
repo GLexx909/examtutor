@@ -1,0 +1,39 @@
+.enter-block {
+  button {
+    width: 100%;
+  }
+
+  .each-block {
+    height: 37vh;
+    background-color: #00b7ea;
+
+    text-align: center;
+    display: flex;
+
+    color: white;
+    border: 1px solid white;
+
+
+    .text {
+      width: 100%;
+      margin: auto;
+
+      p {
+        color: white;
+        font-size: 1.2vh;
+      }
+    }
+
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  button:hover {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

@@ -4,9 +4,9 @@
       .col-auto.pl-0 = link_to mi.account_balance.css_class('md-36 stub white'), '#'
 
     .col-auto.admin-sidebar-left__full.hidden
-      p = link_to 'Добавить посещение', new_attendance_path
-      p = link_to 'Добать ученика к Курсу', new_course_passage_path
       p = link_to 'Создать одноразовый пароль', new_admin_one_time_password_path, class: 'link-call-password-form'
+      p = link_to 'Добать ученика к Курсу', new_course_passage_path
+      p = link_to 'Добавить посещение', new_attendance_path
       p = link_to 'Редактировать свой профиль', tutor_infos_path
       p = link_to 'Посты для гостей', guests_index_posts_path
       p = link_to 'Характеристики учеников', characteristics_path

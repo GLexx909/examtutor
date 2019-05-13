@@ -4,7 +4,7 @@ feature 'User can log in', %q{
 } do
 
   given(:user) { create(:user) }
-  background { visit root_path }
+  background { visit enter_page_initials_path }
 
   scenario 'Registered user tries to log in' do
     fill_in 'Почта', with: user.email

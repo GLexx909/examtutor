@@ -12,8 +12,12 @@ class InitialsController < ApplicationController
       redirect_to characteristic_path(identify_id)
     else
       flash[:alert] = 'Идентификатор набран неверно'
-      redirect_to root_path
+      redirect_to enter_page_initials_path
     end
+  end
+
+  def enter_page
+    @user = User.new
   end
 
   def create
@@ -26,7 +30,7 @@ class InitialsController < ApplicationController
 
       redirect_to new_user_registration_path, notice: 'Успешно!'
     else
-      redirect_to root_path, alert: 'Доступ закрыт'
+      redirect_to enter_page_initials_path, alert: 'Доступ закрыт'
     end
   end
 

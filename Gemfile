@@ -65,6 +65,7 @@ gem 'acts_as_list' # to sort model position
 gem 'googlecharts', '~> 1.6', '>= 1.6.12'
 gem 'ransack' # to sort by attributes
 gem 'lightbox2-rails' # js to watch photo
+gem 'mixitup_rails'
 
 #Authorization
 gem 'cancancan'

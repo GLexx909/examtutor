@@ -1,25 +1,40 @@
 doctype html
 html
   head
-    / Yandex.Metrika counter
-    script[type="text/javascript"]
-      |  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53565328, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
-    noscript
-      div
-        img[src="https://mc.yandex.ru/watch/53565328" style="position:absolute; left:-9999px;" alt=""]
-    / Yandex.Metrika counter
+    = render 'shared/yandex-metrika'
     title
       = "Репетитор по ЕГЭ в Таганроге по Истории, Обществознанию, Русскому языку, Английскому языку Examtutor.ru"
-    link href="https://www.examtutor.ru" rel="canonical" /
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag 'favicon.png'
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" /
+
+    link href="https://www.examtutor.ru" rel="canonical"
+    link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"
+
+    = stylesheet_link_tag "bootstrap.min.css"
+    = stylesheet_link_tag "font-awesome.min.css"
+    = stylesheet_link_tag "animate.min.css"
+    = stylesheet_link_tag "imagehover.min.css"
+    = stylesheet_link_tag "normalize.css"
+    = stylesheet_link_tag "owl.carousel.min.css"
+    = stylesheet_link_tag "owl.transitions.css"
+    = stylesheet_link_tag "magnific-popup.css"
+    = stylesheet_link_tag "style.css"
+    = stylesheet_link_tag "responsive.css"
+    = stylesheet_link_tag "skin/blue.css"
+
+    = javascript_include_tag 'application-bizniz', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag "jquery.min.js"
+    = javascript_include_tag "bootstrap.min.js"
+    = javascript_include_tag "owl.carousel.min.js"
+    = javascript_include_tag "jquery.mixitup.js"
+    = javascript_include_tag "jquery.magnific-popup.min.js"
+    = javascript_include_tag "jquery.waypoints.min.js"
+    = javascript_include_tag "jquery.ajaxchimp.min.js"
+    = javascript_include_tag "main_script.js"
+
   body
-    .base-space
-      .flash-block.initial-page__flash-block
-        = render_flash
-      = yield
+    = yield

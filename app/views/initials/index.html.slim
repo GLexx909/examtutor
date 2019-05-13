@@ -1,37 +1,1053 @@
-.initial
-  .initial__one
-    .dropdown
-      = render 'dropdown-initial-menu'
-    .initial__one__title.mb-5vh
-      .title.row.font-oswald.d-flex.justify-content-center.mb-5vh
-        = t('.title')
-      .title-text.row.d-flex.justify-content-center.mr_1_for_child.mb-5vh
-        = link_to 'Истории', '#', class: 'badge badge-pill badge-light stub history-button'
-        = link_to 'Обществознанию', '#', class: 'badge badge-pill stub badge-light social-button'
-        = link_to 'Русскому языку', '#', class: 'badge badge-pill stub badge-light russian-button'
-        = link_to 'Английскому языку', '#', class: 'badge badge-pill stub badge-light english-button'
+#preloader
+.menu-area.navbar-fixed-top
+  .container
+    .row
+      .col-md-12
+        .mainmenu
+          .navbar.navbar-nobg
+            .navbar-header
+              a.navbar-brand[href="/"]
+                | Examtutor
+              button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
+                span.sr-only
+                  | Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            .navbar-collapse.collapse
+              nav
+                ul.nav.navbar-nav.navbar-right
+                  li.active
+                    a.smooth_scroll[href="#slider"]
+                      | ОСНОВНАЯ
+                  li
+                    a.smooth_scroll[href="#about"]
+                      | О СЕБЕ
+                  li
+                    a.smooth_scroll[href="#service"]
+                      | ПРЕДМЕТЫ
+                  / li
+                  /   a.smooth_scroll[href="#work"]
+                  /     | ДИПЛОМЫ
+                  / li
+                  /   a.smooth_scroll[href="#team"]
+                  /     | ВУЗы
+                  li
+                    a.smooth_scroll[href="#pricing"]
+                      | ЦЕНЫ
+                  / li
+                  /   a.smooth_scroll[href="#news"]
+                  /     | СТАТЬИ
+                  li
+                    a.smooth_scroll[href="#contact"]
+                      | СВЯЗЬ
+                  li.active.link-blue
+                    = link_to enter_page_initials_path
+                      | ВХОД НА САЙТ
 
-      .title-text.row.d-flex.justify-content-center
-        = image_tag url_for(TutorInfo.first.initial_profile_photo), class: 'initial_profile_photo' if TutorInfo.first
+section#slider
+  #carousel-example-generic.carousel.slide.carousel-fade
+    .carousel-inner[role="listbox"]
+      .item.active.slide1
+        .table
+          .table-cell
+            .intro-text
+              h2[data-animation="animated fadeInDown"]
+                | Добро пожаловать на Examtutor !
+              h1[data-animation="animated fadeInDown"]
+                | Хочешь подготовиться к ЕГЭ ?
+              a.btn.btn-trnsp.smooth_scroll[href="#about"]
+                | Узнать как
+      .item.slide2
+        .table
+          .table-cell
+            .intro-text
+              h2[data-animation="animated fadeInDown"]
+                | Нужен опытный репетитор?
+              h1[data-animation="animated fadeInDown"]
+                | Тогда тебе сюда !
+              a.btn.btn-trnsp.btn.btn-trnsp.smooth_scroll[href="#about"]
+                | Узнать подробнее
+      .item.slide3
+        .table
+          .table-cell
+            .intro-text
+              h2[data-animation="animated fadeInDown"]
+                | Что нужно знать
+              h1[data-animation="animated fadeInDown"]
+                | Чтобы успешно сдать ЕГЭ?
+              a.btn.btn-trnsp.smooth_scroll[href="#about"]
+                | Узнать
+    a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
+      = image_tag "left-arrow.png"
+    a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
+      = image_tag "right-arrow.png"
+section#about.about-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Информация о репетиторе
+    .row
+      .col-md-6.about-img.text-center
+        = image_tag "about/about.png"
+      .col-md-6
+        .about-text
+          h3
+            | Репетиторство - стиль моей жизни
+          p
+            | Приветствую вас, уважаемые школьники, абитуриенты и их родителиr! Я занимаюсь преподаванием с момента получения своего первого диплома в 2011 году. Успела приобрести опыт педагогической деятельности как в частных, так и в государственных образовательных учреждениях.
+          p
+            | С 2013 года специализируюсь на школьных выпускных экзаменах – ОГЭ и ЕГЭ. Достаточно быстро я поняла, что хочу развивать свои профессиональные навыки в направлении индивидуальной работы со школьниками. В 2015 году я стала официально зарегистрированным индивидуальным предпринимателем – таким образом, репетиторство превратилось для меня в основной вид деятельности . . .
+          a.btn[href="https://examtutor.ru/tutor_infos"]
+            | Подробнее
+#skills.skill-area.section-big
+  .container
+    .row
+      .col-md-6.col-sm-6
+        h3
+          | Шаги к успеху
+        ul.nav.nav-tabs
+          li.active
+            a[data-toggle="tab" href="#tab1"]
+              | Шаг 1
+          li
+            a[data-toggle="tab" href="#tab2"]
+              | Шаг 2
+          li
+            a[data-toggle="tab" href="#tab3"]
+              | Шаг 3
+        .tab-content
+          #tab1.tab-pane.fade.in.active
+            p
+              |  Понимание и планирование.
+                Серьёзно отнеситесь к выбору будущей профессии и списку ЕГЭ, которые предстоит сдавать в вуз мечты. Сдать успешно более 3-4 экзаменов крайне тяжело. Непрестанная зубрёжка днём и ночью 24 часа в сутки лишит Вас сил и вызовет апатию и отвращение к учёбе. Расставьте приоритеты в начале пути - и подготовка к экзаменам превратится в увлекательное путешествие на вершину своих возможностей!
+          #tab2.tab-pane.fade
+            p
+              | Систематичность.
+                Составить план эффективного освоения предмета, охватывающий все пункты программы экзамена - задача репетитора. Однако ученику необходимо в точности следовать всем рекомендациям преподавателя. Главное - регулярно выполнять домашнее задание, трезво воспринимать критику и не останавливаться на достигнутых результатах.
+          #tab3.tab-pane.fade
+            p
+              | Самодисциплина.
+                Самый сложный этап подготовки ждёт Вас весной 11 класса. Во-первых, в марте Вам предстоит попробовать свои силы на пробном экзамене. Во-вторых, в тёплые майские деньки будет сложно заставить себя сидеть за учебниками. Наконец, за пару недель до ЕГЭ Вы начнёте испытывать стресс и, возможно, даже панику. Справиться со всеми этими трудностями Вам поможет внутренняя дисциплина, которая обязательно у Вас появится в результате нашей совместной работы!
+      .col-md-6.col-sm-6
+        h3
+          | От чего зависит балл на ЕГЭ?
+        .skill-bar-container
+          h4
+            | Удача на экзамене
+          .skill-progress-bar
+            span[data-percent="10" style="transition: width 2.5s; width: 10%;"]
+        .skill-bar-container
+          h4
+            | Работа репетитора
+          .skill-progress-bar
+            span[data-percent="20" style="transition: width 2.5s; width: 20%;"]
+        .skill-bar-container
+          h4
+            | Мотивация и целеустремлённость ученика
+          .skill-progress-bar
+            span[data-percent="70" style="transition: width 2.5s; width: 70%;"]
+section#service.service-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Предметы
+          p
+            | Важное место в процессе обучения отводится межпредметным связям.
+    .row
+      .home-services
+        .service-box
+          i.fa.fa-university
+          h3
+            | История
+          p
+            | Обучаю навыкам логического мышления и построения причинно-следственных связей, формулирования и аргументирования собственной позиции.
+        .service-box
+          i.fa.fa-users
+          h3
+            | Обществознание
+          p
+            | Опираясь на реальные примеры и пособия ведущих вузов РФ, рассмотрим сложные теоретические вопросы философии, экономики, социологии, политики и права.
+        .service-box
+          i.fa.fa-pencil-square-o
+          h3
+            | Русский язык
+          p
+            | Грамотная речь - залог успеха в получении не только высшего образования, но и во всей дальнейшей жизни. Научу писать сочинения легко и с удовольствием!
+        .service-box
+          i.fa.fa-sort-alpha-asc
+          h3
+            | Английский язык
+          p
+            | Для обучения использую признанные на мировом уровне учебники ведущих издательств - Macmillan Publishers, Oxford & Cambridge University Press.
+        .service-box
+          i.fa.fa-university
+          h3
+            | История
+          p
+            | Обучаю навыкам логического мышления и построения причинно-следственных связей, формулирования и аргументирования собственной позиции.
+        .service-box
+          i.fa.fa-users
+          h3
+            | Обществознание
+          p
+            | Опираясь на реальные примеры и пособия ведущих вузов РФ, рассмотрим сложные теоретические вопросы философии, экономики, социологии, политики и права.
+section#work.latest-project-area.section-big
+  .container-fluid
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Дипломы
+          p
+            | Дипломы о высшем образовании, о профессиональной переподготовке, о повышении квалификации.
+    .row
+      .project-carousel
+        .project-item.imghvr-flip-vert
+          = image_tag "works/1.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Бакалавр истории
+              p
+                | Диплом с отличием от 27 июня 2011 г. ЮФУ г.Ростов-на-Дону
+              a[href="https://examtutor.ru/tutor_infos"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "works/2.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Магистр истории
+              p
+                | Диплом с отличием от 25 июня 2013 г. ЮФУ г.Ростов-на-Дону
+              a[href="https://examtutor.ru/tutor_infos"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "works/3.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Преподаватель английского языка
+              p
+                | Диплом о профессиональной переподготовке от 26 февраля 2019 г.
+              a[href="https://examtutor.ru/tutor_infos"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "works/4.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Русский язык
+              p
+                |  Удостоверение о повышении квалификации от 15 сентября 2018 г.
+              a[href="https://examtutor.ru/tutor_infos"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "works/5.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Английский язык
+              p
+                | Удостоверение о повышении квалификации от 30 сентября 2018 г.
+              a[href="https://examtutor.ru/tutor_infos"]
+                i.fa.fa-external-link
+        .project-item.imghvr-flip-vert
+          = image_tag "works/6.jpg"
+          .figcaption
+            .overlay
+              h3
+                | Английский язык
+              p
+                | Удостоверение о повышении квалификации от 30 сентября 2018 г.
+              a[href="https://examtutor.ru/tutor_infos"]
+                i.fa.fa-external-link
+section#team.team-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Высшие учебные заведения.
+          p
+            | Мои ученики поступают в такие ВУЗы, как НИУ ВШЭ, СПбГУ, РЭУ им. Г.В.Плеханова, РАП, Воронежское военное училище, МГУ, Новосибирское военное училище, Институт МВД, Институт ФСБ, ЮФУ, ДГТУ.
+    .row
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "team/member-1.png"
+          .member-info
+            h3
+              | Национальный исследовательский университет Высшая школа экономики
+            p.text-muted
+              | г.Москва
+            .member-social
+              a[href="https://www.hse.ru"]
+                i.fa.fa-external-link
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "team/member-2.png"
+          .member-info
+            h3
+              | Московский государственный университет им. М.В.Ломоносова
+            p.text-muted
+              | г.Москва
+            .member-social
+              a[href="https://www.msu.ru"]
+                i.fa.fa-external-link
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "team/member-3.png"
+          .member-info
+            h3
+              | Российский педагогический университет имени А.И.Герцена
+            p.text-muted
+              | г.Санкт-Петербург
+            .member-social
+              a[href="http://www.fa.ru/Pages/Home.aspx"]
+                i.fa.fa-external-link
+      .col-md-3.col-sm-6
+        .team-member
+          .member-image
+            = image_tag "team/member-4.png"
+          .member-info
+            h3
+              | Российская академия народного хозяйства и государственной службы при Президенте РФ
+            p.text-muted
+              | г.Москва
+            .member-social
+              a[href="https://мосу.мвд.рф"]
+                i.fa.fa-external-link
+section#testimonial.testimonial-area.section-big
+  .container
+    .row
+      .testimonial-list
+        .single-testimonial.text-center
+          i.fa.fa-quote-left
+          p
+            | Подготовку к ЕГЭ у Анастасии Владимировны я начала летом, а точнее в августе перед 11 классом. Закончила ее я в тот момент, когда сдала телефон перед пунктом сдачи ЕГЭ.
+              Особенностью наших занятий было несколько пунктов, которые меня очень радовали:
+              1)Занятия проводились в парах, что создавало естественную конкуренцию и заставляло к каждому следующему уроку готовиться лучше, чем к предыдущему.
+              2)Все основные знания я получала из книг или дополнительных источников информации. Таким образом, время занятий у репетитора не тратилось на элементарные теоретические моменты, а было направлено на практическое применение знаний или разбор особо сложных тем и вопросов.
+              Многие умения и навыки полученные у Анастасии Владимировны я использую и сейчас. И во многом благодаря тому, что я занималась именно у этого репетитора мой первый курс проходит достаточно легко, так как большую часть знаний, необходимых в университете, я приобрела при подготовке к ЕГЭ.
+              Одним из главных качеств, которым вас смогут наделить эти занятия - это умение и желание постоянно думать. Думать о том, что обсуждалось на занятии, а этого не знали(или знали не на 100%), желание постоянно что-то прогуглить, прочитать, узнать.
+              По итогу историю я сдала на 96 баллов, обществознание на 88.
+              Я сейчас безумно рада тому, что выбрала именно Анастасию Владимировну и занималась у нее. Это именно тот человек, который сможет прекрасно подготовить вас к ЕГЭ, если вы, конечно, сами приложите немало усилий.
+          = image_tag "testimonial/1.jpg"
+          h4
+            | Анна Малеванник
+          p.desg
+            | Юридический факультет
+        .single-testimonial.text-center
+          i.fa.fa-quote-left
+          p
+            | С Анастасией Владимировной я занималась в течение 10 и 11 классов. Мне понравился её подход, он такой особенный: Анастасия Владимировна очень требовательно относится к своим предметам, при этом заряжает мотивацией и не дает скучать. К каждому ученику у нее найдется подход – я бы сказала, что Анастасия Владимировна не просто грамотный и опытный преподаватель, она настоящий наставник. При таком чутком подходе к ученикам качество получаемых знаний остается высоким. Подход к обучению у нее прекрасный: всю новую информацию мы разбирали на конкретных примерах, искали причины тех или иных событий, а главное – учились самостоятельно думать. В этом, мне кажется, заключается главное преимущество Анастасии Владимировны как преподавателя. Мы занимались регулярно, и все соответствовало принятым договорённостям. С самого начала приступили к решению сложных заданий, разбирали их по мере прохождения тем. Все материалы репетитор присылала мне посредством электронных ресурсов. Всё абсолютно доступно и понятно - проблем не было. Анастасия Владимировна давала объёмное задание на дом, предоставляла необходимую учебную литературу, занятия всегда были интересными, а разнообразие заданий не давало расслабляться. Результат - ЕГЭ по истории и обществознанию на 86 баллов и поступление на юрфак НИУ ВШЭ.
+          = image_tag "testimonial/2.jpg"
+          h4
+            | Елена Лукаш
+          p.desg
+            | Юридический факультет
+        .single-testimonial.text-center
+          i.fa.fa-quote-left
+          p
+            | К Анастасии Владимировне пришла готовиться к сдаче обществознания и истории за 9 месяцев до ЕГЭ. В первую очередь, хочу поблагодарить её за все те умения и знания, которые она смогла мне дать за проведённое вместе время. Её система преподавания действительно крайне эффективна и направлена на выработку у школьника ответственности и усидчивости. Сам материал по подготовке содержит максимум полезной информации; каждый вид деятельности направлен на отработку определённого экзаменационного задания. Подход всегда индивидуальный к каждому "западающему" моменту программы. Я довольна, что попала к этому преподавателю и хочу пожелать ей и её ученикам высоких баллов, крепких нервов и осуществления всех целей и стремлений!
+          = image_tag "testimonial/3.jpg"
+          h4
+            | Ольга Яковлева
+          p.desg
+            | Факультет международных отношений
+section#video.video-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Предметы
+          p
+            |  При объяснении материала опираюсь на материалы ФИПИ и ФГОС, пособия НИУ ВШЭ, МГУ, СпбГУ, МГИМО.
+    .row
+      .col-md-6
+        .video-area
+          / iframe[width="555" height="315" src="https://player.vimeo.com/video/121536763?title=0&portrait=0&byline=0&autoplay=0" allowfullscreen]
+          = image_tag "video.jpg"
+      .col-md-6.accordion
+        #accordion.panel-group[role="tablist"]
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a[href="#accordion01" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"]
+                i.fa.fa-minus
+                h4.panel-title
+                  | История
+            #accordion01.panel-collapse.collapse.in[role="tabpanel" aria-expanded="true"]
+              .panel-body
+                |  Обеспечиваю своих учеников всеми необходимыми материалами: выдаю необходимые книги, раздаточный материал, распечатываю тесты, советую документальные и художественные фильмы по истории, использую интернет-ресурсы. Обучаю грамотно логически мыслить и выстраивать причинно-следственные связи, формулировать и аргументировать собственную позицию по проблемным вопросам истории.
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a.collapsed[href="#accordion02" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
+                i.fa.fa-minus
+                h4.panel-title
+                  | Обществознание
+            #accordion02.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
+              .panel-body
+                |  Работаю по ФГОС. При объяснении материала опираюсь на пособия НИУ ВШЭ, МГУ, СпбГУ, МГИМО. Имею опыт общественно-политической, научной, предпринимательской деятельности - иными словами, объясняю многие темы обществознания с опорой не только на теоретические знания, но и на практические навыки.
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a.collapsed[href="#accordion03" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
+                i.fa.fa-minus
+                h4.panel-title
+                  | Русский язык
+            #accordion03.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
+              .panel-body
+                |  С огромным уважением отношусь к своему родному языку и своей стране. Считаю, что интерес к изучению русского языка прививается ученику через воспитание чувства любви к России, её историческому и культурному наследию. Стремлюсь научить каждого грамотной речи, как письменной, так и устной.
+          .panel.clearfix
+            .panel-heading[role="tab"]
+              a.collapsed[href="#accordion04" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
+                i.fa.fa-minus
+                h4.panel-title
+                  | Английский язык
+            #accordion04.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
+              .panel-body
+                |  Для обучения использую признанные на мировом уровне учебники ведущих издательств - Macmillan Publishers, Oxford & Cambridge University Press. Уделяю большое внимание навыкам эффективной коммуникации: умению чётко (в т.ч. грамматически верно) выстроить свою мысль и свободно воспринимать англоязычную речь на слух. Отвожу важное место контекстному изучению языка. Считаю, что регулярное чтение книг и тематических статей на английском языке способствует значительному улучшению результатов. Специализируюсь на подготовке к ЕГЭ.
+        .tabbable.tabs-left[style="display: none;"]
+          ul.nav.nav-tabs
+            li.active
+              a[href="#a" data-toggle="tab"]
+                i.fa.fa-lightbulb-o[aria-hidden="true"]
+              h3
+                | Bright Ideas
+            li
+              a[href="#b" data-toggle="tab"]
+                i.fa.fa-tablet[aria-hidden="true"]
+              h3
+                | Responsive
+            li
+              a[href="#c" data-toggle="tab"]
+                i.fa.fa-hand-pointer-o[aria-hidden="true"]
+              h3
+                | Easy to use
+            li
+              a[href="#d" data-toggle="tab"]
+                i.fa.fa-life-ring[aria-hidden="true"]
+              h3
+                | Support
+            li
+              a[href="#e" data-toggle="tab"]
+                i.fa.fa-life-ring[aria-hidden="true"]
+              h3
+                | Support
+          .tab-content
+            #a.tab-pane.active
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #b.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #c.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #d.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+            #e.tab-pane
+              p
+                | A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul which I enjoy with my whole heart.
+section#action.action-area.section-small
+  .container
+    .row
+      .col-md-10
+        h2
+          strong
+            | Вы
+          |  всегда можете связаться с репетитором по ссылке
+      .col-md-2
+        a.btn.smooth_scroll[href="#contact"]
+          | СВЯЗАТЬСЯ
+section#pricing.pricing-area.section-big
+  .container
+    .row
+      .col-md-12
+        .section-title.text-center
+          h2
+            | Цены на услуги
+          p
+            | Все условия оплаты обсуждаются индивидуально с каждым клиентом. Ниже приведены ориентировочные цены на услуги.
+    .row
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item[data-connectors="1"]
+          .info
+            p.level
+              | История / Обществознание
+            p.price
+              span.dollar
+                | ₽
+              span.number
+                | 700
+              span
+                | / 60 мин.
+          .features
+            ul
+              / li
+              /   | 15 Users
+              / li.even
+              /   | 10 Projects
+              / li
+              /   | 30 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | X
+              / li.even
+                | X
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item[data-connectors="1"]
+          .info
+            p.level
+              | Русский язык / Английский язык
+            p.price
+              span.dollar
+                | ₽
+              span.number
+                | 500
+              span
+                | / 60 мин.
+          .features
+            ul
+              / li
+              /   | 15 Users
+              / li.even
+              /   | 10 Projects
+              / li
+              /   | 30 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | Private Forums
+              / li.even
+                | X
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item.featured[data-connectors="1"]
+          .info
+            p.level
+              | Занятия в паре (любой предмет)
+            p.price
+              span.dollar
+                | ₽
+              span.number
+                | 433
+              span
+                | / 60 мин.
+          .features
+            ul
+              / li
+              /   | 25 Users
+              / li.even
+              /   | 100 Projects
+              / li
+              /   | 500 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | Private Forums
+              / li.even
+                | Enhanced Security
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
+      .col-md-3.col-sm-6.col-xs-12
+        .price-item[data-connectors="1"]
+          .info
+            p.level
+              | Абонемент (при оплате за месяц)
+            p.price
+              span.dollar
+                |
+              span.number
+                | 15%
+              span
+                | скидка
+          .features
+            ul
+              / li
+              /   | 15 Users
+              / li.even
+              /   | 10 Projects
+              / li
+              /   | 30 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | Private Forums
+              / li.even
+                | Enhanced Security
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
+section#fun-facts.fun-facts-area.section-big
+  .container
+    .row
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-users
+        .fun-fact.text-center.tab-margin-bottom
+          h3
+            span.cp-counter
+              | 731 000
+          p
+            | человек сдали ЕГЭ в 2018
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-thumbs-o-up.fa-6
+        .fun-fact.text-center.tab-margin-bottom
+          h3
+            span.cp-counter
+              | > 6000
+          p
+            | сдали ЕГЭ на 100 баллов
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-trophy
+        .fun-fact.text-center
+          h3
+            span.cp-counter
+              | 1
+          p
+            | человек сдал на 100 баллов сразу 4 ЕГЭ
+      .col-sm-6.col-md-3
+        .fun-facts-icon
+          i.fa.fa-handshake-o
+        .fun-fact.text-center
+          h3
+            span.cp-counter
+              | ~ 70
+          p
+            | средний балл для зачисления на бюджет
+section#why-choose.why-choose-area.section-big
+  .container
+    .row
+      .col-md-12
+        .section-title.text-center
+          h2
+            | Возможности платформы Examtutor
+          p
+            .mr-1 = "Ресурс Examtutor.ru содержит всё, что необходимо ученику для подготовки к ЕГЭ. Также предоставляется сервис для родителей, где они могут следить за отчётами о прогрессе своих детей."
+            = link_to "Подробнее...", site_features_tutor_infos_path, class: 'grey-link'
+    .row
+      .col-md-6
+        .slide-carousel
+          = image_tag "choose/01.jpg", class: 'why-choose-img'
+          = image_tag "choose/02.jpg", class: 'why-choose-img'
+      .col-sm-6
+        .choose-box.right
+          a[href="http://localhost:3000/tutor_infos/site_features"]
+            i.fa.fa-send[aria-hidden="true"]
+          .choose-content
+            h3
+              | Рассылка уведомлений
+            p
+              | Родители могут подписаться на еженедельную рассылку писем на email и быть в курсе результатов всех ранятий.
+        .choose-box.right
+          a[href="http://localhost:3000/tutor_infos/site_features"]
+            i.fa.fa-line-chart[aria-hidden="true"]
+          .choose-content
+            h3
+              | Аналитика
+            p
+              | Родителям предоставляется доступ к странице с полной информацией по каждому занятию с графиком общего прогресса.
+        .choose-box.right
+          a[href="http://localhost:3000/tutor_infos/site_features"]
+            i.fa.fa-check-circle[aria-hidden="true"]
+          .choose-content
+            h3
+              | Онлайн тестирование
+            p
+              | Ученики имеют полный доступ ко всем авторским материалам. Имеют возможность писать эссе онлайн и сдавать его на проверку репетитору, проходить тесты.
+#subscribe.subscribe-area.section-big
+  .container
+    .subscribe-box
+      h2
+        | Связаться с репетитором
+      p
+        strong
+          | Вы
+        |  можете связаться с репетитором прямо сейчас по ссылке.
+      form#mc-form.mc-form
+        .newsletter-form
+          / input#mc-email.form-control[type="email" autocomplete="off" placeholder="Enter your email address"]
+          .mailchimp-alerts
+            .mailchimp-submitting
+            .mailchimp-success
+            .mailchimp-error
+          .clearfix
+          a.btn.smooth_scroll[href="#contact"]
+            | СВЯЗАТЬСЯ
+section#news.news-area.section-big
+  .container
+    .row
+      .col-md-12
+        .section-title.text-center
+          h2
+            | Авторские статьи
+          p
+            | В стадии оформления.
+    / .row
+      .news-carousel
+        .single-news
+          .news-image
+            a[href="#news-modal-1" data-toggle="modal"]
+              = image_tag "news/news-1.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-1" data-toggle="modal"]
 
-    = render 'slider'
-    = render 'phone-number'
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title one
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-1" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-2" data-toggle="modal"]
+              = image_tag "news/news-2.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-2" data-toggle="modal"]
 
-  .initial__registration-block
-    .initial__registration-block__button-pupil.mr_1
-      = button_tag t('.pupil_enter'), class: 'pupil-enter-button btn', data: {toggle: 'modal', target: '#pupilEnterModal'}, remote: true
-    = render 'modal_pupil_enter'
-    .initial__registration-block__button-parent
-      = button_tag t('.parent_enter'), class: 'parent-enter-button btn', data: {toggle: 'modal', target: '#parentEnterModal'}, remote: true
-    = render 'modal_parent_enter'
-  .initial__two.mt-3
-    .subject.ml-3.mr-3 = render 'history_block'
-    .d-flex.justify-content-end.ml-3.mr-3
-      .subject = render 'social_block'
-    .subject.ml-3.mr-3 = render 'russian_block'
-    .d-flex.justify-content-end.ml-3.mr-3
-      .subject = render 'english_block'
-  .initial__three
-    = render 'feedback'
-    = render 'requirements'
-    = render 'footer-phone-number_block'
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Two
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-2" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-3" data-toggle="modal"]
+              = image_tag "news/news-3.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-3" data-toggle="modal"]
+
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Three
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-3" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-4" data-toggle="modal"]
+              = image_tag "news/news-4.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-3" data-toggle="modal"]
+
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Four
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-3" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+        .single-news
+          .news-image
+            a[href="#news-modal-5" data-toggle="modal"]
+              = image_tag "news/news-5.jpeg"
+          .news-content
+            p.news-meta.text-muted
+              span
+                i.fa.fa-calendar
+                |  02 Nov 2017
+              span
+                i.fa.fa-user
+                |  Admin
+            a[href="#news-modal-3" data-toggle="modal"]
+
+            h3
+              i.fa.fa-pencil-square-o[aria-hidden="true"]
+              |  Blog Post Title Four
+            p
+              | Light without hath She'd winged Earth forth signs sixth void great man in the world.
+            a.btn[href="#news-modal-3" data-toggle="modal"]
+              | Read More
+              i.fa.fa-long-arrow-right
+    #news-modal-1.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "news/news-1.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-2.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "news/news-2.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-3.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "news/news-3.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-4.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "news/news-3.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+    #news-modal-5.news-modal.modal.fade[tabindex="-1" role="dialog" aria-hidden="true"]
+      .modal-content
+        .close-modal[data-dismiss="modal"]
+          .lr
+            .rl
+
+        .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              .modal-body
+                = image_tag "news/news-3.jpeg"
+                p.news-meta.text-muted
+                  span
+                    i.fa.fa-calendar
+                    |  02 Nov 2017
+                  span
+                    i.fa.fa-user
+                    |  Admin
+                  span
+                    i.fa.fa-comments-o
+                    |  200
+                h2
+                  | Last night we released our latest product
+                p
+                  | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.
+                p
+                  | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand.
+                button.btn.btn-default[type="button" data-dismiss="modal"]
+                  i.fa.fa-times
+                  |  Close
+#client.client-area.section-small
+  .container
+    .owl-client
+      .item.active.text-center
+        = image_tag "clients/1.png"
+      .item.active.text-center
+        = image_tag "clients/2.png"
+      .item.active.text-center
+        = image_tag "clients/3.png"
+      .item.active.text-center
+        = image_tag "clients/4.png"
+      .item.active.text-center
+        = image_tag "clients/5.png"
+      .item.active.text-center
+        = image_tag "clients/6.png"
+      .item.active.text-center
+        = image_tag "clients/7.png"
+      .item.active.text-center
+        = image_tag "clients/8.png"
+      .item.active.text-center
+        = image_tag "clients/9.png"
+section#contact.contact-area.section-big
+  .container
+    .row
+      .col-md-12.text-center
+        .section-title
+          h2
+            | Связаться с репетитором
+    .row
+      .col-md-6
+        .contact-form
+          / form#ajax-contact[action="mailer.php" method="post"]
+          /   .form-group.in_name
+          /     input#name.form-control[type="text" name="name" placeholder="Name" required="required"]
+          /   .form-group.in_email
+          /     input#email.form-control[type="email" name="email" placeholder="Email" required="required"]
+          /   .form-group.in_message
+          /     textarea#message.form-control[rows="5" name="message" placeholder="Message" required="required"]
+          /   .actions
+          /     input#submitButton.btn[type="submit" value="Send" name="submit" title="Submit Your Message!"]
+          = form_tag '/mailers', remote: true do
+            .form-group.in_name
+              = text_field 'name', '', id: 'name', class: 'form-control', placeholder: "Name", required: "required", type: 'text', name: 'name'
+            .form-group.in_email
+              = text_field 'email', '', id: 'email', class: 'form-control', placeholder: "Email", required: "required", type: 'email', name: 'email'
+            .form-group.in_message
+              = text_area 'message', '', id: 'message', class: 'form-control', placeholder: "Message", required: "required", rows: '5', name: 'message'
+            .actions
+              = submit_tag 'Отправить', class: 'submitButton', type: 'submit', title: 'Submit Your Message!'
+          #form-messages
+      .col-md-6
+        p.contact-info
+          | Я работаю без выходных и готова ответить на все интересующие Вас вопросы в любой день. Индивидуальные консультации по предварительной записи. Предпочтительное средство связи - электронная почта и личные сообщения ВКонтакте. Приём заявок по телефону с 9-00 до 12-00 и после 20-00.
+        .address-box.clearfix
+          i.fa.fa-map-marker
+          p
+            | г. Таганрог ул.Ломоносова 24
+        .address-box.clearfix
+          i.fa.fa-phone
+          p
+            a[href="tel:015110022"]
+              | +7 928-1919-517
+        .address-box.clearfix
+          i.fa.fa-send
+          p
+            a[href="mailto:email@yourdomain.com"]
+              | info@examtutor.ru
+        .address-box.clearfix
+          i.fa.fa-vk
+          p
+            a[href="https://vk.com/feriaprima"]
+              | vk.com
+/ #contactgoogleMap
+iframe frameborder="0" height="400" src="https://yandex.ru/map-widget/v1/?um=constructor%3A3df382e75621eb712431e7bfdfad5ab73c14be9f25c9c37d8bf697d064eebd41&amp;source=constructor" width="100%"
+footer.footer-area
+  .container
+    .row
+      .col-md-6.col-sm-6
+        p
+          | © 2019 Copyright DevRails
+      .col-md-6.col-sm-6
+        ul.social-links
+          li
+            a[href="https://vk.com/feriaprima"]
+              i.fa.fa-vk
+          li
+            a[href="https://yandex.ru/uslugi/profile/AnastasiyaAristova-106039"]
+              i.fa.fa-yahoo
+          li
+            a[href="https://rnd.profi.ru/profile/AristovaAV2/"]
+              i.fa.fa-user-circle

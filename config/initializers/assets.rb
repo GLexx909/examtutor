@@ -11,4 +11,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.scss, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += %w( lightbox/* )
+Rails.application.config.assets.precompile += %w( bootstrap.min.css font-awesome.min.css animate.min.css imagehover.min.css
+ normalize.css owl.carousel.min.css owl.transitions.css owl.theme.min.css magnific-popup.css style.css responsive.css skin/blue.css application-bizniz.js jquery.min.js bootstrap.min.js owl.carousel.min.js jquery.mixitup.js
+jquery.magnific-popup.min.js jquery.waypoints.min.js jquery.ajaxchimp.min.js main_script.js)
