@@ -6,8 +6,8 @@
         .mainmenu
           .navbar.navbar-nobg
             .navbar-header
-              a.navbar-brand[href="index.html.slim"]
-                | Bizniz
+              a.navbar-brand[href="/"]
+                | Examtutor
               button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
                 span.sr-only
                   | Toggle navigation
@@ -19,28 +19,32 @@
                 ul.nav.navbar-nav.navbar-right
                   li.active
                     a.smooth_scroll[href="#slider"]
-                      | HOME
+                      | ОСНОВНАЯ
                   li
                     a.smooth_scroll[href="#about"]
-                      | ABOUT
+                      | О СЕБЕ
                   li
                     a.smooth_scroll[href="#service"]
-                      | SERVICE
-                  li
-                    a.smooth_scroll[href="#work"]
-                      | WORK
-                  li
-                    a.smooth_scroll[href="#team"]
-                      | TEAM
+                      | ПРЕДМЕТЫ
+                  / li
+                  /   a.smooth_scroll[href="#work"]
+                  /     | ДИПЛОМЫ
+                  / li
+                  /   a.smooth_scroll[href="#team"]
+                  /     | ВУЗы
                   li
                     a.smooth_scroll[href="#pricing"]
-                      | PRICE
-                  li
-                    a.smooth_scroll[href="#news"]
-                      | NEWS
+                      | ЦЕНЫ
+                  / li
+                  /   a.smooth_scroll[href="#news"]
+                  /     | СТАТЬИ
                   li
                     a.smooth_scroll[href="#contact"]
-                      | CONTACT
+                      | СВЯЗЬ
+                  li.active.link-blue
+                    = link_to enter_page_initials_path
+                      | ВХОД НА САЙТ
+
 section#slider
   #carousel-example-generic.carousel.slide.carousel-fade
     .carousel-inner[role="listbox"]
@@ -49,31 +53,31 @@ section#slider
           .table-cell
             .intro-text
               h2[data-animation="animated fadeInDown"]
-                | Welcome To Our Studio!
+                | Добро пожаловать на Examtutor !
               h1[data-animation="animated fadeInDown"]
-                | It's Nice To Meet You
-              a.btn.btn-trnsp[href="#" data-animation="animated fadeInDown"]
-                | Tell Me More
+                | Хочешь подготовиться к ЕГЭ ?
+              a.btn.btn-trnsp.smooth_scroll[href="#about"]
+                | Узнать как
       .item.slide2
         .table
           .table-cell
             .intro-text
               h2[data-animation="animated fadeInDown"]
-                | Welcome To Our Office!
+                | Нужен опытный репетитор?
               h1[data-animation="animated fadeInDown"]
-                | We Want To Meet You
-              a.btn.btn-trnsp[href="#" data-animation="animated fadeInDown"]
-                | Tell Me More
+                | Тогда тебе сюда !
+              a.btn.btn-trnsp.btn.btn-trnsp.smooth_scroll[href="#about"]
+                | Узнать подробнее
       .item.slide3
         .table
           .table-cell
             .intro-text
               h2[data-animation="animated fadeInDown"]
-                | Welcome To Our Home!
+                | Что нужно знать
               h1[data-animation="animated fadeInDown"]
-                | Let's Start Walking
-              a.btn.trnsp[href="#" data-animation="animated fadeInDown"]
-                | Tell Me More
+                | Чтобы успешно сдать ЕГЭ?
+              a.btn.btn-trnsp.smooth_scroll[href="#about"]
+                | Узнать
     a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
       = image_tag "left-arrow.png"
     a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
@@ -84,181 +88,184 @@ section#about.about-area.section-big
       .col-md-12.text-center
         .section-title
           h2
-            | About Us
+            | Информация о репетиторе
     .row
       .col-md-6.about-img.text-center
-        = image_tag "/about/about.png"
+        = image_tag "about/about.png"
       .col-md-6
         .about-text
           h3
-            | We are creative
+            | Репетиторство - стиль моей жизни
           p
-            | A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.
+            | Приветствую вас, уважаемые школьники, абитуриенты и их родителиr! Я занимаюсь преподаванием с момента получения своего первого диплома в 2011 году. Успела приобрести опыт педагогической деятельности как в частных, так и в государственных образовательных учреждениях.
           p
-            | It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiallyIt has survived not only five electronic but also the leap into electronic typesetting, typesetting, remaining essentiallyIt has survived not only five typesetting industry.
-          a.btn[href=""]
-            | Read more
+            | С 2013 года специализируюсь на школьных выпускных экзаменах – ОГЭ и ЕГЭ. Достаточно быстро я поняла, что хочу развивать свои профессиональные навыки в направлении индивидуальной работы со школьниками. В 2015 году я стала официально зарегистрированным индивидуальным предпринимателем – таким образом, репетиторство превратилось для меня в основной вид деятельности . . .
+          a.btn[href="https://examtutor.ru/tutor_infos"]
+            | Подробнее
 #skills.skill-area.section-big
   .container
     .row
       .col-md-6.col-sm-6
         h3
-          | Our Work Process
+          | Шаги к успеху
         ul.nav.nav-tabs
           li.active
             a[data-toggle="tab" href="#tab1"]
-              | Planning
+              | Шаг 1
           li
             a[data-toggle="tab" href="#tab2"]
-              | Research
+              | Шаг 2
           li
             a[data-toggle="tab" href="#tab3"]
-              | Target
+              | Шаг 3
         .tab-content
           #tab1.tab-pane.fade.in.active
             p
-              | Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer.
+              |  Понимание и планирование.
+                Серьёзно отнеситесь к выбору будущей профессии и списку ЕГЭ, которые предстоит сдавать в вуз мечты. Сдать успешно более 3-4 экзаменов крайне тяжело. Непрестанная зубрёжка днём и ночью 24 часа в сутки лишит Вас сил и вызовет апатию и отвращение к учёбе. Расставьте приоритеты в начале пути - и подготовка к экзаменам превратится в увлекательное путешествие на вершину своих возможностей!
           #tab2.tab-pane.fade
             p
-              | Coctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer.
+              | Систематичность.
+                Составить план эффективного освоения предмета, охватывающий все пункты программы экзамена - задача репетитора. Однако ученику необходимо в точности следовать всем рекомендациям преподавателя. Главное - регулярно выполнять домашнее задание, трезво воспринимать критику и не останавливаться на достигнутых результатах.
           #tab3.tab-pane.fade
             p
-              | Consect adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat consectetuer sit amet magna adipiscing. Lincidunt ut laoreet dolore magna aliquam erat sit amet adipiscing.
+              | Самодисциплина.
+                Самый сложный этап подготовки ждёт Вас весной 11 класса. Во-первых, в марте Вам предстоит попробовать свои силы на пробном экзамене. Во-вторых, в тёплые майские деньки будет сложно заставить себя сидеть за учебниками. Наконец, за пару недель до ЕГЭ Вы начнёте испытывать стресс и, возможно, даже панику. Справиться со всеми этими трудностями Вам поможет внутренняя дисциплина, которая обязательно у Вас появится в результате нашей совместной работы!
       .col-md-6.col-sm-6
         h3
-          | Our Skills
+          | От чего зависит балл на ЕГЭ?
         .skill-bar-container
           h4
-            | Monitoring
+            | Удача на экзамене
           .skill-progress-bar
-            span[data-percent="90" style="transition: width 2.5s; width: 90%;"]
+            span[data-percent="10" style="transition: width 2.5s; width: 10%;"]
         .skill-bar-container
           h4
-            | Branding
+            | Работа репетитора
           .skill-progress-bar
-            span[data-percent="80" style="transition: width 2.5s; width: 80%;"]
+            span[data-percent="20" style="transition: width 2.5s; width: 20%;"]
         .skill-bar-container
           h4
-            | Supporting
+            | Мотивация и целеустремлённость ученика
           .skill-progress-bar
-            span[data-percent="85" style="transition: width 2.5s; width: 85%;"]
+            span[data-percent="70" style="transition: width 2.5s; width: 70%;"]
 section#service.service-area.section-big
   .container
     .row
       .col-md-12.text-center
         .section-title
           h2
-            | Our Services
+            | Предметы
           p
-            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            | Важное место в процессе обучения отводится межпредметным связям.
     .row
       .home-services
         .service-box
-          i.fa.fa-shopping-cart
+          i.fa.fa-university
           h3
-            | Ecommerce
+            | История
           p
-            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+            | Обучаю навыкам логического мышления и построения причинно-следственных связей, формулирования и аргументирования собственной позиции.
         .service-box
-          i.fa.fa-envelope-o
+          i.fa.fa-users
           h3
-            | Marketing
+            | Обществознание
           p
-            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+            | Опираясь на реальные примеры и пособия ведущих вузов РФ, рассмотрим сложные теоретические вопросы философии, экономики, социологии, политики и права.
         .service-box
-          i.fa.fa-lightbulb-o
+          i.fa.fa-pencil-square-o
           h3
-            | Branding
+            | Русский язык
           p
-            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+            | Грамотная речь - залог успеха в получении не только высшего образования, но и во всей дальнейшей жизни. Научу писать сочинения легко и с удовольствием!
         .service-box
-          i.fa.fa-television
+          i.fa.fa-sort-alpha-asc
           h3
-            | UX Design
+            | Английский язык
           p
-            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+            | Для обучения использую признанные на мировом уровне учебники ведущих издательств - Macmillan Publishers, Oxford & Cambridge University Press.
         .service-box
-          i.fa.fa-envelope-o
+          i.fa.fa-university
           h3
-            | Marketing
+            | История
           p
-            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+            | Обучаю навыкам логического мышления и построения причинно-следственных связей, формулирования и аргументирования собственной позиции.
         .service-box
-          i.fa.fa-lightbulb-o
+          i.fa.fa-users
           h3
-            | Branding
+            | Обществознание
           p
-            | But I must explain to you how all this mistaken idea of man denouncing pleasure and praising pain was born and I will give account.
+            | Опираясь на реальные примеры и пособия ведущих вузов РФ, рассмотрим сложные теоретические вопросы философии, экономики, социологии, политики и права.
 section#work.latest-project-area.section-big
   .container-fluid
     .row
       .col-md-12.text-center
         .section-title
           h2
-            | Our Latest Projects
+            | Дипломы
           p
-            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            | Дипломы о высшем образовании, о профессиональной переподготовке, о повышении квалификации.
     .row
       .project-carousel
         .project-item.imghvr-flip-vert
-          = image_tag "/works/1.jpg"
+          = image_tag "works/1.jpg"
           .figcaption
             .overlay
               h3
-                | Caption title
+                | Бакалавр истории
               p
-                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
-              a[href="#"]
+                | Диплом с отличием от 27 июня 2011 г. ЮФУ г.Ростов-на-Дону
+              a[href="https://examtutor.ru/tutor_infos"]
                 i.fa.fa-external-link
         .project-item.imghvr-flip-vert
-          = image_tag "/works/2.jpg"
+          = image_tag "works/2.jpg"
           .figcaption
             .overlay
               h3
-                | Caption title
+                | Магистр истории
               p
-                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
-              a[href="#"]
+                | Диплом с отличием от 25 июня 2013 г. ЮФУ г.Ростов-на-Дону
+              a[href="https://examtutor.ru/tutor_infos"]
                 i.fa.fa-external-link
         .project-item.imghvr-flip-vert
-          = image_tag "/works/3.jpg"
+          = image_tag "works/3.jpg"
           .figcaption
             .overlay
               h3
-                | Caption title
+                | Преподаватель английского языка
               p
-                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
-              a[href="#"]
+                | Диплом о профессиональной переподготовке от 26 февраля 2019 г.
+              a[href="https://examtutor.ru/tutor_infos"]
                 i.fa.fa-external-link
         .project-item.imghvr-flip-vert
-          = image_tag "/works/4.jpg"
+          = image_tag "works/4.jpg"
           .figcaption
             .overlay
               h3
-                | Caption title
+                | Русский язык
               p
-                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
-              a[href="#"]
+                |  Удостоверение о повышении квалификации от 15 сентября 2018 г.
+              a[href="https://examtutor.ru/tutor_infos"]
                 i.fa.fa-external-link
         .project-item.imghvr-flip-vert
-          = image_tag "/works/5.jpg"
+          = image_tag "works/5.jpg"
           .figcaption
             .overlay
               h3
-                | Caption title
+                | Английский язык
               p
-                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
-              a[href="#"]
+                | Удостоверение о повышении квалификации от 30 сентября 2018 г.
+              a[href="https://examtutor.ru/tutor_infos"]
                 i.fa.fa-external-link
         .project-item.imghvr-flip-vert
-          = image_tag "/works/6.jpg"
+          = image_tag "works/6.jpg"
           .figcaption
             .overlay
               h3
-                | Caption title
+                | Английский язык
               p
-                | First bring all she brought creature doesn't above from may to fowl creepeth greater night make
-              a[href="#"]
+                | Удостоверение о повышении квалификации от 30 сентября 2018 г.
+              a[href="https://examtutor.ru/tutor_infos"]
                 i.fa.fa-external-link
 section#team.team-area.section-big
   .container
@@ -266,82 +273,58 @@ section#team.team-area.section-big
       .col-md-12.text-center
         .section-title
           h2
-            | Our Team
+            | Высшие учебные заведения.
           p
-            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            | Мои ученики поступают в такие ВУЗы, как НИУ ВШЭ, СПбГУ, РЭУ им. Г.В.Плеханова, РАП, Воронежское военное училище, МГУ, Новосибирское военное училище, Институт МВД, Институт ФСБ, ЮФУ, ДГТУ.
     .row
       .col-md-3.col-sm-6
         .team-member
           .member-image
-            = image_tag "/team/member-1.png"
+            = image_tag "team/member-1.png"
           .member-info
             h3
-              | Kay Garland
+              | Национальный исследовательский университет Высшая школа экономики
             p.text-muted
-              | Lead Designer
+              | г.Москва
             .member-social
-              a[href="#"]
-                i.fa.fa-facebook
-              a[href="#"]
-                i.fa.fa-twitter
-              a[href="#"]
-                i.fa.fa-google-plus
-              a[href="#"]
-                i.fa.fa-linkedin
+              a[href="https://www.hse.ru"]
+                i.fa.fa-external-link
       .col-md-3.col-sm-6
         .team-member
           .member-image
-            = image_tag "/team/member-2.png"
+            = image_tag "team/member-2.png"
           .member-info
             h3
-              | Larry Parker
+              | Московский государственный университет им. М.В.Ломоносова
             p.text-muted
-              | Lead Marketer
+              | г.Москва
             .member-social
-              a[href="#"]
-                i.fa.fa-facebook
-              a[href="#"]
-                i.fa.fa-twitter
-              a[href="#"]
-                i.fa.fa-google-plus
-              a[href="#"]
-                i.fa.fa-linkedin
+              a[href="https://www.msu.ru"]
+                i.fa.fa-external-link
       .col-md-3.col-sm-6
         .team-member
           .member-image
-            = image_tag "/team/member-3.png"
+            = image_tag "team/member-3.png"
           .member-info
             h3
-              | Diana Pertersen
+              | Российский педагогический университет имени А.И.Герцена
             p.text-muted
-              | Lead Developer
+              | г.Санкт-Петербург
             .member-social
-              a[href="#"]
-                i.fa.fa-facebook
-              a[href="#"]
-                i.fa.fa-twitter
-              a[href="#"]
-                i.fa.fa-google-plus
-              a[href="#"]
-                i.fa.fa-linkedin
+              a[href="http://www.fa.ru/Pages/Home.aspx"]
+                i.fa.fa-external-link
       .col-md-3.col-sm-6
         .team-member
           .member-image
-            = image_tag "/team/member-4.png"
+            = image_tag "team/member-4.png"
           .member-info
             h3
-              | Aman Ullah
+              | Российская академия народного хозяйства и государственной службы при Президенте РФ
             p.text-muted
-              | Lead Developer
+              | г.Москва
             .member-social
-              a[href="#"]
-                i.fa.fa-facebook
-              a[href="#"]
-                i.fa.fa-twitter
-              a[href="#"]
-                i.fa.fa-google-plus
-              a[href="#"]
-                i.fa.fa-linkedin
+              a[href="https://мосу.мвд.рф"]
+                i.fa.fa-external-link
 section#testimonial.testimonial-area.section-big
   .container
     .row
@@ -349,81 +332,89 @@ section#testimonial.testimonial-area.section-big
         .single-testimonial.text-center
           i.fa.fa-quote-left
           p
-            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+            | Подготовку к ЕГЭ у Анастасии Владимировны я начала летом, а точнее в августе перед 11 классом. Закончила ее я в тот момент, когда сдала телефон перед пунктом сдачи ЕГЭ.
+              Особенностью наших занятий было несколько пунктов, которые меня очень радовали:
+              1)Занятия проводились в парах, что создавало естественную конкуренцию и заставляло к каждому следующему уроку готовиться лучше, чем к предыдущему.
+              2)Все основные знания я получала из книг или дополнительных источников информации. Таким образом, время занятий у репетитора не тратилось на элементарные теоретические моменты, а было направлено на практическое применение знаний или разбор особо сложных тем и вопросов.
+              Многие умения и навыки полученные у Анастасии Владимировны я использую и сейчас. И во многом благодаря тому, что я занималась именно у этого репетитора мой первый курс проходит достаточно легко, так как большую часть знаний, необходимых в университете, я приобрела при подготовке к ЕГЭ.
+              Одним из главных качеств, которым вас смогут наделить эти занятия - это умение и желание постоянно думать. Думать о том, что обсуждалось на занятии, а этого не знали(или знали не на 100%), желание постоянно что-то прогуглить, прочитать, узнать.
+              По итогу историю я сдала на 96 баллов, обществознание на 88.
+              Я сейчас безумно рада тому, что выбрала именно Анастасию Владимировну и занималась у нее. Это именно тот человек, который сможет прекрасно подготовить вас к ЕГЭ, если вы, конечно, сами приложите немало усилий.
           = image_tag "testimonial/1.jpg"
           h4
-            | Aman Ullah
+            | Анна Малеванник
           p.desg
-            | Founder of Coderspoint
+            | Юридический факультет
         .single-testimonial.text-center
           i.fa.fa-quote-left
           p
-            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
-          = image_tag "/testimonial/1.jpg"
+            | С Анастасией Владимировной я занималась в течение 10 и 11 классов. Мне понравился её подход, он такой особенный: Анастасия Владимировна очень требовательно относится к своим предметам, при этом заряжает мотивацией и не дает скучать. К каждому ученику у нее найдется подход – я бы сказала, что Анастасия Владимировна не просто грамотный и опытный преподаватель, она настоящий наставник. При таком чутком подходе к ученикам качество получаемых знаний остается высоким. Подход к обучению у нее прекрасный: всю новую информацию мы разбирали на конкретных примерах, искали причины тех или иных событий, а главное – учились самостоятельно думать. В этом, мне кажется, заключается главное преимущество Анастасии Владимировны как преподавателя. Мы занимались регулярно, и все соответствовало принятым договорённостям. С самого начала приступили к решению сложных заданий, разбирали их по мере прохождения тем. Все материалы репетитор присылала мне посредством электронных ресурсов. Всё абсолютно доступно и понятно - проблем не было. Анастасия Владимировна давала объёмное задание на дом, предоставляла необходимую учебную литературу, занятия всегда были интересными, а разнообразие заданий не давало расслабляться. Результат - ЕГЭ по истории и обществознанию на 86 баллов и поступление на юрфак НИУ ВШЭ.
+          = image_tag "testimonial/2.jpg"
           h4
-            | John doe
+            | Елена Лукаш
           p.desg
-            | Founder of WeBean
+            | Юридический факультет
         .single-testimonial.text-center
           i.fa.fa-quote-left
           p
-            | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
-          = image_tag "/testimonial/1.jpg"
+            | К Анастасии Владимировне пришла готовиться к сдаче обществознания и истории за 9 месяцев до ЕГЭ. В первую очередь, хочу поблагодарить её за все те умения и знания, которые она смогла мне дать за проведённое вместе время. Её система преподавания действительно крайне эффективна и направлена на выработку у школьника ответственности и усидчивости. Сам материал по подготовке содержит максимум полезной информации; каждый вид деятельности направлен на отработку определённого экзаменационного задания. Подход всегда индивидуальный к каждому "западающему" моменту программы. Я довольна, что попала к этому преподавателю и хочу пожелать ей и её ученикам высоких баллов, крепких нервов и осуществления всех целей и стремлений!
+          = image_tag "testimonial/3.jpg"
           h4
-            | John doe
+            | Ольга Яковлева
           p.desg
-            | Founder of Coderspoint
+            | Факультет международных отношений
 section#video.video-area.section-big
   .container
     .row
       .col-md-12.text-center
         .section-title
           h2
-            | Help & FAQ
+            | Предметы
           p
-            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            |  При объяснении материала опираюсь на материалы ФИПИ и ФГОС, пособия НИУ ВШЭ, МГУ, СпбГУ, МГИМО.
     .row
       .col-md-6
         .video-area
-          iframe[width="555" height="315" src="https://player.vimeo.com/video/121536763?title=0&portrait=0&byline=0&autoplay=0" allowfullscreen]
+          / iframe[width="555" height="315" src="https://player.vimeo.com/video/121536763?title=0&portrait=0&byline=0&autoplay=0" allowfullscreen]
+          = image_tag "video.jpg"
       .col-md-6.accordion
         #accordion.panel-group[role="tablist"]
           .panel.clearfix
             .panel-heading[role="tab"]
               a[href="#accordion01" data-toggle="collapse" data-parent="#accordion" aria-expanded="true"]
                 i.fa.fa-minus
-              h4.panel-title
-                | Dolor sit amet adipiscing
+                h4.panel-title
+                  | История
             #accordion01.panel-collapse.collapse.in[role="tabpanel" aria-expanded="true"]
               .panel-body
-                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+                |  Обеспечиваю своих учеников всеми необходимыми материалами: выдаю необходимые книги, раздаточный материал, распечатываю тесты, советую документальные и художественные фильмы по истории, использую интернет-ресурсы. Обучаю грамотно логически мыслить и выстраивать причинно-следственные связи, формулировать и аргументировать собственную позицию по проблемным вопросам истории.
           .panel.clearfix
             .panel-heading[role="tab"]
               a.collapsed[href="#accordion02" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
                 i.fa.fa-minus
-              h4.panel-title
-                | Anim pariatur cliche reprit
+                h4.panel-title
+                  | Обществознание
             #accordion02.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
               .panel-body
-                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+                |  Работаю по ФГОС. При объяснении материала опираюсь на пособия НИУ ВШЭ, МГУ, СпбГУ, МГИМО. Имею опыт общественно-политической, научной, предпринимательской деятельности - иными словами, объясняю многие темы обществознания с опорой не только на теоретические знания, но и на практические навыки.
           .panel.clearfix
             .panel-heading[role="tab"]
               a.collapsed[href="#accordion03" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
                 i.fa.fa-minus
-              h4.panel-title
-                | Laborum eiusmod tempor sunt
+                h4.panel-title
+                  | Русский язык
             #accordion03.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
               .panel-body
-                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+                |  С огромным уважением отношусь к своему родному языку и своей стране. Считаю, что интерес к изучению русского языка прививается ученику через воспитание чувства любви к России, её историческому и культурному наследию. Стремлюсь научить каждого грамотной речи, как письменной, так и устной.
           .panel.clearfix
             .panel-heading[role="tab"]
               a.collapsed[href="#accordion04" data-toggle="collapse" data-parent="#accordion" aria-expanded="false"]
                 i.fa.fa-minus
-              h4.panel-title
-                | Accusamus terry richard squid
+                h4.panel-title
+                  | Английский язык
             #accordion04.panel-collapse.collapse[role="tabpanel" aria-expanded="false" style="height: 0px;"]
               .panel-body
-                |  Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod tempor sunt aliqua put.
+                |  Для обучения использую признанные на мировом уровне учебники ведущих издательств - Macmillan Publishers, Oxford & Cambridge University Press. Уделяю большое внимание навыкам эффективной коммуникации: умению чётко (в т.ч. грамматически верно) выстроить свою мысль и свободно воспринимать англоязычную речь на слух. Отвожу важное место контекстному изучению языка. Считаю, что регулярное чтение книг и тематических статей на английском языке способствует значительному улучшению результатов. Специализируюсь на подготовке к ЕГЭ.
         .tabbable.tabs-left[style="display: none;"]
           ul.nav.nav-tabs
             li.active
@@ -473,243 +464,246 @@ section#action.action-area.section-small
       .col-md-10
         h2
           strong
-            | Bizniz
-          |  is the perfect template for your next project
+            | Вы
+          |  всегда можете связаться с репетитором по ссылке
       .col-md-2
-        a.btn[href=""]
-          | GET IT NOW
+        a.btn.smooth_scroll[href="#contact"]
+          | СВЯЗАТЬСЯ
 section#pricing.pricing-area.section-big
   .container
     .row
       .col-md-12
         .section-title.text-center
           h2
-            | Our Pricing
+            | Цены на услуги
           p
-            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            | Все условия оплаты обсуждаются индивидуально с каждым клиентом. Ниже приведены ориентировочные цены на услуги.
     .row
       .col-md-3.col-sm-6.col-xs-12
         .price-item[data-connectors="1"]
           .info
             p.level
-              | Free
+              | История / Обществознание
             p.price
               span.dollar
-                | $
+                | ₽
               span.number
-                | 0
+                | 700
               span
-                | / mon
+                | / 60 мин.
           .features
             ul
-              li
-                | 15 Users
-              li.even
-                | 10 Projects
-              li
-                | 30 GB of Storage
-              li.even
-                | 5 Workspaces
-              li
+              / li
+              /   | 15 Users
+              / li.even
+              /   | 10 Projects
+              / li
+              /   | 30 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | X
+              / li.even
                 | X
-              li.even
-                | X
-          a.btn[href="#"]
-            | Start Trial
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
       .col-md-3.col-sm-6.col-xs-12
         .price-item[data-connectors="1"]
           .info
             p.level
-              | Basic
+              | Русский язык / Английский язык
             p.price
               span.dollar
-                | $
+                | ₽
               span.number
-                | 20
+                | 500
               span
-                | / mon
+                | / 60 мин.
           .features
             ul
-              li
-                | 15 Users
-              li.even
-                | 10 Projects
-              li
-                | 30 GB of Storage
-              li.even
-                | 5 Workspaces
-              li
-                | Private Forums
-              li.even
+              / li
+              /   | 15 Users
+              / li.even
+              /   | 10 Projects
+              / li
+              /   | 30 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | Private Forums
+              / li.even
                 | X
-          a.btn[href="#"]
-            | Start Trial
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
       .col-md-3.col-sm-6.col-xs-12
         .price-item.featured[data-connectors="1"]
           .info
             p.level
-              | Plus
+              | Занятия в паре (любой предмет)
             p.price
               span.dollar
-                | $
+                | ₽
               span.number
-                | 45
+                | 433
               span
-                | / mon
+                | / 60 мин.
           .features
             ul
-              li
-                | 25 Users
-              li.even
-                | 100 Projects
-              li
-                | 500 GB of Storage
-              li.even
-                | 5 Workspaces
-              li
-                | Private Forums
-              li.even
+              / li
+              /   | 25 Users
+              / li.even
+              /   | 100 Projects
+              / li
+              /   | 500 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | Private Forums
+              / li.even
                 | Enhanced Security
-          a.btn[href="#"]
-            | Start Trial
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
       .col-md-3.col-sm-6.col-xs-12
         .price-item[data-connectors="1"]
           .info
             p.level
-              | Premium
+              | Абонемент (при оплате за месяц)
             p.price
               span.dollar
-                | $
+                |
               span.number
-                | 99
+                | 15%
               span
-                | / mon
+                | скидка
           .features
             ul
-              li
-                | 15 Users
-              li.even
-                | 10 Projects
-              li
-                | 30 GB of Storage
-              li.even
-                | 5 Workspaces
-              li
-                | Private Forums
-              li.even
+              / li
+              /   | 15 Users
+              / li.even
+              /   | 10 Projects
+              / li
+              /   | 30 GB of Storage
+              / li.even
+              /   | 5 Workspaces
+              / li
+              /   | Private Forums
+              / li.even
                 | Enhanced Security
-          a.btn[href="#"]
-            | Start Trial
+          a.btn.smooth_scroll[href="#contact"]
+            | Выбрать
 section#fun-facts.fun-facts-area.section-big
   .container
     .row
       .col-sm-6.col-md-3
         .fun-facts-icon
-          i.fa.fa-thumbs-o-up
+          i.fa.fa-users
         .fun-fact.text-center.tab-margin-bottom
           h3
             span.cp-counter
-              | 5687
+              | 731 000
           p
-            | Happy Clients
+            | человек сдали ЕГЭ в 2018
       .col-sm-6.col-md-3
         .fun-facts-icon
-          i.fa.fa-calendar-check-o.fa-6
+          i.fa.fa-thumbs-o-up.fa-6
         .fun-fact.text-center.tab-margin-bottom
           h3
             span.cp-counter
-              | 8496
+              | > 6000
           p
-            | Completed Projects
+            | сдали ЕГЭ на 100 баллов
       .col-sm-6.col-md-3
         .fun-facts-icon
-          i.fa.fa-lemon-o
+          i.fa.fa-trophy
         .fun-fact.text-center
           h3
             span.cp-counter
-              | 93265
+              | 1
           p
-            | Buy a Lemon
+            | человек сдал на 100 баллов сразу 4 ЕГЭ
       .col-sm-6.col-md-3
         .fun-facts-icon
-          i.fa.fa-code
+          i.fa.fa-handshake-o
         .fun-fact.text-center
           h3
             span.cp-counter
-              | 06324
+              | ~ 70
           p
-            | Lines of Code
+            | средний балл для зачисления на бюджет
 section#why-choose.why-choose-area.section-big
   .container
     .row
       .col-md-12
         .section-title.text-center
           h2
-            | Why Choose Us?
+            | Возможности платформы Examtutor
           p
-            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            .mr-1 = "Ресурс Examtutor.ru содержит всё, что необходимо ученику для подготовки к ЕГЭ. Также предоставляется сервис для родителей, где они могут следить за отчётами о прогрессе своих детей."
+            = link_to "Подробнее...", site_features_tutor_infos_path, class: 'grey-link'
     .row
       .col-md-6
         .slide-carousel
-          = image_tag "/choose/01.jpg", class: 'why-choose-img'
-          = image_tag "/choose/02.jpg", class: 'why-choose-img'
+          = image_tag "choose/01.jpg", class: 'why-choose-img'
+          = image_tag "choose/02.jpg", class: 'why-choose-img'
       .col-sm-6
         .choose-box.right
-          i.fa.fa-send[aria-hidden="true"]
+          a[href="http://localhost:3000/tutor_infos/site_features"]
+            i.fa.fa-send[aria-hidden="true"]
           .choose-content
             h3
-              | Email Marketing
+              | Рассылка уведомлений
             p
-              | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give account.
+              | Родители могут подписаться на еженедельную рассылку писем на email и быть в курсе результатов всех ранятий.
         .choose-box.right
-          i.fa.fa-line-chart[aria-hidden="true"]
+          a[href="http://localhost:3000/tutor_infos/site_features"]
+            i.fa.fa-line-chart[aria-hidden="true"]
           .choose-content
             h3
-              | Analysis & Consulting
+              | Аналитика
             p
-              | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give account.
+              | Родителям предоставляется доступ к странице с полной информацией по каждому занятию с графиком общего прогресса.
         .choose-box.right
-          i.fa.fa-cog[aria-hidden="true"]
+          a[href="http://localhost:3000/tutor_infos/site_features"]
+            i.fa.fa-check-circle[aria-hidden="true"]
           .choose-content
             h3
-              | Quality Service & Support
+              | Онлайн тестирование
             p
-              | But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give account.
+              | Ученики имеют полный доступ ко всем авторским материалам. Имеют возможность писать эссе онлайн и сдавать его на проверку репетитору, проходить тесты.
 #subscribe.subscribe-area.section-big
   .container
     .subscribe-box
       h2
-        | Stay up to date
+        | Связаться с репетитором
       p
         strong
-          | Subscribe
-        |  to our Newsletter. We'll send email notifications everytime we release new Theme.
+          | Вы
+        |  можете связаться с репетитором прямо сейчас по ссылке.
       form#mc-form.mc-form
         .newsletter-form
-          input#mc-email.form-control[type="email" autocomplete="off" placeholder="Enter your email address"]
+          / input#mc-email.form-control[type="email" autocomplete="off" placeholder="Enter your email address"]
           .mailchimp-alerts
             .mailchimp-submitting
             .mailchimp-success
             .mailchimp-error
           .clearfix
-          button.mc-submit[type="submit"]
-            i.fa.fa-paper-plane
-            |  Subscribe now
+          a.btn.smooth_scroll[href="#contact"]
+            | СВЯЗАТЬСЯ
 section#news.news-area.section-big
   .container
     .row
       .col-md-12
         .section-title.text-center
           h2
-            | Our Latest News
+            | Авторские статьи
           p
-            | Bizniz is super clean, modern, corporate responsive template. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-    .row
+            | В стадии оформления.
+    / .row
       .news-carousel
         .single-news
           .news-image
             a[href="#news-modal-1" data-toggle="modal"]
-              = image_tag "/news/news-1.jpeg"
+              = image_tag "news/news-1.jpeg"
           .news-content
             p.news-meta.text-muted
               span
@@ -731,7 +725,7 @@ section#news.news-area.section-big
         .single-news
           .news-image
             a[href="#news-modal-2" data-toggle="modal"]
-              = image_tag "/news/news-2.jpeg"
+              = image_tag "news/news-2.jpeg"
           .news-content
             p.news-meta.text-muted
               span
@@ -753,7 +747,7 @@ section#news.news-area.section-big
         .single-news
           .news-image
             a[href="#news-modal-3" data-toggle="modal"]
-              = image_tag "/news/news-3.jpeg"
+              = image_tag "news/news-3.jpeg"
           .news-content
             p.news-meta.text-muted
               span
@@ -775,7 +769,7 @@ section#news.news-area.section-big
         .single-news
           .news-image
             a[href="#news-modal-4" data-toggle="modal"]
-              = image_tag "/news/news-4.jpeg"
+              = image_tag "news/news-4.jpeg"
           .news-content
             p.news-meta.text-muted
               span
@@ -797,7 +791,7 @@ section#news.news-area.section-big
         .single-news
           .news-image
             a[href="#news-modal-5" data-toggle="modal"]
-              = image_tag "/news/news-5.jpeg"
+              = image_tag "news/news-5.jpeg"
           .news-content
             p.news-meta.text-muted
               span
@@ -826,7 +820,7 @@ section#news.news-area.section-big
           .row
             .col-lg-8.col-lg-offset-2
               .modal-body
-                = image_tag "/news/news-1.jpeg"
+                = image_tag "news/news-1.jpeg"
                 p.news-meta.text-muted
                   span
                     i.fa.fa-calendar
@@ -856,7 +850,7 @@ section#news.news-area.section-big
           .row
             .col-lg-8.col-lg-offset-2
               .modal-body
-                = image_tag "/news/news-2.jpeg"
+                = image_tag "news/news-2.jpeg"
                 p.news-meta.text-muted
                   span
                     i.fa.fa-calendar
@@ -886,7 +880,7 @@ section#news.news-area.section-big
           .row
             .col-lg-8.col-lg-offset-2
               .modal-body
-                = image_tag "/news/news-3.jpeg"
+                = image_tag "news/news-3.jpeg"
                 p.news-meta.text-muted
                   span
                     i.fa.fa-calendar
@@ -916,7 +910,7 @@ section#news.news-area.section-big
           .row
             .col-lg-8.col-lg-offset-2
               .modal-body
-                = image_tag "/news/news-3.jpeg"
+                = image_tag "news/news-3.jpeg"
                 p.news-meta.text-muted
                   span
                     i.fa.fa-calendar
@@ -946,7 +940,7 @@ section#news.news-area.section-big
           .row
             .col-lg-8.col-lg-offset-2
               .modal-body
-                = image_tag "/news/news-3.jpeg"
+                = image_tag "news/news-3.jpeg"
                 p.news-meta.text-muted
                   span
                     i.fa.fa-calendar
@@ -970,88 +964,90 @@ section#news.news-area.section-big
   .container
     .owl-client
       .item.active.text-center
-        = image_tag "/clients/1.png"
+        = image_tag "clients/1.png"
       .item.active.text-center
-        = image_tag "/clients/2.png"
+        = image_tag "clients/2.png"
       .item.active.text-center
-        = image_tag "/clients/3.png"
+        = image_tag "clients/3.png"
       .item.active.text-center
-        = image_tag "/clients/4.png"
+        = image_tag "clients/4.png"
       .item.active.text-center
-        = image_tag "/clients/5.png"
+        = image_tag "clients/5.png"
       .item.active.text-center
-        = image_tag "/clients/6.png"
+        = image_tag "clients/6.png"
       .item.active.text-center
-        = image_tag "/clients/7.png"
+        = image_tag "clients/7.png"
       .item.active.text-center
-        = image_tag "/clients/8.png"
+        = image_tag "clients/8.png"
       .item.active.text-center
-        = image_tag "/clients/9.png"
+        = image_tag "clients/9.png"
 section#contact.contact-area.section-big
   .container
     .row
       .col-md-12.text-center
         .section-title
           h2
-            | Contact Us
+            | Связаться с репетитором
     .row
       .col-md-6
         .contact-form
-          form#ajax-contact[action="mailer.php" method="post"]
+          / form#ajax-contact[action="mailer.php" method="post"]
+          /   .form-group.in_name
+          /     input#name.form-control[type="text" name="name" placeholder="Name" required="required"]
+          /   .form-group.in_email
+          /     input#email.form-control[type="email" name="email" placeholder="Email" required="required"]
+          /   .form-group.in_message
+          /     textarea#message.form-control[rows="5" name="message" placeholder="Message" required="required"]
+          /   .actions
+          /     input#submitButton.btn[type="submit" value="Send" name="submit" title="Submit Your Message!"]
+          = form_tag '/mailers', remote: true do
             .form-group.in_name
-              input#name.form-control[type="text" name="name" placeholder="Name" required="required"]
+              = text_field 'name', '', id: 'name', class: 'form-control', placeholder: "Name", required: "required", type: 'text', name: 'name'
             .form-group.in_email
-              input#email.form-control[type="email" name="email" placeholder="Email" required="required"]
+              = text_field 'email', '', id: 'email', class: 'form-control', placeholder: "Email", required: "required", type: 'email', name: 'email'
             .form-group.in_message
-              textarea#message.form-control[rows="5" name="message" placeholder="Message" required="required"]
+              = text_area 'message', '', id: 'message', class: 'form-control', placeholder: "Message", required: "required", rows: '5', name: 'message'
             .actions
-              input#submitButton.btn[type="submit" value="Send" name="submit" title="Submit Your Message!"]
+              = submit_tag 'Отправить', class: 'submitButton', type: 'submit', title: 'Submit Your Message!'
           #form-messages
       .col-md-6
         p.contact-info
-          | Bizniz is a clean and awesome template for your company. Bizniz is a clean and awesome template for your company. Bizniz is a clean and awesome template for your company.
+          | Я работаю без выходных и готова ответить на все интересующие Вас вопросы в любой день. Индивидуальные консультации по предварительной записи. Предпочтительное средство связи - электронная почта и личные сообщения ВКонтакте. Приём заявок по телефону с 9-00 до 12-00 и после 20-00.
         .address-box.clearfix
           i.fa.fa-map-marker
           p
-            | 7503 Wakehurst St, Perrysburg, OH 43551
+            | г. Таганрог ул.Ломоносова 24
         .address-box.clearfix
           i.fa.fa-phone
           p
             a[href="tel:015110022"]
-              | +00 123-456-789
+              | +7 928-1919-517
         .address-box.clearfix
           i.fa.fa-send
           p
             a[href="mailto:email@yourdomain.com"]
-              | email@yourdomain.com
+              | info@examtutor.ru
         .address-box.clearfix
-          i.fa.fa-globe
+          i.fa.fa-vk
           p
-            a[href="http://www.yourdomain.com"]
-              | www.yourdomain.com
-#contactgoogleMap
+            a[href="https://vk.com/feriaprima"]
+              | vk.com
+/ #contactgoogleMap
+iframe frameborder="0" height="400" src="https://yandex.ru/map-widget/v1/?um=constructor%3A3df382e75621eb712431e7bfdfad5ab73c14be9f25c9c37d8bf697d064eebd41&amp;source=constructor" width="100%"
 footer.footer-area
   .container
     .row
       .col-md-6.col-sm-6
         p
-          | © 2016 Copyright Web_bean
+          | © 2019 Copyright DevRails
       .col-md-6.col-sm-6
         ul.social-links
           li
-            a[href=""]
-              i.fa.fa-facebook
+            a[href="https://vk.com/feriaprima"]
+              i.fa.fa-vk
           li
-            a[href=""]
-              i.fa.fa-twitter
+            a[href="https://yandex.ru/uslugi/profile/AnastasiyaAristova-106039"]
+              i.fa.fa-yahoo
           li
-            a[href=""]
-              i.fa.fa-google-plus
-          li
-            a[href=""]
-              i.fa.fa-youtube
-          li
-            a[href=""]
-              i.fa.fa-pinterest
-
-
+            a[href="https://rnd.profi.ru/profile/AristovaAV2/"]
+              i.fa.fa-user-circle

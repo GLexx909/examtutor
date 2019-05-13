@@ -6,7 +6,7 @@ feature 'User can sign up', %q{
   given!(:one_time_password) { create(:one_time_password) }
 
   scenario 'Unregistered user tries to sign up with correct one_time_password' do
-    visit root_path
+    visit enter_page_initials_path
 
     click_on 'Вход для ученика'
     click_on 'Зарегистрироваться'
@@ -30,7 +30,7 @@ feature 'User can sign up', %q{
   end
 
   scenario 'Unregistered user tries to sign up with incorrect one_time_password' do
-    visit root_path
+    visit enter_page_initials_path
 
     click_on 'Вход для ученика'
     click_on 'Зарегистрироваться'

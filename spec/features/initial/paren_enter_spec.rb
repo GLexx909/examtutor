@@ -6,7 +6,7 @@ feature 'Unregistered user (parent) can enter', %q{
 
   given!(:user) { create(:user) }
   given!(:characteristic) { create(:characteristic, user: user) }
-  background { visit root_path }
+  background { visit enter_page_initials_path }
 
   scenario 'with valid identify' do
     fill_in 'identify_name[]', with: "#{user.last_name}-#{user.id}"
@@ -19,8 +19,7 @@ feature 'Unregistered user (parent) can enter', %q{
     fill_in 'identify_name[]', with: "Error_name-#{user.id}"
     find('.parent-submit').click
 
-    expect(current_path).to eql(root_path)
-
+    expect(current_path).to eql(enter_page_initials_path)
     expect(page).to have_content 'Идентификатор набран неверно'
   end
 end

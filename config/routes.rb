@@ -23,8 +23,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :initials, only: [:new, :create] do
+  resources :initials, only: [:create, :index] do
     get :get_availability, on: :collection
+    get :enter_page, on: :collection
   end
 
   resources :profiles

@@ -1,48 +1,18 @@
 doctype html
 html
   head
-    / Yandex.Metrika counter
-    / script[type="text/javascript"]
-    /   |  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53565328, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
-    / noscript
-      div
-        img[src="https://mc.yandex.ru/watch/53565328" style="position:absolute; left:-9999px;" alt=""]
-    / Yandex.Metrika counter
+    = render 'shared/yandex-metrika'
     title
       = "Репетитор по ЕГЭ в Таганроге по Истории, Обществознанию, Русскому языку, Английскому языку Examtutor.ru"
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.png'
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"
+
     link href="https://www.examtutor.ru" rel="canonical"
-    link rel="shortcut icon" type="image/x-icon" href="favicon.png"
+    link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"
     link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"
-    / link[href="bootstrap.min.css" rel="stylesheet"]
-    / link[href="font-awesome.min.css" rel="stylesheet"]
-    / link[href="animate.min.css" rel="stylesheet"]
-    / link[href="imagehover.min.css" rel="stylesheet"]
-    / link[href="normalize.css" rel="stylesheet"]
-    / link[href="owl.carousel.min.css" rel="stylesheet"]
-    / link[href="owl.transitions.css" rel="stylesheet"]
-    / link[href="magnific-popup.css" rel="stylesheet"]
-    / link[href="style.css" rel="stylesheet"]
-    / link[href="responsive.css" rel="stylesheet"]
-    / link href="skin/blue.css" rel="stylesheet"
-    /
-    / script[src="jquery.min.js"]
-    / script[src="bootstrap.min.js"]
-    / script[src="owl.carousel.min.js"]
-    / script[src="jquery.mixitup.js"]
-    / script[src="jquery.magnific-popup.min.js"]
-    / script[src="jquery.waypoints.min.js"]
-    / script[src="jquery.ajaxchimp.min.js"]
-    script[src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"]
-    / script[src="main_script.js"]
-
-
-
 
     = stylesheet_link_tag "bootstrap.min.css"
     = stylesheet_link_tag "font-awesome.min.css"
@@ -56,19 +26,15 @@ html
     = stylesheet_link_tag "responsive.css"
     = stylesheet_link_tag "skin/blue.css"
 
-
+    = javascript_include_tag 'application-bizniz', 'data-turbolinks-track': 'reload'
     = javascript_include_tag "jquery.min.js"
     = javascript_include_tag "bootstrap.min.js"
+    = javascript_include_tag "owl.carousel.min.js"
     = javascript_include_tag "jquery.mixitup.js"
     = javascript_include_tag "jquery.magnific-popup.min.js"
     = javascript_include_tag "jquery.waypoints.min.js"
     = javascript_include_tag "jquery.ajaxchimp.min.js"
     = javascript_include_tag "main_script.js"
 
-    = favicon_link_tag 'favicon.png'
-
   body
-    / .base-space
-    /   .flash-block.initial-page__flash-block
-    /     = render_flash
     = yield

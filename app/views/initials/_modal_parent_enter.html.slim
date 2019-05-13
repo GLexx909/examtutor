@@ -7,7 +7,7 @@
           span aria-hidden="true"  &times;
       .modal-body
         h3.pull-right = 'Введите идентификатор'
-        = form_tag  'initials/get_availability', method: 'get'
+        = form_tag  'get_availability', method: 'get'
           .form-group
             = text_field :identify_name, '', autofocus: true, autocomplete: "Иванов-53", class: 'form-control', placeholder: 'Иванов-53'
             small class="form-text text-muted"

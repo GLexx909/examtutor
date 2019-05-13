@@ -4,7 +4,7 @@ feature 'User can sign out', %q{
 } do
 
   given(:user) { create(:user) }
-  background { visit root_path }
+  background { visit enter_page_initials_path }
 
   scenario 'Registered user tries to sign out' do
     fill_in 'Почта', with: user.email
@@ -12,7 +12,5 @@ feature 'User can sign out', %q{
     find('.pupil-submit').click
 
     click_on 'Выйти'
-
-    expect(page).to have_content 'Выход из системы выполнен.'
   end
 end

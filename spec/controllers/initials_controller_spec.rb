@@ -26,7 +26,7 @@ RSpec.describe InitialsController, type: :controller do
     context 'with invalid attributes' do
       it 'redirects to root_path view' do
         post :create, params: { identify_name: ["Doe-#{user.id}"] }
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to enter_page_initials_path
       end
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe InitialsController, type: :controller do
     context 'with invalid attributes' do
       it 'redirects to root_path view' do
         post :get_availability, params: { identify_name: ["error-#{user.id}"] }
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to enter_page_initials_path
       end
     end
   end
