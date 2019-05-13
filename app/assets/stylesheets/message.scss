@@ -17,6 +17,10 @@
   .private-message {
 
     li {
+      img {
+        display: none;
+      }
+
       &:hover {
         background-color: #e8f9ff;
       }

@@ -15,9 +15,10 @@
 
   nav.navbar.navbar-dark.bg-dark
     .d-flex.mr_5_for_child
-      = button_tag '', type: "button", class:'navbar-toggler', data: { toggle: "collapse", target: "#navbarToggleExternalContent" },
-                   aria: {  controls: "navbarToggleExternalContent", expanded: "false", label: "Toggle navigation" }
-        span.navbar-toggler-icon
+      - if user_signed_in?
+        = button_tag '', type: "button", class:'navbar-toggler', data: { toggle: "collapse", target: "#navbarToggleExternalContent" },
+                     aria: {  controls: "navbarToggleExternalContent", expanded: "false", label: "Toggle navigation" }
+          span.navbar-toggler-icon
       .title-examtutor
         - if current_user&.admin?
           = link_to 'ExamtutoR', admin_mainmenus_path

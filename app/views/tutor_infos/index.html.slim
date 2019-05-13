@@ -21,8 +21,9 @@
       div class="diplom-#{diplom.id}"
         = link_to image_path(url_for(diplom)), data: { lightbox: 'diploms' } do
           = image_tag diplom, class: 'diplom-size'
-        .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
-                class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
+        - if can?(:manage, :all)
+          .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
+                  class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
 
   .d-flex.justify-content-center.mb-3
     h5.font-oswald = 'Дипломы о профессиональной переподготовке'
@@ -32,8 +33,9 @@
       div class="diplom-#{diplom.id}"
         = link_to image_path(url_for(diplom)), data: { lightbox: 'diploms_perekval' } do
           = image_tag diplom, class: 'diplom-size'
-        .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
-                class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
+        - if can?(:manage, :all)
+          .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
+                  class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
 
   .d-flex.justify-content-center.mb-3
     h5.font-oswald = 'Документы о повышении квалификации'
@@ -43,5 +45,6 @@
       div class="diplom-#{diplom.id}"
         = link_to image_path(url_for(diplom)), data: { lightbox: 'diploms_povishkval' } do
           = image_tag diplom, class: 'diplom-size'
-        .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
-                class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
+        - if can?(:manage, :all)
+          .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
+                  class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}

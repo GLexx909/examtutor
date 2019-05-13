@@ -6,7 +6,7 @@
         .mainmenu
           .navbar.navbar-nobg
             .navbar-header
-              a.navbar-brand[href="/"]
+              a.navbar-brand[href="#slider"]
                 | Examtutor
               button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
                 span.sr-only
@@ -19,7 +19,7 @@
                 ul.nav.navbar-nav.navbar-right
                   li.active
                     a.smooth_scroll[href="#slider"]
-                      | ОСНОВНАЯ
+                      | ГЛАВНАЯ
                   li
                     a.smooth_scroll[href="#about"]
                       | О СЕБЕ
@@ -97,7 +97,7 @@ section#about.about-area.section-big
           h3
             | Репетиторство - стиль моей жизни
           p
-            | Приветствую вас, уважаемые школьники, абитуриенты и их родителиr! Я занимаюсь преподаванием с момента получения своего первого диплома в 2011 году. Успела приобрести опыт педагогической деятельности как в частных, так и в государственных образовательных учреждениях.
+            | Приветствую вас, уважаемые школьники, абитуриенты и их родители! Я занимаюсь преподаванием с момента получения своего первого диплома в 2011 году. Успела приобрести опыт педагогической деятельности как в частных, так и в государственных образовательных учреждениях.
           p
             | С 2013 года специализируюсь на школьных выпускных экзаменах – ОГЭ и ЕГЭ. Достаточно быстро я поняла, что хочу развивать свои профессиональные навыки в направлении индивидуальной работы со школьниками. В 2015 году я стала официально зарегистрированным индивидуальным предпринимателем – таким образом, репетиторство превратилось для меня в основной вид деятельности . . .
           a.btn[href="https://examtutor.ru/tutor_infos"]
@@ -273,7 +273,7 @@ section#team.team-area.section-big
       .col-md-12.text-center
         .section-title
           h2
-            | Высшие учебные заведения.
+            | Высшие учебные заведения
           p
             | Мои ученики поступают в такие ВУЗы, как НИУ ВШЭ, СПбГУ, РЭУ им. Г.В.Плеханова, РАП, Воронежское военное училище, МГУ, Новосибирское военное училище, Институт МВД, Институт ФСБ, ЮФУ, ДГТУ.
     .row
@@ -653,7 +653,7 @@ section#why-choose.why-choose-area.section-big
             h3
               | Рассылка уведомлений
             p
-              | Родители могут подписаться на еженедельную рассылку писем на email и быть в курсе результатов всех ранятий.
+              | Родители могут подписаться на еженедельную рассылку писем на e-mail и быть в курсе успеваемости своих детей.
         .choose-box.right
           a[href="http://localhost:3000/tutor_infos/site_features"]
             i.fa.fa-line-chart[aria-hidden="true"]
@@ -661,15 +661,15 @@ section#why-choose.why-choose-area.section-big
             h3
               | Аналитика
             p
-              | Родителям предоставляется доступ к странице с полной информацией по каждому занятию с графиком общего прогресса.
+              | Родителям предоставляется доступ к странице, где размещена подробная инфа о каждом занятии и график прогресса в обучении.
         .choose-box.right
           a[href="http://localhost:3000/tutor_infos/site_features"]
             i.fa.fa-check-circle[aria-hidden="true"]
           .choose-content
             h3
-              | Онлайн тестирование
+              | Образовательная среда
             p
-              | Ученики имеют полный доступ ко всем авторским материалам. Имеют возможность писать эссе онлайн и сдавать его на проверку репетитору, проходить тесты.
+              | Изучение каждой темы сопровождается авторскими материалами и контрольными заданиями, проверка которых выполняется онлайн, что экономит время на занятии.
 #subscribe.subscribe-area.section-big
   .container
     .subscribe-box
@@ -687,8 +687,9 @@ section#why-choose.why-choose-area.section-big
             .mailchimp-success
             .mailchimp-error
           .clearfix
-          a.btn.smooth_scroll[href="#contact"]
-            | СВЯЗАТЬСЯ
+          .action-area
+            a.btn.smooth_scroll[href="#contact"]
+              | СВЯЗАТЬСЯ
 section#news.news-area.section-big
   .container
     .row
@@ -1025,7 +1026,7 @@ section#contact.contact-area.section-big
         .address-box.clearfix
           i.fa.fa-send
           p
-            a[href="mailto:email@yourdomain.com"]
+            a[href="mailto:info@examtutor.ru"]
               | info@examtutor.ru
         .address-box.clearfix
           i.fa.fa-vk
