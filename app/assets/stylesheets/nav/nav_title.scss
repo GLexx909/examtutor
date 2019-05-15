@@ -1,19 +1,14 @@
 .title-examtutor {
   a {
-    font-family: 'Bowlby One SC', cursive;
-    font-size: 2rem;
-    color: white;
-    text-shadow: 3px 3px 3px black;
+    display: block;
+    color: #3f8ed9;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 36px;
 
     &:hover {
-      color: white;
       text-decoration: none;
-      text-shadow: 1px 1px 1px #00b7ea;
-
-    }
-
-    &:active {
-      text-shadow: none;
+      color: #3f8ed9;
     }
   }
  }

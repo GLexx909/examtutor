@@ -1,9 +1,9 @@
 require 'rails_helper'
-
+# User can create post, but button was hide. And now user can not write posts, but admin can.
 feature 'User can create post', %q{
 } do
 
-  given(:user) {create(:user) }
+  given(:user) {create(:user, admin: true) }
 
   describe 'Authenticate user' do
     background do
@@ -30,11 +30,11 @@ feature 'User can create post', %q{
       expect(page).to have_content "Заголовок не может быть пустым"
     end
 
-    scenario 'is not admin can not create post for guests' do
-      click_on 'Написать пост'
-
-      expect(page).to_not have_field 'post[for_guests]'
-    end
+    # scenario 'is not admin can not create post for guests' do
+    #   click_on 'Написать пост'
+    #
+    #   expect(page).to_not have_field 'post[for_guests]'
+    # end
 
   end
 

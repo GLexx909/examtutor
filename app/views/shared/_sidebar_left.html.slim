@@ -1,17 +1,37 @@
 .container-fluid.pl-0.sidebar-left
   .row
     .col-auto.sidebar-left__small
-      .col-auto.pl-0 = link_to mi.reorder.css_class('md-36 stub white'), '#'
-      / .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
-      / .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
-      / .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
-      / .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
-      / .col-auto.pl-0 = link_to mi.account_balance.css_class('md-24 stub'), '#'
+      .col-auto.pl-0 = link_to mi.undo.css_class('md-24 black'), :back
+      .col-auto.pl-0 = link_to mi.school.css_class('md-24 stub black'), '#'
+      .col-auto.pl-0 = link_to mi.account_box.css_class('md-24 stub black'), '#'
+      .col-auto.pl-0 = link_to mi.library_books.css_class('md-24 stub black'), '#'
+      .col-auto.pl-0 = link_to mi.chat_bubble_outline.css_class('md-24 stub black'), '#'
+      .col-auto.pl-0 = link_to mi.people.css_class('md-24 stub black'), '#'
+      / .col-auto.pl-0 = link_to mi.thumb_up_alt.css_class('md-24 stub black'), '#'
+      - if can?(:manage, :all)
+        hr
+        .col-auto.pl-0 = link_to mi.vpn_key.css_class('md-24 stub black'), '#'
+        .col-auto.pl-0 = link_to mi.person_add.css_class('md-24 stub black'), '#'
+        .col-auto.pl-0 = link_to mi.person_add.css_class('md-24 stub black'), '#'
+        .col-auto.pl-0 = link_to mi.person_add.css_class('md-24 stub black'), '#'
+        .col-auto.pl-0 = link_to mi.remove_red_eye.css_class('md-24 stub black'), '#'
+        .col-auto.pl-0 = link_to mi.library_books.css_class('md-24 stub black'), '#'
+        .col-auto.pl-0 = link_to mi.insert_chart.css_class('md-24 stub black'), '#'
 
     .col-auto.sidebar-left__full.hidden
-      p = link_to 'Курсы', courses_path
-      p = link_to 'Мой профиль', profile_path(current_user)
-      p = link_to 'Посты', posts_path
-      p = link_to 'Сообщения', abonents_messages_path
-      p = link_to 'Студенты', profiles_path
-      p = link_to 'Отзывы', feedbacks_path
+      p = link_to 'НАЗАД', :back
+      p = link_to 'КУРСЫ', courses_path
+      p = link_to 'МОЙ ПРОФИЛЬ', profile_path(current_user)
+      p = link_to 'СТАТЬИ', posts_path
+      p = link_to 'СООБЩЕНИЯ', abonents_messages_path
+      p = link_to 'СТУДЕНТЫ', profiles_path
+      / p = link_to 'ОТЗЫВЫ', feedbacks_path
+      - if can?(:manage, :all)
+        hr
+        p = link_to 'ДОБАВИТЬ ПАРОЛЬ ОДНОРАЗОВЫЙ', new_admin_one_time_password_path, class: 'link-call-password-form'
+        p = link_to 'ДОБАВИТЬ УЧЕНИКА К КУРСУ', new_course_passage_path
+        p = link_to 'ДОБАВИТЬ ПОСЕЩЕНИЕ', new_attendance_path
+        p = link_to 'ДОБАВИТЬ ПРОГРЕСС УЧЕНИКА', new_progress_path
+        p = link_to 'РЕДАКТИРОВАТЬ СВОЙ ПРОФИЛЬ', tutor_infos_path
+        p = link_to 'СТАТЬИ ДЛЯ ГОСТЕЙ', guests_index_posts_path
+        p = link_to 'ХАРАКТЕРИСТИКИ УЧЕНИКА', characteristics_path

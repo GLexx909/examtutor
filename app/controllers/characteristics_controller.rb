@@ -8,7 +8,7 @@ class CharacteristicsController < ApplicationController
   end
 
   def edit
-    user
+    @characteristic = user.characteristic
   end
 
   def update

@@ -1,34 +1,31 @@
-.pos-f-t
-  .collapse#navbarToggleExternalContent
-    .bg-dark.p-4.d-flex.justify-content-between
-      .nav-profile-info
-        h5.text-white.h4.user-icon data-user-id="#{current_user&.id}" = current_user&.full_name
-        .text-muted.text-shadow-black-for-child.d-flex
-          h1.align-self-end.mb-0.mr-1 = current_user&.characteristic&.points
-          span.align-self-end = 'баллов' if current_user&.characteristic&.points
-        .text-muted.text-shadow-black-for-child
-          b = current_user&.characteristic&.rank
-      .d-flex.justify-content-end
-        h6.mr_1.blue = 'Идентификатор:' if current_user
-        .mr-auto
-          h5.white = current_user&.identify_name
+/ .pos-f-t
+/   .collapse#navbarToggleExternalContent
+/     .bg-dark.p-4.d-flex.justify-content-between
+/       .nav-profile-info
+/         h5.text-white.h4.user-icon data-user-id="#{current_user&.id}" = current_user&.full_name
+/         .text-muted.text-shadow-black-for-child.d-flex
+/           h1.align-self-end.mb-0.mr-1 = current_user&.characteristic&.points
+/           span.align-self-end = 'баллов' if current_user&.characteristic&.points
+/         .text-muted.text-shadow-black-for-child
+/           b = current_user&.characteristic&.rank
+/       .d-flex.justify-content-end
+/         h6.mr_1.blue = 'Идентификатор:' if current_user
+/         .mr-auto
+/           h5.white = current_user&.identify_name
 
-  nav.navbar.navbar-dark.bg-dark
-    .d-flex.mr_5_for_child
-      - if user_signed_in?
-        = button_tag '', type: "button", class:'navbar-toggler', data: { toggle: "collapse", target: "#navbarToggleExternalContent" },
-                     aria: {  controls: "navbarToggleExternalContent", expanded: "false", label: "Toggle navigation" }
-          span.navbar-toggler-icon
-      .title-examtutor
-        - if current_user&.admin?
-          = link_to 'ExamtutoR', admin_mainmenus_path
-        - else
-          = link_to 'ExamtutoR', root_path
+nav.navbar.navbar-base
+  .d-flex.mr_5_for_child
+    / - if user_signed_in?
+    /   = button_tag '', type: "button", class:'navbar-toggler', data: { toggle: "collapse", target: "#navbarToggleExternalContent" },
+    /                aria: {  controls: "navbarToggleExternalContent", expanded: "false", label: "Toggle navigation" }
+        span.navbar-toggler-icon
+    .title-examtutor
+      = link_to 'ExamtutoR', root_path
 
-    - if current_user
-      .nav__right-block
-        .search-block.row.mr-1
-          .search_field = render 'shared/search_field'
-        = render 'shared/notification'
-        = render 'shared/dropdown-profile-menu'
+  - if current_user
+    .nav__right-block
+      .search-block.row.mr-1
+        .search_field = render 'shared/search_field'
+      = render 'shared/notification'
+      = render 'shared/dropdown-profile-menu'
 

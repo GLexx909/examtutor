@@ -1,31 +1,31 @@
-.row.mb-5vh
-  .col-12.d-flex.mr_1_for_child
-    .profile-avatar.col-2
-      = image_tag @user.profile_avatar
-    .bg-dark.br-10.col-10
-      .row.d-flex.justify-content-between.pl-2
-        h1.white.p-1.mr_1 = @user.full_name
+.row
+  .col-sm-2.profile-avatar
+    = image_tag @user.profile_avatar
+    p = link_to 'Редактировать профиль', edit_profile_path(@user), class: 'badge badge-dark' if can?(:update, @user)
+  .col-sm-10.profile-info-block.bg-dark.br-10
+    .row.d-flex.justify-content-between.pl-2
+      h1.white.p-1.mr_1 = @user.full_name
 
-        - @user.courses.each do |course|
-          .white.mr_1 = course.title
-        - if can?(:update, @user)
-          div
-            h6.mr_1.blue = 'Идентификатор:'
-            h5.white = @user.identify_name
-      .row.pl-2
-        .profile-points
-          .text-muted.text-shadow-black-for-child.d-flex
-            h1.align-self-end.mb-0.mr-1 = @user&.characteristic&.points
-            span.align-self-end = 'баллов' if @user&.characteristic&.points
-          .text-muted.text-shadow-black-for-child
-            b = @user&.characteristic&.rank
+      - @user.courses.each do |course|
+        .white.mr_1 = course.title
+      - if can?(:update, @user)
+        div
+          h6.mr_1.blue = 'Идентификатор:'
+          h5.white = @user.identify_name
+    .row.pl-2
+      .profile-points
+        .text-muted.text-shadow-black-for-child.d-flex
+          h1.align-self-end.mb-0.mr-1 = @user&.characteristic&.points
+          span.align-self-end = 'баллов' if @user&.characteristic&.points
+        .text-muted.text-shadow-black-for-child
+          b = @user&.characteristic&.rank
 
 
-p = link_to 'Редактировать профиль', edit_profile_path(@user), class: 'badge badge-dark' if can?(:update, @user)
 
-= button_to 'Написать сообщение', '#', remote: true, class: "btn btn-outline-dark btn-sm stub", data: {toggle: 'modal', target: '#newMessageModal'}
-.new-message__modal-form
-  = render 'messages/modal_new_message_form'
+- if !can?(:update, @user)
+  = button_to 'Написать сообщение', '#', remote: true, class: "btn btn-outline-dark btn-sm stub", data: {toggle: 'modal', target: '#newMessageModal'}
+  .new-message__modal-form
+    = render 'messages/modal_new_message_form'
 
 
 .row

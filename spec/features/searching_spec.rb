@@ -4,7 +4,7 @@ feature 'User can use Search', %q{
   Every user can use Search panel
   to find users, post.
 } do
-  given!(:user) { create(:user, first_name: 'test') }
+  given!(:user) { create(:user, admin: true, first_name: 'test') }
   given!(:post) { create(:post, author: user, title: 'test') }
 
   background do
@@ -15,7 +15,6 @@ feature 'User can use Search', %q{
     scenario "Try to find #{klass}", js: true do
       ThinkingSphinx::Test.run do
         visit root_path
-
         within('.search-block') do
           select klass, from: 'category'
           fill_in 'search', with: 'test'

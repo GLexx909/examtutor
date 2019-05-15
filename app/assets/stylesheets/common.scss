@@ -6,8 +6,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background-color: #f3f3f3 !important;
-
+  //background-color: #f3f3f3 !important;
+  font-family: "Helvetica" !important;
   &.modal-open {
     overflow: auto;
     padding-right: 0 !important;
@@ -150,6 +150,14 @@ body {
   color: #BBBBBB;
 }
 
+.material-icons.black {
+  color: black;
+}
+
+.z-index-0 {
+  z-index: 0;
+}
+
 .w-90 {
   width: 90% !important;
 }
@@ -209,7 +217,7 @@ body {
 
 
 .font-oswald {
-  font-family: 'Oswald', sans-serif !important;
+  font-family: 'Helvetica' !important;
 }
 
 @media screen and (max-width: 600px) {

@@ -74,7 +74,7 @@ body {
     height: 100%;
     font-size: 15px;
     line-height: 1.7;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Helvetica";
 }
 
 h1,
@@ -237,6 +237,17 @@ fieldset {
 
 .about-text p {
     text-align: justify;
+}
+
+.enter-button {
+  padding-bottom: 10px;
+  .btn {
+    padding: 5px !important;
+  }
+
+  .btn:hover {
+    background-color: #3f8ed9;
+  }
 }
 
 /* ----------------------------------------------------------------------------------------

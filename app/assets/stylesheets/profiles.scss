@@ -6,8 +6,16 @@
 }
 
 .nav_avatar {
-  width: 30px;
-  height: auto;
+  img {
+    width: 30px;
+    height: auto;
+  }
+}
+
+
+.profile-info-block {
+  height: fit-content;
+  padding-bottom: 1vh;
 }
 
 .feedback_avatar {
@@ -27,8 +35,12 @@
 @media screen and (max-width: 600px) {
   .profile-avatar {
     img {
-      width: 100%;
+      width: 20%;
       height: auto;
     }
+  }
+
+  .profile-avatar {
+    display: none;
   }
 }

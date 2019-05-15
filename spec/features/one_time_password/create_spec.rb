@@ -13,7 +13,7 @@ feature 'Only admin can create one_time_password', %q{
     end
 
     scenario 'with valid attributes', js: true do
-      page.execute_script("$('.admin-sidebar-left__full').show();")
+      page.execute_script("$('.sidebar-left__full').show();")
       find(".link-call-password-form").click
 
       fill_in 'one_time_password[pass_word]', with: '123456'
@@ -23,7 +23,7 @@ feature 'Only admin can create one_time_password', %q{
     end
 
     scenario 'with invalid attributes', js: true do
-      page.execute_script("$('.admin-sidebar-left__full').show();")
+      page.execute_script("$('.sidebar-left__full').show();")
       find(".link-call-password-form").click
 
       fill_in 'one_time_password[pass_word]', with: ''

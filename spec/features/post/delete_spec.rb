@@ -1,4 +1,5 @@
 require 'rails_helper'
+# User can write and delete post, but button was hide. And now user can not delete and write posts, but admin can.
 
 feature 'User can delete post', %q{
 } do
@@ -8,34 +9,34 @@ feature 'User can delete post', %q{
   given!(:post) { create :post, author: user }
 
 
-  describe 'Author' do
-    background do
-      sign_in(user)
-      visit posts_path
-    end
-
-    scenario 'can delete the post', js: true do
-      within '.card-deck' do
-        expect(page).to have_content 'Post Body'
-        click_on 'Удалить пост'
-        expect(page).to_not have_content 'Post Body'
-      end
-    end
-  end
-
-  describe 'Not author' do
-    background do
-      sign_in(user)
-      visit posts_path
-    end
-
-    scenario 'can not delete the post', js: true do
-      click_on 'Написать пост'
-      click_on 'Опубликовать'
-
-      expect(page).to have_content "Заголовок не может быть пустым"
-    end
-  end
+  # describe 'Author' do
+  #   background do
+  #     sign_in(user)
+  #     visit posts_path
+  #   end
+  #
+  #   scenario 'can delete the post', js: true do
+  #     within '.card-deck' do
+  #       expect(page).to have_content 'Post Body'
+  #       click_on 'Удалить пост'
+  #       expect(page).to_not have_content 'Post Body'
+  #     end
+  #   end
+  # end
+  #
+  # describe 'Not author' do
+  #   background do
+  #     sign_in(user)
+  #     visit posts_path
+  #   end
+  #
+  #   scenario 'can not delete the post', js: true do
+  #     click_on 'Написать пост'
+  #     click_on 'Опубликовать'
+  #
+  #     expect(page).to have_content "Заголовок не может быть пустым"
+  #   end
+  # end
 
   describe 'Admin' do
     background do

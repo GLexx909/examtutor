@@ -9,7 +9,7 @@
   p = @user&.characteristic&.description
 
 - if can?(:manage, :all)
-  = link_to 'Редактировать общую характеристику', edit_characteristic_path(@user), remote: true, class: 'btn btn-primary'
+  = link_to 'Редактировать общую характеристику', edit_characteristic_path(@user), remote: true, class: 'btn btn-outline-primary'
   .characteristic-description__edit-form
 
 .d-flex.mt-3.mb-3

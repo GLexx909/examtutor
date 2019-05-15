@@ -22,7 +22,7 @@
                       | ГЛАВНАЯ
                   li
                     a.smooth_scroll[href="#about"]
-                      | О СЕБЕ
+                      | О РЕПЕТИТОРЕ
                   li
                     a.smooth_scroll[href="#service"]
                       | ПРЕДМЕТЫ
@@ -41,8 +41,8 @@
                   li
                     a.smooth_scroll[href="#contact"]
                       | СВЯЗЬ
-                  li.active.link-blue
-                    = link_to enter_page_initials_path
+                  li.enter-button
+                    = link_to enter_page_initials_path, class: 'btn'
                       | ВХОД НА САЙТ
 
 section#slider
@@ -58,30 +58,30 @@ section#slider
                 | Хочешь подготовиться к ЕГЭ ?
               a.btn.btn-trnsp.smooth_scroll[href="#about"]
                 | Узнать как
-      .item.slide2
-        .table
-          .table-cell
-            .intro-text
-              h2[data-animation="animated fadeInDown"]
-                | Нужен опытный репетитор?
-              h1[data-animation="animated fadeInDown"]
-                | Тогда тебе сюда !
-              a.btn.btn-trnsp.btn.btn-trnsp.smooth_scroll[href="#about"]
-                | Узнать подробнее
-      .item.slide3
-        .table
-          .table-cell
-            .intro-text
-              h2[data-animation="animated fadeInDown"]
-                | Что нужно знать
-              h1[data-animation="animated fadeInDown"]
-                | Чтобы успешно сдать ЕГЭ?
-              a.btn.btn-trnsp.smooth_scroll[href="#about"]
-                | Узнать
-    a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
-      = image_tag "left-arrow.png"
-    a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
-      = image_tag "right-arrow.png"
+      / .item.slide2
+      /   .table
+      /     .table-cell
+      /       .intro-text
+      /         h2[data-animation="animated fadeInDown"]
+      /           | Нужен опытный репетитор?
+      /         h1[data-animation="animated fadeInDown"]
+      /           | Тогда тебе сюда !
+      /         a.btn.btn-trnsp.btn.btn-trnsp.smooth_scroll[href="#about"]
+      /           | Узнать подробнее
+      / .item.slide3
+      /   .table
+      /     .table-cell
+      /       .intro-text
+      /         h2[data-animation="animated fadeInDown"]
+      /           | Что нужно знать
+      /         h1[data-animation="animated fadeInDown"]
+      /           | Чтобы успешно сдать ЕГЭ?
+      /         a.btn.btn-trnsp.smooth_scroll[href="#about"]
+      /           | Узнать
+    / a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
+    /   = image_tag "left-arrow.png"
+    / a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
+    /   = image_tag "right-arrow.png"
 section#about.about-area.section-big
   .container
     .row

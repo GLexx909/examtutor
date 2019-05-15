@@ -1,22 +1,44 @@
 .tutor-info__block {
+  .profile-photo-image {
+    margin-right: 1vw;
+    width: 100%;
+    height: auto;
+  }
+
   .profile-info {
-    margin-right: 5vw;
-    margin-left: 5vw;
     p {
       text-align: justify;
+    }
+  }
 
-      .profile-photo-image {
-        float: left;
-        margin-right: 1vw;
-        width: 50%;
+  .diploms-block {
+    display: inline;
+    div {
+      float: left;
+      width: 10vw;
+
+      .diplom-size {
+        width: 100%;
         height: auto;
       }
     }
-
   }
+}
 
-  .diplom-size {
-    width: 20vh;
-    height: auto;
+@media screen and (max-width: 600px) {
+  .tutor-info__block {
+    margin-right: 1px;
+    margin-left: 1px;
+
+    .diploms-block {
+      display: block;
+      div {
+        width: 30vw;
+        .diplom-size {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
   }
 }

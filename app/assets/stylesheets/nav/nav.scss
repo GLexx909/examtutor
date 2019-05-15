@@ -32,6 +32,8 @@
 
 .notify-button {
   width: 100px;
+  background-color: #e3ecff !important;
+  border: 1px solid black !important;
 
   margin-right: 0.2rem;
   padding-top: 0 !important;
@@ -44,5 +46,22 @@
   img {
     width: auto;
     height: 32px;
+  }
+}
+
+.navbar-base {
+  line-height: 1.4;
+  padding-left: 4.5vw !important;
+  padding-right: 4.5vw !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  box-shadow: 0px 3px 4.7px 0.3px rgba(0, 0, 0, 0.24);
+}
+
+@media screen and (max-width: 700px) {
+  .nav__right-block {
+    .search-block {
+      display: none;
+    }
   }
 }
