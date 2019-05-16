@@ -329,8 +329,9 @@ section#testimonial.testimonial-area.section-big
   .container
     .row
       .testimonial-list
-        .single-testimonial.text-center
-          i.fa.fa-quote-left
+        .single-testimonial.text-justify
+          .single-testimonial.text-center
+            i.fa.fa-quote-left
           p
             | Подготовку к ЕГЭ у Анастасии Владимировны я начала летом, а точнее в августе перед 11 классом. Закончила ее я в тот момент, когда сдала телефон перед пунктом сдачи ЕГЭ.
               Особенностью наших занятий было несколько пунктов, которые меня очень радовали:
@@ -340,29 +341,34 @@ section#testimonial.testimonial-area.section-big
               Одним из главных качеств, которым вас смогут наделить эти занятия - это умение и желание постоянно думать. Думать о том, что обсуждалось на занятии, а этого не знали(или знали не на 100%), желание постоянно что-то прогуглить, прочитать, узнать.
               По итогу историю я сдала на 96 баллов, обществознание на 88.
               Я сейчас безумно рада тому, что выбрала именно Анастасию Владимировну и занималась у нее. Это именно тот человек, который сможет прекрасно подготовить вас к ЕГЭ, если вы, конечно, сами приложите немало усилий.
-          = image_tag "testimonial/1.jpg"
-          h4
-            | Анна Малеванник
-          p.desg
-            | Юридический факультет
-        .single-testimonial.text-center
-          i.fa.fa-quote-left
+          .single-testimonial.text-center
+            = image_tag "testimonial/1.jpg"
+            h4
+              | Анна Малеванник
+            p.desg
+              | Юридический факультет
+        .single-testimonial.text-justify
+          .single-testimonial.text-center
+            i.fa.fa-quote-left
           p
             | С Анастасией Владимировной я занималась в течение 10 и 11 классов. Мне понравился её подход, он такой особенный: Анастасия Владимировна очень требовательно относится к своим предметам, при этом заряжает мотивацией и не дает скучать. К каждому ученику у нее найдется подход – я бы сказала, что Анастасия Владимировна не просто грамотный и опытный преподаватель, она настоящий наставник. При таком чутком подходе к ученикам качество получаемых знаний остается высоким. Подход к обучению у нее прекрасный: всю новую информацию мы разбирали на конкретных примерах, искали причины тех или иных событий, а главное – учились самостоятельно думать. В этом, мне кажется, заключается главное преимущество Анастасии Владимировны как преподавателя. Мы занимались регулярно, и все соответствовало принятым договорённостям. С самого начала приступили к решению сложных заданий, разбирали их по мере прохождения тем. Все материалы репетитор присылала мне посредством электронных ресурсов. Всё абсолютно доступно и понятно - проблем не было. Анастасия Владимировна давала объёмное задание на дом, предоставляла необходимую учебную литературу, занятия всегда были интересными, а разнообразие заданий не давало расслабляться. Результат - ЕГЭ по истории и обществознанию на 86 баллов и поступление на юрфак НИУ ВШЭ.
-          = image_tag "testimonial/2.jpg"
-          h4
-            | Елена Лукаш
-          p.desg
-            | Юридический факультет
-        .single-testimonial.text-center
-          i.fa.fa-quote-left
+          .single-testimonial.text-center
+            = image_tag "testimonial/2.jpg"
+            h4
+              | Елена Лукаш
+            p.desg
+              | Юридический факультет
+        .single-testimonial.text-justify
+          .single-testimonial.text-center
+            i.fa.fa-quote-left
           p
             | К Анастасии Владимировне пришла готовиться к сдаче обществознания и истории за 9 месяцев до ЕГЭ. В первую очередь, хочу поблагодарить её за все те умения и знания, которые она смогла мне дать за проведённое вместе время. Её система преподавания действительно крайне эффективна и направлена на выработку у школьника ответственности и усидчивости. Сам материал по подготовке содержит максимум полезной информации; каждый вид деятельности направлен на отработку определённого экзаменационного задания. Подход всегда индивидуальный к каждому "западающему" моменту программы. Я довольна, что попала к этому преподавателю и хочу пожелать ей и её ученикам высоких баллов, крепких нервов и осуществления всех целей и стремлений!
-          = image_tag "testimonial/3.jpg"
-          h4
-            | Ольга Яковлева
-          p.desg
-            | Факультет международных отношений
+          .single-testimonial.text-center
+            = image_tag "testimonial/3.jpg"
+            h4
+              | Ольга Яковлева
+            p.desg
+              | Факультет международных отношений
 section#video.video-area.section-big
   .container
     .row
@@ -488,7 +494,7 @@ section#pricing.pricing-area.section-big
               span.dollar
                 | от
               span.number
-                | 700₽
+                | 500₽
               span
                 | / 60 мин.
           .features
@@ -516,7 +522,7 @@ section#pricing.pricing-area.section-big
               span.dollar
                 | от
               span.number
-                | 500₽
+                | 350₽
               span
                 | / 60 мин.
           .features
@@ -639,7 +645,6 @@ section#why-choose.why-choose-area.section-big
             | Возможности платформы Examtutor
           p
             .mr-1 = "Ресурс Examtutor.ru содержит всё, что необходимо ученику для подготовки к ЕГЭ. Также предоставляется сервис для родителей, где они могут следить за отчётами о прогрессе своих детей."
-            = link_to "Подробнее...", site_features_tutor_infos_path, class: 'grey-link'
     .row
       .col-md-6
         .slide-carousel
@@ -647,24 +652,22 @@ section#why-choose.why-choose-area.section-big
           = image_tag "choose/02.jpg", class: 'why-choose-img'
       .col-sm-6
         .choose-box.right
-          a[href="http://localhost:3000/tutor_infos/site_features"]
-            i.fa.fa-send[aria-hidden="true"]
+          i.fa.fa-send[aria-hidden="true"]
           .choose-content
             h3
               | Рассылка уведомлений
             p
               | Родители могут подписаться на еженедельную рассылку писем на e-mail и быть в курсе успеваемости своих детей.
         .choose-box.right
-          a[href="http://localhost:3000/tutor_infos/site_features"]
-            i.fa.fa-line-chart[aria-hidden="true"]
+
+          i.fa.fa-line-chart[aria-hidden="true"]
           .choose-content
             h3
               | Аналитика
             p
               | Родителям предоставляется доступ к странице, где размещена подробная инфа о каждом занятии и график прогресса в обучении.
         .choose-box.right
-          a[href="http://localhost:3000/tutor_infos/site_features"]
-            i.fa.fa-check-circle[aria-hidden="true"]
+          i.fa.fa-check-circle[aria-hidden="true"]
           .choose-content
             h3
               | Образовательная среда
@@ -1003,17 +1006,17 @@ section#contact.contact-area.section-big
           /     input#submitButton.btn[type="submit" value="Send" name="submit" title="Submit Your Message!"]
           = form_tag '/mailers', remote: true do
             .form-group.in_name
-              = text_field 'name', '', id: 'name', class: 'form-control', placeholder: "Name", required: "required", type: 'text', name: 'name'
+              = text_field 'name', '', id: 'name', class: 'form-control', placeholder: "Имя", required: "required", type: 'text', name: 'name'
             .form-group.in_email
-              = text_field 'email', '', id: 'email', class: 'form-control', placeholder: "Email", required: "required", type: 'email', name: 'email'
+              = text_field 'email', '', id: 'email', class: 'form-control', placeholder: "E-mail", required: "required", type: 'email', name: 'email'
             .form-group.in_message
-              = text_area 'message', '', id: 'message', class: 'form-control', placeholder: "Message", required: "required", rows: '5', name: 'message'
+              = text_area 'message', '', id: 'message', class: 'form-control', placeholder: "Сообщение", required: "required", rows: '5', name: 'message'
             .actions
               = submit_tag 'Отправить', class: 'submitButton', type: 'submit', title: 'Submit Your Message!'
           #form-messages
       .col-md-6
         p.contact-info
-          | Я работаю без выходных и готова ответить на все интересующие Вас вопросы в любой день. Индивидуальные консультации по предварительной записи. Предпочтительное средство связи - электронная почта и личные сообщения ВКонтакте. Приём заявок по телефону с 9-00 до 12-00 и после 20-00.
+          | Репетитор готов ответить на все интересующие Вас вопросы в любой день. Индивидуальные консультации по предварительной записи. Предпочтительное средство связи - электронная почта и личные сообщения ВКонтакте. Приём заявок по телефону с 9-00 до 12-00 и после 20-00.
         .address-box.clearfix
           i.fa.fa-map-marker
           p

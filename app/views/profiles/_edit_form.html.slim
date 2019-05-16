@@ -1,0 +1,20 @@
+.profile-edit-form.hidden
+  = form_with model: @user, method: :patch, url: profile_path(@user), class: 'profile-edit-form__fields' do |f|
+    .form-group.row
+      = f.label :first_name, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :first_name, class: 'form-control'
+    .form-group.row
+      = f.label :last_name, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :last_name, class: 'form-control'
+    .form-group.row
+      = f.label :email, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :email, class: 'form-control'
+    .form-group.row
+      = f.label :avatar, class: 'col-sm-2 col-form-label', value: 'Загрузить Аватар'
+      .col-sm-10
+        = f.file_field :avatar, accept:"image/png, image/jpeg"
+    .submit
+      = f.submit 'Сохранить изменения', class: 'btn btn-success'

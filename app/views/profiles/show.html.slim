@@ -1,10 +1,11 @@
 .row
-  .col-sm-2.profile-avatar
-    = image_tag @user.profile_avatar
-    p = link_to 'Редактировать профиль', edit_profile_path(@user), class: 'badge badge-dark' if can?(:update, @user)
+  .col-sm-2
+    .profile-avatar = image_tag @user.profile_avatar
+    = button_tag 'Редактировать', class: 'profile-edit-form__button btn btn-dark btn-sm btn-block' if can?(:update, @user)
   .col-sm-10.profile-info-block.bg-dark.br-10
     .row.d-flex.justify-content-between.pl-2
-      h1.white.p-1.mr_1 = @user.full_name
+      .white.p-1.mr_1.full-name
+        h1 = @user.full_name
 
       - @user.courses.each do |course|
         .white.mr_1 = course.title
@@ -20,6 +21,7 @@
         .text-muted.text-shadow-black-for-child
           b = @user&.characteristic&.rank
 
+= render 'edit_form'
 
 
 - if !can?(:update, @user)

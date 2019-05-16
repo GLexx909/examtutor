@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   include Voted
   before_action :authenticate_user!, except: [:guests_index, :show]
   before_action :post, only: [:index, :tutor_index, :own_index, :guests_index, :show]
-  before_action :bread_crumbs, only: [:index, :tutor_index, :own_index]
+  # before_action :bread_crumbs, only: [:index, :tutor_index, :own_index]
 
   authorize_resource
 

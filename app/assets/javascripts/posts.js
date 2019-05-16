@@ -23,9 +23,8 @@ document.addEventListener('turbolinks:load', function() {
 
     // Delete file
     const postShowBlock = $('.post-show-block');
-    const buttonDelete = $('.post-file__delete-button');
     if (postShowBlock.length) {
-        buttonDelete.on('click', function() {
+        $('.post-show-block').on('click', '.post-file__delete-button', function() {
             const id = $(this).data('id');
             $('.file-' + id).hide(300);
         });

@@ -6,6 +6,12 @@
   }
 }
 
+.post-show-block {
+  .delete-file-link {
+    width: 50%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .post-votes {
     display: none;
