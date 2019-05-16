@@ -29,3 +29,10 @@
                 p Кол-во набранных баллов:
                 .user-points_result
                   p = question.points(current_user) if question.question_passages.find_by(user: current_user)
+      - if can?(:update, question)
+        .right-answer
+          i = "Правильный ответ: #{question.answer.body}"
+        .d-flex.mb-3.mr_1_for_child
+          = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get, class: 'btn btn-secondary btn-sm'
+          = button_to 'Удалить вопрос', question_path(question), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm'
+        div class="question__form-edit-#{question.id}"

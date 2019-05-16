@@ -1,13 +1,49 @@
-div.question-show class="question-#{question.id}"
-  b = question.title.html_safe
-
-  div.mt-5 class="answer-#{question.answer.id}"
-    - if can?(:update, question)
-      i = question.answer.body
-
+/ div.question-show class="question-#{question.id}"
+/   b = question.title.html_safe
+/
+/   div.mt-5 class="answer-#{question.answer.id}"
+/     - if can?(:update, question)
+/       i = question.answer.body
+/
+/   - if can?(:update, question)
+/     .d-flex.mb-3.mr_1_for_child
+/       = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get, class:'btn btn-secondary btn-sm'
+/       = button_to 'Удалить вопрос', question_path(question), remote: true, method: :delete, class:'btn btn-danger btn-sm confirm'
+/
+/     .question__form-edit class="question__form-edit-#{question.id}"
+.question class="question-#{question.id}"
+  .sign-box
+    .sign_correct.hidden = link_to mi.check_circle.css_class('md-24 stub green'), '#'
+    .sign_wrong.hidden = link_to mi.error.css_class('md-24 stub red'), '#'
+  .card
+    .card-header
+      = question.title.html_safe
+    .card-body
+      - if @test&.test_passage(current_user) && !question.question_passages.find_by(user: current_user) && ( question.questionable_type == 'Topic' || @test.test_passage(current_user).status == false )
+        = form_tag question_question_passages_path(question), class: 'form-inline answer-for-question_form', data: { type: :json }, remote: true do
+          .form-group.mr_1
+            = label :answer, 'Введите ответ:'
+            = text_field_tag :answer, '', class: 'form-control'
+          = submit_tag 'Ответить', class: 'btn btn-outline-primary button-to-give-answer'
+    .card-footer.text-muted
+      .user-answer_info
+        .user-answer
+          p Ваш ответ:
+          .user-answer_result
+            p = question.question_passages.find_by(user: current_user).answer if question.question_passages.find_by(user: current_user)
+        .right-answer
+          p Правильный ответ:
+          .right-answer_result
+            p = question.answer.body if question.question_passages.find_by(user: current_user)
+        - if question.questionable_type == 'Test'
+          .user-points
+            p Кол-во набранных баллов:
+            .user-points_result
+              p = question.points(current_user) if question.question_passages.find_by(user: current_user)
   - if can?(:update, question)
+    .right-answer
+      i = "Правильный ответ: #{question.answer.body}"
     .d-flex.mb-3.mr_1_for_child
-      = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get, class:'btn btn-secondary btn-sm'
-      = button_to 'Удалить вопрос', question_path(question), remote: true, method: :delete, class:'btn btn-danger btn-sm confirm'
-
-    .question__form-edit class="question__form-edit-#{question.id}"
+      = button_to 'Редактировать вопрос', edit_question_path(question), remote: true, method: :get, class: 'btn btn-secondary btn-sm'
+      = button_to 'Удалить вопрос', question_path(question), remote: true, method: :delete, class: 'btn btn-danger btn-sm confirm'
+    div class="question__form-edit-#{question.id}"

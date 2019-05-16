@@ -33,11 +33,12 @@ feature 'Admin only can edit answer', %q{
     visit test_path(test)
 
     click_on 'Редактировать вопрос'
-
+    # expect(page).to have_selector("input[name='question[answer_attributes][body]']")
     fill_in 'question[answer_attributes][body]', with: 'Answer Body New'
+    # tinymce_fill_in('question_title', 'Question Title')
+    sleep 2
 
     click_on 'Сохранить изменения вопроса'
-
     expect(page).to have_content 'Answer Body New'
     expect(page).to_not have_content 'AnswerBody'
   end

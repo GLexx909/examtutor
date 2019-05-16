@@ -24,7 +24,7 @@
 = render 'edit_form'
 
 
-- if !can?(:update, @user)
+- if can?(:manage, :all) || !can?(:update, @user)
   = button_to 'Написать сообщение', '#', remote: true, class: "btn btn-outline-dark btn-sm stub", data: {toggle: 'modal', target: '#newMessageModal'}
   .new-message__modal-form
     = render 'messages/modal_new_message_form'
