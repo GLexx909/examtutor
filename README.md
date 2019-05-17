@@ -1,32 +1,47 @@
 # README
+* Ruby version: 2.5.3
+* Rails: 5.2.2
+* Database: Postgresql
+* Services: Redis-server, Sidekiq, Sphinx Search.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
  
- 2.5.3
 
-* Rails
+### Quick start
 
-  5.2.2
-  
-* System dependencies
+$ redis-server
 
-* Configuration
+$ sidekiq -q default -q mailers
 
-* Database creation
+$ rails s
 
-  Postgresql
-  
-* Database initialization
+### VK, Facebook, GitHub SingUp API
 
-* How to run the test suite
+Must set credentials.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+development:
+  facebook:
+    app_id: xxx
+    app_secret: xxx
+  github:
+    app_id: xxx
+    app_secret: xxx
+  vkontakte:
+    client_id: xxx
+    app_secret: xxx    
 
-* Deployment instructions
+  aws:  
+    access_key_id: xxx
+    secret_access_key: xxx
+    bucket: xxx
+```
 
-* ...
+For production, for example, add:
+
+```
+  yandex_mail:
+    user_name: xxx
+    password: xxx
+    
+  examtutor_database_password: xxx
+```
