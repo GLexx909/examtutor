@@ -1,0 +1,14 @@
+.pagination {
+  .active {
+    a {
+      background-color: grey !important;
+      border-color: black !important;
+    }
+  }
+
+  .page-item {
+    a {
+      color: black;
+    }
+  }
+}

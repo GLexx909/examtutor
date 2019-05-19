@@ -18,8 +18,8 @@
   .message-to-tutor-mobile__block.row.align-items-center
     .col = button_to 'Написать репетитору', '#', data: {toggle: 'modal', target: '#messageToTutorModal'}, class: 'btn btn-outline-info stub'
 
-.chart-image-full = image_tag @chart
-.chart-image-mobile = link_to 'График успеваемости', (image_path @chart), class: 'btn btn-info'
+.chart-image-full.mb-5vh = image_tag @chart
+.chart-image-mobile = link_to 'График успеваемости', (image_path @chart), class: 'btn btn-info', target: '_blank'
 
 - if can?(:manage, :all)
   .progresses-list.mr_1_for_child.mb-5vh

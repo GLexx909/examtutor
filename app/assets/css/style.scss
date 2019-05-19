@@ -793,7 +793,13 @@ fieldset {
 }
 
 
-
+@media (max-width: 768px) {
+  .single-testimonial p {
+    line-height: 1.2;
+    text-align: center;
+    font-size: 14px;
+  }
+}
 
 
 /* ----------------------------------------------------------------------------------------
@@ -1382,6 +1388,8 @@ fieldset {
     background-position: center center;
     background-attachment: fixed;
     position: relative;
+
+    height: 250px;
 }
 
 .client-area:before {
@@ -1395,7 +1403,7 @@ fieldset {
 }
 .owl-client {}
 .owl-client .item {
-    padding: 30px;
+    padding: 0px;
 }
 .owl-client .item img {
     width: auto;

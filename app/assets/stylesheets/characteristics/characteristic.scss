@@ -1,3 +1,5 @@
+$border_dark: 2px solid #343a40;
+
 .attendance-list {
   .attend_small {
     display: inline-block;
@@ -32,10 +34,14 @@
   }
 }
 
+
 .characteristic-description {
-  border-left: 2px solid white;
-  border-bottom: 2px solid white;
-  border-right: 2px solid white;
+
+  border-left: $border_dark;
+  border-bottom: $border_dark;
+  border-right: $border_dark;
+
+
 
   box-shadow: 0 -5px 3px white;
   border-radius: 0 0 10px 10px;
@@ -46,6 +52,10 @@
 
 .chart-image-full {
   display: block;
+  padding-left: 15px;
+  //box-shadow: 0 0 3px 0 #3f8ed9;
+  border-radius: 15px;
+  border: $border_dark
 }
 
 .chart-image-mobile {

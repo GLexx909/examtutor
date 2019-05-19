@@ -23,8 +23,8 @@ class CharacteristicsController < ApplicationController
 
     @chart = Gchart.line(  size: '1000x300',
                           title: "График успеваемости",
-                          bg: 'f3f3f3',
-                          bar_colors: '0000FF',
+                          bg: 'white',
+                          bar_colors: '3f8ed9',
                           legend: 'количество набранных баллов по ЕГЭ',
                           axis_with_labels: [['x'], ['y']],
                           min_value: 0,
