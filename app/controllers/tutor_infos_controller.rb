@@ -1,19 +1,22 @@
 class TutorInfosController < ApplicationController
+  before_action :tutor_info, only: [:index, :diplomas]
 
   authorize_resource
 
   def index
-    tutor_info
   end
 
   def site_features
+  end
+
+  def diplomas
   end
 
   def update
     if can?(:manage, :all)
       delete_photos_if_need
       tutor_info.update(tutor_info_params)
-      redirect_to tutor_infos_path
+      redirect_to request.referer
     else
       head :forbidden
     end

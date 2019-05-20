@@ -1,0 +1,40 @@
+.diplomas-all-block {
+
+  .diplomas-all {
+
+    .diplomas-type {
+      text-align: center;
+
+      .diplom {
+        display: inline-block;
+        margin-bottom: 1vh;
+
+        .diplom-size {
+          width: auto;
+          height: 300px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .diplomas-all-block {
+
+    .diplomas-all {
+
+      .diplomas-type {
+        text-align: center;
+
+        .diplom {
+          display: inline-block;
+
+          .diplom-size {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

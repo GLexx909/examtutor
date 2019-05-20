@@ -1,24 +1,16 @@
 .tutor-info__block
   = render 'form_tutor_info' if can?(:manage, :all)
   .d-flex.justify-content-center.mb-5vh
-    .font-oswald
+    .font-helvetica
       h1 = 'Информация о репетиторе'
       hr
 
-  .row
-    .col-lg-5.mb-5vh
-      - if @tutor_info.profile_photo.attached?
-        = image_tag @tutor_info.profile_photo, class: 'profile-photo-image'
-    .col-lg-7
-      .diploms-block.mb-3.mr_1_for_child
-        - @tutor_info.all_diploms.each do |diplom|
-          div class="diplom-#{diplom.id}"
-            = link_to image_path(url_for(diplom)), data: {lightbox: 'diploms'} do
-              = image_tag diplom, class: 'diplom-size'
-            - if can?(:manage, :all)
-              .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
-                      class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
+  .link-to-diplomas = link_to 'Дипломы об образовании', diplomas_tutor_infos_path, class:"badge badge-info"
+
+  .col-lg-5
+    - if @tutor_info.profile_photo.attached?
+      = image_tag @tutor_info.profile_photo, class: 'profile-photo-image'
+
   .profile-info
-    p
-      - if @tutor_info.description
-        = @tutor_info.description.html_safe
+    - if @tutor_info.description
+      = @tutor_info.description.html_safe

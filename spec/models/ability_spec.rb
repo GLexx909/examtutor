@@ -12,6 +12,7 @@ RSpec.describe Ability do
     it { should be_able_to :guests_index, Post }
     it { should be_able_to :read, Characteristic }
     it { should be_able_to :site_features, TutorInfo }
+    it { should be_able_to :diplomas, TutorInfo }
 
     it { should_not be_able_to :read, Course }
     it { should_not be_able_to :read, Modul }

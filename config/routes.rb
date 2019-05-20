@@ -65,7 +65,9 @@ Rails.application.routes.draw do
 
   resources :tutor_infos, only: [:index, :update] do
     get :site_features, on: :collection
+    get :diplomas, on: :collection
   end
+
   resources :weekly_digests, only: [:create, :destroy]
   resources :mailers, only: [:create]
   resources :preregistrations, only: [:new, :create]

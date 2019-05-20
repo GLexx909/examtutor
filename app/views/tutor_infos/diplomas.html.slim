@@ -1,0 +1,43 @@
+.diplomas-all-block
+  = render 'form_tutor_info' if can?(:manage, :all)
+  .d-flex.justify-content-center.mb-5vh
+    .font-helvetica
+      h1 = 'Документы об образовании'
+      hr
+
+  .diplomas-all
+    .d-flex.justify-content-center.mb-1
+      h6.font-helvetica = 'Дипломы о высшем образовании'
+
+    .diplomas-type.mb-3.mr_1_for_child
+      - @tutor_info.diploms.each do |diplom|
+        .diplom class="diplom-#{diplom.id}"
+          = link_to image_path(url_for(diplom)), data: { lightbox: 'diploms' } do
+            = image_tag diplom, class: 'diplom-size'
+          - if can?(:manage, :all)
+            .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
+                    class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
+
+    .d-flex.justify-content-center.mb-1
+      h6.font-helvetica = 'Дипломы о профессиональной переподготовке'
+
+    .diplomas-type.mb-3.mr_1_for_child
+      - @tutor_info.diploms_perekval.each do |diplom|
+        .diplom class="diplom-#{diplom.id}"
+          = link_to image_path(url_for(diplom)), data: { lightbox: 'diploms_perekval' } do
+            = image_tag diplom, class: 'diplom-size'
+          - if can?(:manage, :all)
+            .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
+                    class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
+
+    .d-flex.justify-content-center.mb-1
+      h6.font-helvetica = 'Документы о повышении квалификации'
+
+    .diplomas-type.mb-3.mr_1_for_child
+      - @tutor_info.diploms_povishkval.each do |diplom|
+        .diplom class="diplom-#{diplom.id}"
+          = link_to image_path(url_for(diplom)), data: { lightbox: 'diploms_povishkval' } do
+            = image_tag diplom, class: 'diplom-size'
+          - if can?(:manage, :all)
+            .small_text = link_to 'Удалить файл', attachment_path(diplom.id), method: :delete, remote: true,
+                    class: 'tutor-info-diplom__delete-button', data: {id: diplom.id}
